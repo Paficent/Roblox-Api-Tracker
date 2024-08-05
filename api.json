@@ -50115,25 +50115,6 @@
           },
           "type": "object"
         },
-        "Roblox.Presence.Api.Models.Request.RegisterAppPresenceRequest": {
-          "description": "Request model to Register App Presence",
-          "properties": {
-            "disconnect": {
-              "description": "Gets or sets if session was disconnected or not",
-              "type": "boolean"
-            },
-            "location": {
-              "description": "Gets or sets location",
-              "type": "string"
-            },
-            "placeId": {
-              "description": "Gets or sets placeId",
-              "format": "int64",
-              "type": "integer"
-            }
-          },
-          "type": "object"
-        },
         "Roblox.Presence.Api.Models.Request.UserPresenceRequest": {
           "description": "Get users presences request model",
           "properties": {
@@ -50246,9 +50227,6 @@
             }
           },
           "type": "object"
-        },
-        "Roblox.Web.WebAPI.ApiEmptyResponseModel": {
-          "type": "object"
         }
       },
       "host": "presence.roblox.com",
@@ -50293,52 +50271,6 @@
               }
             },
             "summary": "Get last online timestamps for a list of users.",
-            "tags": [
-              "Presence"
-            ]
-          }
-        },
-        "/v1/presence/register-app-presence": {
-          "post": {
-            "consumes": [
-              "application/json",
-              "text/json"
-            ],
-            "parameters": [
-              {
-                "in": "body",
-                "name": "registerAppPresenceRequest",
-                "required": true,
-                "schema": {
-                  "$ref": "#/definitions/Roblox.Presence.Api.Models.Request.RegisterAppPresenceRequest"
-                }
-              }
-            ],
-            "produces": [
-              "application/json",
-              "text/json"
-            ],
-            "properties": {
-              "internal": false,
-              "metricIds": [
-                "Presence:RegisterAppPresence"
-              ]
-            },
-            "responses": {
-              "200": {
-                "description": "OK",
-                "schema": {
-                  "$ref": "#/definitions/Roblox.Web.WebAPI.ApiEmptyResponseModel"
-                }
-              },
-              "401": {
-                "description": "0: Authorization has been denied for this request."
-              },
-              "403": {
-                "description": "0: Token Validation Failed"
-              }
-            },
-            "summary": "Register User Presence for IOS, Android, Xbox, regular studio session",
             "tags": [
               "Presence"
             ]

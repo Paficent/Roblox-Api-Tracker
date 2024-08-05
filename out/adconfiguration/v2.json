@@ -1,0 +1,1260 @@
+{
+  "definitions": {
+    "Roblox.AdConfiguration.Api.CreateSponsoredGameV2Request": {
+      "description": "A request model for creating a sponsored game",
+      "properties": {
+        "adName": {
+          "description": "The name of the Ad",
+          "type": "string"
+        },
+        "bidAmountInRobux": {
+          "description": "The bid amount of the Ad in Robux",
+          "format": "int64",
+          "type": "integer"
+        },
+        "budgetInRobux": {
+          "description": "The budget in Robux",
+          "format": "int64",
+          "type": "integer"
+        },
+        "endDate": {
+          "description": "The end date of the ad set",
+          "format": "date-time",
+          "type": "string"
+        },
+        "startDate": {
+          "description": "The start date of the ad set",
+          "format": "date-time",
+          "type": "string"
+        },
+        "targetAgeBracket": {
+          "description": "Targeting age bracket(s) of the ad set ['Undefined' = 1, 'AgeUnder13' = 2, 'Age13OrOver' = 4, 'Age13To16' = 8, 'Age17OrOver' = 16]",
+          "enum": [
+            1,
+            2,
+            4,
+            8,
+            16
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "targetDeviceType": {
+          "description": "Targeting device type(s) of the ad set ['Undefined' = 1, 'Computer' = 2, 'Phone' = 4, 'Tablet' = 8, 'Console' = 16, 'VR' = 32]",
+          "enum": [
+            1,
+            2,
+            4,
+            8,
+            16,
+            32
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "targetGender": {
+          "description": "Targeting gender(s) of the ad set ['Undefined' = 1, 'Male' = 2, 'Female' = 4]",
+          "enum": [
+            1,
+            2,
+            4
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "universeId": {
+          "description": "The target universe id",
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.AdConfiguration.Api.CreativeModel": {
+      "description": "A model representing an Ad Creative (for example, an ad thumbnail).",
+      "properties": {
+        "creativeId": {
+          "description": "The ID of the creative. Typically, a thumbnail's imageId.",
+          "example": 1,
+          "format": "int64",
+          "type": "integer"
+        },
+        "creativeType": {
+          "description": "The type of the ad creative. Typically, CreativeType.Image. ['Undefined' = 0, 'Image' = 1, 'Video' = 2]",
+          "enum": [
+            0,
+            1,
+            2
+          ],
+          "example": 1,
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.AdConfiguration.Api.GetSponsoredCampaignsResponse": {
+      "description": "A response model for retrieving a page of Roblox.AdConfiguration.Api.SponsoredCampaignModel.",
+      "properties": {
+        "nextPageCursor": {
+          "description": "The cursor for retrieving the next page, if present.",
+          "type": "string"
+        },
+        "previousPageCursor": {
+          "description": "The cursor for retrieving the previous page, if present.",
+          "type": "string"
+        },
+        "sponsoredCampaigns": {
+          "description": "A collection of Roblox.AdConfiguration.Api.SponsoredCampaignModel.",
+          "items": {
+            "$ref": "#/definitions/Roblox.AdConfiguration.Api.SponsoredCampaignModel"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.AdConfiguration.Api.GetSponsoredGamesResponse": {
+      "description": "A response model for retrieving a page of Roblox.AdConfiguration.Api.SponsoredGameV2Model.",
+      "properties": {
+        "nextPageCursor": {
+          "description": "The cursor for retrieving the next page, if present.",
+          "type": "string"
+        },
+        "previousPageCursor": {
+          "description": "The cursor for retrieving the previous page, if present.",
+          "type": "string"
+        },
+        "sponsoredGames": {
+          "description": "A collection of Roblox.AdConfiguration.Api.SponsoredGameV2Model.",
+          "items": {
+            "$ref": "#/definitions/Roblox.AdConfiguration.Api.SponsoredGameV2Model"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.AdConfiguration.Api.Models.CampaignTargetModel": {
+      "description": "Represents a sponsored ad campaign target",
+      "properties": {
+        "campaignTargetId": {
+          "description": "The ID of the campaign target",
+          "format": "int64",
+          "type": "integer"
+        },
+        "campaignTargetType": {
+          "description": "The campaign target type ['Undefined' = 0, 'Universe' = 1, 'Asset' = 2, 'ImmersiveAd' = 3]",
+          "enum": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "name": {
+          "description": "The name of the campaign target (i.e. the asset name, universe name, group name, etc.)",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.AdConfiguration.Api.Models.CreateSponsoredCampaignRequest": {
+      "description": "A request model for creating a sponsored game",
+      "properties": {
+        "campaignName": {
+          "description": "The name of the Campaign / Ad",
+          "type": "string"
+        },
+        "campaignTargetId": {
+          "description": "The ID of the campaign target",
+          "example": 1,
+          "format": "int64",
+          "type": "integer"
+        },
+        "campaignTargetType": {
+          "description": "The type of the campaign target ['Undefined' = 0, 'Universe' = 1, 'Asset' = 2, 'ImmersiveAd' = 3]",
+          "enum": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "example": 2,
+          "format": "int32",
+          "type": "integer"
+        },
+        "creativeModel": {
+          "$ref": "#/definitions/Roblox.AdConfiguration.Api.CreativeModel"
+        },
+        "dailyBidAmountInRobux": {
+          "description": "The daily bid amount for the campaign / ad, in Robux",
+          "example": 101,
+          "format": "int64",
+          "type": "integer"
+        },
+        "endDate": {
+          "description": "The end date of the ad set",
+          "format": "date-time",
+          "type": "string"
+        },
+        "placementLocation": {
+          "description": "The location to place the campaign ['Undefined' = 1, 'GameSort' = 2, 'AvatarShop' = 4, 'ItemDetails' = 8, 'HomePage' = 16, 'Billboard300x250' = 32, 'Billboard600x300' = 64, 'Billboard300x600' = 128]",
+          "enum": [
+            1,
+            2,
+            4,
+            8,
+            16,
+            32,
+            64,
+            128
+          ],
+          "example": 4,
+          "format": "int32",
+          "type": "integer"
+        },
+        "startDate": {
+          "description": "The start date of the ad set",
+          "format": "date-time",
+          "type": "string"
+        },
+        "targetAgeBracket": {
+          "description": "Targeting age bracket(s) of the ad set ['Undefined' = 1, 'AgeUnder13' = 2, 'Age13OrOver' = 4, 'Age13To16' = 8, 'Age17OrOver' = 16]",
+          "enum": [
+            1,
+            2,
+            4,
+            8,
+            16
+          ],
+          "example": 4,
+          "format": "int32",
+          "type": "integer"
+        },
+        "targetDeviceType": {
+          "description": "Targeting device type(s) of the ad set ['Undefined' = 1, 'Computer' = 2, 'Phone' = 4, 'Tablet' = 8, 'Console' = 16, 'VR' = 32]",
+          "enum": [
+            1,
+            2,
+            4,
+            8,
+            16,
+            32
+          ],
+          "example": 2,
+          "format": "int32",
+          "type": "integer"
+        },
+        "targetGender": {
+          "description": "Targeting gender(s) of the ad set ['Undefined' = 1, 'Male' = 2, 'Female' = 4]",
+          "enum": [
+            1,
+            2,
+            4
+          ],
+          "example": 4,
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.AdConfiguration.Api.Models.GetCampaignTargetsResponse": {
+      "description": "The response model which returns a collection of Roblox.AdConfiguration.Api.Models.CampaignTargetModel",
+      "properties": {
+        "campaignTargetModels": {
+          "description": "Gets or sets a collection of Roblox.AdConfiguration.Api.Models.CampaignTargetModel",
+          "items": {
+            "$ref": "#/definitions/Roblox.AdConfiguration.Api.Models.CampaignTargetModel"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.AdConfiguration.Api.Models.GetEligibleCampaignTargetsRequest": {
+      "description": "A model represents a request to stop a sponsored campaign / ad.",
+      "properties": {
+        "campaignTargetTypes": {
+          "description": "The list of campaign types we want to include in the results",
+          "items": {
+            "description": " ['Undefined' = 0, 'Universe' = 1, 'Asset' = 2, 'ImmersiveAd' = 3]",
+            "enum": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "format": "int32",
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        "groupId": {
+          "description": "The group id, if applicable.",
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.AdConfiguration.Api.Models.GetRecentAdsRankedUniversesResponse": {
+      "description": "The response model for getting a list of recent-ads-ranked universes.",
+      "properties": {
+        "universes": {
+          "description": "Gets or sets a list of Roblox.AdConfiguration.Api.Models.UniverseModel.",
+          "items": {
+            "$ref": "#/definitions/Roblox.AdConfiguration.Api.Models.UniverseModel"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.AdConfiguration.Api.Models.StopSponsoredCampaignRequest": {
+      "description": "A model represents a request to stop a sponsored campaign / ad.",
+      "properties": {
+        "adSetId": {
+          "description": "The ID of the ad set to stop.",
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.AdConfiguration.Api.Models.StopSponsoredGameV2Request": {
+      "description": "A model represents a request to stop a sponsored game ad.",
+      "properties": {
+        "adSetId": {
+          "description": "Gets the ID of the ad set to stop.",
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.AdConfiguration.Api.Models.UniverseModel": {
+      "description": "Represents a universe in API endpoint results.",
+      "properties": {
+        "id": {
+          "description": "The universe Id.",
+          "format": "int64",
+          "type": "integer"
+        },
+        "name": {
+          "description": "The name of the universe",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.AdConfiguration.Api.SponsoredCampaignModel": {
+      "description": "A response model represents an Ad with complete information, including infos from its associated campaign and ad set",
+      "properties": {
+        "adId": {
+          "description": "The id of the ad",
+          "format": "int64",
+          "type": "integer"
+        },
+        "adName": {
+          "description": "The name of the Ad",
+          "type": "string"
+        },
+        "adSetId": {
+          "description": "The id of the ad set",
+          "format": "int64",
+          "type": "integer"
+        },
+        "adSetStatus": {
+          "description": "The status of the ad set ['Undefined' = 0, 'Draft' = 1, 'Scheduled' = 2, 'Running' = 3, 'Paused' = 4, 'Stopped' = 5, 'Completed' = 6]",
+          "enum": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "adStatus": {
+          "description": "The status of the ad ['Undefined' = 0, 'Draft' = 1, 'PendingApproval' = 2, 'Approved' = 3, 'Moderated' = 4]",
+          "enum": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "bidAmountInRobux": {
+          "description": "The bid amount of the Ad in Robux",
+          "format": "int64",
+          "type": "integer"
+        },
+        "budgetInRobux": {
+          "description": "The budget of the ad set in Robux",
+          "format": "int64",
+          "type": "integer"
+        },
+        "campaignTargetId": {
+          "description": "The target id of the campaign",
+          "format": "int64",
+          "type": "integer"
+        },
+        "campaignTargetType": {
+          "description": "The target type of the campaign ['Undefined' = 0, 'Universe' = 1, 'Asset' = 2, 'ImmersiveAd' = 3]",
+          "enum": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "clickConversions": {
+          "description": "The number of conversions by ad click generated by the ad",
+          "format": "int64",
+          "type": "integer"
+        },
+        "creativeTargetId": {
+          "description": "The target id of the creative associated with the Ad",
+          "format": "int64",
+          "type": "integer"
+        },
+        "creativeType": {
+          "description": "The type of the creative associated with the Ad ['Undefined' = 0, 'Image' = 1, 'Video' = 2]",
+          "enum": [
+            0,
+            1,
+            2
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "endDate": {
+          "description": "The end date of the ad set",
+          "format": "date-time",
+          "type": "string"
+        },
+        "impressionConversions": {
+          "description": "The number of conversions by ad impression generated by the ad",
+          "format": "int64",
+          "type": "integer"
+        },
+        "startDate": {
+          "description": "The start date of the ad set",
+          "format": "date-time",
+          "type": "string"
+        },
+        "targetAgeBracket": {
+          "description": "The target age bracket of the ad set ['Undefined' = 1, 'AgeUnder13' = 2, 'Age13OrOver' = 4, 'Age13To16' = 8, 'Age17OrOver' = 16]",
+          "enum": [
+            1,
+            2,
+            4,
+            8,
+            16
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "targetDeviceType": {
+          "description": "The target device type of the ad set ['Undefined' = 1, 'Computer' = 2, 'Phone' = 4, 'Tablet' = 8, 'Console' = 16, 'VR' = 32]",
+          "enum": [
+            1,
+            2,
+            4,
+            8,
+            16,
+            32
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "targetGender": {
+          "description": "The target gender of the ad set ['Undefined' = 1, 'Male' = 2, 'Female' = 4]",
+          "enum": [
+            1,
+            2,
+            4
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "totalClicks": {
+          "description": "The total number of clicks generated by the ad",
+          "format": "int64",
+          "type": "integer"
+        },
+        "totalConversions": {
+          "description": "The total number of conversions generated by the ad",
+          "format": "int64",
+          "type": "integer"
+        },
+        "totalImpressions": {
+          "description": "The total number of impressions generated by the ad",
+          "format": "int64",
+          "type": "integer"
+        },
+        "totalSpendInRobux": {
+          "description": "The total spend of the ad set in Robux",
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.AdConfiguration.Api.SponsoredGameV2Model": {
+      "description": "A response model represents an Ad with complete information, including infos from its associated campaign and ad set",
+      "properties": {
+        "adId": {
+          "description": "The id of the ad",
+          "format": "int64",
+          "type": "integer"
+        },
+        "adName": {
+          "description": "The name of the Ad",
+          "type": "string"
+        },
+        "adSetId": {
+          "description": "The id of the ad set",
+          "format": "int64",
+          "type": "integer"
+        },
+        "adSetStatus": {
+          "description": "The status of the ad set ['Undefined' = 0, 'Draft' = 1, 'Scheduled' = 2, 'Running' = 3, 'Paused' = 4, 'Stopped' = 5, 'Completed' = 6]",
+          "enum": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "adStatus": {
+          "description": "The status of the ad ['Undefined' = 0, 'Draft' = 1, 'PendingApproval' = 2, 'Approved' = 3, 'Moderated' = 4]",
+          "enum": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "bidAmountInRobux": {
+          "description": "The bid amount of the Ad in Robux",
+          "format": "int64",
+          "type": "integer"
+        },
+        "budgetInRobux": {
+          "description": "The budget of the ad set in Robux",
+          "format": "int64",
+          "type": "integer"
+        },
+        "campaignTargetId": {
+          "description": "The target id of the campaign",
+          "format": "int64",
+          "type": "integer"
+        },
+        "campaignTargetType": {
+          "description": "The target type of the campaign ['Undefined' = 0, 'Universe' = 1, 'Asset' = 2, 'ImmersiveAd' = 3]",
+          "enum": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "clickConversions": {
+          "description": "The number of conversions by ad click generated by the ad",
+          "format": "int64",
+          "type": "integer"
+        },
+        "creativeTargetId": {
+          "description": "The target id of the creative associated with the Ad",
+          "format": "int64",
+          "type": "integer"
+        },
+        "creativeType": {
+          "description": "The type of the creative associated with the Ad ['Undefined' = 0, 'Image' = 1, 'Video' = 2]",
+          "enum": [
+            0,
+            1,
+            2
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "creativeUrl": {
+          "description": "The Url of the creative",
+          "type": "string"
+        },
+        "endDate": {
+          "description": "The end date of the ad set",
+          "format": "date-time",
+          "type": "string"
+        },
+        "impressionConversions": {
+          "description": "The number of conversions by ad impression generated by the ad",
+          "format": "int64",
+          "type": "integer"
+        },
+        "startDate": {
+          "description": "The start date of the ad set",
+          "format": "date-time",
+          "type": "string"
+        },
+        "targetAgeBracket": {
+          "description": "The target age bracket of the ad set ['Undefined' = 1, 'AgeUnder13' = 2, 'Age13OrOver' = 4, 'Age13To16' = 8, 'Age17OrOver' = 16]",
+          "enum": [
+            1,
+            2,
+            4,
+            8,
+            16
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "targetDeviceType": {
+          "description": "The target device type of the ad set ['Undefined' = 1, 'Computer' = 2, 'Phone' = 4, 'Tablet' = 8, 'Console' = 16, 'VR' = 32]",
+          "enum": [
+            1,
+            2,
+            4,
+            8,
+            16,
+            32
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "targetGender": {
+          "description": "The target gender of the ad set ['Undefined' = 1, 'Male' = 2, 'Female' = 4]",
+          "enum": [
+            1,
+            2,
+            4
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "totalClicks": {
+          "description": "The total number of clicks generated by the ad",
+          "format": "int64",
+          "type": "integer"
+        },
+        "totalConversions": {
+          "description": "The total number of conversions generated by the ad",
+          "format": "int64",
+          "type": "integer"
+        },
+        "totalImpressions": {
+          "description": "The total number of impressions generated by the ad",
+          "format": "int64",
+          "type": "integer"
+        },
+        "totalSpendInRobux": {
+          "description": "The total spend of the ad set in Robux",
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Web.WebAPI.ApiEmptyResponseModel": {
+      "type": "object"
+    }
+  },
+  "host": "adconfiguration.roblox.com",
+  "info": {
+    "title": "AdConfiguration Api v2",
+    "version": "v2"
+  },
+  "paths": {
+    "/v2/sponsored-campaigns": {
+      "get": {
+        "parameters": [
+          {
+            "description": "The campaign target type enum value",
+            "enum": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "format": "int32",
+            "in": "query",
+            "name": "campaignTargetType",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "The id of the campaign target",
+            "format": "int64",
+            "in": "query",
+            "name": "campaignTargetId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "default": false,
+            "description": "Indicates whether to include reporting stats in the response",
+            "in": "query",
+            "name": "includeReportingStats",
+            "type": "boolean"
+          },
+          {
+            "default": false,
+            "description": "Indicates whether to retrieve archived ads",
+            "in": "query",
+            "name": "isArchived",
+            "type": "boolean"
+          },
+          {
+            "description": "The cursor of the page to retrieve. If empty, fetches the first page",
+            "in": "query",
+            "name": "pageCursor",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "SponsoredCampaignV2:GetOwnedSponsoredCampaigns"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.AdConfiguration.Api.GetSponsoredCampaignsResponse"
+            }
+          },
+          "400": {
+            "description": "22: Invalid campaign target ID.\r\n23: Invalid campaign target type."
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "503": {
+            "description": "1: This feature is disabled."
+          }
+        },
+        "summary": "Gets a page of Roblox.AdConfiguration.Api.SponsoredCampaignModel with specified input parameters.",
+        "tags": [
+          "SponsoredCampaignV2"
+        ]
+      }
+    },
+    "/v2/sponsored-campaigns/create": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "description": "Roblox.AdConfiguration.Api.Models.CreateSponsoredCampaignRequest",
+            "in": "body",
+            "name": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.AdConfiguration.Api.Models.CreateSponsoredCampaignRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "SponsoredCampaignV2:CreateSponsoredCampaign"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "format": "int64",
+              "type": "integer"
+            }
+          },
+          "400": {
+            "description": "2: Daily budget is lower than minimum allowed.\r\n3: Total budget must be greater than 0.\r\n4: Ad name cannot be empty.\r\n5: Start date must not be a future date.\r\n6: End date must be a future date.\r\n7: Start date must be earlier than end date.\r\n8: Total budget does not match daily spend and number of days being scheduled\r\n9: Cannot load the universe for the specified universe id.\r\n11: Invalid target age bracket.\r\n12: Invalid target gender.\r\n13: Invalid target device type.\r\n14: Invalid ad set id.\r\n15: Ad name cannot exceed 255 characters.\r\n16: Insufficient Robux balance.\r\n17: Name has already been taken.\r\n18: Daily budget is higher than maximum allowed.\r\n19: Invalid group id.\r\n20: Number of days scheduled exceeded maximum days allowed.\r\n21: Your experience is currently not eligible for advertising.\r\n22: Invalid campaign target ID.\r\n23: Invalid campaign target type.\r\n24: Invalid creative ID.\r\n25: Invalid creative type.\r\n28: Total budget must be campaign duration * daily bid\r\n29: The target is not eligible for new campaigns\r\n30: Invalid user ID"
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request.\r\n10: Insufficient permissions."
+          },
+          "403": {
+            "description": "0: Token Validation Failed"
+          },
+          "500": {
+            "description": "0: An unknown error occurred.\r\n31: Internal server error"
+          },
+          "503": {
+            "description": "1: This feature is disabled."
+          }
+        },
+        "summary": "Creates a complete ad. Including ad campaign, ad set, escrow, and the ad.\r\nCurrently intended for creation of sponsorships only.",
+        "tags": [
+          "SponsoredCampaignV2"
+        ]
+      }
+    },
+    "/v2/sponsored-campaigns/eligible-asset-type-ids": {
+      "get": {
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "SponsoredCampaignV2:GetEligibleAssetTypeIds"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": {
+                "format": "int32",
+                "type": "integer"
+              },
+              "type": "array"
+            }
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "10: Insufficient permissions."
+          }
+        },
+        "summary": "Get all asset type IDs that are eligible to be sponsored.",
+        "tags": [
+          "SponsoredCampaignV2"
+        ]
+      }
+    },
+    "/v2/sponsored-campaigns/eligible-campaign-targets": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "description": "Roblox.AdConfiguration.Api.Models.GetEligibleCampaignTargetsRequest",
+            "in": "body",
+            "name": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.AdConfiguration.Api.Models.GetEligibleCampaignTargetsRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "SponsoredCampaignV2:GetEligibleCampaignTargets"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.AdConfiguration.Api.Models.GetCampaignTargetsResponse"
+            }
+          },
+          "400": {
+            "description": "19: Invalid group id."
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed\r\n10: Insufficient permissions."
+          }
+        },
+        "summary": "Returns a collection of Roblox.AdConfiguration.Api.Models.CampaignTargetModel that the user is authorized to sponsor, ordered by most recently advertised",
+        "tags": [
+          "SponsoredCampaignV2"
+        ]
+      }
+    },
+    "/v2/sponsored-campaigns/multi-get-can-user-sponsor": {
+      "get": {
+        "parameters": [
+          {
+            "description": "Ads.Management.Service.CampaignTargetType.",
+            "enum": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "format": "int32",
+            "in": "query",
+            "name": "campaignTargetType",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "collectionFormat": "multi",
+            "description": "The IDs of the campaign targets.",
+            "in": "query",
+            "items": {
+              "format": "int64",
+              "type": "integer"
+            },
+            "name": "campaignTargetIds",
+            "required": true,
+            "type": "array"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "SponsoredCampaignV2:MultiGetCanUserSponsor"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "additionalProperties": {
+                "type": "boolean"
+              },
+              "type": "object"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        },
+        "summary": "Checks whether the targets are eligible for sponsorship, and\r\nif the user is authorized to sponsor the targets.",
+        "tags": [
+          "SponsoredCampaignV2"
+        ]
+      }
+    },
+    "/v2/sponsored-campaigns/stop": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "description": "Roblox.AdConfiguration.Api.Models.StopSponsoredCampaignRequest",
+            "in": "body",
+            "name": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.AdConfiguration.Api.Models.StopSponsoredCampaignRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "SponsoredCampaignV2:StopSponsoredCampaign"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "format": "int64",
+              "type": "integer"
+            }
+          },
+          "400": {
+            "description": "10: Insufficient permissions.\r\n14: Invalid ad set id.\r\n31: Internal server error"
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed"
+          },
+          "503": {
+            "description": "1: This feature is disabled."
+          }
+        },
+        "summary": "Stops a sponsored campaign / ad (ad set) from running. Initiated by a user.",
+        "tags": [
+          "SponsoredCampaignV2"
+        ]
+      }
+    },
+    "/v2/sponsored-games": {
+      "get": {
+        "parameters": [
+          {
+            "description": "The universe id of the ad campaign.",
+            "format": "int64",
+            "in": "query",
+            "name": "universeId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "default": false,
+            "description": "Indicates whether to include reporting stats in the response.",
+            "in": "query",
+            "name": "includeReportingStats",
+            "type": "boolean"
+          },
+          {
+            "default": false,
+            "description": "Indicates whether to retrieve archived ads.",
+            "in": "query",
+            "name": "isArchived",
+            "type": "boolean"
+          },
+          {
+            "description": "The cursor of the page to retrieve.",
+            "in": "query",
+            "name": "pageCursor",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "SponsoredGamesV2:GetSponsoredGames"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.AdConfiguration.Api.GetSponsoredGamesResponse"
+            }
+          },
+          "400": {
+            "description": "9: Cannot load the universe for the specified universe id.\r\n9: Cannot load the universe for the specified universe id."
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "503": {
+            "description": "1: This feature is disabled."
+          }
+        },
+        "summary": "Gets a page of Roblox.AdConfiguration.Api.SponsoredGameV2Model with specified input parameters.",
+        "tags": [
+          "SponsoredGamesV2"
+        ]
+      }
+    },
+    "/v2/sponsored-games/create": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "description": "Roblox.AdConfiguration.Api.CreateSponsoredGameV2Request",
+            "in": "body",
+            "name": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.AdConfiguration.Api.CreateSponsoredGameV2Request"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "SponsoredGamesV2:CreateSponsoredGame"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.ApiEmptyResponseModel"
+            }
+          },
+          "400": {
+            "description": "2: Daily budget is lower than minimum allowed.\r\n3: Total budget must be greater than 0.\r\n4: Ad name cannot be empty.\r\n5: Start date must not be a future date.\r\n6: End date must be a future date.\r\n7: Start date must be earlier than end date.\r\n8: Total budget does not match daily spend and number of days being scheduled\r\n9: Cannot load the universe for the specified universe id.\r\n11: Invalid target age bracket.\r\n12: Invalid target gender.\r\n13: Invalid target device type.\r\n14: Invalid ad set id.\r\n15: Ad name cannot exceed 255 characters.\r\n16: Insufficient Robux balance.\r\n17: Name has already been taken.\r\n18: Daily budget is higher than maximum allowed.\r\n19: Invalid group id.\r\n20: Number of days scheduled exceeded maximum days allowed.\r\n21: Your experience is currently not eligible for advertising.\r\n22: Invalid campaign target ID.\r\n23: Invalid campaign target type.\r\n24: Invalid creative ID.\r\n25: Invalid creative type.\r\n28: Total budget must be campaign duration * daily bid\r\n29: The target is not eligible for new campaigns\r\n30: Invalid user ID"
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request.\r\n10: Insufficient permissions."
+          },
+          "403": {
+            "description": "0: Token Validation Failed"
+          },
+          "500": {
+            "description": "0: An unknown error occurred.\r\n31: Internal server error"
+          },
+          "503": {
+            "description": "1: This feature is disabled."
+          }
+        },
+        "summary": "Creates a new sponsored game ad with specified input parameters.",
+        "tags": [
+          "SponsoredGamesV2"
+        ]
+      }
+    },
+    "/v2/sponsored-games/stop": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "description": "Roblox.AdConfiguration.Api.Models.StopSponsoredGameV2Request",
+            "in": "body",
+            "name": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.AdConfiguration.Api.Models.StopSponsoredGameV2Request"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "SponsoredGamesV2:StopSponsoredGame"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.ApiEmptyResponseModel"
+            }
+          },
+          "400": {
+            "description": "14: Invalid ad set id."
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed\r\n10: Insufficient permissions."
+          },
+          "503": {
+            "description": "1: This feature is disabled."
+          }
+        },
+        "summary": "To stop a sponsored-game ad (ad set) from running, initiated by a user.",
+        "tags": [
+          "SponsoredGamesV2"
+        ]
+      }
+    },
+    "/v2/sponsored-games/universes": {
+      "get": {
+        "parameters": [
+          {
+            "description": "The group id, if applicable.",
+            "format": "int64",
+            "in": "query",
+            "name": "groupId",
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "SponsoredGamesV2:GetRecentAdsRankedUniverses"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.AdConfiguration.Api.Models.GetRecentAdsRankedUniversesResponse"
+            }
+          },
+          "400": {
+            "description": "19: Invalid group id."
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "10: Insufficient permissions."
+          }
+        },
+        "summary": "Gets a list of universes for the authenticated user, or the given group, ordered by most recently created sponsored game ads.",
+        "tags": [
+          "SponsoredGamesV2"
+        ]
+      }
+    }
+  },
+  "schemes": [
+    "https"
+  ],
+  "swagger": "2.0"
+}

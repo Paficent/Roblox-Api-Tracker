@@ -1,0 +1,155 @@
+{
+  "host": "thumbnailsresizer.roblox.com",
+  "info": {
+    "title": "ThumbnailsResizer Api v1",
+    "version": "v1"
+  },
+  "paths": {
+    "/v1/resize/{hash}/{width}/{height}/{type}/{format}/{filterType}": {
+      "get": {
+        "parameters": [
+          {
+            "description": "Hash of larger thumbnail",
+            "in": "path",
+            "name": "hash",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Desired width of thumbnail",
+            "format": "int32",
+            "in": "path",
+            "name": "width",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Desired height of thumbnail",
+            "format": "int32",
+            "in": "path",
+            "name": "height",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Thumbnail Type",
+            "in": "path",
+            "name": "type",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Desired image format of the thumbnail",
+            "in": "path",
+            "name": "format",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "E.g. is output circular",
+            "in": "query",
+            "name": "filterType",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": false,
+            "in": "query",
+            "name": "shouldModify",
+            "type": "boolean"
+          }
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Resize:Index"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "summary": "Resizes larger thumbnails to specified size and format",
+        "tags": [
+          "Resize"
+        ]
+      }
+    },
+    "/v1/secureresize/{thumbPrint}/{hash}/{width}/{height}/{type}/{format}/{filterType}": {
+      "get": {
+        "parameters": [
+          {
+            "description": "The thumbPrint that represents the key version",
+            "in": "path",
+            "name": "thumbPrint",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Hash of larger thumbnail",
+            "in": "path",
+            "name": "hash",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Desired width of thumbnail",
+            "format": "int32",
+            "in": "path",
+            "name": "width",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Desired height of thumbnail",
+            "format": "int32",
+            "in": "path",
+            "name": "height",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Thumbnail Type",
+            "in": "path",
+            "name": "type",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Desired image format of the thumbnail",
+            "in": "path",
+            "name": "format",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "E.g. is output circular",
+            "in": "query",
+            "name": "filterType",
+            "type": "string"
+          }
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Resize:SecureIndex"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "summary": "Decrypts and Resizes larger thumbnails to specified size and format",
+        "tags": [
+          "Resize"
+        ]
+      }
+    }
+  },
+  "schemes": [
+    "https"
+  ],
+  "swagger": "2.0"
+}

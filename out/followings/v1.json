@@ -1,0 +1,261 @@
+{
+  "definitions": {
+    "Roblox.Followings.Api.Models.UserFollowingUniverseResponse": {
+      "description": "Model for a user following a universe controller responses",
+      "properties": {
+        "universeId": {
+          "description": "The id of the universe being followed",
+          "format": "int64",
+          "type": "integer"
+        },
+        "userId": {
+          "description": "The id of the user that is following",
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Followings.Api.Models.UserFollowingUniverseStatusResponse": {
+      "description": "Model for a user following a universe  state controller responses",
+      "properties": {
+        "CanFollow": {
+          "description": "If the user can follow the universe.",
+          "type": "boolean"
+        },
+        "FollowingCountByType": {
+          "description": "The number of followings between this user and a universe.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "FollowingLimitByType": {
+          "description": "The limit to the number of followings between a user and a universe for a specific user.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "IsFollowing": {
+          "description": "If the user is currently following the universe.",
+          "type": "boolean"
+        },
+        "UniverseId": {
+          "description": "The id of the universe.",
+          "format": "int64",
+          "type": "integer"
+        },
+        "UserId": {
+          "description": "The id of the user.",
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "host": "followings.roblox.com",
+  "info": {
+    "title": "Followings Api v1",
+    "version": "v1"
+  },
+  "paths": {
+    "/v1/users/{userId}/universes": {
+      "get": {
+        "parameters": [
+          {
+            "description": "",
+            "format": "int64",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Users:GetAllUserToUniverseFollowings"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/Roblox.Followings.Api.Models.UserFollowingUniverseResponse"
+              },
+              "type": "array"
+            }
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "User is not authorized for this action."
+          }
+        },
+        "summary": "Gets all the followings between a user with userId and universes",
+        "tags": [
+          "Users"
+        ]
+      }
+    },
+    "/v1/users/{userId}/universes/{universeId}": {
+      "delete": {
+        "parameters": [
+          {
+            "description": "",
+            "format": "int64",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "",
+            "format": "int64",
+            "in": "path",
+            "name": "universeId",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Users:DeleteUserToUniverseFollowing"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Followings.Api.Models.UserFollowingUniverseResponse"
+            }
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "User is not authorized for this action.\r\n0: Token Validation Failed"
+          }
+        },
+        "summary": "Deletes the following between a user with userId and universe with universeId",
+        "tags": [
+          "Users"
+        ]
+      },
+      "post": {
+        "parameters": [
+          {
+            "description": "",
+            "format": "int64",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "",
+            "format": "int64",
+            "in": "path",
+            "name": "universeId",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Users:CreateUserToUniverseFollowing"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Followings.Api.Models.UserFollowingUniverseResponse"
+            }
+          },
+          "400": {
+            "description": "The user has reached the limit of number of followed universes."
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "User is not authorized for this action.\r\n0: Token Validation Failed"
+          }
+        },
+        "summary": "Creates the following between a user with userId and universe with universeId",
+        "tags": [
+          "Users"
+        ]
+      }
+    },
+    "/v1/users/{userId}/universes/{universeId}/status": {
+      "get": {
+        "parameters": [
+          {
+            "description": "",
+            "format": "int64",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "",
+            "format": "int64",
+            "in": "path",
+            "name": "universeId",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Users:GetUserToUniverseFollowingStatus"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Followings.Api.Models.UserFollowingUniverseStatusResponse"
+            }
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "User is not authorized for this action."
+          }
+        },
+        "summary": "Gets the status of a following relationship between a user and a universe.",
+        "tags": [
+          "Users"
+        ]
+      }
+    }
+  },
+  "schemes": [
+    "https"
+  ],
+  "swagger": "2.0"
+}

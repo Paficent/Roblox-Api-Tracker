@@ -1,0 +1,882 @@
+{
+  "definitions": {
+    "Roblox.Api.Avatar.Models.AssetMetaModelV1": {
+      "description": "Exhaustive model denoting all possible metadata fields of an asset",
+      "properties": {
+        "order": {
+          "description": "Layered-clothing order",
+          "format": "int32",
+          "type": "integer"
+        },
+        "position": {
+          "$ref": "#/definitions/Roblox.Avatarcore.Shared.V3Beta1.AssetPosition"
+        },
+        "puffiness": {
+          "description": "Layered-clothing puffiness",
+          "format": "float",
+          "type": "number"
+        },
+        "rotation": {
+          "$ref": "#/definitions/Roblox.Avatarcore.Shared.V3Beta1.AssetRotation"
+        },
+        "scale": {
+          "$ref": "#/definitions/Roblox.Avatarcore.Shared.V3Beta1.AssetScale"
+        },
+        "version": {
+          "description": "Client-authoritative meta model format version\r\n- default is always 1",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Api.Avatar.Models.AssetModelV2": {
+      "description": "A model containing details about an asset\r\n- V2: adds CurrentVersionId, AssetMetaModel",
+      "properties": {
+        "assetType": {
+          "$ref": "#/definitions/Roblox.Api.Avatar.Models.AssetTypeModel"
+        },
+        "currentVersionId": {
+          "description": "Id of the current version of asset",
+          "format": "int64",
+          "type": "integer"
+        },
+        "id": {
+          "description": "The id",
+          "format": "int64",
+          "type": "integer"
+        },
+        "meta": {
+          "$ref": "#/definitions/Roblox.Api.Avatar.Models.AssetMetaModelV1"
+        },
+        "name": {
+          "description": "The name",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Api.Avatar.Models.AssetTypeModel": {
+      "description": "A model containing details about an asset type",
+      "properties": {
+        "id": {
+          "description": "The id",
+          "format": "int64",
+          "type": "integer"
+        },
+        "name": {
+          "description": "The name",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Api.Avatar.Models.AssetWearModel": {
+      "description": "A model which contains\r\n- an asset id\r\n- AssetMetaModel",
+      "properties": {
+        "id": {
+          "description": "An asset id",
+          "format": "int64",
+          "type": "integer"
+        },
+        "meta": {
+          "$ref": "#/definitions/Roblox.Api.Avatar.Models.AssetMetaModelV1"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Api.Avatar.Models.AvatarApiSuccessResponse": {
+      "description": "Success response class",
+      "properties": {
+        "success": {
+          "description": "Gets or sets a value indicating whether the request was a success.",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Api.Avatar.Models.AvatarModelV3": {
+      "description": "A model containing details about an avatar",
+      "properties": {
+        "assets": {
+          "description": "The assets worn on the character",
+          "items": {
+            "$ref": "#/definitions/Roblox.Api.Avatar.Models.AssetModelV2"
+          },
+          "type": "array"
+        },
+        "bodyColor3s": {
+          "$ref": "#/definitions/Roblox.Api.Avatar.Models.BodyColors3Model"
+        },
+        "defaultPantsApplied": {
+          "description": "Whether default clothing has been applied to this avatar.",
+          "type": "boolean"
+        },
+        "defaultShirtApplied": {
+          "description": "Whether default clothing has been applied to this avatar.",
+          "type": "boolean"
+        },
+        "emotes": {
+          "description": "The emotes on the character",
+          "items": {
+            "$ref": "#/definitions/Roblox.Api.Avatar.Models.EmoteResponseModel"
+          },
+          "type": "array"
+        },
+        "playerAvatarType": {
+          "description": "The avatar type ['R6' = 1, 'R15' = 3]",
+          "enum": [
+            1,
+            3
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "scales": {
+          "$ref": "#/definitions/Roblox.Web.Responses.Avatar.ScaleModel"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Api.Avatar.Models.AvatarPageResponse[Roblox.Api.Avatar.Models.OutfitModel]": {
+      "description": "Avatar page response.",
+      "properties": {
+        "data": {
+          "description": "The data",
+          "items": {
+            "$ref": "#/definitions/Roblox.Api.Avatar.Models.OutfitModel"
+          },
+          "type": "array"
+        },
+        "paginationToken": {
+          "description": "A non empty string indicates that there is more data available than this response contains. An empty string indicates the last page.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Api.Avatar.Models.BodyColors3Model": {
+      "description": "A model containing RGB hex colors for each body part.",
+      "properties": {
+        "headColor3": {
+          "description": "The RGB hex color for head color, e.g. #FFFFFF",
+          "type": "string"
+        },
+        "leftArmColor3": {
+          "description": "The RGB hex color for left arm color, e.g. #FFFFFF",
+          "type": "string"
+        },
+        "leftLegColor3": {
+          "description": "The RGB hex color for left leg color, e.g. #FFFFFF",
+          "type": "string"
+        },
+        "rightArmColor3": {
+          "description": "The RGB hex color for right arm color, e.g. #FFFFFF",
+          "type": "string"
+        },
+        "rightLegColor3": {
+          "description": "The RGB hex color for right leg color, e.g. #FFFFFF",
+          "type": "string"
+        },
+        "torsoColor3": {
+          "description": "The RGB hex color for torso color, e.g. #FFFFFF",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Api.Avatar.Models.BodyColorsModel": {
+      "description": "A model container BrickColor ids for each body part.",
+      "properties": {
+        "headColorId": {
+          "description": "The BrickColor id for head color",
+          "format": "int32",
+          "type": "integer"
+        },
+        "leftArmColorId": {
+          "description": "The BrickColor id for left arm color",
+          "format": "int32",
+          "type": "integer"
+        },
+        "leftLegColorId": {
+          "description": "The BrickColor id for left leg color",
+          "format": "int32",
+          "type": "integer"
+        },
+        "rightArmColorId": {
+          "description": "The BrickColor id for right arm color",
+          "format": "int32",
+          "type": "integer"
+        },
+        "rightLegColorId": {
+          "description": "The BrickColor id for right leg color",
+          "format": "int32",
+          "type": "integer"
+        },
+        "torsoColorId": {
+          "description": "The BrickColor id for torso color",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Api.Avatar.Models.EmoteResponseModel": {
+      "description": "Response object representing a user's emote",
+      "properties": {
+        "assetId": {
+          "description": "The asset id of the emote",
+          "format": "int64",
+          "type": "integer"
+        },
+        "assetName": {
+          "description": "The name of the emote",
+          "type": "string"
+        },
+        "position": {
+          "description": "The position the emote is equipped to",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Api.Avatar.Models.OutfitModel": {
+      "description": "A slim model for user outfits",
+      "properties": {
+        "id": {
+          "description": "The id",
+          "format": "int64",
+          "type": "integer"
+        },
+        "isEditable": {
+          "description": "Whether the outfit can be modified by the user",
+          "type": "boolean"
+        },
+        "name": {
+          "description": "The name",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Api.Avatar.Models.OutfitUpdateModelV2": {
+      "description": "A model containing details needed to update or create an outfit",
+      "properties": {
+        "assets": {
+          "description": "Array of assets",
+          "items": {
+            "$ref": "#/definitions/Roblox.Api.Avatar.Models.AssetWearModel"
+          },
+          "type": "array"
+        },
+        "bodyColors": {
+          "$ref": "#/definitions/Roblox.Api.Avatar.Models.BodyColorsModel"
+        },
+        "name": {
+          "description": "The outfit name",
+          "type": "string"
+        },
+        "outfitType": {
+          "description": "The type of outfit ['Invalid' = 0, 'Avatar' = 1, 'DynamicHead' = 2, 'InExperienceBody' = 3]",
+          "enum": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "playerAvatarType": {
+          "description": "The avatar scale",
+          "type": "string"
+        },
+        "scale": {
+          "$ref": "#/definitions/Roblox.Web.Responses.Avatar.ScaleModel"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Api.Avatar.Models.WearRequestModel": {
+      "description": "A model that contains a list of AssetWear models",
+      "properties": {
+        "assets": {
+          "description": "The asset ids",
+          "items": {
+            "$ref": "#/definitions/Roblox.Api.Avatar.Models.AssetWearModel"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Api.Avatar.Models.WearResponseModel": {
+      "description": "A model for wear outfit responses",
+      "properties": {
+        "invalidAssetIds": {
+          "description": "The asset ids that could not be worn",
+          "items": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        "invalidAssets": {
+          "description": "The assets that could not be worn\r\nUnlike invalidAssetIds, only contains assets that are wearable types",
+          "items": {
+            "$ref": "#/definitions/Roblox.Api.Avatar.Models.AssetModelV2"
+          },
+          "type": "array"
+        },
+        "success": {
+          "description": "Whether or not all the outfit contents were successfully worn",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Avatarcore.Shared.V3Beta1.AssetPosition": {
+      "properties": {
+        "X": {
+          "format": "float",
+          "type": "number"
+        },
+        "Y": {
+          "format": "float",
+          "type": "number"
+        },
+        "Z": {
+          "format": "float",
+          "type": "number"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Avatarcore.Shared.V3Beta1.AssetRotation": {
+      "properties": {
+        "X": {
+          "format": "float",
+          "type": "number"
+        },
+        "Y": {
+          "format": "float",
+          "type": "number"
+        },
+        "Z": {
+          "format": "float",
+          "type": "number"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Avatarcore.Shared.V3Beta1.AssetScale": {
+      "properties": {
+        "Scale": {
+          "format": "float",
+          "type": "number"
+        },
+        "X": {
+          "format": "float",
+          "type": "number"
+        },
+        "Y": {
+          "format": "float",
+          "type": "number"
+        },
+        "Z": {
+          "format": "float",
+          "type": "number"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Platform.Avatar.BodyColorsModelV2": {
+      "properties": {
+        "headColor3": {
+          "type": "string"
+        },
+        "leftArmColor3": {
+          "type": "string"
+        },
+        "leftLegColor3": {
+          "type": "string"
+        },
+        "rightArmColor3": {
+          "type": "string"
+        },
+        "rightLegColor3": {
+          "type": "string"
+        },
+        "torsoColor3": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Web.Responses.Avatar.ScaleModel": {
+      "properties": {
+        "bodyType": {
+          "format": "double",
+          "type": "number"
+        },
+        "depth": {
+          "format": "double",
+          "type": "number"
+        },
+        "head": {
+          "format": "double",
+          "type": "number"
+        },
+        "height": {
+          "format": "double",
+          "type": "number"
+        },
+        "proportion": {
+          "format": "double",
+          "type": "number"
+        },
+        "width": {
+          "format": "double",
+          "type": "number"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Web.WebAPI.ApiEmptyResponseModel": {
+      "type": "object"
+    }
+  },
+  "host": "avatar.roblox.com",
+  "info": {
+    "title": "Avatar Api v2",
+    "version": "v2"
+  },
+  "paths": {
+    "/v2/avatar/avatar": {
+      "get": {
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "AvatarV2:GetMyAvatarModel"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Api.Avatar.Models.AvatarModelV3"
+            }
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          }
+        },
+        "summary": "Returns details about the authenticated user's avatar",
+        "tags": [
+          "AvatarV2"
+        ]
+      }
+    },
+    "/v2/avatar/set-body-colors": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "bodyColorsModel",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Platform.Avatar.BodyColorsModelV2"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "AvatarV2:SetBodyColors"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Api.Avatar.Models.AvatarApiSuccessResponse"
+            }
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed"
+          }
+        },
+        "summary": "Sets the authenticated user's body colors",
+        "tags": [
+          "AvatarV2"
+        ]
+      }
+    },
+    "/v2/avatar/set-wearing-assets": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "description": "Only allows items that you own, are not expired, and are wearable asset types.\r\nAny assets being worn before this method is called are automatically removed.",
+        "parameters": [
+          {
+            "description": "Model of assets to be worn",
+            "in": "body",
+            "name": "wearRequestModel",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Api.Avatar.Models.WearRequestModel"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "AvatarV2:SetWearingAssets"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Api.Avatar.Models.WearResponseModel"
+            }
+          },
+          "400": {
+            "description": "3: Invalid assetId\r\n5: Meta does not apply to specified asset type\r\n7: Required meta is not provided for the specific asset type"
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed"
+          },
+          "500": {
+            "description": "2: Failed to wear asset."
+          }
+        },
+        "summary": "Sets the avatar's current assets to the list",
+        "tags": [
+          "AvatarV2"
+        ]
+      }
+    },
+    "/v2/avatar/users/{userId}/avatar": {
+      "get": {
+        "description": "Includes assets, bodycolors, and playerAvatarType.",
+        "parameters": [
+          {
+            "description": "",
+            "format": "int64",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "AvatarV2:GetAvatarModel"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Api.Avatar.Models.AvatarModelV3"
+            }
+          },
+          "400": {
+            "description": "1: The specified user does not exist.\r\n2: An account for the given userId does not exist!"
+          }
+        },
+        "summary": "Returns details about a specified user's avatar",
+        "tags": [
+          "AvatarV2"
+        ]
+      }
+    },
+    "/v2/avatar/users/{userId}/outfits": {
+      "get": {
+        "parameters": [
+          {
+            "description": "The user id.",
+            "format": "int64",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "default": "",
+            "description": "The token received from the response to get the next page. For the first request, this value should be empty. Note : If no value is sent the 1st page will be returned.",
+            "in": "query",
+            "name": "paginationToken",
+            "type": "string"
+          },
+          {
+            "description": "The outfit type being searched for, null will return all outfitTypes",
+            "in": "query",
+            "name": "outfitType",
+            "type": "string"
+          },
+          {
+            "default": 1,
+            "description": "The page number of the current page of requests, default is 1.",
+            "format": "int32",
+            "in": "query",
+            "name": "page",
+            "type": "integer"
+          },
+          {
+            "default": 25,
+            "description": "The max number of outfits that can be returned.",
+            "format": "int32",
+            "in": "query",
+            "name": "itemsPerPage",
+            "type": "integer"
+          },
+          {
+            "description": "Whether the outfits are editable. A null value will lead to no filtering.",
+            "in": "query",
+            "name": "isEditable",
+            "type": "boolean"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "AvatarV2:GetUserOutfitListModel"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Api.Avatar.Models.AvatarPageResponse[Roblox.Api.Avatar.Models.OutfitModel]"
+            }
+          },
+          "400": {
+            "description": "1: The specified user does not exist.\r\n2: An account for the given userId does not exist!"
+          }
+        },
+        "summary": "Gets a list of outfits for the specified user.",
+        "tags": [
+          "AvatarV2"
+        ]
+      }
+    },
+    "/v2/outfits/create": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "description": "Fails if any of the assetIds are not owned by the user, or not wearable types.\r\nThe name property of the request is optional as one will be auto-generated when the request has a null name.",
+        "parameters": [
+          {
+            "description": "The new outfit",
+            "in": "body",
+            "name": "outfitUpdateModel",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Api.Avatar.Models.OutfitUpdateModelV2"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "OutfitsV2:CreateOutfit"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.ApiEmptyResponseModel"
+            }
+          },
+          "400": {
+            "description": "3: Body colors must be valid BrickColor IDs\r\n4: Invalid outfit name\r\n5: Asset is not wearable by you and was not added to the outfit\r\n7: Invalid Player Avatar Type. Valid types are R6 and R15\r\n8: Invalid assetIds\r\n9: Meta does not apply to specified asset type\r\n10: Required meta is not provided for the specific asset type"
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed\r\n1: You already have the maximum number of outfits"
+          },
+          "500": {
+            "description": "6: An error occurred while creating the outfit"
+          }
+        },
+        "summary": "Creates a new outfit.",
+        "tags": [
+          "OutfitsV2"
+        ]
+      }
+    },
+    "/v2/outfits/{userOutfitId}": {
+      "patch": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "description": "Fails if the user does not own any of the assetIds or if they are not wearable asset types.\r\nAccepts partial updates.",
+        "parameters": [
+          {
+            "description": "The user outfit id.",
+            "format": "int64",
+            "in": "path",
+            "name": "userOutfitId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "The updated outfit",
+            "in": "body",
+            "name": "outfitUpdateModel",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Api.Avatar.Models.OutfitUpdateModelV2"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "OutfitsV2:UpdateOutfitPatch"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Api.Avatar.Models.OutfitModel"
+            }
+          },
+          "400": {
+            "description": "1: The specified userOutfit does not exist!\r\n1: Must provide both assetIds and bodyColors in to update outfit contents.\r\n3: Body colors must be valid BrickColor IDs\r\n4: Invalid outfit name\r\n5: Asset is not wearable by you\r\n8: Invalid Player Avatar Type. Valid types are R6 and R15\r\n11: Meta does not apply to specified asset type\r\n12: Meta is required for this specific asset type"
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed\r\n2: You don't have permission to update this outfit."
+          },
+          "500": {
+            "description": "6: An error occurred while trying to update the outfit"
+          }
+        },
+        "summary": "Updates the contents of an outfit.",
+        "tags": [
+          "OutfitsV2"
+        ]
+      }
+    },
+    "/v2/outfits/{userOutfitId}/update": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "description": "Fails if the user does not own any of the assetIds or if they are not wearable asset types.",
+        "parameters": [
+          {
+            "description": "The user outfit id.",
+            "format": "int64",
+            "in": "path",
+            "name": "userOutfitId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "The updated outfit",
+            "in": "body",
+            "name": "outfitUpdateModel",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Api.Avatar.Models.OutfitUpdateModelV2"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "OutfitsV2:UpdateOutfit"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.ApiEmptyResponseModel"
+            }
+          },
+          "400": {
+            "description": "1: The specified userOutfit does not exist!\r\n3: Body colors must be valid BrickColor IDs\r\n4: Invalid outfit name\r\n5: Asset is not wearable by you\r\n7: Invalid assetIds\r\n8: Invalid Player Avatar Type. Valid types are R6 and R15"
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed\r\n2: You don't have permission to update this outfit."
+          },
+          "500": {
+            "description": "6: An error occurred while trying to update the outfit"
+          }
+        },
+        "summary": "Updates the contents of the outfit.",
+        "tags": [
+          "OutfitsV2"
+        ]
+      }
+    }
+  },
+  "schemes": [
+    "https"
+  ],
+  "swagger": "2.0"
+}

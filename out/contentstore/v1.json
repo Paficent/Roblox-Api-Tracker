@@ -1,0 +1,12 @@
+{
+  "host": "contentstore.roblox.com",
+  "info": {
+    "title": "ContentStore Api v1",
+    "version": "v1"
+  },
+  "paths": {},
+  "schemes": [
+    "https"
+  ],
+  "swagger": "2.0"
+}

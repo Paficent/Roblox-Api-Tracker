@@ -1,0 +1,839 @@
+{
+  "definitions": {
+    "Roblox.Platform.Core.ExclusiveStartPaging.IExclusiveStartKeyInfo[System.Int64]": {
+      "properties": {
+        "Count": {
+          "format": "int32",
+          "readOnly": true,
+          "type": "integer"
+        },
+        "PagingDirection": {
+          "description": " ['Forward' = 1, 'Backward' = 2]",
+          "enum": [
+            1,
+            2
+          ],
+          "format": "int32",
+          "readOnly": true,
+          "type": "integer"
+        },
+        "SortOrder": {
+          "description": " ['Asc' = 1, 'Desc' = 2]",
+          "enum": [
+            1,
+            2
+          ],
+          "format": "int32",
+          "readOnly": true,
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Trades.Api.CanTradeResponse": {
+      "properties": {
+        "canTrade": {
+          "description": "Returns true if you can trade with the given user.",
+          "type": "boolean"
+        },
+        "status": {
+          "description": "If you can't trade with a user, status explains why you can't trade with them. ['Unknown' = 0, 'CanTrade' = 1, 'CannotTradeWithSelf' = 2, 'SenderCannotTrade' = 3, 'ReceiverCannotTrade' = 4, 'SenderPrivacyTooStrict' = 5, 'UsersCannotTrade' = 6, 'TradeAccepterNeedsFriction' = 7]",
+          "enum": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Trades.Api.NewTradeResponse": {
+      "properties": {
+        "id": {
+          "description": "The trade id.",
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Trades.Api.TradeCountResponse": {
+      "properties": {
+        "count": {
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Trades.Api.TradeDetailResponse": {
+      "properties": {
+        "created": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "expiration": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "isActive": {
+          "type": "boolean"
+        },
+        "offers": {
+          "items": {
+            "$ref": "#/definitions/Roblox.Trades.Api.TradeOfferResponse"
+          },
+          "type": "array"
+        },
+        "status": {
+          "description": " ['Unknown' = 1, 'Open' = 2, 'Pending' = 3, 'Completed' = 4, 'Expired' = 5, 'Declined' = 6, 'RejectedDueToError' = 7, 'Countered' = 8, 'Processing' = 9, 'InterventionRequired' = 10, 'TwoStepVerificationRequired' = 11]",
+          "enum": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "user": {
+          "$ref": "#/definitions/Roblox.Web.Responses.Users.SkinnyUserResponse"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Trades.Api.TradeMetadata": {
+      "properties": {
+        "maxItemsPerSide": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "minValueRatio": {
+          "format": "float",
+          "type": "number"
+        },
+        "tradeSystemMaxRobuxPercent": {
+          "format": "float",
+          "type": "number"
+        },
+        "tradeSystemRobuxFee": {
+          "format": "double",
+          "type": "number"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Trades.Api.TradeOfferRequest": {
+      "properties": {
+        "robux": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "userAssetIds": {
+          "items": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        "userId": {
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Trades.Api.TradeOfferResponse": {
+      "properties": {
+        "robux": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "user": {
+          "$ref": "#/definitions/Roblox.Web.Responses.Users.SkinnyUserResponse"
+        },
+        "userAssets": {
+          "items": {
+            "$ref": "#/definitions/Roblox.Trades.Api.UserAssetResponse"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Trades.Api.TradeRequest": {
+      "properties": {
+        "offers": {
+          "items": {
+            "$ref": "#/definitions/Roblox.Trades.Api.TradeOfferRequest"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Trades.Api.TradeResponse": {
+      "properties": {
+        "created": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "expiration": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "isActive": {
+          "type": "boolean"
+        },
+        "status": {
+          "description": " ['Unknown' = 1, 'Open' = 2, 'Pending' = 3, 'Completed' = 4, 'Expired' = 5, 'Declined' = 6, 'RejectedDueToError' = 7, 'Countered' = 8, 'Processing' = 9, 'InterventionRequired' = 10, 'TwoStepVerificationRequired' = 11]",
+          "enum": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "user": {
+          "$ref": "#/definitions/Roblox.Web.Responses.Users.SkinnyUserResponse"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Trades.Api.UserAssetResponse": {
+      "description": "A model containing information about a UserAsset.",
+      "properties": {
+        "assetId": {
+          "description": "The asset id of the user asset",
+          "format": "int64",
+          "type": "integer"
+        },
+        "assetStock": {
+          "description": "The asset stock.",
+          "format": "int64",
+          "type": "integer"
+        },
+        "id": {
+          "description": "The user asset id",
+          "format": "int64",
+          "type": "integer"
+        },
+        "membershipType": {
+          "description": "The minimum MembershipType required to own the userAsset. ['None' = 0, 'BC' = 1, 'TBC' = 2, 'OBC' = 3, 'RobloxPremium' = 4]",
+          "enum": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "name": {
+          "description": "The asset name of the asset",
+          "type": "string"
+        },
+        "originalPrice": {
+          "description": "The original price of the asset",
+          "format": "int64",
+          "type": "integer"
+        },
+        "recentAveragePrice": {
+          "description": "The recent average price of the asset",
+          "format": "int64",
+          "type": "integer"
+        },
+        "serialNumber": {
+          "description": "The serial number of the user asset",
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Web.Responses.Users.SkinnyUserResponse": {
+      "properties": {
+        "displayName": {
+          "type": "string"
+        },
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Web.WebAPI.ApiEmptyResponseModel": {
+      "type": "object"
+    },
+    "Roblox.Web.WebAPI.ExclusiveStartRequest[System.Int64]": {
+      "properties": {
+        "CursorRecipe": {
+          "type": "string"
+        },
+        "ExclusiveStartKeyInfo": {
+          "$ref": "#/definitions/Roblox.Platform.Core.ExclusiveStartPaging.IExclusiveStartKeyInfo[System.Int64]"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Web.WebAPI.Models.ApiPageResponse[Roblox.Trades.Api.TradeResponse]": {
+      "properties": {
+        "data": {
+          "items": {
+            "$ref": "#/definitions/Roblox.Trades.Api.TradeResponse"
+          },
+          "type": "array"
+        },
+        "nextPageCursor": {
+          "type": "string"
+        },
+        "previousPageCursor": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "host": "trades.roblox.com",
+  "info": {
+    "title": "Trades Api v1",
+    "version": "v1"
+  },
+  "paths": {
+    "/v1/trades/expire-outdated": {
+      "post": {
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Trades:ExpireOutdatedTradesForUser"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.ApiEmptyResponseModel"
+            }
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed"
+          }
+        },
+        "summary": "Deprecated. TradeSession are automatically set to expire while the inbound/outbound trades are fetched.\r\nExpires Outdated Inbound Trades for User",
+        "tags": [
+          "Trades"
+        ]
+      }
+    },
+    "/v1/trades/metadata": {
+      "get": {
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Trades:Metadata"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Trades.Api.TradeMetadata"
+            }
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          }
+        },
+        "summary": "Gets metadata about the trade system.",
+        "tags": [
+          "Trades"
+        ]
+      }
+    },
+    "/v1/trades/send": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "description": "The trade request.",
+            "in": "body",
+            "name": "tradeRequest",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Trades.Api.TradeRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Trades:SendTrade"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Trades.Api.NewTradeResponse"
+            }
+          },
+          "400": {
+            "description": "7: The user cannot trade. See field for whether the user who cannot trade is the sender or receiver.\r\n8: The trade request should include offers.\r\n9: Invalid number of trade offers.\r\n10: Invalid trade partner. See field for whether the invalid partner is the sender or receiver.\r\n11: Cannot add negative Robux amounts to a trade.\r\n12: One or more userAssets are invalid. See fieldData for details.\r\n13: Invalid number of userAssets in one side of the trade.\r\n15: The trade is unbalanced.\r\n16: Trade value ratio is not sufficient.\r\n17: You have insufficient Robux to make this offer.\r\n18: Too many Robux in one side of the offer. See field for whether the side is the sender or receiver.\r\n19: Unknown error while processing the trade.\r\n21: Cannot trade with yourself.\r\n22: User's privacy settings are too strict to allow trading. See field for whether the user is the sender or receiver.\r\n23: The trade reaches Two Step Verification thresholds and the user has not verified in the past time threshold."
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed"
+          },
+          "429": {
+            "description": "14: You are sending too many trade requests. Please slow down and try again later."
+          },
+          "502": {
+            "description": "0: An unknown error occured."
+          },
+          "503": {
+            "description": "5: Trading system is unavailable"
+          }
+        },
+        "summary": "Sends a trade.",
+        "tags": [
+          "Trades"
+        ]
+      }
+    },
+    "/v1/trades/{tradeId}": {
+      "get": {
+        "parameters": [
+          {
+            "description": "The trade id.",
+            "format": "int64",
+            "in": "path",
+            "name": "tradeId",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Trades:GetTradeDetails"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Trades.Api.TradeDetailResponse"
+            }
+          },
+          "400": {
+            "description": "2: The trade cannot be found or you are not authorized to view it."
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          }
+        },
+        "summary": "Gets detailed information about a trade.",
+        "tags": [
+          "Trades"
+        ]
+      }
+    },
+    "/v1/trades/{tradeId}/accept": {
+      "post": {
+        "parameters": [
+          {
+            "description": "The trade id.",
+            "format": "int64",
+            "in": "path",
+            "name": "tradeId",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Trades:AcceptTrade"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.ApiEmptyResponseModel"
+            }
+          },
+          "400": {
+            "description": "2: The trade cannot be found or you are not authorized to view it.\r\n3: The trade is inactive.\r\n4: You are not authorized to modify this trade.\r\n6: Trade needs to be confirmed by the other party.\r\n6: Trade needs to be confirmed by the other party.\r\n7: The user cannot trade. See field for whether the user who cannot trade is the sender or receiver.\r\n23: The trade reaches Two Step Verification thresholds and the user has not verified in the past time threshold."
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed"
+          },
+          "503": {
+            "description": "5: Trading system is unavailable"
+          }
+        },
+        "summary": "Accepts a trade.",
+        "tags": [
+          "Trades"
+        ]
+      }
+    },
+    "/v1/trades/{tradeId}/counter": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "description": "The trade id.",
+            "format": "int64",
+            "in": "path",
+            "name": "tradeId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "The trade request.",
+            "in": "body",
+            "name": "tradeRequest",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Trades.Api.TradeRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Trades:CounterTrade"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Trades.Api.NewTradeResponse"
+            }
+          },
+          "400": {
+            "description": "2: The trade cannot be found or you are not authorized to view it.\r\n4: You are not authorized to modify this trade.\r\n7: The user cannot trade. See field for whether the user who cannot trade is the sender or receiver.\r\n8: The trade request should include offers.\r\n9: Invalid number of trade offers.\r\n10: Invalid trade partner. See field for whether the invalid partner is the sender or receiver.\r\n11: Cannot add negative Robux amounts to a trade.\r\n12: One or more userAssets are invalid. See fieldData for details.\r\n13: Invalid number of userAssets in one side of the trade.\r\n15: The trade is unbalanced.\r\n16: Trade value ratio is not sufficient.\r\n17: You have insufficient Robux to make this offer.\r\n18: Too many Robux in one side of the offer. See field for whether the side is the sender or receiver.\r\n19: Unknown error while processing the trade.\r\n21: Cannot trade with yourself.\r\n22: User's privacy settings are too strict to allow trading. See field for whether the user is the sender or receiver."
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed"
+          },
+          "429": {
+            "description": "14: You are sending too many trade requests. Please slow down and try again later."
+          },
+          "502": {
+            "description": "0: An unknown error occured."
+          },
+          "503": {
+            "description": "5: Trading system is unavailable"
+          }
+        },
+        "summary": "Counters a trade.",
+        "tags": [
+          "Trades"
+        ]
+      }
+    },
+    "/v1/trades/{tradeId}/decline": {
+      "post": {
+        "parameters": [
+          {
+            "description": "The trade id.",
+            "format": "int64",
+            "in": "path",
+            "name": "tradeId",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Trades:DeclineTrade"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.ApiEmptyResponseModel"
+            }
+          },
+          "400": {
+            "description": "2: The trade cannot be found or you are not authorized to view it.\r\n3: The trade is inactive.\r\n4: You are not authorized to modify this trade.\r\n7: The user cannot trade. See field for whether the user who cannot trade is the sender or receiver."
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed"
+          },
+          "503": {
+            "description": "5: Trading system is unavailable"
+          }
+        },
+        "summary": "Declines a trade.",
+        "tags": [
+          "Trades"
+        ]
+      }
+    },
+    "/v1/trades/{tradeStatusType}": {
+      "get": {
+        "parameters": [
+          {
+            "description": "The trade status type.",
+            "enum": [
+              1,
+              2,
+              3,
+              4
+            ],
+            "format": "int32",
+            "in": "path",
+            "name": "tradeStatusType",
+            "pattern": "^[a-z]*$",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "default": 10,
+            "description": "The number of results per request.",
+            "enum": [
+              10,
+              25,
+              50,
+              100
+            ],
+            "format": "int32",
+            "in": "query",
+            "name": "limit",
+            "type": "integer"
+          },
+          {
+            "description": "The paging cursor for the previous or next page.",
+            "in": "query",
+            "name": "cursor",
+            "type": "string"
+          },
+          {
+            "default": "Asc",
+            "description": "Sorted by trade creation date",
+            "enum": [
+              "Asc",
+              "Desc"
+            ],
+            "in": "query",
+            "name": "sortOrder",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Trades:GetTrades"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.Models.ApiPageResponse[Roblox.Trades.Api.TradeResponse]"
+            }
+          },
+          "400": {
+            "description": "1: Invalid trade status type."
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          }
+        },
+        "summary": "Fetches a list of the authenticated user's trades.",
+        "tags": [
+          "Trades"
+        ]
+      }
+    },
+    "/v1/trades/{tradeStatusType}/count": {
+      "get": {
+        "parameters": [
+          {
+            "description": "The trade status type to fetch a total count for.",
+            "enum": [
+              1,
+              2,
+              3,
+              4
+            ],
+            "format": "int32",
+            "in": "path",
+            "name": "tradeStatusType",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Trades:GetTradeCount"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Trades.Api.TradeCountResponse"
+            }
+          },
+          "400": {
+            "description": "1: Invalid trade status type."
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          }
+        },
+        "summary": "Gets the total number of pending trades for the authenticated user.\r\nInbound is the only accepted tradeStatusType.",
+        "tags": [
+          "Trades"
+        ]
+      }
+    },
+    "/v1/users/{userId}/can-trade-with": {
+      "get": {
+        "parameters": [
+          {
+            "description": "The other user's id.",
+            "format": "int64",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Trades:CanTrade"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Trades.Api.CanTradeResponse"
+            }
+          },
+          "400": {
+            "description": "10: Invalid trade partner. See field for whether the invalid partner is the sender or receiver."
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          }
+        },
+        "summary": "Returns whether you can trade with another user.",
+        "tags": [
+          "Trades"
+        ]
+      }
+    }
+  },
+  "schemes": [
+    "https"
+  ],
+  "swagger": "2.0"
+}

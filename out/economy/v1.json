@@ -1,0 +1,57 @@
+{
+  "definitions": {
+    "Roblox.Web.Responses.Economy.CurrencyResponse": {
+      "properties": {
+        "robux": {
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "host": "economy.roblox.com",
+  "info": {
+    "title": "Economy Api v1",
+    "version": "v1"
+  },
+  "paths": {
+    "/v1/user/currency": {
+      "get": {
+        "description": "Currency can only be retrieved for the authenticated user.",
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Currency:GetAuthenticatedUserCurrency"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.Responses.Economy.CurrencyResponse"
+            }
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "1: The user is invalid."
+          }
+        },
+        "summary": "Gets currency for the authenticated user.",
+        "tags": [
+          "Currency"
+        ]
+      }
+    }
+  },
+  "schemes": [
+    "https"
+  ],
+  "swagger": "2.0"
+}

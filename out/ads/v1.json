@@ -1,0 +1,231 @@
+{
+  "definitions": {
+    "Roblox.Web.WebApi.FormData.IUploadedFile": {
+      "properties": {
+        "ContentEncoding": {
+          "description": " ['None' = 0, 'GZip' = 1, 'Deflate' = 2, 'Brotli' = 4, 'All' = -1]",
+          "enum": [
+            0,
+            1,
+            2,
+            4,
+            -1
+          ],
+          "format": "int32",
+          "readOnly": true,
+          "type": "integer"
+        },
+        "Name": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "Stream": {
+          "$ref": "#/definitions/System.IO.Stream"
+        }
+      },
+      "type": "file"
+    },
+    "System.IO.Stream": {
+      "properties": {
+        "CanRead": {
+          "readOnly": true,
+          "type": "boolean"
+        },
+        "CanSeek": {
+          "readOnly": true,
+          "type": "boolean"
+        },
+        "CanTimeout": {
+          "readOnly": true,
+          "type": "boolean"
+        },
+        "CanWrite": {
+          "readOnly": true,
+          "type": "boolean"
+        },
+        "Length": {
+          "format": "int64",
+          "readOnly": true,
+          "type": "integer"
+        },
+        "Position": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "ReadTimeout": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "WriteTimeout": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "host": "ads.roblox.com",
+  "info": {
+    "title": "Ads Api v1",
+    "version": "v1"
+  },
+  "paths": {
+    "/v1/user-ads/assets/create": {
+      "post": {
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "format": "int64",
+            "in": "query",
+            "name": "assetId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "The user input ad name.",
+            "in": "formData",
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "in": "formData",
+            "name": "Files",
+            "type": "file"
+          }
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "UserAds:CreateAssetUserAd"
+          ]
+        },
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "1: Insufficient permissions\r\n2: Ad target is not approved\r\n3: Floodchecked\r\n4: Missing image\r\n5: Invalid image format\r\n6: Invalid image size\r\n7: Ad name was filtered\r\n8: Ad target does not exist\r\n10: Invalid ad name"
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed"
+          }
+        },
+        "summary": "Creates a user ad for an asset.",
+        "tags": [
+          "UserAds"
+        ]
+      }
+    },
+    "/v1/user-ads/game-passes/create": {
+      "post": {
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "format": "int64",
+            "in": "query",
+            "name": "gamePassId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "The user input ad name.",
+            "in": "formData",
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "in": "formData",
+            "name": "Files",
+            "type": "file"
+          }
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "UserAds:CreateGamePassUserAd"
+          ]
+        },
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "1: Insufficient permissions\r\n2: Ad target is not approved\r\n3: Floodchecked\r\n4: Missing image\r\n5: Invalid image format\r\n6: Invalid image size\r\n7: Ad name was filtered\r\n8: Ad target does not exist\r\n10: Invalid ad name"
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed"
+          }
+        },
+        "summary": "Creates a user ad for a game pass.",
+        "tags": [
+          "UserAds"
+        ]
+      }
+    },
+    "/v1/user-ads/groups/create": {
+      "post": {
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "format": "int64",
+            "in": "query",
+            "name": "groupId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "The user input ad name.",
+            "in": "formData",
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "in": "formData",
+            "name": "Files",
+            "type": "file"
+          }
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "UserAds:CreateGroupUserAd"
+          ]
+        },
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "1: Insufficient permissions\r\n2: Ad target is not approved\r\n3: Floodchecked\r\n4: Missing image\r\n5: Invalid image format\r\n6: Invalid image size\r\n7: Ad name was filtered\r\n8: Ad target does not exist\r\n10: Invalid ad name"
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed"
+          }
+        },
+        "summary": "Creates a user ad for a group.",
+        "tags": [
+          "UserAds"
+        ]
+      }
+    }
+  },
+  "schemes": [
+    "https"
+  ],
+  "swagger": "2.0"
+}

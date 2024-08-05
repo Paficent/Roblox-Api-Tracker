@@ -1,0 +1,102 @@
+{
+  "definitions": {
+    "Roblox.EngagementPayouts.Api.PayoutResponseModel": {
+      "description": "A model for payout responses",
+      "properties": {
+        "eligibilityType": {
+          "description": "Gets the eligibility type",
+          "readOnly": true,
+          "type": "string"
+        },
+        "engagementScore": {
+          "description": "Gets the engagement score",
+          "format": "double",
+          "readOnly": true,
+          "type": "number"
+        },
+        "payoutInRobux": {
+          "description": "Gets the payout in Robux",
+          "format": "int64",
+          "readOnly": true,
+          "type": "integer"
+        },
+        "payoutType": {
+          "description": "Gets the payout type",
+          "readOnly": true,
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "host": "engagementpayouts.roblox.com",
+  "info": {
+    "title": "EngagementPayouts Api v1",
+    "version": "v1"
+  },
+  "paths": {
+    "/v1/universe-payout-history": {
+      "get": {
+        "parameters": [
+          {
+            "description": "The ID of the universe in question.",
+            "format": "int64",
+            "in": "query",
+            "name": "universeId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "The first date in the range, specified as yyyy-MM-dd.",
+            "in": "query",
+            "name": "startDate",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The last date in the range, specified as yyyy-MM-dd.",
+            "in": "query",
+            "name": "endDate",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "The:GetUniversePayoutHistory"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "additionalProperties": {
+                "$ref": "#/definitions/Roblox.EngagementPayouts.Api.PayoutResponseModel"
+              },
+              "type": "object"
+            }
+          },
+          "400": {
+            "description": "1: InvalidUniverseId\r\n2: InvalidStartDate\r\n3: InvalidEndDate\r\n4: InvalidDateRange\r\n5: Forbidden\r\n6: TooManyDays"
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          }
+        },
+        "summary": "Gets the engagement payout history for a specific universe and a given date range, specified by start and end dates.",
+        "tags": [
+          "The"
+        ]
+      }
+    }
+  },
+  "schemes": [
+    "https"
+  ],
+  "swagger": "2.0"
+}

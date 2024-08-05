@@ -1,0 +1,93 @@
+{
+  "host": "premiumfeatures.roblox.com",
+  "info": {
+    "title": "PremiumFeatures Api v1",
+    "version": "v1"
+  },
+  "paths": {
+    "/v1/users/{userId}/premium-upsell-precheck": {
+      "get": {
+        "parameters": [
+          {
+            "description": "User ID",
+            "format": "int64",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "",
+            "format": "int64",
+            "in": "query",
+            "name": "universeId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "",
+            "format": "int64",
+            "in": "query",
+            "name": "placeId",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "PremiumFeaturesUsers:PremiumUpsellPrecheck"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          }
+        },
+        "summary": "Premium upsell precheck",
+        "tags": [
+          "PremiumFeaturesUsers"
+        ]
+      }
+    },
+    "/v1/users/{userId}/validate-membership": {
+      "get": {
+        "parameters": [
+          {
+            "description": "User ID",
+            "format": "int64",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "PremiumFeaturesUsers:GetIsPremiumUserForUser"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          }
+        },
+        "summary": "Get if a user has a Premium membership",
+        "tags": [
+          "PremiumFeaturesUsers"
+        ]
+      }
+    }
+  },
+  "schemes": [
+    "https"
+  ],
+  "swagger": "2.0"
+}

@@ -1,0 +1,271 @@
+{
+  "definitions": {
+    "Roblox.Contacts.Api.Models.Response.ContactsMetadataResponseModel": {
+      "properties": {
+        "multiGetContactsCacheTTLinMS": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "multiGetContactsMaxSize": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Contacts.Api.Request.GetUserTagsRequestModel": {
+      "properties": {
+        "targetUserIds": {
+          "items": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Contacts.Api.Request.SetUserTagRequestModel": {
+      "properties": {
+        "targetUserId": {
+          "description": "The userId of the target of the userTag.",
+          "format": "int64",
+          "type": "integer"
+        },
+        "userTag": {
+          "description": "The userTag to be set",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Contacts.Api.Response.GetUserTagsResponseModel": {
+      "properties": {
+        "targetUserId": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "targetUserTag": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Contacts.Api.Response.SetUserTagResponseModel": {
+      "properties": {
+        "status": {
+          "description": "Status message to be sent to the setter of the userTag ['Success' = 0, 'Moderated' = 1]",
+          "enum": [
+            "Success",
+            "Moderated"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Contacts.Api.Response.ValidateUserTagResponseModel": {
+      "properties": {
+        "status": {
+          "description": "Status message to be sent to the requester of the userTag validation ['Success' = 0, 'Moderated' = 1, 'TooLong' = 2]",
+          "enum": [
+            "Success",
+            "Moderated",
+            "TooLong"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "host": "contacts.roblox.com",
+  "info": {
+    "title": "Contacts Api v1",
+    "version": "v1"
+  },
+  "paths": {
+    "/v1/contacts/metadata": {
+      "get": {
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Contacts:GetContactsMetadata"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Contacts.Api.Models.Response.ContactsMetadataResponseModel"
+            }
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          }
+        },
+        "summary": "Gets contextual information for contacts and usertags",
+        "tags": [
+          "Contacts"
+        ]
+      }
+    },
+    "/v1/user/get-tags": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "description": "",
+            "in": "body",
+            "name": "requestModel",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Contacts.Api.Request.GetUserTagsRequestModel"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "UserTag:Get"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/Roblox.Contacts.Api.Response.GetUserTagsResponseModel"
+              },
+              "type": "array"
+            }
+          },
+          "400": {
+            "description": "4: Invalid parameters.\r\n8: Too many user Tags are requested."
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "429": {
+            "description": "10: The flood limit has been exceeded."
+          }
+        },
+        "summary": "Gets the tags for multiple users",
+        "tags": [
+          "UserTag"
+        ]
+      }
+    },
+    "/v1/user/tag": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "description": "The tag receiving userId and the tag itself",
+            "in": "body",
+            "name": "requestModel",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Contacts.Api.Request.SetUserTagRequestModel"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "UserTag:Set"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Contacts.Api.Response.SetUserTagResponseModel"
+            }
+          },
+          "400": {
+            "description": "2: The target user is invalid or does not exist.\r\n4: Invalid parameters.\r\n6: The userTag is too long."
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed\r\n5: The user cannot tag themselves."
+          },
+          "429": {
+            "description": "10: The flood limit has been exceeded."
+          }
+        },
+        "summary": "Sets the tag for a user",
+        "tags": [
+          "UserTag"
+        ]
+      }
+    },
+    "/v1/user/tag/validate": {
+      "get": {
+        "parameters": [
+          {
+            "description": "The tag to validate",
+            "in": "query",
+            "name": "alias",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "UserTag:Validate"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Contacts.Api.Response.ValidateUserTagResponseModel"
+            }
+          },
+          "400": {
+            "description": "4: Invalid parameters."
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "429": {
+            "description": "10: The flood limit has been exceeded."
+          }
+        },
+        "summary": "Validates the tag for a user",
+        "tags": [
+          "UserTag"
+        ]
+      }
+    }
+  },
+  "schemes": [
+    "https"
+  ],
+  "swagger": "2.0"
+}

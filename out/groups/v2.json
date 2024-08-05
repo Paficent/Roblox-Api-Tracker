@@ -1,0 +1,545 @@
+{
+  "definitions": {
+    "Roblox.Groups.Api.CreateWallPostRequest": {
+      "description": "A request model for creating a group wall post",
+      "properties": {
+        "body": {
+          "description": "The wall post body",
+          "type": "string"
+        },
+        "captchaId": {
+          "type": "string"
+        },
+        "captchaProvider": {
+          "type": "string"
+        },
+        "captchaToken": {
+          "type": "string"
+        },
+        "challengeId": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Groups.Api.GroupMembershipResponse": {
+      "description": "A basic group membership response model",
+      "properties": {
+        "group": {
+          "$ref": "#/definitions/Roblox.Web.Responses.Groups.GroupBasicResponse"
+        },
+        "isNotificationsEnabled": {
+          "description": "Whether the group notification preferences are enabled for the user",
+          "type": "boolean"
+        },
+        "role": {
+          "$ref": "#/definitions/Roblox.Web.Responses.Groups.GroupRoleBasicResponse"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Groups.Api.GroupRoleResponse": {
+      "description": "A group role response model",
+      "properties": {
+        "description": {
+          "description": "The role description",
+          "type": "string"
+        },
+        "id": {
+          "description": "The role id",
+          "format": "int64",
+          "type": "integer"
+        },
+        "memberCount": {
+          "description": "The number of members in the role.",
+          "format": "int64",
+          "type": "integer"
+        },
+        "name": {
+          "description": "The role name",
+          "type": "string"
+        },
+        "rank": {
+          "description": "The role rank",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Groups.Api.GroupWallPostV2Model": {
+      "description": "A response model for group wall post information",
+      "properties": {
+        "body": {
+          "description": "The group wall post body.",
+          "type": "string"
+        },
+        "created": {
+          "description": "When the group wall post was posted.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "id": {
+          "description": "The group wall post Id.",
+          "format": "int64",
+          "type": "integer"
+        },
+        "poster": {
+          "$ref": "#/definitions/Roblox.Groups.Api.UserGroupRoleResponse"
+        },
+        "updated": {
+          "description": "When the group wall post was last updated.",
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Groups.Api.Models.Response.UserModel": {
+      "description": "A model representing data about an Roblox.Platform.Membership.IUser",
+      "properties": {
+        "buildersClubMembershipType": {
+          "description": "The user's builders club membership type",
+          "enum": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "hasVerifiedBadge": {
+          "description": "The user's verified badge status.",
+          "type": "boolean"
+        },
+        "userId": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "username": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Groups.Api.UserGroupRoleResponse": {
+      "description": "A user group role response model",
+      "properties": {
+        "role": {
+          "$ref": "#/definitions/Roblox.Groups.Api.GroupRoleResponse"
+        },
+        "user": {
+          "$ref": "#/definitions/Roblox.Groups.Api.Models.Response.UserModel"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Platform.Core.ExclusiveStartPaging.IExclusiveStartKeyInfo[System.Int64]": {
+      "properties": {
+        "Count": {
+          "format": "int32",
+          "readOnly": true,
+          "type": "integer"
+        },
+        "PagingDirection": {
+          "description": " ['Forward' = 1, 'Backward' = 2]",
+          "enum": [
+            1,
+            2
+          ],
+          "format": "int32",
+          "readOnly": true,
+          "type": "integer"
+        },
+        "SortOrder": {
+          "description": " ['Asc' = 1, 'Desc' = 2]",
+          "enum": [
+            1,
+            2
+          ],
+          "format": "int32",
+          "readOnly": true,
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Web.Responses.Groups.GroupBasicResponse": {
+      "properties": {
+        "hasVerifiedBadge": {
+          "type": "boolean"
+        },
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "memberCount": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Web.Responses.Groups.GroupResponseV2": {
+      "properties": {
+        "created": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "hasVerifiedBadge": {
+          "type": "boolean"
+        },
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "memberCount": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "owner": {
+          "$ref": "#/definitions/Roblox.Web.Responses.RelatedEntityTypeResponse[Roblox.Web.Responses.Groups.GroupOwnerType]"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Web.Responses.Groups.GroupRoleBasicResponse": {
+      "properties": {
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "rank": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Web.Responses.RelatedEntityTypeResponse[Roblox.Web.Responses.Groups.GroupOwnerType]": {
+      "properties": {
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "description": " ['User' = 0]",
+          "enum": [
+            0
+          ],
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Web.WebAPI.ExclusiveStartRequest[System.Int64]": {
+      "properties": {
+        "CursorRecipe": {
+          "type": "string"
+        },
+        "ExclusiveStartKeyInfo": {
+          "$ref": "#/definitions/Roblox.Platform.Core.ExclusiveStartPaging.IExclusiveStartKeyInfo[System.Int64]"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.Groups.Api.GroupMembershipResponse]": {
+      "properties": {
+        "data": {
+          "items": {
+            "$ref": "#/definitions/Roblox.Groups.Api.GroupMembershipResponse"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.Web.Responses.Groups.GroupResponseV2]": {
+      "properties": {
+        "data": {
+          "items": {
+            "$ref": "#/definitions/Roblox.Web.Responses.Groups.GroupResponseV2"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Web.WebAPI.Models.ApiPageResponse[Roblox.Groups.Api.GroupWallPostV2Model]": {
+      "properties": {
+        "data": {
+          "items": {
+            "$ref": "#/definitions/Roblox.Groups.Api.GroupWallPostV2Model"
+          },
+          "type": "array"
+        },
+        "nextPageCursor": {
+          "type": "string"
+        },
+        "previousPageCursor": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "host": "groups.roblox.com",
+  "info": {
+    "title": "Groups Api v2",
+    "version": "v2"
+  },
+  "paths": {
+    "/v2/groups": {
+      "get": {
+        "description": "If a group comes back as null, it will not be returned in the response.",
+        "parameters": [
+          {
+            "collectionFormat": "csv",
+            "description": "The group Ids.",
+            "in": "query",
+            "items": {
+              "format": "int64",
+              "type": "integer"
+            },
+            "name": "groupIds",
+            "required": true,
+            "type": "array"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "GroupsV2:GetGroups"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.Web.Responses.Groups.GroupResponseV2]"
+            }
+          },
+          "400": {
+            "description": "2: Too many ids in request.\r\n3: Ids could not be parsed from request."
+          }
+        },
+        "summary": "Multi-get groups information by Ids.",
+        "tags": [
+          "GroupsV2"
+        ]
+      }
+    },
+    "/v2/groups/{groupId}/wall/posts": {
+      "get": {
+        "parameters": [
+          {
+            "description": "The group id.",
+            "format": "int64",
+            "in": "path",
+            "name": "groupId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "default": 10,
+            "description": "The number of results per request.",
+            "enum": [
+              10,
+              25,
+              50,
+              100
+            ],
+            "format": "int32",
+            "in": "query",
+            "name": "limit",
+            "type": "integer"
+          },
+          {
+            "description": "The paging cursor for the previous or next page.",
+            "in": "query",
+            "name": "cursor",
+            "type": "string"
+          },
+          {
+            "default": "Asc",
+            "description": "Sorted by group wall post Id",
+            "enum": [
+              "Asc",
+              "Desc"
+            ],
+            "in": "query",
+            "name": "sortOrder",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "WallV2:GetGroupWallPosts"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.Models.ApiPageResponse[Roblox.Groups.Api.GroupWallPostV2Model]"
+            }
+          },
+          "400": {
+            "description": "1: The group is invalid or does not exist."
+          },
+          "403": {
+            "description": "2: You do not have permission to access this group wall."
+          }
+        },
+        "summary": "Gets a list of group wall posts.",
+        "tags": [
+          "WallV2"
+        ]
+      },
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "description": "The group id.",
+            "format": "int64",
+            "in": "path",
+            "name": "groupId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "The Roblox.Groups.Api.CreateWallPostRequest.",
+            "in": "body",
+            "name": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Groups.Api.CreateWallPostRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "WallV2:CreateGroupWallPosts"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Groups.Api.GroupWallPostV2Model"
+            }
+          },
+          "400": {
+            "description": "1: The group is invalid or does not exist.\r\n5: Your post was empty, white space, or more than 500 characters."
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed\r\n2: You do not have permission to access this group wall."
+          },
+          "429": {
+            "description": "4: You are posting too fast, please try again in a few minutes."
+          }
+        },
+        "summary": "Creates a post on a group wall",
+        "tags": [
+          "WallV2"
+        ]
+      }
+    },
+    "/v2/users/{userId}/groups/roles": {
+      "get": {
+        "parameters": [
+          {
+            "description": "The user id.",
+            "format": "int64",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "includeLocked",
+            "required": true,
+            "type": "boolean"
+          },
+          {
+            "in": "query",
+            "name": "includeNotificationPreferences",
+            "required": true,
+            "type": "boolean"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "GroupsV2:GetGroupMemberships"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.Groups.Api.GroupMembershipResponse]"
+            }
+          },
+          "400": {
+            "description": "3: The user is invalid or does not exist."
+          }
+        },
+        "summary": "Gets a list of all group roles for groups the specified user is in.",
+        "tags": [
+          "GroupsV2"
+        ]
+      }
+    }
+  },
+  "schemes": [
+    "https"
+  ],
+  "swagger": "2.0"
+}

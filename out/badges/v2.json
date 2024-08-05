@@ -1,0 +1,12 @@
+{
+  "host": "badges.roblox.com",
+  "info": {
+    "title": "Badges Api v2",
+    "version": "v2"
+  },
+  "paths": {},
+  "schemes": [
+    "https"
+  ],
+  "swagger": "2.0"
+}

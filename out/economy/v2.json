@@ -1,0 +1,12 @@
+{
+  "host": "economy.roblox.com",
+  "info": {
+    "title": "Economy Api v2",
+    "version": "v2"
+  },
+  "paths": {},
+  "schemes": [
+    "https"
+  ],
+  "swagger": "2.0"
+}

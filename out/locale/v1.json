@@ -1,0 +1,450 @@
+{
+  "definitions": {
+    "Roblox.Locale.Api.CountryRegion": {
+      "description": "Model for Country Regions",
+      "properties": {
+        "code": {
+          "description": "code of country region",
+          "readOnly": true,
+          "type": "string"
+        },
+        "displayName": {
+          "description": "localized name of country region. Example \"Afghanistan\"",
+          "readOnly": true,
+          "type": "string"
+        },
+        "name": {
+          "description": "native name of country region",
+          "readOnly": true,
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Locale.Api.CountryRegionListResponse": {
+      "description": "Returns list of supported country/regions",
+      "properties": {
+        "countryRegionList": {
+          "description": "List of supported country/regions. Will be empty on error.",
+          "items": {
+            "$ref": "#/definitions/Roblox.Locale.Api.CountryRegion"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Locale.Api.Language": {
+      "description": "Model for Language",
+      "properties": {
+        "id": {
+          "description": "id of language",
+          "format": "int32",
+          "type": "integer"
+        },
+        "isRightToLeft": {
+          "description": "whether or not the language is read right-to-left",
+          "type": "boolean"
+        },
+        "languageCode": {
+          "description": "language code of language",
+          "type": "string"
+        },
+        "name": {
+          "description": "name of language",
+          "type": "string"
+        },
+        "nativeName": {
+          "description": "native name of language",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Locale.Api.SetSupportedLocaleForUserRequest": {
+      "description": "Request entity to set Supported Locale for user",
+      "properties": {
+        "supportedLocaleCode": {
+          "description": "SupportedLocale code",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Locale.Api.SuccessResponse": {
+      "description": "Tells the operation is successful or not",
+      "properties": {
+        "success": {
+          "description": "Returns true on success otherwise false",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Locale.Api.SupportedLocale": {
+      "description": "Model for Supported locale",
+      "properties": {
+        "id": {
+          "description": "id of supported locale",
+          "format": "int32",
+          "readOnly": true,
+          "type": "integer"
+        },
+        "language": {
+          "$ref": "#/definitions/Roblox.Locale.Api.Language"
+        },
+        "locale": {
+          "description": "locale of supported locale. Example \"en-us\"",
+          "readOnly": true,
+          "type": "string"
+        },
+        "name": {
+          "description": "name of supported locale. Example \"English(US)\"",
+          "readOnly": true,
+          "type": "string"
+        },
+        "nativeName": {
+          "description": "Name of supported locale in native language. Example \"English\"",
+          "readOnly": true,
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Locale.Api.SupportedLocaleLocus": {
+      "description": "Model for Supported locale with user locus information",
+      "properties": {
+        "isEnabledForFullExperience": {
+          "description": "Is locale enabled for full experience",
+          "type": "boolean"
+        },
+        "isEnabledForInGameUgc": {
+          "description": "Is locale enabled for in game ugc",
+          "type": "boolean"
+        },
+        "isEnabledForSignupAndLogin": {
+          "description": "Is locale enabled for signup and login",
+          "type": "boolean"
+        },
+        "locale": {
+          "$ref": "#/definitions/Roblox.Locale.Api.SupportedLocale"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Locale.Api.SupportedLocalesResponse": {
+      "description": "Returns list of supported locales",
+      "properties": {
+        "supportedLocales": {
+          "description": "List of supported locales. Will be empty on error.",
+          "items": {
+            "$ref": "#/definitions/Roblox.Locale.Api.SupportedLocale"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Locale.Api.UserLocaleResponse": {
+      "properties": {
+        "nativeLanguage": {
+          "$ref": "#/definitions/Roblox.Locale.Api.Language"
+        },
+        "supportedLocale": {
+          "$ref": "#/definitions/Roblox.Locale.Api.SupportedLocale"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Locale.Api.UserLocalizationLocusLocalesResponse": {
+      "description": "Returns available Roblox.Locale.Api.SupportedLocale models.",
+      "properties": {
+        "generalExperience": {
+          "$ref": "#/definitions/Roblox.Locale.Api.SupportedLocale"
+        },
+        "signupAndLogin": {
+          "$ref": "#/definitions/Roblox.Locale.Api.SupportedLocale"
+        },
+        "ugc": {
+          "$ref": "#/definitions/Roblox.Locale.Api.SupportedLocale"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.Locale.Api.SupportedLocaleLocus]": {
+      "properties": {
+        "data": {
+          "items": {
+            "$ref": "#/definitions/Roblox.Locale.Api.SupportedLocaleLocus"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "host": "locale.roblox.com",
+  "info": {
+    "title": "Locale Api v1",
+    "version": "v1"
+  },
+  "paths": {
+    "/v1/country-regions": {
+      "get": {
+        "parameters": [
+          {
+            "in": "query",
+            "name": "locale",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "CountryRegions:ListCountryRegions"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Locale.Api.CountryRegionListResponse"
+            }
+          },
+          "400": {
+            "description": "2: Invalid supported locale code."
+          },
+          "403": {
+            "description": "7: Feature is disabled"
+          }
+        },
+        "summary": "Get list of country regions sorted by localized name",
+        "tags": [
+          "CountryRegions"
+        ]
+      }
+    },
+    "/v1/locales": {
+      "get": {
+        "parameters": [
+          {
+            "in": "query",
+            "name": "displayValueLocale",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Locale:GetLocales"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.Locale.Api.SupportedLocaleLocus]"
+            }
+          },
+          "403": {
+            "description": "Feature is turned off temporary"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        },
+        "summary": "Get list of Supported locales with user locus information.",
+        "tags": [
+          "Locale"
+        ]
+      }
+    },
+    "/v1/locales/set-user-supported-locale": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "description": "Supported locale code that needs to be set for user",
+            "in": "body",
+            "name": "userRequest",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Locale.Api.SetSupportedLocaleForUserRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Locale:SetSupportedLocaleForUser"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Locale.Api.SuccessResponse"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized\r\n0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "Feature is turned off temporary\r\n0: Token Validation Failed"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        },
+        "summary": "Sets user's supported locale.\r\nNull supported locale will clear out user's supported locale (set users' supported locale to null)",
+        "tags": [
+          "Locale"
+        ]
+      }
+    },
+    "/v1/locales/supported-locales": {
+      "get": {
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Locale:GetSupportedLocales"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Locale.Api.SupportedLocalesResponse"
+            }
+          },
+          "403": {
+            "description": "Feature is turned off temporary"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        },
+        "summary": "Get list of supported locales sorted by the Native Name property.",
+        "tags": [
+          "Locale"
+        ]
+      }
+    },
+    "/v1/locales/supported-locales-for-creators": {
+      "get": {
+        "parameters": [
+          {
+            "in": "query",
+            "name": "displayValueLocale",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Locale:GetSupportedLocalesForCreators"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.Locale.Api.SupportedLocaleLocus]"
+            }
+          }
+        },
+        "tags": [
+          "Locale"
+        ]
+      }
+    },
+    "/v1/locales/user-locale": {
+      "get": {
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Locale:GetUserLocale"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Locale.Api.UserLocaleResponse"
+            }
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        },
+        "summary": "Gets user locale. If user is absent returns, locale from http request object.",
+        "tags": [
+          "Locale"
+        ]
+      }
+    },
+    "/v1/locales/user-localization-locus-supported-locales": {
+      "get": {
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Locale:GetUserLocalizationLocusSupportedLocales"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Locale.Api.UserLocalizationLocusLocalesResponse"
+            }
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        },
+        "summary": "Gets each of a user's localization locus supported locales. A localization locus supported locale is a page (or group of pages) that\r\nhave been defined by the International team which need independent locale support.\r\nIf the user is null we will attempt to return the locales appropriate for the user's device language.",
+        "tags": [
+          "Locale"
+        ]
+      }
+    }
+  },
+  "schemes": [
+    "https"
+  ],
+  "swagger": "2.0"
+}

@@ -1,0 +1,119 @@
+{
+  "definitions": {
+    "Roblox.Authentication.Api.Models.Request.SecureAuthenticationIntentModel": {
+      "properties": {
+        "clientEpochTimestamp": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "clientPublicKey": {
+          "type": "string"
+        },
+        "saiSignature": {
+          "type": "string"
+        },
+        "serverNonce": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Authentication.Api.Models.TwoStepVerificationV3LoginResponse": {
+      "properties": {
+        "accountBlob": {
+          "type": "string"
+        },
+        "identityVerificationLoginTicket": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Authentication.Api.TwoStepVerificationLoginRequest": {
+      "properties": {
+        "accountBlob": {
+          "type": "string"
+        },
+        "challengeId": {
+          "type": "string"
+        },
+        "rememberDevice": {
+          "type": "boolean"
+        },
+        "secureAuthenticationIntent": {
+          "$ref": "#/definitions/Roblox.Authentication.Api.Models.Request.SecureAuthenticationIntentModel"
+        },
+        "verificationToken": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "host": "auth.roblox.com",
+  "info": {
+    "title": "Authentication Api v3",
+    "version": "v3"
+  },
+  "paths": {
+    "/v3/users/{userId}/two-step-verification/login": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "description": "The user ID to authenticate as.",
+            "format": "int64",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "The Roblox.Authentication.Api.TwoStepVerificationLoginRequest.",
+            "in": "body",
+            "name": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Authentication.Api.TwoStepVerificationLoginRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "TwoStepVerificationV3:TwoStepVerificationV3Login"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Authentication.Api.Models.TwoStepVerificationV3LoginResponse"
+            }
+          },
+          "400": {
+            "description": "1: User is invalid.\r\n5: Invalid two step verification ticket.\r\n10: Invalid verification token."
+          },
+          "403": {
+            "description": "0: Token Validation Failed\r\n11: Maxium logged in accounts limit reached."
+          }
+        },
+        "summary": "Authenticates as a user given a two step verification verification token.",
+        "tags": [
+          "TwoStepVerificationV3"
+        ]
+      }
+    }
+  },
+  "schemes": [
+    "https"
+  ],
+  "swagger": "2.0"
+}

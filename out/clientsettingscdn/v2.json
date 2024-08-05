@@ -1,0 +1,173 @@
+{
+  "definitions": {
+    "Roblox.ClientSettings.Api.Models.Response.ClientVersionResponse": {
+      "properties": {
+        "bootstrapperVersion": {
+          "type": "string"
+        },
+        "clientVersionUpload": {
+          "type": "string"
+        },
+        "nextClientVersion": {
+          "type": "string"
+        },
+        "nextClientVersionUpload": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.ClientSettings.Api.Models.Response.UserChannelResponse": {
+      "description": "Response data object for getting a user's channel information.",
+      "properties": {
+        "channelAssignmentType": {
+          "description": "How the user was bound to the channel. If the user is not assigned to any channel, this is omitted. ['None' = 0, 'PerMille' = 1, 'BoundToPrivateChannel' = 2, 'BoundToPublicChannel' = 3]",
+          "enum": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "channelName": {
+          "description": "Name of the channel.",
+          "type": "string"
+        },
+        "token": {
+          "description": "JWT token. If the channel is not private, this is omitted.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "host": "clientsettings.roblox.com",
+  "info": {
+    "title": "ClientSettings Api v2",
+    "version": "v2"
+  },
+  "paths": {
+    "/v2/client-version/{binaryType}": {
+      "get": {
+        "parameters": [
+          {
+            "description": "Platform(WindowsPlayer, WindowsStudio, MacPlayer or MacStudio) for which we want the latest version",
+            "in": "path",
+            "name": "binaryType",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "VersionCheckV2:GetClientVersion"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.ClientSettings.Api.Models.Response.ClientVersionResponse"
+            }
+          }
+        },
+        "summary": "Get client version information for specific binary type",
+        "tags": [
+          "VersionCheckV2"
+        ]
+      }
+    },
+    "/v2/client-version/{binaryType}/channel/{channelName}": {
+      "get": {
+        "parameters": [
+          {
+            "description": "Platform(WindowsPlayer, WindowsStudio, MacPlayer or MacStudio) for which we want the latest version",
+            "in": "path",
+            "name": "binaryType",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Channel Name",
+            "in": "path",
+            "name": "channelName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "VersionCheckV2:GetClientVersionForChannel"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.ClientSettings.Api.Models.Response.ClientVersionResponse"
+            }
+          },
+          "401": {
+            "description": "5: Not authorized to perform this action."
+          }
+        },
+        "summary": "Get client version information for specific binary type",
+        "tags": [
+          "VersionCheckV2"
+        ]
+      }
+    },
+    "/v2/user-channel": {
+      "get": {
+        "parameters": [
+          {
+            "in": "query",
+            "name": "binaryType",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Channel:GetUserChannel"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.ClientSettings.Api.Models.Response.UserChannelResponse"
+            }
+          }
+        },
+        "summary": "Get channel name for currently logged in user",
+        "tags": [
+          "Channel"
+        ]
+      }
+    }
+  },
+  "schemes": [
+    "https"
+  ],
+  "swagger": "2.0"
+}

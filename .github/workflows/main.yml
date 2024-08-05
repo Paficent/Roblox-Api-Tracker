@@ -2,7 +2,7 @@ name: Scheduled Api Scrape
 
 on:
   schedule:
-    - cron: '*/30 * * * *'   # Runs every 30 minutes (hopefully)
+    - cron: '*/15 * * * *'   # Runs every 15 minutes (hopefully)
   workflow_dispatch:
 
 permissions:

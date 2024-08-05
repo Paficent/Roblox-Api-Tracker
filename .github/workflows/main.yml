@@ -22,11 +22,6 @@ jobs:
           curl -L -o backend https://github.com/Paficent/Roblox-Api-Tracker-Backend/releases/latest/download/backend
           chmod +x backend
           
-      - name: Print working directory and list files
-        run: |
-          pwd
-          ls -la
-          
       - name: Run executable
         run: ./backend
         

@@ -991,6 +991,13 @@
                 "in": "query",
                 "name": "filterLink",
                 "type": "boolean"
+              },
+              {
+                "default": true,
+                "description": "Whether all promotion channels links except for Twitter should be returned as full URLs. If false, all promotion channels will be shortened.",
+                "in": "query",
+                "name": "onlyShortenTwitter",
+                "type": "boolean"
               }
             ],
             "produces": [

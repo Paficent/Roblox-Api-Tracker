@@ -47359,7 +47359,7 @@
                 "description": "0: Token Validation Failed\r\n2: You do not have permission to get this table."
               }
             },
-            "summary": "Creates a Localization Table with the given data.",
+            "summary": "Creates a Localization Table with the given data.\r\nNote that this endpoint simply creates a table and does not associate it with any universe, so if intending to use this to create tables usable in experience more setup will be needed to grant those experiences access.",
             "tags": [
               "LocalizationTable"
             ]

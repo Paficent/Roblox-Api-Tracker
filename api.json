@@ -16260,6 +16260,16 @@
                 "type": "integer"
               },
               {
+                "description": "The key to sort badges by.",
+                "enum": [
+                  "Rank",
+                  "DateCreated"
+                ],
+                "in": "query",
+                "name": "sortBy",
+                "type": "string"
+              },
+              {
                 "default": 10,
                 "description": "The number of results per request.",
                 "enum": [

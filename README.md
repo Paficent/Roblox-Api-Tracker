@@ -3,24 +3,21 @@
 
 This repository tracks changes made to Roblox's Api Documentation. Repository updates every 15 minutes via GitHub Actions.
 
-You can use the API dumps in projects via JSON or if you want to browse old versions of Roblox's api you can use the [Roblox-Api-Tracker Website](https://paficent.github.io/Roblox-Api-Tracker)
-  - To view different api endpoints, input the individual json api dump file, and press explore in the top bar.
 
-Click [here](https://github.com/Paficent/Roblox-Api-Tracker/commits/main/?author=github-actions%5Bbot%5D) to view a list of all tracked API changes.
+<!-- Usage -->
+## Usage
 
-<!-- CONTRIBUTING -->
-## Contributing
-
-All contributions are appreciated, no matter your skill level, you can also contribute to this project's [backend](https://github.com/Paficent/Roblox-Api-Tracker-Backend)!
-
-If you have a suggestion that would make Roblox Api Tracker better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give this project a star if you found any use from it!
+You can make use of this project in many different ways, such as:
+  - Using the [Roblox-Api-Tracker Website](https://paficent.github.io/Roblox-Api-Tracker) to view all current endpoints by inputting the json url into the top bar.
+  - Clicking [here](https://github.com/Paficent/Roblox-Api-Tracker/commits/main/?author=github-actions%5Bbot%5D) to view a list of all tracked API changes.
+  - Curling / Requesting the api dump for personal projects.
+  - Any other possible method of using this project that you can think of!
 
 
 <!-- STRUCTURE -->
 ## Structure
 <details>
-<summary>A detailed explanation of the repository structure</summary>
+<summary>A detailed overview of the repository structure</summary>
   
 - .github 📁
   - workflows 📁
@@ -42,8 +39,17 @@ Don't forget to give this project a star if you found any use from it!
 </details>
 
 
+<!-- CONTRIBUTING -->
+## Contributing
+
+All contributions are appreciated, no matter your skill level, you can also contribute to this project's [backend](https://github.com/Paficent/Roblox-Api-Tracker-Backend)!
+
+If you have a suggestion that would make Roblox Api Tracker better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
+Don't forget to give this project a star if you found any use from it!
+
+
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-* [Roblox-Api-Tracker's Backend](https://github.com/Paficent/Roblox-Api-Tracker-Backend)
-* [matthewdean's Api List](https://github.com/matthewdean/roblox-web-apis)
+* [The backend that powers this project](https://github.com/Paficent/Roblox-Api-Tracker-Backend)
+* [matthewdean's api list](https://github.com/matthewdean/roblox-web-apis)

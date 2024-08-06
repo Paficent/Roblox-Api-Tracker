@@ -5,6 +5,7 @@ This repository tracks changes made to Roblox's Api Documentation. Repository up
 You can use the API dumps in projects via JSON or if you want to browse old versions of Roblox's api you can use the [Roblox-Api-Tracker Website](https://paficent.github.io/Roblox-Api-Tracker)
   - To view different api endpoints, input the individual json api dump file, and press explore in the top bar.
 
+Click [here](https://github.com/Paficent/Roblox-Api-Tracker/commits/main/?author=github-actions%5Bbot%5D) to view a list of all tracked API changes.
 
 <!-- CONTRIBUTING -->
 ## Contributing

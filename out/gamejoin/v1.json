@@ -46,6 +46,11 @@
           "description": "The JoinOrigin of a gamejoin request, as propagated from the game client.",
           "type": "string"
         },
+        "partyId": {
+          "description": "The ID of the player's current party, if any",
+          "format": "uuid",
+          "type": "string"
+        },
         "placeId": {
           "description": "The Place Id for the game join request",
           "format": "int64",
@@ -141,6 +146,11 @@
           "description": "The JoinOrigin of a gamejoin request, as propagated from the game client.",
           "type": "string"
         },
+        "partyId": {
+          "description": "The ID of the player's current party, if any",
+          "format": "uuid",
+          "type": "string"
+        },
         "placeId": {
           "description": "The Place Id for the game join request",
           "format": "int64",
@@ -189,6 +199,11 @@
         },
         "joinOrigin": {
           "description": "The JoinOrigin of a gamejoin request, as propagated from the game client.",
+          "type": "string"
+        },
+        "partyId": {
+          "description": "The ID of the player's current party, if any",
+          "format": "uuid",
           "type": "string"
         },
         "placeId": {
@@ -244,6 +259,11 @@
           "description": "link code for join private game request",
           "type": "string"
         },
+        "partyId": {
+          "description": "The ID of the player's current party, if any",
+          "format": "uuid",
+          "type": "string"
+        },
         "placeId": {
           "description": "The Place Id for the game join request",
           "format": "int64",
@@ -296,6 +316,11 @@
           "description": "The JoinOrigin of a gamejoin request, as propagated from the game client.",
           "type": "string"
         },
+        "partyId": {
+          "description": "The ID of the player's current party, if any",
+          "format": "uuid",
+          "type": "string"
+        },
         "placeId": {
           "description": "The Place Id for the game join request",
           "format": "int64",
@@ -339,6 +364,11 @@
         },
         "joinOrigin": {
           "description": "The JoinOrigin of a gamejoin request, as propagated from the game client.",
+          "type": "string"
+        },
+        "partyId": {
+          "description": "The ID of the player's current party, if any",
+          "format": "uuid",
           "type": "string"
         },
         "placeId": {
@@ -389,6 +419,11 @@
         },
         "joinOrigin": {
           "description": "The JoinOrigin of a gamejoin request, as propagated from the game client.",
+          "type": "string"
+        },
+        "partyId": {
+          "description": "The ID of the player's current party, if any",
+          "format": "uuid",
           "type": "string"
         },
         "placeId": {
@@ -543,6 +578,9 @@
           "type": "string"
         },
         "MembershipType": {
+          "type": "string"
+        },
+        "PartyId": {
           "type": "string"
         },
         "PepperId": {

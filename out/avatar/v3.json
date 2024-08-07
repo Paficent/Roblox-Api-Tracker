@@ -184,10 +184,10 @@
       "type": "object"
     },
     "Roblox.Api.Avatar.Models.OutfitUpdateModelV3": {
-      "description": "A model containing details needed to update or create an outfit",
+      "description": "A model containing details needed to update or create an outfit.",
       "properties": {
         "assets": {
-          "description": "Array of assets",
+          "description": "Array of assets.",
           "items": {
             "$ref": "#/definitions/Roblox.Api.Avatar.Models.AssetWearModel"
           },
@@ -197,11 +197,11 @@
           "$ref": "#/definitions/Roblox.Platform.Avatar.BodyColorsModelV2"
         },
         "name": {
-          "description": "The outfit name",
+          "description": "The outfit name.",
           "type": "string"
         },
         "outfitType": {
-          "description": "The type of outfit ['Invalid' = 0, 'Avatar' = 1, 'DynamicHead' = 2, 'InExperienceBody' = 3]",
+          "description": "The type of outfit. ['Invalid' = 0, 'Avatar' = 1, 'DynamicHead' = 2, 'InExperienceBody' = 3]",
           "enum": [
             0,
             1,
@@ -212,7 +212,7 @@
           "type": "integer"
         },
         "playerAvatarType": {
-          "description": "The avatar scale",
+          "description": "The avatar scale.",
           "type": "string"
         },
         "scale": {

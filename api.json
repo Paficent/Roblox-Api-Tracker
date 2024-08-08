@@ -16511,6 +16511,7 @@
           "delete": {
             "parameters": [
               {
+                "description": "The user Id.",
                 "format": "int64",
                 "in": "path",
                 "name": "userId",

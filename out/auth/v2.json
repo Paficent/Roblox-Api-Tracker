@@ -312,6 +312,9 @@
         },
         "isPhoneFeatureEnabledForUsername": {
           "type": "boolean"
+        },
+        "isUsernameRecoveryDeprecated": {
+          "type": "boolean"
         }
       },
       "type": "object"

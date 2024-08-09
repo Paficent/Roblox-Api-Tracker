@@ -6923,9 +6923,6 @@
             },
             "isPhoneFeatureEnabledForUsername": {
               "type": "boolean"
-            },
-            "isUsernameRecoveryDeprecated": {
-              "type": "boolean"
             }
           },
           "type": "object"
@@ -7151,18 +7148,6 @@
         },
         "Roblox.Authentication.Api.Models.Request.InitializeLoginRequest": {
           "properties": {
-            "captchaId": {
-              "type": "string"
-            },
-            "captchaProvider": {
-              "type": "string"
-            },
-            "captchaToken": {
-              "type": "string"
-            },
-            "challengeId": {
-              "type": "string"
-            },
             "ctype": {
               "enum": [
                 0,
@@ -10242,9 +10227,6 @@
               "type": "boolean"
             },
             "isPhoneFeatureEnabledForUsername": {
-              "type": "boolean"
-            },
-            "isUsernameRecoveryDeprecated": {
               "type": "boolean"
             }
           },

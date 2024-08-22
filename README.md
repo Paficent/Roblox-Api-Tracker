@@ -1,7 +1,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-This repository tracks changes made to Roblox's Web Api Documentation. Repository updates every 15 minutes via GitHub Actions.
+This repository tracks changes made to Roblox's Web Api Documentation. Repository updates every 10 minutes via GitHub Actions.
 
 
 <!-- Usage -->

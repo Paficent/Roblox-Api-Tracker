@@ -1,0 +1,1320 @@
+{
+  "definitions": {
+    "Roblox.AccountInformation.Api.Models.BirthdateRequest": {
+      "description": "The birthdate request",
+      "properties": {
+        "birthDay": {
+          "description": "The birth day",
+          "format": "int32",
+          "type": "integer"
+        },
+        "birthMonth": {
+          "description": "The birth month",
+          "format": "int32",
+          "type": "integer"
+        },
+        "birthYear": {
+          "description": "The birth year",
+          "format": "int32",
+          "type": "integer"
+        },
+        "password": {
+          "description": "Password",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.AccountInformation.Api.Models.BirthdateResponse": {
+      "description": "The birthdate response",
+      "properties": {
+        "birthDay": {
+          "description": "The birth day",
+          "format": "int32",
+          "type": "integer"
+        },
+        "birthMonth": {
+          "description": "The birth month",
+          "format": "int32",
+          "type": "integer"
+        },
+        "birthYear": {
+          "description": "The birth year",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.AccountInformation.Api.Models.ConsecutiveLoginDaysResponse": {
+      "description": "The consecutive login days response",
+      "properties": {
+        "count": {
+          "description": "Consecutive login days",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.AccountInformation.Api.Models.DescriptionRequest": {
+      "description": "The description request",
+      "properties": {
+        "description": {
+          "description": "The description",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.AccountInformation.Api.Models.DescriptionResponse": {
+      "description": "The description response",
+      "properties": {
+        "description": {
+          "description": "The description",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.AccountInformation.Api.Models.EmptyRequest": {
+      "description": "For API calls without a request body.",
+      "type": "object"
+    },
+    "Roblox.AccountInformation.Api.Models.GenderRequest": {
+      "description": "The gender request",
+      "properties": {
+        "gender": {
+          "description": "The gender",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.AccountInformation.Api.Models.GenderResponse": {
+      "description": "The gender response",
+      "properties": {
+        "gender": {
+          "description": "The gender",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.AccountInformation.Api.Models.MetadataResponse": {
+      "description": "The metadata response",
+      "properties": {
+        "MaxUserDescriptionLength": {
+          "description": "The limit on the length used for description",
+          "format": "int32",
+          "type": "integer"
+        },
+        "isAccountSettingsPolicyEnabled": {
+          "description": "The account settings policy enabled setting",
+          "type": "boolean"
+        },
+        "isAllowedNotificationsEndpointDisabled": {
+          "description": "Switch for account/settings/allowed-notification-destinations endpoint",
+          "type": "boolean"
+        },
+        "isPasswordRequiredForAgingDown": {
+          "description": "Switch for requiring password to change age below 13.",
+          "type": "boolean"
+        },
+        "isPhoneNumberEnabled": {
+          "description": "Switch for phone endpoints",
+          "type": "boolean"
+        },
+        "isUserBlockEndpointsUpdated": {
+          "description": "Switch for determining block endpoints to use for the user",
+          "type": "boolean"
+        },
+        "isUserDescriptionEnabled": {
+          "description": "Switch for determining if user description is enabled",
+          "type": "boolean"
+        },
+        "shouldDisplaySessionManagement": {
+          "description": "Whether to display Session Management.",
+          "type": "boolean"
+        },
+        "shouldUsePersonaForIdVerification": {
+          "description": "Whether to use Persona for ID verification.",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.AccountInformation.Api.Models.PhoneRequest": {
+      "description": "The phone request",
+      "properties": {
+        "countryCode": {
+          "description": "The country Code",
+          "type": "string"
+        },
+        "password": {
+          "description": "Password",
+          "type": "string"
+        },
+        "phone": {
+          "description": "The Phone number",
+          "type": "string"
+        },
+        "prefix": {
+          "description": "The Phone Prefix",
+          "type": "string"
+        },
+        "verificationChannel": {
+          "description": "Verification Channel",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.AccountInformation.Api.Models.PhoneResponse": {
+      "description": "The phone response",
+      "properties": {
+        "canBypassPasswordForPhoneUpdate": {
+          "description": "Whether user needs to provide password to update their phone numbers",
+          "type": "boolean"
+        },
+        "countryCode": {
+          "description": "The country Code",
+          "type": "string"
+        },
+        "isVerified": {
+          "description": "Is the phone verified",
+          "type": "boolean"
+        },
+        "phone": {
+          "description": "The Phone number",
+          "type": "string"
+        },
+        "prefix": {
+          "description": "The Phone Prefix",
+          "type": "string"
+        },
+        "verificationCodeLength": {
+          "description": "Verification Code Length",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.AccountInformation.Api.Models.PromotionChannelsByUserIdResponse": {
+      "description": "The promotion channels response",
+      "properties": {
+        "facebook": {
+          "description": "The Facebook channel",
+          "type": "string"
+        },
+        "guilded": {
+          "description": "The Guilded channel",
+          "type": "string"
+        },
+        "twitch": {
+          "description": "The Twitch channel",
+          "type": "string"
+        },
+        "twitter": {
+          "description": "The Twitter channel",
+          "type": "string"
+        },
+        "youtube": {
+          "description": "The YouTube channel",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.AccountInformation.Api.Models.PromotionChannelsRequest": {
+      "description": "The promotion channels request",
+      "properties": {
+        "facebook": {
+          "description": "The Facebook channel",
+          "type": "string"
+        },
+        "guilded": {
+          "description": "The Guilded channel",
+          "type": "string"
+        },
+        "promotionChannelsVisibilityPrivacy": {
+          "description": "The promotion channels visibility privacy level",
+          "type": "string"
+        },
+        "twitch": {
+          "description": "The Twitch channel",
+          "type": "string"
+        },
+        "twitter": {
+          "description": "The Twitter channel",
+          "type": "string"
+        },
+        "youtube": {
+          "description": "The YouTube channel",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.AccountInformation.Api.Models.PromotionChannelsResponse": {
+      "description": "The promotion channels response",
+      "properties": {
+        "facebook": {
+          "description": "The Facebook channel",
+          "type": "string"
+        },
+        "guilded": {
+          "description": "The Guilded channel",
+          "type": "string"
+        },
+        "promotionChannelsVisibilityPrivacy": {
+          "description": "The promotion channels visibility privacy level",
+          "type": "string"
+        },
+        "twitch": {
+          "description": "The Twitch channel",
+          "type": "string"
+        },
+        "twitter": {
+          "description": "The Twitter channel",
+          "type": "string"
+        },
+        "youtube": {
+          "description": "The YouTube channel",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.AccountInformation.Api.Models.StarCodeAffiliateRequest": {
+      "description": "The star code affiliate request",
+      "properties": {
+        "code": {
+          "description": "The star code affiliate code",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.AccountInformation.Api.Models.StarCodeAffiliateResponse": {
+      "description": "The star code affiliate response",
+      "properties": {
+        "code": {
+          "description": "The star code affiliate code",
+          "type": "string"
+        },
+        "name": {
+          "description": "The star code affiliate name",
+          "type": "string"
+        },
+        "userId": {
+          "description": "The star code affiliate user id",
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.AccountInformation.Api.Models.VerifyEmailRequest": {
+      "description": "Verify Email Request",
+      "properties": {
+        "ticket": {
+          "description": "Ticket to verify email",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.AccountInformation.Api.Models.VerifyEmailResponse": {
+      "description": "The verify email response",
+      "properties": {
+        "verifiedUserHatAssetId": {
+          "description": "Free item id after email verification",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.AccountInformation.Api.Models.VerifyPhoneRequest": {
+      "description": "Verify Phone Request",
+      "properties": {
+        "code": {
+          "description": "Code to verify phone",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.AccountInformation.Api.RobloxBadgeResponse": {
+      "properties": {
+        "description": {
+          "description": "The description belonging to this Roblox badge.",
+          "type": "string"
+        },
+        "id": {
+          "description": "The ID belonging to this Roblox badge.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "imageUrl": {
+          "description": "The URL corresponding to the image which represents this Roblox badge.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of this Roblox badge.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Platform.UserPhoneNumberVerification.Models.PendingVerificationResponse": {
+      "properties": {
+        "data": {
+          "type": "string"
+        },
+        "verificationChannel": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Web.WebAPI.ApiEmptyResponseModel": {
+      "type": "object"
+    }
+  },
+  "host": "accountinformation.roblox.com",
+  "info": {
+    "title": "Account Information Api v1",
+    "version": "v1"
+  },
+  "paths": {
+    "/v1/birthdate": {
+      "get": {
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "AccountInformation:GetBirthdate"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.AccountInformation.Api.Models.BirthdateResponse"
+            }
+          },
+          "400": {
+            "description": "1: User not found."
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          }
+        },
+        "summary": "Get the user's birthdate",
+        "tags": [
+          "AccountInformation"
+        ]
+      },
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "description": "The Roblox.AccountInformation.Api.Models.BirthdateRequest",
+            "in": "body",
+            "name": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.AccountInformation.Api.Models.BirthdateRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "AccountInformation:SetBirthdate"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.ApiEmptyResponseModel"
+            }
+          },
+          "400": {
+            "description": "1: User not found.\r\n4: The birthdate provided is invalid.\r\n8: Password is incorrect."
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed\r\n2: PIN is locked.\r\n5: Invalid birthdate change."
+          },
+          "500": {
+            "description": "0: An unknown error occured.\r\n5: Invalid birthdate change."
+          }
+        },
+        "summary": "Update the user's birthdate",
+        "tags": [
+          "AccountInformation"
+        ]
+      }
+    },
+    "/v1/description": {
+      "get": {
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "AccountInformation:GetDescription"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.AccountInformation.Api.Models.DescriptionResponse"
+            }
+          },
+          "400": {
+            "description": "1: User not found."
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          }
+        },
+        "summary": "Get the user's description",
+        "tags": [
+          "AccountInformation"
+        ]
+      },
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "description": "The Roblox.AccountInformation.Api.Models.DescriptionRequest",
+            "in": "body",
+            "name": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.AccountInformation.Api.Models.DescriptionRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "AccountInformation:SetDescription"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.AccountInformation.Api.Models.DescriptionResponse"
+            }
+          },
+          "400": {
+            "description": "1: User not found."
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed\r\n2: PIN is locked."
+          },
+          "500": {
+            "description": "0: An unknown error occured."
+          },
+          "503": {
+            "description": "3: This feature is currently disabled. Please try again later."
+          }
+        },
+        "summary": "Update the user's description",
+        "tags": [
+          "AccountInformation"
+        ]
+      }
+    },
+    "/v1/email/verify": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "description": "Roblox.AccountInformation.Api.Models.VerifyEmailRequest",
+            "in": "body",
+            "name": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.AccountInformation.Api.Models.VerifyEmailRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "EmailInformation:VerifyEmail"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.AccountInformation.Api.Models.VerifyEmailResponse"
+            }
+          },
+          "403": {
+            "description": "0: Token Validation Failed"
+          }
+        },
+        "summary": "Verify the user's email address from token",
+        "tags": [
+          "EmailInformation"
+        ]
+      }
+    },
+    "/v1/gender": {
+      "get": {
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "AccountInformation:GetGender"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.AccountInformation.Api.Models.GenderResponse"
+            }
+          },
+          "400": {
+            "description": "1: User not found."
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          }
+        },
+        "summary": "Get the user's gender",
+        "tags": [
+          "AccountInformation"
+        ]
+      },
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "description": "The Roblox.AccountInformation.Api.Models.GenderRequest",
+            "in": "body",
+            "name": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.AccountInformation.Api.Models.GenderRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "AccountInformation:SetGender"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.ApiEmptyResponseModel"
+            }
+          },
+          "400": {
+            "description": "1: User not found.\r\n6: The gender provided is invalid."
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed\r\n2: PIN is locked."
+          },
+          "500": {
+            "description": "0: An unknown error occured."
+          }
+        },
+        "summary": "Update the user's gender",
+        "tags": [
+          "AccountInformation"
+        ]
+      }
+    },
+    "/v1/metadata": {
+      "get": {
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Metadata:GetMetadata"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.AccountInformation.Api.Models.MetadataResponse"
+            }
+          }
+        },
+        "summary": "Get the metadata",
+        "tags": [
+          "Metadata"
+        ]
+      }
+    },
+    "/v1/phone": {
+      "get": {
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "PhoneInformation:GetVerifiedPhone"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.AccountInformation.Api.Models.PhoneResponse"
+            }
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "500": {
+            "description": "0: An unknown error occured."
+          }
+        },
+        "summary": "Get Verified Phone Number",
+        "tags": [
+          "PhoneInformation"
+        ]
+      },
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "description": "Roblox.AccountInformation.Api.Models.PhoneRequest",
+            "in": "body",
+            "name": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.AccountInformation.Api.Models.PhoneRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "PhoneInformation:SetPhone"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Platform.UserPhoneNumberVerification.Models.PendingVerificationResponse"
+            }
+          },
+          "400": {
+            "description": "2: Invalid Phone Number\r\n3: Phone Number Already Associated\r\n8: Invalid Phone Number Type"
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed\r\n4: Account Pin Locked\r\n5: Incorrect Password\r\n10: "
+          },
+          "429": {
+            "description": "6: Flooded"
+          },
+          "500": {
+            "description": "0: An unknown error occured."
+          },
+          "503": {
+            "description": "1: This feature is currently disabled. Please try again later."
+          }
+        },
+        "summary": "Set Phone Number",
+        "tags": [
+          "PhoneInformation"
+        ]
+      }
+    },
+    "/v1/phone/delete": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "description": "Roblox.AccountInformation.Api.Models.PhoneRequest",
+            "in": "body",
+            "name": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.AccountInformation.Api.Models.PhoneRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "PhoneInformation:DeletePhone"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.ApiEmptyResponseModel"
+            }
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed\r\n4: Account Pin Locked\r\n5: Incorrect Password"
+          },
+          "429": {
+            "description": "6: Flooded"
+          },
+          "500": {
+            "description": "0: An unknown error occured."
+          },
+          "503": {
+            "description": "1: This feature is currently disabled. Please try again later."
+          }
+        },
+        "summary": "Delete Phone",
+        "tags": [
+          "PhoneInformation"
+        ]
+      }
+    },
+    "/v1/phone/resend": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "description": "Roblox.AccountInformation.Api.Models.PhoneRequest",
+            "in": "body",
+            "name": "request",
+            "schema": {
+              "$ref": "#/definitions/Roblox.AccountInformation.Api.Models.EmptyRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "PhoneInformation:ResendPhone"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.ApiEmptyResponseModel"
+            }
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed"
+          },
+          "429": {
+            "description": "6: Flooded"
+          },
+          "500": {
+            "description": "0: An unknown error occured."
+          },
+          "503": {
+            "description": "1: This feature is currently disabled. Please try again later."
+          }
+        },
+        "summary": "Resend Phone code",
+        "tags": [
+          "PhoneInformation"
+        ]
+      }
+    },
+    "/v1/phone/verify": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "description": "Roblox.AccountInformation.Api.Models.VerifyPhoneRequest",
+            "in": "body",
+            "name": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.AccountInformation.Api.Models.VerifyPhoneRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "PhoneInformation:VerifyPhone"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.ApiEmptyResponseModel"
+            }
+          },
+          "400": {
+            "description": "2: Invalid Phone Number\r\n3: Phone Number Already Associated\r\n7: Invalid Code"
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed"
+          },
+          "429": {
+            "description": "6: Flooded"
+          },
+          "500": {
+            "description": "0: An unknown error occured."
+          },
+          "503": {
+            "description": "1: This feature is currently disabled. Please try again later."
+          }
+        },
+        "summary": "Verify Phone",
+        "tags": [
+          "PhoneInformation"
+        ]
+      }
+    },
+    "/v1/promotion-channels": {
+      "get": {
+        "parameters": [
+          {
+            "default": false,
+            "description": "Whether all promotion channel links should be returned as full URLs.",
+            "in": "query",
+            "name": "alwaysReturnUrls",
+            "type": "boolean"
+          },
+          {
+            "default": false,
+            "description": "Whether all promotion channel links should be filtered.",
+            "in": "query",
+            "name": "filterLink",
+            "type": "boolean"
+          },
+          {
+            "default": true,
+            "description": "Whether all promotion channels links except for Twitter should be returned as full URLs. If false, all promotion channels will be shortened.",
+            "in": "query",
+            "name": "onlyShortenTwitter",
+            "type": "boolean"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "PromotionChannel:GetPromotionChannels"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.AccountInformation.Api.Models.PromotionChannelsResponse"
+            }
+          },
+          "400": {
+            "description": "1: User not found."
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          }
+        },
+        "summary": "Get the user's promotion channels",
+        "tags": [
+          "PromotionChannel"
+        ]
+      },
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "description": "The Roblox.AccountInformation.Api.Models.PromotionChannelsRequest",
+            "in": "body",
+            "name": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.AccountInformation.Api.Models.PromotionChannelsRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "PromotionChannel:SetPromotionChannels"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.ApiEmptyResponseModel"
+            }
+          },
+          "400": {
+            "description": "2: The request was empty.\r\n11: The Facebook profile url is invalid.\r\n12: The Twitter handle is invalid.\r\n13: The YouTube url is invalid.\r\n14: The Twitch profile url is invalid.\r\n15: The Guilded profile url is invalid."
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed\r\n3: PIN is locked.\r\n4: Only users who are over twelve years of age may edit social network channels."
+          }
+        },
+        "summary": "Update the user's promotion channels",
+        "tags": [
+          "PromotionChannel"
+        ]
+      }
+    },
+    "/v1/star-code-affiliates": {
+      "delete": {
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "StarCodeAffiliate:ExpireStarCodeAffiliateSupporter"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.ApiEmptyResponseModel"
+            }
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed"
+          },
+          "500": {
+            "description": "0: An unknown error occured."
+          }
+        },
+        "summary": "Removes the star code affiliate supporter for the authenticated user",
+        "tags": [
+          "StarCodeAffiliate"
+        ]
+      },
+      "get": {
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "StarCodeAffiliate:GetStarCodeAffiliateSupporter"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.AccountInformation.Api.Models.StarCodeAffiliateResponse"
+            }
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "500": {
+            "description": "0: An unknown error occured."
+          }
+        },
+        "summary": "Gets a star code affiliate supporter for the authenticated user",
+        "tags": [
+          "StarCodeAffiliate"
+        ]
+      },
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "description": "Roblox.AccountInformation.Api.Models.StarCodeAffiliateRequest",
+            "in": "body",
+            "name": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.AccountInformation.Api.Models.StarCodeAffiliateRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "StarCodeAffiliate:AddStarCodeAffiliateSupporter"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.AccountInformation.Api.Models.StarCodeAffiliateResponse"
+            }
+          },
+          "400": {
+            "description": "1: The code was invalid."
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed"
+          },
+          "500": {
+            "description": "0: An unknown error occured."
+          }
+        },
+        "summary": "Adds a star code affiliate supporter for the authenticated user",
+        "tags": [
+          "StarCodeAffiliate"
+        ]
+      }
+    },
+    "/v1/users/{userId}/promotion-channels": {
+      "get": {
+        "parameters": [
+          {
+            "description": "The ID of the user to fetch the promotion channels for.",
+            "format": "int64",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "default": false,
+            "description": "Whether all promotion channel links should be returned as full URLs.",
+            "in": "query",
+            "name": "alwaysReturnUrls",
+            "type": "boolean"
+          },
+          {
+            "default": false,
+            "description": "Whether all promotion channel links should be filtered.",
+            "in": "query",
+            "name": "filterLink",
+            "type": "boolean"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "PromotionChannel:GetPromotionChannelsByUserId"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.AccountInformation.Api.Models.PromotionChannelsByUserIdResponse"
+            }
+          },
+          "400": {
+            "description": "1: User not found."
+          }
+        },
+        "summary": "Get promotion channels for a given user ID",
+        "tags": [
+          "PromotionChannel"
+        ]
+      }
+    },
+    "/v1/users/{userId}/roblox-badges": {
+      "get": {
+        "parameters": [
+          {
+            "description": "",
+            "format": "int64",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "RobloxBadges:GetRobloxBadgesByUserId"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/Roblox.AccountInformation.Api.RobloxBadgeResponse"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "summary": "Returns a list of Roblox badges belonging to a user.",
+        "tags": [
+          "RobloxBadges"
+        ]
+      }
+    },
+    "/v1/xbox-live/consecutive-login-days": {
+      "get": {
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "AccountInformation:GetXboxLiveConsecutiveLoginDays"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.AccountInformation.Api.Models.ConsecutiveLoginDaysResponse"
+            }
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request.\r\n7: The account is not connected to an Xbox Live account"
+          }
+        },
+        "summary": "Returns number of consecutive login days for xbox users",
+        "tags": [
+          "AccountInformation"
+        ]
+      }
+    }
+  },
+  "schemes": [
+    "https"
+  ],
+  "swagger": "2.0"
+}

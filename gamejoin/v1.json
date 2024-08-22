@@ -1,0 +1,1092 @@
+{
+  "definitions": {
+    "Roblox.GameJoin.Api.GameJoinRequest": {
+      "description": "Request model for game join.",
+      "properties": {
+        "browserTrackerId": {
+          "description": "The integer representing browserTrackerId",
+          "format": "int64",
+          "type": "integer"
+        },
+        "channelName": {
+          "description": "String representing channel name in RCC Channel 2.0.\r\nNote: Only internal users (email address ending in roblox.com and verified) can use this feature.\r\nFor other users, this field should be null, otherwise the request will be rejected.",
+          "type": "string"
+        },
+        "eventId": {
+          "description": "See \"Points of Interest\" project. A GUID that the developer has mapped to a special piece in their experience",
+          "format": "uuid",
+          "type": "string"
+        },
+        "gameJoinAttemptId": {
+          "description": "The GameJoin Attempt Id for this game join request",
+          "format": "uuid",
+          "type": "string"
+        },
+        "gamerTag": {
+          "description": "The gamerTag, if any, for the game join request",
+          "type": "string"
+        },
+        "isImmersiveAdsTeleport": {
+          "description": "Is this an Immersive Ads Teleport request.",
+          "type": "boolean"
+        },
+        "isPlayTogetherGame": {
+          "description": "Boolean representing whether this is a PlayTogether game",
+          "type": "boolean"
+        },
+        "isTeleport": {
+          "description": "Is this a teleport request",
+          "type": "boolean"
+        },
+        "isoContext": {
+          "description": "Internal usage only field for some request context.",
+          "type": "string"
+        },
+        "joinOrigin": {
+          "description": "The JoinOrigin of a gamejoin request, as propagated from the game client.",
+          "type": "string"
+        },
+        "partyId": {
+          "description": "The ID of the player's current party, if any",
+          "format": "uuid",
+          "type": "string"
+        },
+        "placeId": {
+          "description": "The Place Id for the game join request",
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.GameJoin.Api.GameJoinResponse": {
+      "description": "Response model for a game join request",
+      "properties": {
+        "authenticationTicket": {
+          "description": "The authentication ticket",
+          "type": "string"
+        },
+        "authenticationUrl": {
+          "description": "The authentication URL",
+          "type": "string"
+        },
+        "jobId": {
+          "description": "The job id string",
+          "type": "string"
+        },
+        "joinScript": {
+          "$ref": "#/definitions/Roblox.Web.GameLaunch.ConnectionFlow.JoinInformation"
+        },
+        "joinScriptUrl": {
+          "description": "The URL to get the join 'script' from\r\nset when status == 2 (Joining)",
+          "type": "string"
+        },
+        "message": {
+          "description": "The string message to provide additional details on status code",
+          "type": "string"
+        },
+        "queuePosition": {
+          "description": "The player's current position in the join queue. Only used when trying to join full servers. 0 if not queued",
+          "format": "int32",
+          "type": "integer"
+        },
+        "status": {
+          "description": "The integer status code",
+          "format": "int32",
+          "type": "integer"
+        },
+        "statusData": {
+          "$ref": "#/definitions/Roblox.Web.GameJoin.StatusData"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.GameJoin.Api.JoinGameInstanceRequest": {
+      "description": "Request model for join game instance.",
+      "properties": {
+        "browserTrackerId": {
+          "description": "The integer representing browserTrackerId",
+          "format": "int64",
+          "type": "integer"
+        },
+        "cId": {
+          "type": "string"
+        },
+        "channelName": {
+          "description": "String representing channel name in RCC Channel 2.0.\r\nNote: Only internal users (email address ending in roblox.com and verified) can use this feature.\r\nFor other users, this field should be null, otherwise the request will be rejected.",
+          "type": "string"
+        },
+        "gameId": {
+          "description": "The Guid representing the game instance",
+          "format": "uuid",
+          "type": "string"
+        },
+        "gameJoinAttemptId": {
+          "description": "The GameJoin Attempt Id for this game join request",
+          "format": "uuid",
+          "type": "string"
+        },
+        "gamerTag": {
+          "description": "The gamerTag, if any, for the game join request",
+          "type": "string"
+        },
+        "isImmersiveAdsTeleport": {
+          "description": "Is this an Immersive Ads Teleport request.",
+          "type": "boolean"
+        },
+        "isPlayTogetherGame": {
+          "description": "Boolean representing whether this is a PlayTogether game",
+          "type": "boolean"
+        },
+        "isTeleport": {
+          "description": "Is this a teleport request",
+          "type": "boolean"
+        },
+        "joinOrigin": {
+          "description": "The JoinOrigin of a gamejoin request, as propagated from the game client.",
+          "type": "string"
+        },
+        "partyId": {
+          "description": "The ID of the player's current party, if any",
+          "format": "uuid",
+          "type": "string"
+        },
+        "placeId": {
+          "description": "The Place Id for the game join request",
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.GameJoin.Api.JoinPlayTogetherGameRequest": {
+      "description": "Request model for join game instance.",
+      "properties": {
+        "browserTrackerId": {
+          "description": "The integer representing browserTrackerId",
+          "format": "int64",
+          "type": "integer"
+        },
+        "channelName": {
+          "description": "String representing channel name in RCC Channel 2.0.\r\nNote: Only internal users (email address ending in roblox.com and verified) can use this feature.\r\nFor other users, this field should be null, otherwise the request will be rejected.",
+          "type": "string"
+        },
+        "conversationId": {
+          "description": "conversation id for requesting play together game",
+          "format": "int64",
+          "type": "integer"
+        },
+        "gameJoinAttemptId": {
+          "description": "The GameJoin Attempt Id for this game join request",
+          "format": "uuid",
+          "type": "string"
+        },
+        "gamerTag": {
+          "description": "The gamerTag, if any, for the game join request",
+          "type": "string"
+        },
+        "isImmersiveAdsTeleport": {
+          "description": "Is this an Immersive Ads Teleport request.",
+          "type": "boolean"
+        },
+        "isPlayTogetherGame": {
+          "description": "Boolean representing whether this is a PlayTogether game",
+          "type": "boolean"
+        },
+        "isTeleport": {
+          "description": "Is this a teleport request",
+          "type": "boolean"
+        },
+        "joinOrigin": {
+          "description": "The JoinOrigin of a gamejoin request, as propagated from the game client.",
+          "type": "string"
+        },
+        "partyId": {
+          "description": "The ID of the player's current party, if any",
+          "format": "uuid",
+          "type": "string"
+        },
+        "placeId": {
+          "description": "The Place Id for the game join request",
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.GameJoin.Api.JoinPrivateGameRequest": {
+      "description": "Request model for join private game .",
+      "properties": {
+        "accessCode": {
+          "description": "access code for join private game request",
+          "type": "string"
+        },
+        "browserTrackerId": {
+          "description": "The integer representing browserTrackerId",
+          "format": "int64",
+          "type": "integer"
+        },
+        "channelName": {
+          "description": "String representing channel name in RCC Channel 2.0.\r\nNote: Only internal users (email address ending in roblox.com and verified) can use this feature.\r\nFor other users, this field should be null, otherwise the request will be rejected.",
+          "type": "string"
+        },
+        "gameJoinAttemptId": {
+          "description": "The GameJoin Attempt Id for this game join request",
+          "format": "uuid",
+          "type": "string"
+        },
+        "gamerTag": {
+          "description": "The gamerTag, if any, for the game join request",
+          "type": "string"
+        },
+        "isImmersiveAdsTeleport": {
+          "description": "Is this an Immersive Ads Teleport request.",
+          "type": "boolean"
+        },
+        "isPlayTogetherGame": {
+          "description": "Boolean representing whether this is a PlayTogether game",
+          "type": "boolean"
+        },
+        "isTeleport": {
+          "description": "Is this a teleport request",
+          "type": "boolean"
+        },
+        "joinOrigin": {
+          "description": "The JoinOrigin of a gamejoin request, as propagated from the game client.",
+          "type": "string"
+        },
+        "linkCode": {
+          "description": "link code for join private game request",
+          "type": "string"
+        },
+        "partyId": {
+          "description": "The ID of the player's current party, if any",
+          "format": "uuid",
+          "type": "string"
+        },
+        "placeId": {
+          "description": "The Place Id for the game join request",
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.GameJoin.Api.JoinReservedGameRequest": {
+      "description": "Request model for join private game .",
+      "properties": {
+        "accessCode": {
+          "description": "access code for join private game request",
+          "type": "string"
+        },
+        "browserTrackerId": {
+          "description": "The integer representing browserTrackerId",
+          "format": "int64",
+          "type": "integer"
+        },
+        "cId": {
+          "type": "string"
+        },
+        "channelName": {
+          "description": "String representing channel name in RCC Channel 2.0.\r\nNote: Only internal users (email address ending in roblox.com and verified) can use this feature.\r\nFor other users, this field should be null, otherwise the request will be rejected.",
+          "type": "string"
+        },
+        "gameJoinAttemptId": {
+          "description": "The GameJoin Attempt Id for this game join request",
+          "format": "uuid",
+          "type": "string"
+        },
+        "gamerTag": {
+          "description": "The gamerTag, if any, for the game join request",
+          "type": "string"
+        },
+        "isImmersiveAdsTeleport": {
+          "description": "Is this an Immersive Ads Teleport request.",
+          "type": "boolean"
+        },
+        "isPlayTogetherGame": {
+          "description": "Boolean representing whether this is a PlayTogether game",
+          "type": "boolean"
+        },
+        "isTeleport": {
+          "description": "Is this a teleport request",
+          "type": "boolean"
+        },
+        "joinOrigin": {
+          "description": "The JoinOrigin of a gamejoin request, as propagated from the game client.",
+          "type": "string"
+        },
+        "partyId": {
+          "description": "The ID of the player's current party, if any",
+          "format": "uuid",
+          "type": "string"
+        },
+        "placeId": {
+          "description": "The Place Id for the game join request",
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.GameJoin.Api.PlayWithUserRequest": {
+      "description": "Request model for join private game .",
+      "properties": {
+        "browserTrackerId": {
+          "description": "The integer representing browserTrackerId",
+          "format": "int64",
+          "type": "integer"
+        },
+        "channelName": {
+          "description": "String representing channel name in RCC Channel 2.0.\r\nNote: Only internal users (email address ending in roblox.com and verified) can use this feature.\r\nFor other users, this field should be null, otherwise the request will be rejected.",
+          "type": "string"
+        },
+        "gameJoinAttemptId": {
+          "description": "The GameJoin Attempt Id for this game join request",
+          "format": "uuid",
+          "type": "string"
+        },
+        "gamerTag": {
+          "description": "The gamerTag, if any, for the game join request",
+          "type": "string"
+        },
+        "isImmersiveAdsTeleport": {
+          "description": "Is this an Immersive Ads Teleport request.",
+          "type": "boolean"
+        },
+        "isPlayTogetherGame": {
+          "description": "Boolean representing whether this is a PlayTogether game",
+          "type": "boolean"
+        },
+        "isTeleport": {
+          "description": "Is this a teleport request",
+          "type": "boolean"
+        },
+        "joinOrigin": {
+          "description": "The JoinOrigin of a gamejoin request, as propagated from the game client.",
+          "type": "string"
+        },
+        "partyId": {
+          "description": "The ID of the player's current party, if any",
+          "format": "uuid",
+          "type": "string"
+        },
+        "placeId": {
+          "description": "The Place Id for the game join request",
+          "format": "int64",
+          "type": "integer"
+        },
+        "userIdToFollow": {
+          "description": "User Id for join private game request",
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.GameJoin.Api.TeamCreateRequest": {
+      "description": "Request model for create team .",
+      "properties": {
+        "browserTrackerId": {
+          "description": "The integer representing browserTrackerId",
+          "format": "int64",
+          "type": "integer"
+        },
+        "channelName": {
+          "description": "String representing channel name in RCC Channel 2.0.\r\nNote: Only internal users (email address ending in roblox.com and verified) can use this feature.\r\nFor other users, this field should be null, otherwise the request will be rejected.",
+          "type": "string"
+        },
+        "gameJoinAttemptId": {
+          "description": "The GameJoin Attempt Id for this game join request",
+          "format": "uuid",
+          "type": "string"
+        },
+        "gamerTag": {
+          "description": "The gamerTag, if any, for the game join request",
+          "type": "string"
+        },
+        "isImmersiveAdsTeleport": {
+          "description": "Is this an Immersive Ads Teleport request.",
+          "type": "boolean"
+        },
+        "isPlayTogetherGame": {
+          "description": "Boolean representing whether this is a PlayTogether game",
+          "type": "boolean"
+        },
+        "isTeleport": {
+          "description": "Is this a teleport request",
+          "type": "boolean"
+        },
+        "joinOrigin": {
+          "description": "The JoinOrigin of a gamejoin request, as propagated from the game client.",
+          "type": "string"
+        },
+        "partyId": {
+          "description": "The ID of the player's current party, if any",
+          "format": "uuid",
+          "type": "string"
+        },
+        "placeId": {
+          "description": "The Place Id for the game join request",
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.GameJoin.Api.TeamCreateResponse": {
+      "description": "Response model for a create team request",
+      "properties": {
+        "message": {
+          "description": "The string message to provide additional details on status code",
+          "type": "string"
+        },
+        "settings": {
+          "description": "settings"
+        },
+        "status": {
+          "description": "The integer status code",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Web.GameJoin.StatusData": {
+      "properties": {
+        "creatorExperienceBan": {
+          "$ref": "#/definitions/Roblox.Web.GameJoin.StatusData.CreatorExperienceBanData"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Web.GameJoin.StatusData.CreatorExperienceBanData": {
+      "properties": {
+        "displayReason": {
+          "type": "string"
+        },
+        "displayReasonTextFilterStatus": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "durationSeconds": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "isInherited": {
+          "type": "boolean"
+        },
+        "startTime": {
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Web.GameLaunch.ConnectionFlow.JoinInformation": {
+      "properties": {
+        "AccountAge": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "AlternateName": {
+          "type": "string"
+        },
+        "AnalyticsSessionId": {
+          "type": "string"
+        },
+        "BaseUrl": {
+          "type": "string"
+        },
+        "ChannelName": {
+          "type": "string"
+        },
+        "CharacterAppearance": {
+          "type": "string"
+        },
+        "ChatStyle": {
+          "type": "string"
+        },
+        "ClientPort": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ClientPublicKeyData": {
+          "type": "string"
+        },
+        "ClientTicket": {
+          "type": "string"
+        },
+        "CookieStoreEnabled": {
+          "type": "boolean"
+        },
+        "CookieStoreFirstTimePlayKey": {
+          "type": "string"
+        },
+        "CookieStoreFiveMinutePlayKey": {
+          "type": "string"
+        },
+        "CountryCode": {
+          "type": "string"
+        },
+        "CreatorId": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "CreatorTypeEnum": {
+          "type": "string"
+        },
+        "DataCenterId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "DirectServerReturn": {
+          "type": "boolean"
+        },
+        "DisplayName": {
+          "type": "string"
+        },
+        "EphemeralEarlyPubKey": {
+          "type": "string"
+        },
+        "EventID": {
+          "type": "string"
+        },
+        "FlexibleChatEnabled": {
+          "type": "boolean"
+        },
+        "FollowUserId": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "GameChatType": {
+          "type": "string"
+        },
+        "GameId": {
+          "type": "string"
+        },
+        "GameLocale": {
+          "type": "string"
+        },
+        "HasVerifiedBadge": {
+          "type": "boolean"
+        },
+        "IsUnknownOrUnder13": {
+          "type": "boolean"
+        },
+        "MachineAddress": {
+          "type": "string"
+        },
+        "MembershipType": {
+          "type": "string"
+        },
+        "PartyId": {
+          "type": "string"
+        },
+        "PepperId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "PingInterval": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "PingUrl": {
+          "type": "string"
+        },
+        "PlaceId": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "PrivateServerID": {
+          "type": "string"
+        },
+        "PrivateServerOwnerID": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "RandomSeed1": {
+          "format": "byte",
+          "type": "string"
+        },
+        "RccVersion": {
+          "type": "string"
+        },
+        "RobloxLocale": {
+          "type": "string"
+        },
+        "SeleniumTestMode": {
+          "type": "boolean"
+        },
+        "ServerConnections": {
+          "items": {
+            "$ref": "#/definitions/Roblox.Web.GameLaunch.ConnectionFlow.ServerConnection"
+          },
+          "type": "array"
+        },
+        "ServerPort": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "SessionId": {
+          "type": "string"
+        },
+        "SuperSafeChat": {
+          "type": "boolean"
+        },
+        "TokenGenAlgorithm": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "TokenValue": {
+          "type": "string"
+        },
+        "UdmuxEndpoints": {
+          "items": {
+            "$ref": "#/definitions/Roblox.Web.GameLaunch.ConnectionFlow.UdmuxEndpoint"
+          },
+          "type": "array"
+        },
+        "UniverseId": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "UserId": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "UserName": {
+          "type": "string"
+        },
+        "VerifiedAMP": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "characterAppearanceId": {
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Web.GameLaunch.ConnectionFlow.ServerConnection": {
+      "properties": {
+        "Address": {
+          "type": "string"
+        },
+        "Port": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Web.GameLaunch.ConnectionFlow.UdmuxEndpoint": {
+      "properties": {
+        "Address": {
+          "type": "string"
+        },
+        "Port": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "host": "gamejoin.roblox.com",
+  "info": {
+    "title": "GameJoin Api v1",
+    "version": "v1"
+  },
+  "paths": {
+    "/v1/join-game": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "description": "The Roblox.GameJoin.Api.GameJoinRequest in JSON format",
+            "in": "body",
+            "name": "gameJoinRequest",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.GameJoin.Api.GameJoinRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "GameJoin:JoinGame"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.GameJoin.Api.GameJoinResponse"
+            }
+          },
+          "400": {
+            "description": "-1: An unknown error occurred."
+          },
+          "429": {
+            "description": "3: Too many requests, please slow down."
+          }
+        },
+        "summary": "Endpoint to join a game",
+        "tags": [
+          "GameJoin"
+        ]
+      }
+    },
+    "/v1/join-game-instance": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "description": "The Roblox.GameJoin.Api.JoinGameInstanceRequest in JSON format",
+            "in": "body",
+            "name": "joinGameInstanceRequest",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.GameJoin.Api.JoinGameInstanceRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "GameJoin:JoinGameInstance"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.GameJoin.Api.GameJoinResponse"
+            }
+          },
+          "400": {
+            "description": "-1: An unknown error occurred."
+          },
+          "429": {
+            "description": "3: Too many requests, please slow down."
+          }
+        },
+        "summary": "Endpoint to join a particular game instance",
+        "tags": [
+          "GameJoin"
+        ]
+      }
+    },
+    "/v1/join-play-together-game": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "description": "The Roblox.GameJoin.Api.JoinPlayTogetherGameRequest in JSON format",
+            "in": "body",
+            "name": "joinPlayTogetherGameRequest",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.GameJoin.Api.JoinPlayTogetherGameRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "GameJoin:JoinPlayTogetherGame"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.GameJoin.Api.GameJoinResponse"
+            }
+          },
+          "400": {
+            "description": "-1: An unknown error occurred."
+          },
+          "429": {
+            "description": "3: Too many requests, please slow down."
+          }
+        },
+        "summary": "Endpoint to join play together game",
+        "tags": [
+          "GameJoin"
+        ]
+      }
+    },
+    "/v1/join-private-game": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "description": "The Roblox.GameJoin.Api.JoinPrivateGameRequest in JSON format",
+            "in": "body",
+            "name": "joinPrivateGameRequest",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.GameJoin.Api.JoinPrivateGameRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "GameJoin:JoinPrivateGame"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.GameJoin.Api.GameJoinResponse"
+            }
+          },
+          "400": {
+            "description": "-1: An unknown error occurred."
+          },
+          "429": {
+            "description": "3: Too many requests, please slow down."
+          }
+        },
+        "summary": "Endpoint to join a private game",
+        "tags": [
+          "GameJoin"
+        ]
+      }
+    },
+    "/v1/join-reserved-game": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "description": "The Roblox.GameJoin.Api.JoinReservedGameRequest in JSON format",
+            "in": "body",
+            "name": "joinReservedGameRequest",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.GameJoin.Api.JoinReservedGameRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "GameJoin:JoinReservedGame"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.GameJoin.Api.GameJoinResponse"
+            }
+          },
+          "400": {
+            "description": "-1: An unknown error occurred."
+          },
+          "429": {
+            "description": "3: Too many requests, please slow down."
+          }
+        },
+        "summary": "Endpoint to join a reserved game",
+        "tags": [
+          "GameJoin"
+        ]
+      }
+    },
+    "/v1/play-with-user": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "description": "The Roblox.GameJoin.Api.PlayWithUserRequest in JSON format",
+            "in": "body",
+            "name": "playWithUserRequest",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.GameJoin.Api.PlayWithUserRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "GameJoin:PlayWithUser"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.GameJoin.Api.GameJoinResponse"
+            }
+          },
+          "400": {
+            "description": "-1: An unknown error occurred."
+          },
+          "429": {
+            "description": "3: Too many requests, please slow down."
+          }
+        },
+        "summary": "Endpoint to play with user",
+        "tags": [
+          "GameJoin"
+        ]
+      }
+    },
+    "/v1/team-create": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "description": "Xsrf protection disabled because it will only be used on Roblox clients. Adding an extra\r\nround-trip would impact client performance.",
+        "parameters": [
+          {
+            "description": "The Roblox.GameJoin.Api.TeamCreateRequest in JSON format",
+            "in": "body",
+            "name": "teamCreateRequest",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.GameJoin.Api.TeamCreateRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "GameJoin:TeamCreate"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.GameJoin.Api.TeamCreateResponse"
+            }
+          },
+          "400": {
+            "description": "-1: An unknown error occurred."
+          },
+          "403": {
+            "description": "1: Request is not authorized from specified origin.\r\n2: User is invalid or does not exist."
+          },
+          "429": {
+            "description": "3: Too many requests, please slow down."
+          }
+        },
+        "summary": "Endpoint to join team create session",
+        "tags": [
+          "GameJoin"
+        ]
+      }
+    },
+    "/v1/team-create-preemptive": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "description": "Since the request origin might not be Roblox software, this endpoint implements a different set of security rules.\r\nMore specifically, it requires Xsrf protection and disables user-agent check so that it can be called from browsers.",
+        "parameters": [
+          {
+            "description": "The Roblox.GameJoin.Api.TeamCreateRequest in JSON format",
+            "in": "body",
+            "name": "teamCreateRequest",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.GameJoin.Api.TeamCreateRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "GameJoin:TeamCreatePreemptive"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.GameJoin.Api.TeamCreateResponse"
+            }
+          },
+          "400": {
+            "description": "-1: An unknown error occurred."
+          },
+          "403": {
+            "description": "0: Token Validation Failed\r\n1: Request is not authorized from specified origin.\r\n2: User is invalid or does not exist."
+          },
+          "429": {
+            "description": "3: Too many requests, please slow down."
+          }
+        },
+        "summary": "Endpoint to preemptively start team create session.",
+        "tags": [
+          "GameJoin"
+        ]
+      }
+    }
+  },
+  "schemes": [
+    "https"
+  ],
+  "swagger": "2.0"
+}

@@ -1,0 +1,3328 @@
+{
+  "definitions": {
+    "Roblox.Authentication.Api.Models.AccountPinRequest": {
+      "properties": {
+        "pin": {
+          "type": "string"
+        },
+        "reauthenticationToken": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Authentication.Api.Models.AccountPinResponse": {
+      "properties": {
+        "unlockedUntil": {
+          "format": "double",
+          "type": "number"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Authentication.Api.Models.AccountPinStatusResponse": {
+      "properties": {
+        "isEnabled": {
+          "type": "boolean"
+        },
+        "unlockedUntil": {
+          "format": "double",
+          "type": "number"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Authentication.Api.Models.AuthMetaDataResponse": {
+      "properties": {
+        "cookieLawNoticeTimeout": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Authentication.Api.Models.EmailValidationResponse": {
+      "properties": {
+        "isEmailValid": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Authentication.Api.Models.LoginMethodModel": {
+      "properties": {
+        "method": {
+          "description": " ['EmailOtp' = 0, 'Passkey' = 1, 'Password' = 2]",
+          "enum": [
+            0,
+            1,
+            2
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "priority": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Authentication.Api.Models.LoginRequest": {
+      "properties": {
+        "accountBlob": {
+          "type": "string"
+        },
+        "captchaId": {
+          "type": "string"
+        },
+        "captchaProvider": {
+          "type": "string"
+        },
+        "captchaToken": {
+          "type": "string"
+        },
+        "challengeId": {
+          "type": "string"
+        },
+        "ctype": {
+          "description": " ['Email' = 0, 'Username' = 1, 'PhoneNumber' = 2, 'EmailOtpSessionToken' = 3, 'AuthToken' = 4, 'Passkey' = 5]",
+          "enum": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "cvalue": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "secureAuthenticationIntent": {
+          "$ref": "#/definitions/Roblox.Authentication.Api.Models.Request.SecureAuthenticationIntentModel"
+        },
+        "securityQuestionRedemptionToken": {
+          "type": "string"
+        },
+        "securityQuestionSessionId": {
+          "type": "string"
+        },
+        "userId": {
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Authentication.Api.Models.LoginResponse": {
+      "properties": {
+        "accountBlob": {
+          "type": "string"
+        },
+        "identityVerificationLoginTicket": {
+          "type": "string"
+        },
+        "isBanned": {
+          "type": "boolean"
+        },
+        "twoStepVerificationData": {
+          "$ref": "#/definitions/Roblox.Authentication.Api.Models.TwoStepVerificationSentResponse"
+        },
+        "user": {
+          "$ref": "#/definitions/Roblox.Web.Responses.Users.SkinnyUserResponse"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Authentication.Api.Models.MetadataResponse": {
+      "properties": {
+        "IsAccountRecoveryPromptEnabled": {
+          "type": "boolean"
+        },
+        "IsAltBrowserTracker": {
+          "type": "boolean"
+        },
+        "IsContactMethodRequiredAtSignup": {
+          "type": "boolean"
+        },
+        "IsEmailUpsellAtLogoutEnabled": {
+          "type": "boolean"
+        },
+        "IsKoreaIdVerificationEnabled": {
+          "type": "boolean"
+        },
+        "IsPasskeyFeatureEnabled": {
+          "type": "boolean"
+        },
+        "IsPasswordRequiredForUsernameChange": {
+          "type": "boolean"
+        },
+        "IsUserAgreementsSignupIntegrationEnabled": {
+          "type": "boolean"
+        },
+        "ShouldFetchEmailUpsellIXPValuesAtLogout": {
+          "type": "boolean"
+        },
+        "ftuxAvatarAssetMap": {
+          "type": "string"
+        },
+        "isUpdateUsernameEnabled": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Authentication.Api.Models.PasswordChangeModel": {
+      "properties": {
+        "currentPassword": {
+          "type": "string"
+        },
+        "newPassword": {
+          "type": "string"
+        },
+        "secureAuthenticationIntent": {
+          "$ref": "#/definitions/Roblox.Authentication.Api.Models.Request.SecureAuthenticationIntentModel"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Authentication.Api.Models.PasswordValidationModel": {
+      "properties": {
+        "password": {
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Authentication.Api.Models.PasswordValidationResponse": {
+      "properties": {
+        "code": {
+          "description": " ['ValidPassword' = 0, 'WeakPasswordError' = 1, 'ShortPasswordError' = 2, 'PasswordSameAsUsernameError' = 3, 'ForbiddenPasswordError' = 4, 'DumbStringsError' = 5]",
+          "enum": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Authentication.Api.Models.ProviderInfoModel": {
+      "properties": {
+        "identifier": {
+          "type": "string"
+        },
+        "provider": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Authentication.Api.Models.RecommendedUsernameFromDisplayNameRequest": {
+      "properties": {
+        "birthday": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Authentication.Api.Models.RecommendedUsernameRequest": {
+      "properties": {
+        "birthday": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Authentication.Api.Models.RecommendedUsernameResponse": {
+      "properties": {
+        "didGenerateNewUsername": {
+          "type": "boolean"
+        },
+        "suggestedUsernames": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Authentication.Api.Models.RecoverUsernameRequest": {
+      "properties": {
+        "target": {
+          "type": "string"
+        },
+        "targetType": {
+          "description": " ['Email' = 0, 'PhoneNumber' = 1]",
+          "enum": [
+            0,
+            1
+          ],
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Authentication.Api.Models.RecoverUsernameResponse": {
+      "properties": {
+        "transmissionType": {
+          "enum": [
+            0,
+            1
+          ],
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Authentication.Api.Models.RecoveryMetadataResponse": {
+      "properties": {
+        "codeLength": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "isBedev2CaptchaEnabledForPasswordReset": {
+          "type": "boolean"
+        },
+        "isOnPhone": {
+          "type": "boolean"
+        },
+        "isPhoneFeatureEnabledForPassword": {
+          "type": "boolean"
+        },
+        "isPhoneFeatureEnabledForUsername": {
+          "type": "boolean"
+        },
+        "isUsernameRecoveryDeprecated": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Authentication.Api.Models.ReferralDataModel": {
+      "properties": {
+        "acquisitionReferrer": {
+          "type": "string"
+        },
+        "acquisitionTime": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "adGroup": {
+          "type": "string"
+        },
+        "campaign": {
+          "type": "string"
+        },
+        "keyword": {
+          "type": "string"
+        },
+        "matchType": {
+          "type": "string"
+        },
+        "medium": {
+          "type": "string"
+        },
+        "offerId": {
+          "type": "string"
+        },
+        "requestSessionId": {
+          "type": "string"
+        },
+        "sendInfo": {
+          "type": "boolean"
+        },
+        "source": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Authentication.Api.Models.Request.DeletePasskeysRequest": {
+      "properties": {
+        "credentialNicknames": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Authentication.Api.Models.Request.ExternalAccessRequest": {
+      "properties": {
+        "additionalInfoPayload": {
+          "additionalProperties": {},
+          "type": "object"
+        },
+        "authenticationProof": {
+          "type": "string"
+        },
+        "identityProviderPlatformType": {
+          "description": " ['Undefined' = 0, 'Xbox' = 1, 'Playstation' = 2, 'Web' = 3]",
+          "enum": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Authentication.Api.Models.Request.ExternalLoginAndLinkRequest": {
+      "properties": {
+        "IdentityProviderPlatformType": {
+          "description": " ['Undefined' = 0, 'Xbox' = 1, 'Playstation' = 2, 'Web' = 3]",
+          "enum": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "additionalInfoPayload": {
+          "additionalProperties": {},
+          "type": "object"
+        },
+        "authenticationProof": {
+          "type": "string"
+        },
+        "ctype": {
+          "description": " ['Email' = 0, 'Username' = 1, 'PhoneNumber' = 2, 'EmailOtpSessionToken' = 3, 'AuthToken' = 4, 'Passkey' = 5]",
+          "enum": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "cvalue": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Authentication.Api.Models.Request.ExternalLoginRequest": {
+      "properties": {
+        "additionalInfoPayload": {
+          "additionalProperties": {},
+          "type": "object"
+        },
+        "authenticationProof": {
+          "type": "string"
+        },
+        "identityProvider": {
+          "description": " ['Undefined' = 0, 'Xbox' = 1, 'Playstation' = 2, 'Web' = 3]",
+          "enum": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Authentication.Api.Models.Request.ExternalSignupRequest": {
+      "properties": {
+        "IdentityProviderPlatformType": {
+          "description": " ['Undefined' = 0, 'Xbox' = 1, 'Playstation' = 2, 'Web' = 3]",
+          "enum": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "additionalInfoPayload": {
+          "additionalProperties": {},
+          "type": "object"
+        },
+        "authenticationProof": {
+          "type": "string"
+        },
+        "birthday": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "locale": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Authentication.Api.Models.Request.ExternalUnlinkRequest": {
+      "properties": {
+        "IdentityProviderPlatformType": {
+          "description": " ['Undefined' = 0, 'Xbox' = 1, 'Playstation' = 2, 'Web' = 3]",
+          "enum": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "additionalInfoPayload": {
+          "additionalProperties": {},
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Authentication.Api.Models.Request.FinishPasskeyRegistrationRequest": {
+      "properties": {
+        "attestationResponse": {
+          "type": "string"
+        },
+        "credentialNickname": {
+          "type": "string"
+        },
+        "sessionId": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Authentication.Api.Models.Request.IdentityVerificationLoginRequest": {
+      "properties": {
+        "loginTicket": {
+          "type": "string"
+        },
+        "resultToken": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Authentication.Api.Models.Request.InitializeLoginRequest": {
+      "properties": {
+        "captchaId": {
+          "type": "string"
+        },
+        "captchaProvider": {
+          "type": "string"
+        },
+        "captchaToken": {
+          "type": "string"
+        },
+        "challengeId": {
+          "type": "string"
+        },
+        "ctype": {
+          "enum": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "cvalue": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "ctype",
+        "cvalue"
+      ],
+      "type": "object"
+    },
+    "Roblox.Authentication.Api.Models.Request.ListPasskeysRequest": {
+      "properties": {
+        "all": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Authentication.Api.Models.Request.LogoutFromAllSessionsAndReauthenticateRequest": {
+      "properties": {
+        "SecureAuthenticationIntent": {
+          "$ref": "#/definitions/Roblox.Authentication.Api.Models.Request.SecureAuthenticationIntentModel"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Authentication.Api.Models.Request.OtpSessionModel": {
+      "properties": {
+        "otpContactType": {
+          "description": " ['Unset' = 1, 'Email' = 2]",
+          "enum": [
+            1,
+            2
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "otpSessionToken": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Authentication.Api.Models.Request.SecureAuthenticationIntentModel": {
+      "properties": {
+        "clientEpochTimestamp": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "clientPublicKey": {
+          "type": "string"
+        },
+        "saiSignature": {
+          "type": "string"
+        },
+        "serverNonce": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Authentication.Api.Models.Request.StartAuthenticationByUserRequest": {
+      "properties": {
+        "ctype": {
+          "enum": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "cvalue": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "ctype",
+        "cvalue"
+      ],
+      "type": "object"
+    },
+    "Roblox.Authentication.Api.Models.Response.ExternalIdentityGateway.ExternalIdentityAccessResponse": {
+      "properties": {
+        "isolationContext": {
+          "type": "string"
+        },
+        "launchData": {
+          "type": "string"
+        },
+        "placeId": {
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Authentication.Api.Models.Response.GetClientAssertionResponse": {
+      "properties": {
+        "clientAssertion": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Authentication.Api.Models.Response.InitializeLoginResponse": {
+      "properties": {
+        "loginMethods": {
+          "items": {
+            "$ref": "#/definitions/Roblox.Authentication.Api.Models.LoginMethodModel"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Authentication.Api.Models.Response.ListPasskeyCredentialResponse": {
+      "properties": {
+        "credentials": {
+          "items": {
+            "$ref": "#/definitions/Roblox.Authentication.Api.Models.Response.PasskeyCredential"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Authentication.Api.Models.Response.PasskeyCredential": {
+      "properties": {
+        "nickname": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Authentication.Api.Models.Response.StartAuthenticationByUserResponse": {
+      "properties": {
+        "authenticationOptions": {
+          "type": "string"
+        },
+        "sessionId": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Authentication.Api.Models.Response.StartAuthenticationResponse": {
+      "properties": {
+        "authenticationOptions": {
+          "type": "string"
+        },
+        "sessionId": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Authentication.Api.Models.Response.StartPasskeyRegistrationResponse": {
+      "properties": {
+        "creationOptions": {
+          "type": "string"
+        },
+        "sessionId": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Authentication.Api.Models.RevertAccountInfoResponse": {
+      "properties": {
+        "isEmailChanged": {
+          "type": "boolean"
+        },
+        "isEmailVerified": {
+          "type": "boolean"
+        },
+        "isPhoneVerified": {
+          "type": "boolean"
+        },
+        "isTwoStepVerificationEnabled": {
+          "type": "boolean"
+        },
+        "ticket": {
+          "type": "string"
+        },
+        "userId": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "username": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Authentication.Api.Models.RevertAccountSubmitRequest": {
+      "properties": {
+        "NewPassword": {
+          "type": "string"
+        },
+        "NewPasswordRepeated": {
+          "type": "string"
+        },
+        "Ticket": {
+          "type": "string"
+        },
+        "TwoStepVerificationChallengeId": {
+          "type": "string"
+        },
+        "TwoStepVerificationToken": {
+          "type": "string"
+        },
+        "UserId": {
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Authentication.Api.Models.SignupRequest": {
+      "properties": {
+        "accountBlob": {
+          "type": "string"
+        },
+        "agreementIds": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "assetIds": {
+          "items": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        "birthday": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "bodyColorId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "bodyTypeScale": {
+          "format": "double",
+          "type": "number"
+        },
+        "captchaId": {
+          "type": "string"
+        },
+        "captchaProvider": {
+          "type": "string"
+        },
+        "captchaToken": {
+          "type": "string"
+        },
+        "challengeId": {
+          "type": "string"
+        },
+        "dataToken": {
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "gender": {
+          "description": " ['Unknown' = 1, 'Male' = 2, 'Female' = 3]",
+          "enum": [
+            1,
+            2,
+            3
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "headScale": {
+          "format": "double",
+          "type": "number"
+        },
+        "heightScale": {
+          "format": "double",
+          "type": "number"
+        },
+        "identityVerificationResultToken": {
+          "type": "string"
+        },
+        "isTosAgreementBoxChecked": {
+          "type": "boolean"
+        },
+        "locale": {
+          "type": "string"
+        },
+        "otpSession": {
+          "$ref": "#/definitions/Roblox.Authentication.Api.Models.Request.OtpSessionModel"
+        },
+        "password": {
+          "type": "string"
+        },
+        "proportionScale": {
+          "format": "double",
+          "type": "number"
+        },
+        "referralData": {
+          "$ref": "#/definitions/Roblox.Authentication.Api.Models.ReferralDataModel"
+        },
+        "secureAuthenticationIntent": {
+          "$ref": "#/definitions/Roblox.Authentication.Api.Models.Request.SecureAuthenticationIntentModel"
+        },
+        "username": {
+          "type": "string"
+        },
+        "widthScale": {
+          "format": "double",
+          "type": "number"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Authentication.Api.Models.SignupResponse": {
+      "properties": {
+        "accountBlob": {
+          "type": "string"
+        },
+        "returnUrl": {
+          "type": "string"
+        },
+        "starterPlaceId": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "userId": {
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Authentication.Api.Models.SocialAuthenticationDisconnectRequest": {
+      "properties": {
+        "Password": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Authentication.Api.Models.SocialProvidersResponse": {
+      "properties": {
+        "providers": {
+          "items": {
+            "$ref": "#/definitions/Roblox.Authentication.Api.Models.ProviderInfoModel"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Authentication.Api.Models.TwoStepVerificationMetadataResponse": {
+      "properties": {
+        "codeLength": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "loadingImageUrl": {
+          "type": "string"
+        },
+        "supportUrl": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Authentication.Api.Models.TwoStepVerificationSentResponse": {
+      "properties": {
+        "mediaType": {
+          "description": " ['Email' = 0, 'SMS' = 1, 'Authenticator' = 2, 'RecoveryCode' = 3, 'SecurityKey' = 4, 'CrossDevice' = 5]",
+          "enum": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "ticket": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Authentication.Api.Models.TwoStepVerificationTicketRequest": {
+      "properties": {
+        "actionType": {
+          "description": " ['Unknown' = 0, 'Login' = 1, 'RobuxSpend' = 2, 'ItemTrade' = 3, 'Resale' = 4, 'PasswordReset' = 5, 'RevertAccount' = 6, 'Generic' = 7, 'GenericWithRecoveryCodes' = 8]",
+          "enum": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "ticket": {
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Authentication.Api.Models.TwoStepVerificationVerifyRequest": {
+      "properties": {
+        "actionType": {
+          "description": " ['Unknown' = 0, 'Login' = 1, 'RobuxSpend' = 2, 'ItemTrade' = 3, 'Resale' = 4, 'PasswordReset' = 5, 'RevertAccount' = 6, 'Generic' = 7, 'GenericWithRecoveryCodes' = 8]",
+          "enum": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "code": {
+          "type": "string"
+        },
+        "rememberDevice": {
+          "type": "boolean"
+        },
+        "ticket": {
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Authentication.Api.Models.UsernameChangeRequest": {
+      "properties": {
+        "password": {
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Authentication.Api.Models.UsernameValidationRequest": {
+      "properties": {
+        "birthday": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "context": {
+          "enum": [
+            0,
+            1,
+            2
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "username": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Authentication.Api.Models.UsernameValidationResponse": {
+      "properties": {
+        "code": {
+          "description": " ['ValidUsername' = 0, 'AlreadyInUseError' = 1, 'ModerationError' = 2, 'InvalidLengthError' = 3, 'StartsOrEndsWithUnderscoreError' = 4, 'TooManyUnderscoresError' = 5, 'ContainsSpacesError' = 6, 'InvalidCharactersError' = 7, 'ContainsPiiError' = 10, 'ContainsReservedUsernameError' = 12]",
+          "enum": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            10,
+            12
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Authentication.Api.Models.UsernamesResponse": {
+      "properties": {
+        "usernames": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Authentication.Api.Models.XboxCollectionsOfUserResponse": {
+      "properties": {
+        "Users": {
+          "items": {
+            "$ref": "#/definitions/Roblox.Authentication.Api.Models.XboxUserModel"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Authentication.Api.Models.XboxConnectionModel": {
+      "properties": {
+        "hasConnectedXboxAccount": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Authentication.Api.Models.XboxLoginConsecutiveDaysResponse": {
+      "properties": {
+        "count": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Authentication.Api.Models.XboxTranslateRequest": {
+      "properties": {
+        "ids": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Authentication.Api.Models.XboxUserModel": {
+      "properties": {
+        "Id": {
+          "type": "string"
+        },
+        "UserId": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "Username": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Web.Responses.Users.SkinnyUserResponse": {
+      "properties": {
+        "displayName": {
+          "type": "string"
+        },
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Web.WebAPI.ApiEmptyResponseModel": {
+      "type": "object"
+    },
+    "Roblox.Web.WebAPI.Models.ApiSuccessResponse": {
+      "properties": {
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "host": "auth.roblox.com",
+  "info": {
+    "title": "Authentication Api v1",
+    "version": "v1"
+  },
+  "paths": {
+    "/v1/account/pin": {
+      "delete": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "requestBody",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Authentication.Api.Models.AccountPinRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "AccountPin:DeleteAccountPin"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.Models.ApiSuccessResponse"
+            }
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed"
+          }
+        },
+        "summary": "Request for deletes the account pin from the account.",
+        "tags": [
+          "AccountPin"
+        ]
+      },
+      "get": {
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "AccountPin:GetAccountPinStatus"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Authentication.Api.Models.AccountPinStatusResponse"
+            }
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          }
+        },
+        "summary": "Gets the account pin status. If the account pin is valid, this returns the time in seconds until when the account pin is unlocked.",
+        "tags": [
+          "AccountPin"
+        ]
+      },
+      "patch": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "description": "The request body.",
+            "in": "body",
+            "name": "requestBody",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Authentication.Api.Models.AccountPinRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "AccountPin:UpdateAccountPin"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.Models.ApiSuccessResponse"
+            }
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed"
+          }
+        },
+        "summary": "Request made to update the account pin on the account.",
+        "tags": [
+          "AccountPin"
+        ]
+      },
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "description": "The Roblox.Authentication.Api.Models.AccountPinRequest.",
+            "in": "body",
+            "name": "requestBody",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Authentication.Api.Models.AccountPinRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "AccountPin:NewAccountPin"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.Models.ApiSuccessResponse"
+            }
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed"
+          }
+        },
+        "summary": "Reuqest to create the account pin.",
+        "tags": [
+          "AccountPin"
+        ]
+      }
+    },
+    "/v1/account/pin/lock": {
+      "post": {
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "AccountPin:LockAccountPin"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.Models.ApiSuccessResponse"
+            }
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed"
+          }
+        },
+        "summary": "Request to locks the account which has an account pin enabled.",
+        "tags": [
+          "AccountPin"
+        ]
+      }
+    },
+    "/v1/account/pin/unlock": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "description": "The Roblox.Authentication.Api.Models.AccountPinRequest containing the entered pin.",
+            "in": "body",
+            "name": "requestBody",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Authentication.Api.Models.AccountPinRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "AccountPin:UnlockAccountPin"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Authentication.Api.Models.AccountPinResponse"
+            }
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed"
+          }
+        },
+        "summary": "Requests to unlock the account pin.",
+        "tags": [
+          "AccountPin"
+        ]
+      }
+    },
+    "/v1/auth/metadata": {
+      "get": {
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Authentication:GetMetaData"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Authentication.Api.Models.AuthMetaDataResponse"
+            }
+          }
+        },
+        "summary": "Gets Auth meta data",
+        "tags": [
+          "Authentication"
+        ]
+      }
+    },
+    "/v1/client-assertion": {
+      "get": {
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "AuthenticationTicket:GetClientAssertion"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Authentication.Api.Models.Response.GetClientAssertionResponse"
+            }
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          }
+        },
+        "summary": "Creates a client assertion to be used when generating an auth ticket.",
+        "tags": [
+          "AuthenticationTicket"
+        ]
+      }
+    },
+    "/v1/external/access": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Authentication.Api.Models.Request.ExternalAccessRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "ExternalIdentitiesGateway:Access"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Authentication.Api.Models.Response.ExternalIdentityGateway.ExternalIdentityAccessResponse"
+            }
+          }
+        },
+        "summary": "Signs a user up for Roblox and links the account to the authenticated external provider ID.",
+        "tags": [
+          "ExternalIdentitiesGateway"
+        ]
+      }
+    },
+    "/v1/external/login": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Authentication.Api.Models.Request.ExternalLoginRequest"
+            }
+          }
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "ExternalIdentitiesGateway:Login"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "403": {
+            "description": "0: Token Validation Failed"
+          }
+        },
+        "summary": "Logs in a user to Roblox based on the user's authenticated external provider session",
+        "tags": [
+          "ExternalIdentitiesGateway"
+        ]
+      }
+    },
+    "/v1/external/loginAndLink": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Authentication.Api.Models.Request.ExternalLoginAndLinkRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "ExternalIdentitiesGateway:LoginAndLink"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Authentication.Api.Models.LoginResponse"
+            }
+          },
+          "403": {
+            "description": "0: Token Validation Failed"
+          }
+        },
+        "summary": "Logins in a user to Roblox, then links the Roblox account to the external provider ID",
+        "tags": [
+          "ExternalIdentitiesGateway"
+        ]
+      }
+    },
+    "/v1/external/signup": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Authentication.Api.Models.Request.ExternalSignupRequest"
+            }
+          }
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "ExternalIdentitiesGateway:Signup"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "403": {
+            "description": "0: Token Validation Failed"
+          }
+        },
+        "summary": "Signs a user up for Roblox and links the account to the authenticated external provider ID",
+        "tags": [
+          "ExternalIdentitiesGateway"
+        ]
+      }
+    },
+    "/v1/external/unlink": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Authentication.Api.Models.Request.ExternalUnlinkRequest"
+            }
+          }
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "ExternalIdentitiesGateway:Unlink"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "403": {
+            "description": "0: Token Validation Failed"
+          }
+        },
+        "summary": "Unlink the logged in Roblox account from the current external provider ID",
+        "tags": [
+          "ExternalIdentitiesGateway"
+        ]
+      }
+    },
+    "/v1/identity-verification/login": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "description": "",
+            "in": "body",
+            "name": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Authentication.Api.Models.Request.IdentityVerificationLoginRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "IdentityVerification:Login"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.ApiEmptyResponseModel"
+            }
+          },
+          "403": {
+            "description": "0: Token Validation Failed\r\n1: Invalid login ticket.\r\n2: Invalid result token.\r\n3: Invalid user.\r\n4: Authentication failure."
+          }
+        },
+        "summary": "Endpoint for login with identity verification",
+        "tags": [
+          "IdentityVerification"
+        ]
+      }
+    },
+    "/v1/identity/initialize-login": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "initializeLoginRequest",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Authentication.Api.Models.Request.InitializeLoginRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Identifier:InitializeLogin"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Authentication.Api.Models.Response.InitializeLoginResponse"
+            }
+          },
+          "400": {
+            "description": "3: User identifier and type are required."
+          },
+          "403": {
+            "description": "0: Token Validation Failed\r\n2: Invalid user identifier."
+          },
+          "500": {
+            "description": "0: An unknown error occurred."
+          },
+          "503": {
+            "description": "1: This feature is disabled."
+          }
+        },
+        "summary": "Initiates identifier-first login flow by returning a list of login methods for user(s).",
+        "tags": [
+          "Identifier"
+        ]
+      }
+    },
+    "/v1/login": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "description": "Roblox.Authentication.Api.Models.LoginRequest.",
+            "in": "body",
+            "name": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Authentication.Api.Models.LoginRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Authentication:Login"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Authentication.Api.Models.LoginResponse"
+            }
+          },
+          "400": {
+            "description": "0: An unexpected error occurred.\r\n3: Username and Password are required. Please try again.\r\n8: Login with received credential type is not supported."
+          },
+          "403": {
+            "description": "0: Token Validation Failed\r\n1: Incorrect username or password. Please try again.\r\n2: You must pass the robot test before logging in.\r\n4: Account has been locked. Please request a password reset.\r\n5: Unable to login. Please use Social Network sign on.\r\n6: Account issue. Please contact Support.\r\n9: Unable to login with provided credentials. Default login is required.\r\n10: Received credentials are unverified.\r\n12: Existing login session found. Please log out first.\r\n14: The account is unable to log in. Please log in to the LuoBu app.\r\n15: Too many attempts. Please wait a bit.\r\n27: The account is unable to login. Please log in with the VNG app."
+          },
+          "429": {
+            "description": "7: Too many attempts. Please wait a bit."
+          },
+          "503": {
+            "description": "11: Service unavailable. Please try again."
+          }
+        },
+        "summary": "Authenticates a user.",
+        "tags": [
+          "Authentication"
+        ]
+      }
+    },
+    "/v1/logout": {
+      "post": {
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Authentication:LogOut"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.ApiEmptyResponseModel"
+            }
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed"
+          }
+        },
+        "summary": "Destroys the current authentication session.",
+        "tags": [
+          "Authentication"
+        ]
+      }
+    },
+    "/v1/logoutfromallsessionsandreauthenticate": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Authentication.Api.Models.Request.LogoutFromAllSessionsAndReauthenticateRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Authentication:LogoutFromAllSessionsAndReauthenticate"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.ApiEmptyResponseModel"
+            }
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed"
+          }
+        },
+        "summary": "Logs out user from all other sessions.",
+        "tags": [
+          "Authentication"
+        ]
+      }
+    },
+    "/v1/metadata": {
+      "get": {
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Metadata:GetMetadata"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Authentication.Api.Models.MetadataResponse"
+            }
+          }
+        },
+        "summary": "Get the metadata",
+        "tags": [
+          "Metadata"
+        ]
+      }
+    },
+    "/v1/passkey/DeleteCredentialBatch": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "description": "The request body!:DisableTwoStepVerificationRequest.",
+            "in": "body",
+            "name": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Authentication.Api.Models.Request.DeletePasskeysRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Passkeys:DeletePasskeys"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.ApiEmptyResponseModel"
+            }
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request.\r\n0: An unknown error occurred with the request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed"
+          },
+          "503": {
+            "description": "2: Feature disabled."
+          }
+        },
+        "summary": "Disables a batch of credentials for the specified user.",
+        "tags": [
+          "Passkeys"
+        ]
+      }
+    },
+    "/v1/passkey/FinishRegistration": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "description": "The request body.Roblox.Authentication.Api.Models.Request.FinishPasskeyRegistrationRequest.",
+            "in": "body",
+            "name": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Authentication.Api.Models.Request.FinishPasskeyRegistrationRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Passkeys:FinishRegistration"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.ApiEmptyResponseModel"
+            }
+          },
+          "400": {
+            "description": "0: An unknown error occurred with the request.\r\n3: Invalid security key nickname."
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request.\r\n0: An unknown error occurred with the request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed\r\n3: Invalid security key nickname."
+          },
+          "503": {
+            "description": "2: Feature disabled."
+          }
+        },
+        "summary": "Complete Passkey registration by providing credential creation options.",
+        "tags": [
+          "Passkeys"
+        ]
+      }
+    },
+    "/v1/passkey/ListCredentials": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Authentication.Api.Models.Request.ListPasskeysRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Passkeys:ListPassKey"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Authentication.Api.Models.Response.ListPasskeyCredentialResponse"
+            }
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request.\r\n0: An unknown error occurred with the request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed"
+          },
+          "503": {
+            "description": "2: Feature disabled."
+          }
+        },
+        "summary": "List a user's registered passkeys.",
+        "tags": [
+          "Passkeys"
+        ]
+      }
+    },
+    "/v1/passkey/StartAuthentication": {
+      "post": {
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Passkeys:StartAuthentication"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Authentication.Api.Models.Response.StartAuthenticationResponse"
+            }
+          },
+          "403": {
+            "description": "0: Token Validation Failed"
+          },
+          "503": {
+            "description": "2: Feature disabled."
+          }
+        },
+        "summary": "Provides a challenge for the Passkey to authenticate.",
+        "tags": [
+          "Passkeys"
+        ]
+      }
+    },
+    "/v1/passkey/StartRegistration": {
+      "post": {
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Passkeys:StartRegistration"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Authentication.Api.Models.Response.StartPasskeyRegistrationResponse"
+            }
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request.\r\n0: An unknown error occurred with the request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed\r\n1: Reached limit of pass keys registered."
+          },
+          "503": {
+            "description": "2: Feature disabled."
+          }
+        },
+        "summary": "Initiates  Passkey registration by providing credential creation options.",
+        "tags": [
+          "Passkeys"
+        ]
+      }
+    },
+    "/v1/passkey/start-authentication-by-user": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Authentication.Api.Models.Request.StartAuthenticationByUserRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Passkeys:StartAuthenticationByUser"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Authentication.Api.Models.Response.StartAuthenticationByUserResponse"
+            }
+          },
+          "400": {
+            "description": "5: User identifier and type are required.\r\n6: Multi-user passkey authentication is not supported for this credential type."
+          },
+          "403": {
+            "description": "0: Token Validation Failed\r\n4: No passkeys registered for any users found."
+          },
+          "503": {
+            "description": "2: Feature disabled."
+          }
+        },
+        "summary": "Initializes passkey authentication for the user(s) corresponding to the identifier provided.",
+        "tags": [
+          "Passkeys"
+        ]
+      }
+    },
+    "/v1/passwords/validate": {
+      "get": {
+        "parameters": [
+          {
+            "in": "query",
+            "name": "Username",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "Password",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "PasswordsV2:ValidateFromUri"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Authentication.Api.Models.PasswordValidationResponse"
+            }
+          },
+          "400": {
+            "description": "1: Valid Username and Password are required. Please try again."
+          }
+        },
+        "summary": "Endpoint for checking if a password is valid.",
+        "tags": [
+          "PasswordsV2"
+        ]
+      },
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "description": "The Roblox.Authentication.Api.Models.PasswordValidationModel.",
+            "in": "body",
+            "name": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Authentication.Api.Models.PasswordValidationModel"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "PasswordsV2:ValidateFromBody"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Authentication.Api.Models.PasswordValidationResponse"
+            }
+          },
+          "400": {
+            "description": "1: Valid Username and Password are required. Please try again."
+          },
+          "403": {
+            "description": "0: Token Validation Failed"
+          }
+        },
+        "summary": "Endpoint for checking if a password is valid.",
+        "tags": [
+          "PasswordsV2"
+        ]
+      }
+    },
+    "/v1/recovery/metadata": {
+      "get": {
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Recovery:GetMetadata"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Authentication.Api.Models.RecoveryMetadataResponse"
+            }
+          },
+          "503": {
+            "description": "7: The Roblox WeChat API is currently unavailable."
+          }
+        },
+        "summary": "Get metadata for forgot endpoints",
+        "tags": [
+          "Recovery"
+        ]
+      }
+    },
+    "/v1/revert/account": {
+      "get": {
+        "parameters": [
+          {
+            "description": "Ticket Guid to revert account.",
+            "in": "query",
+            "name": "ticket",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Revert:RevertAccountInfo"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Authentication.Api.Models.RevertAccountInfoResponse"
+            }
+          },
+          "400": {
+            "description": "2: The account revert ticket is not valid"
+          },
+          "503": {
+            "description": "1: This feature is disabled"
+          }
+        },
+        "summary": "Get Revert Account ticket info",
+        "tags": [
+          "Revert"
+        ]
+      },
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "description": "The Roblox.Authentication.Api.Models.RevertAccountSubmitRequest containing the necessary information to revert account.",
+            "in": "body",
+            "name": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Authentication.Api.Models.RevertAccountSubmitRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Revert:RevertAccountSubmit"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Authentication.Api.Models.LoginResponse"
+            }
+          },
+          "400": {
+            "description": "2: The account revert ticket is not valid\r\n3: Password is not valid\r\n4: Passwords do not match\r\n5: Password cannot be used\r\n8: The account security ticket is expired."
+          },
+          "403": {
+            "description": "0: Token Validation Failed"
+          },
+          "503": {
+            "description": "0: Unknown\r\n1: This feature is disabled"
+          }
+        },
+        "summary": "Submit Revert Account Request",
+        "tags": [
+          "Revert"
+        ]
+      }
+    },
+    "/v1/signup": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "description": "Roblox.Authentication.Api.Models.SignupRequest",
+            "in": "body",
+            "name": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Authentication.Api.Models.SignupRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Signup:Signup"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Authentication.Api.Models.SignupResponse"
+            }
+          },
+          "400": {
+            "description": "Bad request\r\n16: User agreement ids are null.\r\n21: Empty account switch blob required"
+          },
+          "403": {
+            "description": "0: Token Validation Failed\r\n2: Captcha Failed.\r\n4: Invalid Birthday.\r\n5: Invalid Username.\r\n6: Username already taken.\r\n7: Invalid Password.\r\n8: Password and Username are same.\r\n9: Password is too simple.\r\n10: Email is invalid.\r\n11: Asset is invalid.\r\n12: Too many attempts. Please wait a bit.\r\n17: One time Passcode session was not valid\r\n22: Maximum logged in accounts limit reached."
+          },
+          "429": {
+            "description": "3: Too many attempts. Please wait a bit."
+          },
+          "500": {
+            "description": "Internal server error\r\n15: Insert acceptances failed."
+          },
+          "503": {
+            "description": "Service unavailable"
+          }
+        },
+        "summary": "Endpoint for signing up a new user",
+        "tags": [
+          "Signup"
+        ]
+      }
+    },
+    "/v1/social/connected-providers": {
+      "get": {
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "SocialAuthentication:Providers"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Authentication.Api.Models.SocialProvidersResponse"
+            }
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          }
+        },
+        "summary": "Get social network user information if the given social auth method is connected to current user.",
+        "tags": [
+          "SocialAuthentication"
+        ]
+      }
+    },
+    "/v1/social/{provider}/disconnect": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "description": "The social authentication provider, e.g. Facebook",
+            "in": "path",
+            "name": "provider",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The request body for additional parameters that may be required for disconnect",
+            "in": "body",
+            "name": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Authentication.Api.Models.SocialAuthenticationDisconnectRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "SocialAuthentication:Disconnect"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.ApiEmptyResponseModel"
+            }
+          },
+          "400": {
+            "description": "Bad request\r\n2: Unsupported social provider type."
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "Forbidden\r\n0: Token Validation Failed\r\n3: Cannot disconnect the only authentication method. Password on account is required.\r\n4: The password provided is invalid."
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        },
+        "summary": "Removes the given social authentication method from current Roblox user if it is connected.",
+        "tags": [
+          "SocialAuthentication"
+        ]
+      }
+    },
+    "/v1/twostepverification/metadata": {
+      "get": {
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "TwoStepVerification:GetMetadata"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Authentication.Api.Models.TwoStepVerificationMetadataResponse"
+            }
+          }
+        },
+        "summary": "Get metadata for two step verification",
+        "tags": [
+          "TwoStepVerification"
+        ]
+      }
+    },
+    "/v1/twostepverification/resend": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "description": "The request.",
+            "in": "body",
+            "name": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Authentication.Api.Models.TwoStepVerificationTicketRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "TwoStepVerification:Resend"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Authentication.Api.Models.TwoStepVerificationSentResponse"
+            }
+          },
+          "400": {
+            "description": "1: User is invalid.\r\n5: Invalid two step verification ticket.\r\n7: The action is unsupported."
+          },
+          "403": {
+            "description": "0: Token Validation Failed"
+          },
+          "429": {
+            "description": "3: Too many attempts. Please try again later."
+          },
+          "500": {
+            "description": "4: Account issue. Please contact Support."
+          },
+          "503": {
+            "description": "2: The two step verification feature is not enabled at this time."
+          }
+        },
+        "summary": "Resends a two step verification code.",
+        "tags": [
+          "TwoStepVerification"
+        ]
+      }
+    },
+    "/v1/twostepverification/verify": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "description": "The request model containing information needed to verify with two step verification.",
+            "in": "body",
+            "name": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Authentication.Api.Models.TwoStepVerificationVerifyRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "TwoStepVerification:Verify"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.ApiEmptyResponseModel"
+            }
+          },
+          "400": {
+            "description": "1: User is invalid.\r\n5: Invalid two step verification ticket.\r\n6: The code is invalid.\r\n7: The action is unsupported."
+          },
+          "403": {
+            "description": "0: Token Validation Failed"
+          },
+          "429": {
+            "description": "3: Too many attempts. Please try again later."
+          },
+          "503": {
+            "description": "2: The two step verification feature is not enabled at this time."
+          }
+        },
+        "summary": "Verifies a two step verification code.",
+        "tags": [
+          "TwoStepVerification"
+        ]
+      }
+    },
+    "/v1/user/passwords/change": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "description": "The current password is needed for verification that the password can be changed.",
+        "parameters": [
+          {
+            "description": "The request model including the current password, and the new password.",
+            "in": "body",
+            "name": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Authentication.Api.Models.PasswordChangeModel"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Passwords:ChangePassword"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.ApiEmptyResponseModel"
+            }
+          },
+          "400": {
+            "description": "Roblox.Web.Authentication.Passwords.PasswordResponseCodes.InvalidCurrentPassword\r\n            OR\r\n            Roblox.Web.Authentication.Passwords.PasswordResponseCodes.InvalidPassword"
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "Roblox.Web.Authentication.Passwords.PasswordResponseCodes.PinLocked\r\n0: Token Validation Failed"
+          },
+          "429": {
+            "description": "Roblox.Web.Authentication.Passwords.PasswordResponseCodes.Flooded"
+          }
+        },
+        "summary": "Changes the password for the authenticated user.",
+        "tags": [
+          "Passwords"
+        ]
+      }
+    },
+    "/v1/username": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "description": "The Roblox.Authentication.Api.Models.UsernameChangeRequest",
+            "in": "body",
+            "name": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Authentication.Api.Models.UsernameChangeRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "UsernameChange:ChangeUsername"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.ApiEmptyResponseModel"
+            }
+          },
+          "400": {
+            "description": "5: You don't have enough Robux to change your username.\r\n10: This username is already in use\r\n11: Username not appropriate for Roblox\r\n12: Usernames can be 3 to 20 characters long\r\n13: Usernames can’t start or end with _ and can have at most one _\r\n14: Only a-z, A-Z, 0-9, and _ are allowed\r\n15: Username is null\r\n16: Username might contain private information\r\n17: This username is not available\r\n18: Username is same as current"
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed\r\n1: PIN is locked.\r\n2: A verified email is missing\r\n3: Your password is incorrect.\r\n100: Unknown birthday"
+          },
+          "500": {
+            "description": "0: An unknown error occured.\r\n5: You don't have enough Robux to change your username."
+          },
+          "503": {
+            "description": "4: The feature is currently not available. Please try again later."
+          }
+        },
+        "summary": "Change the user's username",
+        "tags": [
+          "UsernameChange"
+        ]
+      }
+    },
+    "/v1/usernames": {
+      "get": {
+        "description": "This endpoint can be expanded in the future to include other query parameters such as \"startsWith\"",
+        "parameters": [
+          {
+            "description": "The username",
+            "in": "query",
+            "name": "username",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Usernames:Get"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Authentication.Api.Models.UsernamesResponse"
+            }
+          }
+        },
+        "summary": "Gets a list of existing usernames on Roblox based on the query parameters",
+        "tags": [
+          "Usernames"
+        ]
+      }
+    },
+    "/v1/usernames/recover": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "description": "",
+            "in": "body",
+            "name": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Authentication.Api.Models.RecoverUsernameRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Usernames:RecoverUsername"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Authentication.Api.Models.RecoverUsernameResponse"
+            }
+          },
+          "400": {
+            "description": "20: Invalid Email\r\n21: Invalid Phone\r\n23: No Account Found"
+          },
+          "403": {
+            "description": "0: Token Validation Failed\r\n11: Too many attempts. Please wait a bit."
+          },
+          "500": {
+            "description": "0: An unexpected error occurred."
+          }
+        },
+        "summary": "Sends an email of all accounts belonging to an email",
+        "tags": [
+          "Usernames"
+        ]
+      }
+    },
+    "/v1/usernames/validate": {
+      "get": {
+        "parameters": [
+          {
+            "in": "query",
+            "name": "Username",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "format": "date-time",
+            "in": "query",
+            "name": "Birthday",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "enum": [
+              0,
+              1,
+              2
+            ],
+            "format": "int32",
+            "in": "query",
+            "name": "Context",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Usernames:ValidateFromUri"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Authentication.Api.Models.UsernameValidationResponse"
+            }
+          },
+          "400": {
+            "description": "1: A valid username is required.\r\n2: A valid birthday or authenticated user is required."
+          }
+        },
+        "summary": "Checks if a username is valid.",
+        "tags": [
+          "Usernames"
+        ]
+      },
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "description": "The Roblox.Authentication.Api.Models.UsernameValidationRequest.",
+            "in": "body",
+            "name": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Authentication.Api.Models.UsernameValidationRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Usernames:ValidateFromBody"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Authentication.Api.Models.UsernameValidationResponse"
+            }
+          },
+          "400": {
+            "description": "1: A valid username is required.\r\n2: A valid birthday or authenticated user is required."
+          },
+          "403": {
+            "description": "0: Token Validation Failed"
+          }
+        },
+        "summary": "Checks if a username is valid.",
+        "tags": [
+          "Usernames"
+        ]
+      }
+    },
+    "/v1/validators/email": {
+      "get": {
+        "parameters": [
+          {
+            "in": "query",
+            "name": "Email",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Validators:IsEmailValid"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Authentication.Api.Models.EmailValidationResponse"
+            }
+          }
+        },
+        "summary": "Tries to check if an email is valid",
+        "tags": [
+          "Validators"
+        ]
+      }
+    },
+    "/v1/validators/recommendedUsernameFromDisplayName": {
+      "get": {
+        "parameters": [
+          {
+            "in": "query",
+            "name": "DisplayName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "format": "date-time",
+            "in": "query",
+            "name": "BirthDay",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Validators:GetRecommendedUsernameFromDisplayName"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Authentication.Api.Models.RecommendedUsernameResponse"
+            }
+          }
+        },
+        "summary": "Validates the given display name, and if valid, will convert it to a valid username and return suggested username(s) if available.",
+        "tags": [
+          "Validators"
+        ]
+      },
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "requestBody",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Authentication.Api.Models.RecommendedUsernameFromDisplayNameRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Validators:PostRecommendedUsernameFromDisplayName"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Authentication.Api.Models.RecommendedUsernameResponse"
+            }
+          },
+          "403": {
+            "description": "0: Token Validation Failed"
+          }
+        },
+        "summary": "Validates the given display name, and if valid, will convert it to a valid username and return suggested username(s) if available.\r\n            \r\nThis is a POST request and explicitly does not receive the parameter values from the query",
+        "tags": [
+          "Validators"
+        ]
+      }
+    },
+    "/v1/validators/username": {
+      "get": {
+        "parameters": [
+          {
+            "in": "query",
+            "name": "Username",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "format": "date-time",
+            "in": "query",
+            "name": "BirthDay",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Validators:GetRecommendedUsername"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Authentication.Api.Models.RecommendedUsernameResponse"
+            }
+          }
+        },
+        "summary": "Tries to get a valid username if the current username is taken",
+        "tags": [
+          "Validators"
+        ]
+      },
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "requestBody",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Authentication.Api.Models.RecommendedUsernameRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Validators:PostRecommendedUsername"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Authentication.Api.Models.RecommendedUsernameResponse"
+            }
+          },
+          "403": {
+            "description": "0: Token Validation Failed"
+          }
+        },
+        "summary": "Tries to get a valid username if the current username is taken\r\nThis is a POST request and explicitly does not receive the parameter values from the query",
+        "tags": [
+          "Validators"
+        ]
+      }
+    },
+    "/v1/xbox/connection": {
+      "get": {
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Xbox:GetConnection"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Authentication.Api.Models.XboxConnectionModel"
+            }
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": ""
+          }
+        },
+        "summary": "Check if the current user has an Xbox connected.",
+        "tags": [
+          "Xbox"
+        ]
+      }
+    },
+    "/v1/xbox/disconnect": {
+      "post": {
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Xbox:Disconnect"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.Models.ApiSuccessResponse"
+            }
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "Forbidden\r\n0: Token Validation Failed"
+          }
+        },
+        "summary": "Unlink the current ROBLOX account from the Xbox live account.",
+        "tags": [
+          "Xbox"
+        ]
+      }
+    },
+    "/v1/xbox/get-login-consecutive-days": {
+      "get": {
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Xbox:GetXboxUserLoginConsecutiveDays"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Authentication.Api.Models.XboxLoginConsecutiveDaysResponse"
+            }
+          },
+          "400": {
+            "description": "36: Invalid Xbox Live Account"
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": ""
+          }
+        },
+        "summary": "Get the consecutive days the xbox user has been logged in.",
+        "tags": [
+          "Xbox"
+        ]
+      }
+    },
+    "/v1/xbox/translate": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "xboxTranslateRequest",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Authentication.Api.Models.XboxTranslateRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Xbox:TranslateGamerTags"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Authentication.Api.Models.XboxCollectionsOfUserResponse"
+            }
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "\r\n0: Token Validation Failed"
+          }
+        },
+        "summary": "Translate the xbox user to roblox user.",
+        "tags": [
+          "Xbox"
+        ]
+      }
+    }
+  },
+  "schemes": [
+    "https"
+  ],
+  "swagger": "2.0"
+}

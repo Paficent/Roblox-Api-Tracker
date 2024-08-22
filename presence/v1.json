@@ -1,0 +1,224 @@
+{
+  "definitions": {
+    "Roblox.Presence.Api.Models.Request.LastOnlineRequest": {
+      "description": "Get last online timestamps request model",
+      "properties": {
+        "userIds": {
+          "description": "list of userIds to get last online data for.",
+          "items": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Presence.Api.Models.Request.UserPresenceRequest": {
+      "description": "Get users presences request model",
+      "properties": {
+        "userIds": {
+          "description": "list of userIds to get presence for",
+          "items": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Presence.Api.Models.Response.LastOnline": {
+      "description": "Last online data for given user id.",
+      "properties": {
+        "lastOnline": {
+          "description": "Last seen datetime",
+          "format": "date-time",
+          "type": "string"
+        },
+        "userId": {
+          "description": "user Id",
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Presence.Api.Models.Response.LastOnlineResponse": {
+      "description": "Last online endpoint response model.",
+      "properties": {
+        "lastOnlineTimestamps": {
+          "description": "List of last online timestamps.",
+          "items": {
+            "$ref": "#/definitions/Roblox.Presence.Api.Models.Response.LastOnline"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Presence.Api.Models.Response.UserPresence": {
+      "description": "",
+      "properties": {
+        "gameId": {
+          "description": "game Id",
+          "format": "uuid",
+          "type": "string"
+        },
+        "invisibleModeExpiry": {
+          "description": "Time until invisible mode expires.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "lastLocation": {
+          "description": "user's last location",
+          "type": "string"
+        },
+        "lastOnline": {
+          "description": "last seen. Roblox.Time.UtcInstant",
+          "format": "date-time",
+          "type": "string"
+        },
+        "placeId": {
+          "description": "place Id",
+          "format": "int64",
+          "type": "integer"
+        },
+        "rootPlaceId": {
+          "description": "Root place Id",
+          "format": "int64",
+          "type": "integer"
+        },
+        "universeId": {
+          "description": "universe Id",
+          "format": "int64",
+          "type": "integer"
+        },
+        "userId": {
+          "description": "user Id",
+          "format": "int64",
+          "type": "integer"
+        },
+        "userPresenceType": {
+          "description": "User presence Type ['Offline' = 0, 'Online' = 1, 'InGame' = 2, 'InStudio' = 3, 'Invisible' = 4]",
+          "enum": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Presence.Api.Models.Response.UserPresencesResponse": {
+      "description": "User Presences Response model",
+      "properties": {
+        "userPresences": {
+          "description": "A collection of User Presences",
+          "items": {
+            "$ref": "#/definitions/Roblox.Presence.Api.Models.Response.UserPresence"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "host": "presence.roblox.com",
+  "info": {
+    "title": "Presence Api v1",
+    "version": "v1"
+  },
+  "paths": {
+    "/v1/presence/last-online": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "description": "",
+            "in": "body",
+            "name": "lastOnlineRequest",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Presence.Api.Models.Request.LastOnlineRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Presence:GetLastOnlineTimestamps"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Presence.Api.Models.Response.LastOnlineResponse"
+            }
+          }
+        },
+        "summary": "Get last online timestamps for a list of users.",
+        "tags": [
+          "Presence"
+        ]
+      }
+    },
+    "/v1/presence/users": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "description": "",
+            "in": "body",
+            "name": "userPresenceRequest",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Presence.Api.Models.Request.UserPresenceRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Presence:GetUserPresences"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Presence.Api.Models.Response.UserPresencesResponse"
+            }
+          }
+        },
+        "summary": "Get Presence for a list of users",
+        "tags": [
+          "Presence"
+        ]
+      }
+    }
+  },
+  "schemes": [
+    "https"
+  ],
+  "swagger": "2.0"
+}

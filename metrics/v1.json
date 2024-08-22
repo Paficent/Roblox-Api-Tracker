@@ -1,0 +1,219 @@
+{
+  "definitions": {
+    "Roblox.Metrics.Api.RecordBundleLoadRequest": {
+      "description": "Request parameters for tracking a bundle load.",
+      "properties": {
+        "bundleContentType": {
+          "description": "The content type of the bundle. ['Unknown' = 0, 'JavaScript' = 1, 'Css' = 2]",
+          "enum": [
+            0,
+            1,
+            2
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "bundleName": {
+          "description": "The name of the bundle.",
+          "type": "string"
+        },
+        "bundleUrl": {
+          "description": "The bundle url that loaded.",
+          "format": "uri",
+          "type": "string"
+        },
+        "cdnProviderName": {
+          "description": "The CDN that served the bundle.",
+          "type": "string"
+        },
+        "loadState": {
+          "description": "Whether or not the bundle loaded successfully. ['Unknown' = 0, 'LoadSuccess' = 1, 'LoadFailure' = 2, 'ExecutionFailure' = 3]",
+          "enum": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "loadTimeInMilliseconds": {
+          "description": "How long it took to load.",
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Metrics.Api.RecordThumbnailLoadRequest": {
+      "description": "Request to add measurement.",
+      "properties": {
+        "duration": {
+          "description": "The time it took in milliseconds for final thumbnail to load",
+          "format": "int32",
+          "type": "integer"
+        },
+        "loadState": {
+          "description": "The load state. Roblox.Metrics.Api.ThumbnailLoadState ['Unknown' = 0, 'Complete' = 1, 'Timeout' = 2]",
+          "enum": [
+            0,
+            1,
+            2
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "thumbnailType": {
+          "description": "The type of thumbnail.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Metrics.Api.ThumbnailLoadMetadataResponse": {
+      "description": "Response for thumbnail metrics related metadata.",
+      "properties": {
+        "logRatio": {
+          "description": "The probability that the metrics get logged",
+          "format": "double",
+          "type": "number"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Web.WebAPI.ApiEmptyResponseModel": {
+      "type": "object"
+    }
+  },
+  "host": "metrics.roblox.com",
+  "info": {
+    "title": "Metrics Api v1",
+    "version": "v1"
+  },
+  "paths": {
+    "/v1/bundle-metrics/report": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/csp-report"
+        ],
+        "description": "Xsrf protection disabled because this endpoint is supposed to be used\r\nto record static content. It's possible XSRF can't be retried if:\r\n- The XSRF retry JavaScript fails to load (or fails to execute)\r\n- CSS fails to load before JavaScript finishes loading.",
+        "parameters": [
+          {
+            "description": "The Roblox.Metrics.Api.RecordBundleLoadRequest.",
+            "in": "body",
+            "name": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Metrics.Api.RecordBundleLoadRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "BundleMetrics:RecordBundleLoad"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.ApiEmptyResponseModel"
+            }
+          },
+          "400": {
+            "description": "1: The bundle url is invalid."
+          }
+        },
+        "summary": "Records bundle load successes.",
+        "tags": [
+          "BundleMetrics"
+        ]
+      }
+    },
+    "/v1/thumbnails/load": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/csp-report"
+        ],
+        "parameters": [
+          {
+            "description": "The Roblox.Metrics.Api.RecordThumbnailLoadRequest.",
+            "in": "body",
+            "name": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Metrics.Api.RecordThumbnailLoadRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "ThumbnailMetrics:RecordThumbnailLoad"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.ApiEmptyResponseModel"
+            }
+          },
+          "400": {
+            "description": "2: A required parameter is missing from the request"
+          },
+          "403": {
+            "description": "0: Token Validation Failed"
+          }
+        },
+        "summary": "Records the time it takes for a thumbnail to get loaded in the UI.",
+        "tags": [
+          "ThumbnailMetrics"
+        ]
+      }
+    },
+    "/v1/thumbnails/metadata": {
+      "get": {
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "ThumbnailMetrics:Metadata"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Metrics.Api.ThumbnailLoadMetadataResponse"
+            }
+          }
+        },
+        "summary": "Get metadata related to logging thumbnail load metrics.\r\ne.g. ThumbnailLoadLoggingRatio",
+        "tags": [
+          "ThumbnailMetrics"
+        ]
+      }
+    }
+  },
+  "schemes": [
+    "https"
+  ],
+  "swagger": "2.0"
+}

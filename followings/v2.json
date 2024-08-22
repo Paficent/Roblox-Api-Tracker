@@ -1,0 +1,94 @@
+{
+  "definitions": {
+    "Roblox.Followings.Api.Models.FollowsByTypeResponse": {
+      "description": "Data model containing collection of all followed sources of a specific type.",
+      "properties": {
+        "followedSources": {
+          "additionalProperties": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "description": "Followed sources: map of (source ID =\u003e follow date)",
+          "type": "object"
+        },
+        "followerId": {
+          "description": "ID of the follower entity.",
+          "format": "int64",
+          "type": "integer"
+        },
+        "followerType": {
+          "description": "Type of the follower entity. ['Invalid' = 0, 'User' = 1]",
+          "enum": [
+            0,
+            1
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "sourceType": {
+          "description": "Type of the source entity. ['Invalid' = 0, 'Universe' = 1]",
+          "enum": [
+            0,
+            1
+          ],
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "host": "followings.roblox.com",
+  "info": {
+    "title": "Followings Api v2",
+    "version": "v2"
+  },
+  "paths": {
+    "/v2/users/{userId}/universes": {
+      "get": {
+        "parameters": [
+          {
+            "description": "The user ID.",
+            "format": "int64",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "UsersV2:GetUniversesFollowedByUser"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Followings.Api.Models.FollowsByTypeResponse"
+            }
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "User is not authorized for this action."
+          }
+        },
+        "summary": "Gets all universes followed by a user.",
+        "tags": [
+          "UsersV2"
+        ]
+      }
+    }
+  },
+  "schemes": [
+    "https"
+  ],
+  "swagger": "2.0"
+}

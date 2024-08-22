@@ -1,0 +1,1672 @@
+{
+  "definitions": {
+    "Roblox.InGameContentTables.Client.GameLocation": {
+      "properties": {
+        "path": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.LocalizationTables.Api.AutoLocalizationMetadataResponse": {
+      "properties": {
+        "isAutomaticTranslationQuotaUIEnabled": {
+          "description": "Is Quota UI Enabled for Automatic Translations",
+          "type": "boolean"
+        },
+        "isAutomaticTranslationToggleUIEnabled": {
+          "description": "Is Toggle UI Enabled for Automatic Translations",
+          "type": "boolean"
+        },
+        "isReactVersionEnabledForAutoLocalizationSettings": {
+          "description": "Is React Implementation of AutoLocalization Settings Enabled",
+          "type": "boolean"
+        },
+        "isTabbedUIEnabledForConfigureLocalizationPage": {
+          "description": "Is Tabbed UI Enabled for Configure Localization Page",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.LocalizationTables.Api.CreateTableRequest": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "ownerId": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "ownerType": {
+          "enum": [
+            "User",
+            "Group"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.LocalizationTables.Api.CreateTableResponse": {
+      "properties": {
+        "assetId": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "id": {
+          "format": "uuid",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.LocalizationTables.Api.CursorEntryIdentifier": {
+      "description": "A model that contains an entry identifier and an associated cursor for paged lookups.",
+      "properties": {
+        "count": {
+          "description": "The translation history count to get.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "cursor": {
+          "description": "The location to begin our query.",
+          "type": "string"
+        },
+        "identifier": {
+          "$ref": "#/definitions/Roblox.LocalizationTables.Api.EntryIdentifier"
+        },
+        "sortOrder": {
+          "description": "In which order the data is sorted. ['Asc' = 1, 'Desc' = 2]",
+          "enum": [
+            "Asc",
+            "Desc"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.LocalizationTables.Api.Entry": {
+      "properties": {
+        "createdTime": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "identifier": {
+          "$ref": "#/definitions/Roblox.LocalizationTables.Api.EntryIdentifier"
+        },
+        "metadata": {
+          "$ref": "#/definitions/Roblox.LocalizationTables.Api.EntryMetadata"
+        },
+        "translations": {
+          "items": {
+            "$ref": "#/definitions/Roblox.LocalizationTables.Api.Translation"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.LocalizationTables.Api.EntryIdentifier": {
+      "properties": {
+        "context": {
+          "type": "string"
+        },
+        "key": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.LocalizationTables.Api.EntryIdentifierWithTranslation": {
+      "properties": {
+        "context": {
+          "type": "string"
+        },
+        "key": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string"
+        },
+        "translation": {
+          "$ref": "#/definitions/Roblox.LocalizationTables.Api.Translation"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.LocalizationTables.Api.EntryMetadata": {
+      "properties": {
+        "example": {
+          "type": "string"
+        },
+        "gameLocations": {
+          "items": {
+            "$ref": "#/definitions/Roblox.InGameContentTables.Client.GameLocation"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.LocalizationTables.Api.EntryOperationLimits": {
+      "properties": {
+        "maxContextLength": {
+          "description": "Maximum character limit for entry context",
+          "format": "int32",
+          "type": "integer"
+        },
+        "maxExampleLength": {
+          "description": "Maximum character limit for entry example",
+          "format": "int32",
+          "type": "integer"
+        },
+        "maxGameLocationPathLength": {
+          "description": "Maximum character limit for game location path",
+          "format": "int32",
+          "type": "integer"
+        },
+        "maxKeyLength": {
+          "description": "Maximum character limit for entry key",
+          "format": "int32",
+          "type": "integer"
+        },
+        "maxSourceLength": {
+          "description": "Maximum character limit for entry source text",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.LocalizationTables.Api.EntryTranslationFeedback": {
+      "properties": {
+        "feedbackCount": {
+          "description": "The number of unique reporters that send feedback to the given entry identifier.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "identifier": {
+          "$ref": "#/definitions/Roblox.LocalizationTables.Api.EntryIdentifierWithTranslation"
+        },
+        "playerSuggestionText": {
+          "description": "A set of player translation suggestion in text for the given entry identifier.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "reasons": {
+          "description": "A set of translation feedback reasons for the given entry identifier.",
+          "items": {
+            "description": "Enum for translation feedback reason. ['None' = 0, 'Untranslated' = 1, 'Inaccurate' = 2, 'SpellingOrGrammar' = 3, 'Inappropriate' = 4]",
+            "enum": [
+              "None",
+              "Untranslated",
+              "Inaccurate",
+              "SpellingOrGrammar",
+              "Inappropriate"
+            ],
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "robloxSuggestionText": {
+          "description": "Roblox translation suggestion in text for the given entry identifier.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.LocalizationTables.Api.EntryTranslationHistoryPaged": {
+      "properties": {
+        "history": {
+          "description": "A batch of TranslationHistory for the given entry identifier.",
+          "items": {
+            "$ref": "#/definitions/Roblox.LocalizationTables.Api.TranslationHistory"
+          },
+          "type": "array"
+        },
+        "identifier": {
+          "$ref": "#/definitions/Roblox.LocalizationTables.Api.EntryIdentifier"
+        },
+        "nextCursor": {
+          "description": "The cursor to send up on the next request if more history data is required.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.LocalizationTables.Api.Error": {
+      "properties": {
+        "errorCode": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "errorMessage": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.LocalizationTables.Api.FailedEntry": {
+      "properties": {
+        "createdTime": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "error": {
+          "$ref": "#/definitions/Roblox.LocalizationTables.Api.Error"
+        },
+        "identifier": {
+          "$ref": "#/definitions/Roblox.LocalizationTables.Api.EntryIdentifier"
+        },
+        "metadata": {
+          "$ref": "#/definitions/Roblox.LocalizationTables.Api.EntryMetadata"
+        },
+        "translations": {
+          "items": {
+            "$ref": "#/definitions/Roblox.LocalizationTables.Api.Translation"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.LocalizationTables.Api.FailedEntryTranslationHistoryPaged": {
+      "properties": {
+        "count": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "error": {
+          "$ref": "#/definitions/Roblox.LocalizationTables.Api.Error"
+        },
+        "identifier": {
+          "$ref": "#/definitions/Roblox.LocalizationTables.Api.EntryIdentifier"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.LocalizationTables.Api.GameAutolocalizationInformationResponse": {
+      "properties": {
+        "assetId": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "autoLocalizationTableId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "isAutolocalizationEnabled": {
+          "type": "boolean"
+        },
+        "isAutomaticEntriesSettingEnabled": {
+          "type": "boolean"
+        },
+        "shouldUseLocalizationTable": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.LocalizationTables.Api.GetLanguageTranslationCountsForTableResponse": {
+      "description": "Response model for GetLanguageTranslationCountsForTable.",
+      "properties": {
+        "gameId": {
+          "description": "Id of the game that the translation counts were retrieved for.",
+          "format": "int64",
+          "type": "integer"
+        },
+        "languageTranslationCounts": {
+          "description": "The translation counts with relevant language information.",
+          "items": {
+            "$ref": "#/definitions/Roblox.LocalizationTables.Api.LanguageTranslationCount"
+          },
+          "type": "array"
+        },
+        "tableId": {
+          "description": "Id of the table that the translation counts were retrieved for.",
+          "format": "uuid",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.LocalizationTables.Api.GetLimitsResponse": {
+      "properties": {
+        "entryOperationLimits": {
+          "$ref": "#/definitions/Roblox.LocalizationTables.Api.EntryOperationLimits"
+        },
+        "tableOperationLimits": {
+          "$ref": "#/definitions/Roblox.LocalizationTables.Api.TableOperationLimits"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.LocalizationTables.Api.GetTableEntriesPagedResponse": {
+      "properties": {
+        "data": {
+          "items": {
+            "$ref": "#/definitions/Roblox.LocalizationTables.Api.Entry"
+          },
+          "type": "array"
+        },
+        "nextPageCursor": {
+          "type": "string"
+        },
+        "previousPageCursor": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.LocalizationTables.Api.GetTableEntriesTranslationFeedbackRequest": {
+      "description": "A request model for GetTableEntriesTranslationFeedback.",
+      "properties": {
+        "entries": {
+          "description": "entry identifier",
+          "items": {
+            "$ref": "#/definitions/Roblox.LocalizationTables.Api.EntryIdentifierWithTranslation"
+          },
+          "type": "array"
+        },
+        "sourceLocale": {
+          "description": "locale code of source language, we only accept language code at the moment.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.LocalizationTables.Api.GetTableEntriesTranslationFeedbackResponse": {
+      "description": "A response model for GetTableEntriesTranslationFeedback.",
+      "properties": {
+        "entries": {
+          "description": "The entries with their identifier, translation feedback details.",
+          "items": {
+            "$ref": "#/definitions/Roblox.LocalizationTables.Api.EntryTranslationFeedback"
+          },
+          "type": "array"
+        },
+        "tableId": {
+          "description": "The entries' tableId.",
+          "format": "uuid",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.LocalizationTables.Api.GetTableEntriesTranslationHistoryRequest": {
+      "properties": {
+        "entries": {
+          "items": {
+            "$ref": "#/definitions/Roblox.LocalizationTables.Api.CursorEntryIdentifier"
+          },
+          "type": "array"
+        },
+        "locale": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.LocalizationTables.Api.GetTableEntriesTranslationHistoryResponse": {
+      "description": "A response model for GetTableEntriesTranslationHistory.",
+      "properties": {
+        "entries": {
+          "description": "The entries with their identifier, translation history, and next cursor.",
+          "items": {
+            "$ref": "#/definitions/Roblox.LocalizationTables.Api.EntryTranslationHistoryPaged"
+          },
+          "type": "array"
+        },
+        "failedEntries": {
+          "description": "The failed entries.",
+          "items": {
+            "$ref": "#/definitions/Roblox.LocalizationTables.Api.FailedEntryTranslationHistoryPaged"
+          },
+          "type": "array"
+        },
+        "locale": {
+          "description": "The locale of the translations.",
+          "type": "string"
+        },
+        "tableId": {
+          "description": "The entries' tableId.",
+          "format": "uuid",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.LocalizationTables.Api.GetTableEntryCountResponse": {
+      "properties": {
+        "entryCount": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "id": {
+          "format": "uuid",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.LocalizationTables.Api.GetTableResponse": {
+      "properties": {
+        "assetId": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "id": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "ownerId": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "ownerType": {
+          "description": "Enum for valid OwnerTypes. ['User' = 0, 'Group' = 1]",
+          "enum": [
+            "User",
+            "Group"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.LocalizationTables.Api.Language": {
+      "properties": {
+        "languageCode": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "nativeName": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.LocalizationTables.Api.LanguageTranslationCount": {
+      "description": "Model containing a translation count for a language and relevant language information.",
+      "properties": {
+        "locale": {
+          "description": "The locale of the language.",
+          "type": "string"
+        },
+        "translationCount": {
+          "description": "The translation count value.",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.LocalizationTables.Api.LocalizationTablesMetadataResponse": {
+      "properties": {
+        "isAccessToTranslationMetaDataEnabled": {
+          "description": "Is access to translation metadata feature enabled",
+          "type": "boolean"
+        },
+        "isAutomaticTranslationFilterEnabled": {
+          "description": "Is filter for automatic translations on UI is enabled",
+          "type": "boolean"
+        },
+        "isBulkUploadFeatureEnabled": {
+          "description": "Is bulk upload feature enabled",
+          "type": "boolean"
+        },
+        "isCsvDownloadEnabled": {
+          "description": "Is CSV download feature enabled",
+          "type": "boolean"
+        },
+        "isTranslationManagementRedirectionEnabled": {
+          "description": "Is access to translation metadata feature enabled",
+          "type": "boolean"
+        },
+        "isUntranslatedFilterEnabled": {
+          "description": "Is untranslated filter on UI is enabled",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.LocalizationTables.Api.ModifiedEntry": {
+      "properties": {
+        "identifier": {
+          "$ref": "#/definitions/Roblox.LocalizationTables.Api.EntryIdentifier"
+        },
+        "translations": {
+          "items": {
+            "$ref": "#/definitions/Roblox.LocalizationTables.Api.Translation"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.LocalizationTables.Api.PatchEntry": {
+      "properties": {
+        "delete": {
+          "type": "boolean"
+        },
+        "identifier": {
+          "$ref": "#/definitions/Roblox.LocalizationTables.Api.EntryIdentifier"
+        },
+        "metadata": {
+          "$ref": "#/definitions/Roblox.LocalizationTables.Api.EntryMetadata"
+        },
+        "translations": {
+          "items": {
+            "$ref": "#/definitions/Roblox.LocalizationTables.Api.PatchTranslation"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.LocalizationTables.Api.PatchTranslation": {
+      "properties": {
+        "changeAgent": {
+          "$ref": "#/definitions/Roblox.Localizationtables.Localizationtables.V1.ChangeAgent"
+        },
+        "delete": {
+          "type": "boolean"
+        },
+        "locale": {
+          "type": "string"
+        },
+        "translationText": {
+          "type": "string"
+        },
+        "updatedTime": {
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.LocalizationTables.Api.RaiseEventForAutoScrapedEntriesCleanupRequest": {
+      "properties": {
+        "maxAgeForFlush": {
+          "description": "The time range to remove entries from. Following ISO 8601 Durations format",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.LocalizationTables.Api.SetAutolocalizationSettingsForGameRequest": {
+      "properties": {
+        "isAutolocalizationEnabled": {
+          "type": "boolean"
+        },
+        "isAutomaticEntriesSettingEnabled": {
+          "type": "boolean"
+        },
+        "shouldUseLocalizationTable": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.LocalizationTables.Api.SetAutolocalizationTableForGameRequest": {
+      "properties": {
+        "tableId": {
+          "format": "uuid",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.LocalizationTables.Api.TableOperationLimits": {
+      "properties": {
+        "maxEntriesPerUpdate": {
+          "description": "Maximum number of entries for a patch request",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.LocalizationTables.Api.Translation": {
+      "properties": {
+        "feedbackCount": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "locale": {
+          "type": "string"
+        },
+        "translationText": {
+          "type": "string"
+        },
+        "translator": {
+          "$ref": "#/definitions/Roblox.LocalizationTables.Api.Translator"
+        },
+        "updatedTime": {
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.LocalizationTables.Api.TranslationHistory": {
+      "description": "A model containing a translation, translator, and translation time.",
+      "properties": {
+        "created": {
+          "description": "The time the translation was provided.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "translationText": {
+          "description": "The translation provided by the translator.",
+          "type": "string"
+        },
+        "translator": {
+          "$ref": "#/definitions/Roblox.LocalizationTables.Api.Translator"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.LocalizationTables.Api.Translator": {
+      "properties": {
+        "agentType": {
+          "description": " ['User' = 0, 'Automation' = 1]",
+          "enum": [
+            "User",
+            "Automation"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.LocalizationTables.Api.UpdateTableContentsRequest": {
+      "properties": {
+        "entries": {
+          "items": {
+            "$ref": "#/definitions/Roblox.LocalizationTables.Api.PatchEntry"
+          },
+          "type": "array"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.LocalizationTables.Api.UpdateTableContentsResponse": {
+      "properties": {
+        "failedEntriesAndTranslations": {
+          "items": {
+            "$ref": "#/definitions/Roblox.LocalizationTables.Api.FailedEntry"
+          },
+          "type": "array"
+        },
+        "modifiedEntriesAndTranslations": {
+          "items": {
+            "$ref": "#/definitions/Roblox.LocalizationTables.Api.ModifiedEntry"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Localizationtables.Localizationtables.V1.ChangeAgent": {
+      "properties": {
+        "ChangeAgentType": {
+          "description": " ['Invalid' = 0, 'User' = 1, 'Automation' = 2, 'Default' = 3]",
+          "enum": [
+            "Invalid",
+            "User",
+            "Automation",
+            "Default"
+          ],
+          "type": "string"
+        },
+        "Id": {
+          "type": "string"
+        },
+        "OptionalIdCase": {
+          "description": " ['None' = 0, 'Id' = 2]",
+          "enum": [
+            "None",
+            "Id"
+          ],
+          "readOnly": true,
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Web.WebAPI.ApiEmptyResponseModel": {
+      "type": "object"
+    },
+    "Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.LocalizationTables.Api.Language]": {
+      "properties": {
+        "data": {
+          "items": {
+            "$ref": "#/definitions/Roblox.LocalizationTables.Api.Language"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "host": "localizationtables.roblox.com",
+  "info": {
+    "title": "LocalizationTables Api v1",
+    "version": "v1"
+  },
+  "paths": {
+    "/v1/auto-localization-table/games/{gameId}/assets-generation-request": {
+      "post": {
+        "parameters": [
+          {
+            "description": "The game id.",
+            "format": "int64",
+            "in": "path",
+            "name": "gameId",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "AutoLocalizationTable:RaiseEventForAssetRegeneration"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.ApiEmptyResponseModel"
+            }
+          },
+          "400": {
+            "description": "3: Invalid table id.\r\n14: Invalid game id\r\n29: You do not have permission to generate asset for this table.\r\n32: LocalizationTable is not available for the game.\r\n34: Actor provided is invalid"
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed"
+          },
+          "429": {
+            "description": "24: Too many attempts.Please try again later."
+          }
+        },
+        "summary": "Generates localization asset of a game.",
+        "tags": [
+          "AutoLocalizationTable"
+        ]
+      }
+    },
+    "/v1/auto-localization-table/games/{gameId}/auto-scrape-cleanup-request": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "description": "The id of the game.",
+            "format": "int64",
+            "in": "path",
+            "name": "gameId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.LocalizationTables.Api.RaiseEventForAutoScrapedEntriesCleanupRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "AutoLocalizationTable:RaiseEventForAutoScrapedEntriesCleanup"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "400": {
+            "description": "14: Invalid game id\r\n31: You do not have permission to flush auto scraped entries asset for this game.\r\n32: LocalizationTable is not available for the game.\r\n34: Actor provided is invalid"
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed"
+          },
+          "429": {
+            "description": "33: Too many attempts to flush the game.Please try again later."
+          }
+        },
+        "summary": "Enqueues an event to flush the auto scraped entries which doesn't have translations.",
+        "tags": [
+          "AutoLocalizationTable"
+        ]
+      }
+    },
+    "/v1/autolocalization/games/{gameId}/autolocalizationtable": {
+      "patch": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "format": "int64",
+            "in": "path",
+            "name": "gameId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.LocalizationTables.Api.SetAutolocalizationTableForGameRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Autolocalization:SetAutolocalizationTableForGame"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.ApiEmptyResponseModel"
+            }
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed"
+          }
+        },
+        "tags": [
+          "Autolocalization"
+        ]
+      },
+      "post": {
+        "parameters": [
+          {
+            "format": "int64",
+            "in": "path",
+            "name": "gameId",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Autolocalization:GetOrCreateAutolocalizationTableForGame"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.LocalizationTables.Api.GameAutolocalizationInformationResponse"
+            }
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed"
+          }
+        },
+        "tags": [
+          "Autolocalization"
+        ]
+      }
+    },
+    "/v1/autolocalization/games/{gameId}/settings": {
+      "patch": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "description": "The id of the game.",
+            "format": "int64",
+            "in": "path",
+            "name": "gameId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "The request body.",
+            "in": "body",
+            "name": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.LocalizationTables.Api.SetAutolocalizationSettingsForGameRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Autolocalization:SetAutolocalizationSettingsForGame"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.ApiEmptyResponseModel"
+            }
+          },
+          "400": {
+            "description": "14: Invalid game id\r\n61: IsAutomaticEntriesSettingEnabled can only be enabled if IsAutolocalizationEnabled is also enabled."
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed\r\n18: You do not have permission to manage this game"
+          },
+          "503": {
+            "description": "17: Feature is disabled"
+          }
+        },
+        "summary": "Sets a game's auto-localization related settings",
+        "tags": [
+          "Autolocalization"
+        ]
+      }
+    },
+    "/v1/autolocalization/metadata": {
+      "get": {
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Autolocalization:GetMetadata"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.LocalizationTables.Api.AutoLocalizationMetadataResponse"
+            }
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          }
+        },
+        "summary": "Metadata for AutoLocalization Configuration",
+        "tags": [
+          "Autolocalization"
+        ]
+      }
+    },
+    "/v1/localization-table/available-languages": {
+      "get": {
+        "deprecated": true,
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "LocalizationTable:GetSupportedLocalizationTableLanguages"
+          ],
+          "obsoleteMessage": "Use https://gameinternationalization.roblox.com/v1/supported-languages/games/{gameId} instead"
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.LocalizationTables.Api.Language]"
+            }
+          }
+        },
+        "summary": "Gets the supported language codes that can be used by localization tables.",
+        "tags": [
+          "LocalizationTable"
+        ]
+      }
+    },
+    "/v1/localization-table/limits": {
+      "get": {
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "LocalizationTable:GetLimits"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.LocalizationTables.Api.GetLimitsResponse"
+            }
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          }
+        },
+        "summary": "Get limits for translation table entries operations",
+        "tags": [
+          "LocalizationTable"
+        ]
+      }
+    },
+    "/v1/localization-table/metadata": {
+      "get": {
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "LocalizationTable:GetMetadata"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.LocalizationTables.Api.LocalizationTablesMetadataResponse"
+            }
+          }
+        },
+        "summary": "Get metadata for localization UI",
+        "tags": [
+          "LocalizationTable"
+        ]
+      }
+    },
+    "/v1/localization-table/tables": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "description": "",
+            "in": "body",
+            "name": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.LocalizationTables.Api.CreateTableRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "LocalizationTable:CreateTable"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.LocalizationTables.Api.CreateTableResponse"
+            }
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed\r\n2: You do not have permission to get this table."
+          }
+        },
+        "summary": "Creates a Localization Table with the given data.\r\nNote that this endpoint simply creates a table and does not associate it with any universe, so if intending to use this to create tables usable in experience more setup will be needed to grant those experiences access.",
+        "tags": [
+          "LocalizationTable"
+        ]
+      }
+    },
+    "/v1/localization-table/tables/{assetId}": {
+      "get": {
+        "parameters": [
+          {
+            "description": "The asset id associated with the table.",
+            "format": "int64",
+            "in": "path",
+            "name": "assetId",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "LocalizationTable:GetTableByAssetId"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.LocalizationTables.Api.GetTableResponse"
+            }
+          },
+          "400": {
+            "description": "12: Invalid asset id."
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "2: You do not have permission to get this table."
+          }
+        },
+        "summary": "Get table information by the assetId of the table.",
+        "tags": [
+          "LocalizationTable"
+        ]
+      }
+    },
+    "/v1/localization-table/tables/{tableId}": {
+      "get": {
+        "parameters": [
+          {
+            "description": "",
+            "format": "uuid",
+            "in": "path",
+            "name": "tableId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "LocalizationTable:GetTableByTableId"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.LocalizationTables.Api.GetTableResponse"
+            }
+          },
+          "400": {
+            "description": "3: Invalid table id."
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "2: You do not have permission to get this table."
+          }
+        },
+        "summary": "Get table information by the id of the table.",
+        "tags": [
+          "LocalizationTable"
+        ]
+      },
+      "patch": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "description": "The table guid for the table to update.",
+            "format": "uuid",
+            "in": "path",
+            "name": "tableId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The game id.",
+            "format": "int64",
+            "in": "query",
+            "name": "gameId",
+            "type": "integer"
+          },
+          {
+            "description": "The metadata object is optional.",
+            "in": "body",
+            "name": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.LocalizationTables.Api.UpdateTableContentsRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "LocalizationTable:UpdateTableContents"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.LocalizationTables.Api.UpdateTableContentsResponse"
+            }
+          },
+          "400": {
+            "description": "3: Invalid table id.\r\n4: Table does not exist.\r\n10: Maximum entries exceeded. Please keep the number of entries per request below the maximum.\r\n13: Request body can't be null\r\n14: Invalid game id"
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed\r\n6: You do not have permission to create this table."
+          },
+          "503": {
+            "description": "17: Feature is disabled"
+          }
+        },
+        "summary": "Updates the tables contents based on what is provided.",
+        "tags": [
+          "LocalizationTable"
+        ]
+      }
+    },
+    "/v1/localization-table/tables/{tableId}/entries": {
+      "get": {
+        "parameters": [
+          {
+            "description": "",
+            "format": "uuid",
+            "in": "path",
+            "name": "tableId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "If null, there are no more entries in the table and you've reached the last page.",
+            "in": "query",
+            "name": "cursor",
+            "type": "string"
+          },
+          {
+            "description": "",
+            "format": "int64",
+            "in": "query",
+            "name": "gameId",
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "LocalizationTable:GetTableEntriesPaged"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.LocalizationTables.Api.GetTableEntriesPagedResponse"
+            }
+          },
+          "400": {
+            "description": "3: Invalid table id.\r\n14: Invalid game id"
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "2: You do not have permission to get this table."
+          }
+        },
+        "summary": "Gets a batch of entries for a table.",
+        "tags": [
+          "LocalizationTable"
+        ]
+      }
+    },
+    "/v1/localization-table/tables/{tableId}/entries/translation-feedback": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "description": "The entries' tableId.",
+            "format": "uuid",
+            "in": "path",
+            "name": "tableId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The game id.",
+            "format": "int64",
+            "in": "query",
+            "name": "gameId",
+            "type": "integer"
+          },
+          {
+            "description": "A request body containing all relevant data for entry translation feedback lookup.",
+            "in": "body",
+            "name": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.LocalizationTables.Api.GetTableEntriesTranslationFeedbackRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "LocalizationTable:GetTableEntriesTranslationFeedback"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.LocalizationTables.Api.GetTableEntriesTranslationFeedbackResponse"
+            }
+          },
+          "400": {
+            "description": "3: Invalid table id.\r\n13: Request body can't be null\r\n14: Invalid game id\r\n16: Entries can't be null or empty\r\n35: The entries provided are invalid\r\n37: Invalid locale code.\r\n38: Invalid entry identifier."
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed\r\n2: You do not have permission to get this table."
+          },
+          "429": {
+            "description": "24: Too many attempts.Please try again later."
+          },
+          "503": {
+            "description": "17: Feature is disabled"
+          }
+        },
+        "summary": "Gets the translation feedback for each entry passed in.",
+        "tags": [
+          "LocalizationTable"
+        ]
+      }
+    },
+    "/v1/localization-table/tables/{tableId}/entries/translation-history": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "description": "The entries' tableId.",
+            "format": "uuid",
+            "in": "path",
+            "name": "tableId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The game id.",
+            "format": "int64",
+            "in": "query",
+            "name": "gameId",
+            "type": "integer"
+          },
+          {
+            "description": "A request body containing all relevant data for entry history lookup.",
+            "in": "body",
+            "name": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.LocalizationTables.Api.GetTableEntriesTranslationHistoryRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "LocalizationTable:GetTableEntriesTranslationHistory"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.LocalizationTables.Api.GetTableEntriesTranslationHistoryResponse"
+            }
+          },
+          "400": {
+            "description": "3: Invalid table id.\r\n13: Request body can't be null\r\n14: Invalid game id\r\n16: Entries can't be null or empty\r\n35: The entries provided are invalid\r\n37: Invalid locale code.\r\n38: Invalid entry identifier.\r\n39: Count should be at least 1.\r\n45: Invalid exclusive start id."
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed\r\n2: You do not have permission to get this table."
+          },
+          "429": {
+            "description": "24: Too many attempts.Please try again later."
+          },
+          "503": {
+            "description": "17: Feature is disabled"
+          }
+        },
+        "summary": "Gets the translation history for each entry passed in.",
+        "tags": [
+          "LocalizationTable"
+        ]
+      }
+    },
+    "/v1/localization-table/tables/{tableId}/entry-count": {
+      "get": {
+        "parameters": [
+          {
+            "description": "The table id",
+            "format": "uuid",
+            "in": "path",
+            "name": "tableId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The game id",
+            "format": "int64",
+            "in": "query",
+            "name": "gameId",
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "LocalizationTable:GetTableEntryCount"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.LocalizationTables.Api.GetTableEntryCountResponse"
+            }
+          },
+          "400": {
+            "description": "3: Invalid table id.\r\n14: Invalid game id"
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "2: You do not have permission to get this table."
+          }
+        },
+        "summary": "Gets the number of entries in the specified table",
+        "tags": [
+          "LocalizationTable"
+        ]
+      }
+    },
+    "/v1/localization-table/tables/{tableId}/language-translation-counts": {
+      "get": {
+        "parameters": [
+          {
+            "description": "The table id",
+            "format": "uuid",
+            "in": "path",
+            "name": "tableId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "collectionFormat": "multi",
+            "description": "The locales corresponding to the language translation counts to retrieve. This will return 0 for the translation count of locales that do not exist for the given table.",
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "locales",
+            "required": true,
+            "type": "array"
+          },
+          {
+            "description": "The game id",
+            "format": "int64",
+            "in": "query",
+            "name": "gameId",
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "LocalizationTable:GetLanguageTranslationCountsForTable"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.LocalizationTables.Api.GetLanguageTranslationCountsForTableResponse"
+            }
+          },
+          "400": {
+            "description": "3: Invalid table id.\r\n46: Locales can't be null or empty"
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "2: You do not have permission to get this table."
+          }
+        },
+        "summary": "Gets the language translation counts for the specified table.\r\nThe languages to retrieve must be provided.",
+        "tags": [
+          "LocalizationTable"
+        ]
+      }
+    }
+  },
+  "schemes": [
+    "https"
+  ],
+  "swagger": "2.0"
+}

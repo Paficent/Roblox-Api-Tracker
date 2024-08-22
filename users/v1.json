@@ -1,0 +1,1240 @@
+{
+  "definitions": {
+    "Roblox.Paging.ExclusiveStartKeyCursor[System.Nullable[System.Int64]]": {
+      "properties": {
+        "count": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "discriminator": {
+          "type": "string"
+        },
+        "key": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "pageNumber": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "pagingDirection": {
+          "description": " ['Forward' = 1, 'Backward' = 2]",
+          "enum": [
+            1,
+            2
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "sortOrder": {
+          "description": " ['Asc' = 1, 'Desc' = 2]",
+          "enum": [
+            1,
+            2
+          ],
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Paging.StartIndexCursor": {
+      "properties": {
+        "count": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "discriminator": {
+          "type": "string"
+        },
+        "startIndex": {
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Users.Api.AuthenticatedUserResponse": {
+      "description": "A response model representing absolute minimal authenticating user information.\r\nNo new attributes should be added to this response since it is in the critical path of app launch and we want to minimize dependencies.",
+      "properties": {
+        "displayName": {
+          "description": "The user DisplayName.",
+          "type": "string"
+        },
+        "id": {
+          "description": "The user Id.",
+          "format": "int64",
+          "type": "integer"
+        },
+        "name": {
+          "description": "The user name.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Users.Api.BirthdateRequest": {
+      "description": "The birthdate request",
+      "properties": {
+        "birthDay": {
+          "description": "The birth day",
+          "format": "int32",
+          "type": "integer"
+        },
+        "birthMonth": {
+          "description": "The birth month",
+          "format": "int32",
+          "type": "integer"
+        },
+        "birthYear": {
+          "description": "The birth year",
+          "format": "int32",
+          "type": "integer"
+        },
+        "password": {
+          "description": "Password",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Users.Api.BirthdateResponse": {
+      "description": "The birthdate response",
+      "properties": {
+        "birthDay": {
+          "description": "The birth day",
+          "format": "int32",
+          "type": "integer"
+        },
+        "birthMonth": {
+          "description": "The birth month",
+          "format": "int32",
+          "type": "integer"
+        },
+        "birthYear": {
+          "description": "The birth year",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Users.Api.DescriptionRequest": {
+      "description": "The description request",
+      "properties": {
+        "description": {
+          "description": "The description",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Users.Api.DescriptionResponse": {
+      "description": "The description response",
+      "properties": {
+        "description": {
+          "description": "The description",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Users.Api.GenderRequest": {
+      "description": "The gender request",
+      "properties": {
+        "gender": {
+          "description": "The gender",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Users.Api.GenderResponse": {
+      "description": "The gender response",
+      "properties": {
+        "gender": {
+          "description": "The gender",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Users.Api.GetUserResponse": {
+      "description": "A response model representing user information.",
+      "properties": {
+        "created": {
+          "description": "When the user signed up.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "description": {
+          "description": "The user description.",
+          "type": "string"
+        },
+        "displayName": {
+          "description": "The user DisplayName.",
+          "type": "string"
+        },
+        "externalAppDisplayName": {
+          "description": "Unused, legacy attribute. For now always null to not disturb existing client code that might rely on its existence.",
+          "type": "string"
+        },
+        "hasVerifiedBadge": {
+          "description": "The user's verified badge status.",
+          "type": "boolean"
+        },
+        "id": {
+          "description": "The user Id.",
+          "format": "int64",
+          "type": "integer"
+        },
+        "isBanned": {
+          "description": "Whether the user is banned",
+          "type": "boolean"
+        },
+        "name": {
+          "description": "The user name.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Users.Api.MultiGetByUserIdRequest": {
+      "description": "Request model for getting users by ids.",
+      "properties": {
+        "excludeBannedUsers": {
+          "description": "Whether the response should exclude banned users",
+          "type": "boolean"
+        },
+        "userIds": {
+          "description": "The user ids.",
+          "items": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Users.Api.MultiGetByUsernameRequest": {
+      "description": "Request model for getting users by usernames.",
+      "properties": {
+        "excludeBannedUsers": {
+          "description": "Whether the response should exclude banned users",
+          "type": "boolean"
+        },
+        "usernames": {
+          "description": "The usernames.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Users.Api.MultiGetUserByNameResponse": {
+      "description": "A response model specific to multi-get user by name.",
+      "properties": {
+        "displayName": {
+          "description": "The user DisplayName.",
+          "type": "string"
+        },
+        "hasVerifiedBadge": {
+          "description": "The user's verified badge status.",
+          "type": "boolean"
+        },
+        "id": {
+          "description": "The user Id.",
+          "format": "int64",
+          "type": "integer"
+        },
+        "name": {
+          "description": "The user name.",
+          "type": "string"
+        },
+        "requestedUsername": {
+          "description": "The username the user was requested with.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Users.Api.SetDisplayNameRequest": {
+      "description": "Request model for changing a display name.",
+      "properties": {
+        "newDisplayName": {
+          "description": "The users new display name.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Users.Api.UserAgeBracketResponse": {
+      "description": "A user age bracket response model.",
+      "properties": {
+        "ageBracket": {
+          "description": "The age bracket of the user.",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Users.Api.UserCountryCodeResponse": {
+      "description": "A user country code response model.",
+      "properties": {
+        "countryCode": {
+          "description": "The country code of the user.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Users.Api.UserRolesResponse": {
+      "description": "A user roles response model.",
+      "properties": {
+        "roles": {
+          "description": "The roles of the user.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Users.Api.UserSearchResponse": {
+      "description": "A user response model specific to getting a user from user search.",
+      "properties": {
+        "displayName": {
+          "description": "The user DisplayName.",
+          "type": "string"
+        },
+        "hasVerifiedBadge": {
+          "description": "The user's verified badge status.",
+          "type": "boolean"
+        },
+        "id": {
+          "description": "The user Id.",
+          "format": "int64",
+          "type": "integer"
+        },
+        "name": {
+          "description": "The user name.",
+          "type": "string"
+        },
+        "previousUsernames": {
+          "description": "Previous usernames for a user.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Users.Api.UsernameHistoryResponse": {
+      "properties": {
+        "name": {
+          "description": "A past username belonging to a particular userId",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Users.Api.VerifiedBadgeUserResponse": {
+      "description": "A response model specific to multi-get user.",
+      "properties": {
+        "displayName": {
+          "description": "The user DisplayName.",
+          "type": "string"
+        },
+        "hasVerifiedBadge": {
+          "description": "The user's verified badge status.",
+          "type": "boolean"
+        },
+        "id": {
+          "description": "The user Id.",
+          "format": "int64",
+          "type": "integer"
+        },
+        "name": {
+          "description": "The user name.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Web.WebAPI.ApiEmptyResponseModel": {
+      "type": "object"
+    },
+    "Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.Users.Api.MultiGetUserByNameResponse]": {
+      "properties": {
+        "data": {
+          "items": {
+            "$ref": "#/definitions/Roblox.Users.Api.MultiGetUserByNameResponse"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.Users.Api.VerifiedBadgeUserResponse]": {
+      "properties": {
+        "data": {
+          "items": {
+            "$ref": "#/definitions/Roblox.Users.Api.VerifiedBadgeUserResponse"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Web.WebAPI.Models.ApiPageResponse[Roblox.Users.Api.UserSearchResponse]": {
+      "properties": {
+        "data": {
+          "items": {
+            "$ref": "#/definitions/Roblox.Users.Api.UserSearchResponse"
+          },
+          "type": "array"
+        },
+        "nextPageCursor": {
+          "type": "string"
+        },
+        "previousPageCursor": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Web.WebAPI.Models.ApiPageResponse[Roblox.Users.Api.UsernameHistoryResponse]": {
+      "properties": {
+        "data": {
+          "items": {
+            "$ref": "#/definitions/Roblox.Users.Api.UsernameHistoryResponse"
+          },
+          "type": "array"
+        },
+        "nextPageCursor": {
+          "type": "string"
+        },
+        "previousPageCursor": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "host": "users.roblox.com",
+  "info": {
+    "title": "Users Api v1",
+    "version": "v1"
+  },
+  "paths": {
+    "/v1/birthdate": {
+      "get": {
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "AccountInformation:GetBirthdate"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Users.Api.BirthdateResponse"
+            }
+          },
+          "400": {
+            "description": "1: User not found."
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          }
+        },
+        "summary": "Get the user's birthdate",
+        "tags": [
+          "AccountInformation"
+        ]
+      },
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "description": "The Roblox.Users.Api.BirthdateRequest",
+            "in": "body",
+            "name": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Users.Api.BirthdateRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "AccountInformation:SetBirthdate"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.ApiEmptyResponseModel"
+            }
+          },
+          "400": {
+            "description": "1: User not found.\r\n4: The birthdate provided is invalid.\r\n8: Password is incorrect."
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed\r\n2: PIN is locked.\r\n5: Invalid birthdate change."
+          },
+          "500": {
+            "description": "0: An unknown error occured.\r\n5: Invalid birthdate change."
+          }
+        },
+        "summary": "Update the user's birthdate",
+        "tags": [
+          "AccountInformation"
+        ]
+      }
+    },
+    "/v1/description": {
+      "get": {
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "AccountInformation:GetDescription"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Users.Api.DescriptionResponse"
+            }
+          },
+          "400": {
+            "description": "1: User not found."
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          }
+        },
+        "summary": "Get the user's description",
+        "tags": [
+          "AccountInformation"
+        ]
+      },
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "description": "The Roblox.Users.Api.DescriptionRequest",
+            "in": "body",
+            "name": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Users.Api.DescriptionRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "AccountInformation:SetDescription"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Users.Api.DescriptionResponse"
+            }
+          },
+          "400": {
+            "description": "1: User not found."
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed\r\n2: PIN is locked."
+          },
+          "500": {
+            "description": "0: An unknown error occured."
+          },
+          "503": {
+            "description": "3: This feature is currently disabled. Please try again later."
+          }
+        },
+        "summary": "Update the user's description",
+        "tags": [
+          "AccountInformation"
+        ]
+      }
+    },
+    "/v1/display-names/validate": {
+      "get": {
+        "parameters": [
+          {
+            "description": "The display name.",
+            "in": "query",
+            "name": "displayName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The new user's birthdate",
+            "format": "date-time",
+            "in": "query",
+            "name": "birthdate",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "DisplayNames:ValidateNewUserDisplayName"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.ApiEmptyResponseModel"
+            }
+          },
+          "400": {
+            "description": "1: Display name is too short\r\n2: Display name is too long\r\n3: Display name contains invalid characters\r\n4: Display name has been moderated\r\n6: Request must contain a birthdate\r\n8: Display name has too many combinations of character sets"
+          },
+          "429": {
+            "description": "5: Display name updates for this user have been throttled"
+          }
+        },
+        "summary": "Validate a display name for a new user.",
+        "tags": [
+          "DisplayNames"
+        ]
+      }
+    },
+    "/v1/gender": {
+      "get": {
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "AccountInformation:GetGender"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Users.Api.GenderResponse"
+            }
+          },
+          "400": {
+            "description": "1: User not found."
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          }
+        },
+        "summary": "Get the user's gender",
+        "tags": [
+          "AccountInformation"
+        ]
+      },
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "description": "The Roblox.Users.Api.GenderRequest",
+            "in": "body",
+            "name": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Users.Api.GenderRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "AccountInformation:SetGender"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.ApiEmptyResponseModel"
+            }
+          },
+          "400": {
+            "description": "1: User not found.\r\n6: The gender provided is invalid."
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed\r\n2: PIN is locked."
+          },
+          "500": {
+            "description": "0: An unknown error occured."
+          }
+        },
+        "summary": "Update the user's gender",
+        "tags": [
+          "AccountInformation"
+        ]
+      }
+    },
+    "/v1/usernames/users": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "description": "This endpoint will also check previous usernames.\r\nDoes not require X-CSRF-Token protection because this is essentially a get request but as a POST to avoid URI limits.",
+        "parameters": [
+          {
+            "description": "The Roblox.Users.Api.MultiGetByUsernameRequest.",
+            "in": "body",
+            "name": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Users.Api.MultiGetByUsernameRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Users:MultiGetUsersByUsernames"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.Users.Api.MultiGetUserByNameResponse]"
+            }
+          },
+          "400": {
+            "description": "2: Too many usernames."
+          }
+        },
+        "summary": "Get users by usernames.",
+        "tags": [
+          "Users"
+        ]
+      }
+    },
+    "/v1/users": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "description": "Does not require X-CSRF-Token protection because this is essentially a get request but as a POST to avoid URI limits.",
+        "parameters": [
+          {
+            "description": "The Roblox.Users.Api.MultiGetByUserIdRequest.",
+            "in": "body",
+            "name": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Users.Api.MultiGetByUserIdRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Users:MultiGetUsersByIds"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.Users.Api.VerifiedBadgeUserResponse]"
+            }
+          },
+          "400": {
+            "description": "1: Too many ids."
+          }
+        },
+        "summary": "Get users by ids.",
+        "tags": [
+          "Users"
+        ]
+      }
+    },
+    "/v1/users/authenticated": {
+      "get": {
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Users:GetAuthenticatedUser"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Users.Api.AuthenticatedUserResponse"
+            }
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          }
+        },
+        "summary": "Gets the minimal authenticated user.",
+        "tags": [
+          "Users"
+        ]
+      }
+    },
+    "/v1/users/authenticated/age-bracket": {
+      "get": {
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Users:GetAuthenticatedUserAgeBracket"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Users.Api.UserAgeBracketResponse"
+            }
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          }
+        },
+        "summary": "Gets the age bracket of the authenticated user.",
+        "tags": [
+          "Users"
+        ]
+      }
+    },
+    "/v1/users/authenticated/country-code": {
+      "get": {
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Users:GetAuthenticatedUserCountryCode"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Users.Api.UserCountryCodeResponse"
+            }
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          }
+        },
+        "summary": "Gets the country code of the authenticated user.",
+        "tags": [
+          "Users"
+        ]
+      }
+    },
+    "/v1/users/authenticated/roles": {
+      "get": {
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Users:GetAuthenticatedUserPublicRoles"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Users.Api.UserRolesResponse"
+            }
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          }
+        },
+        "summary": "Gets the (public) roles of the authenticated user, such as `\"Soothsayer\"` and `\"BetaTester\"`.",
+        "tags": [
+          "Users"
+        ]
+      }
+    },
+    "/v1/users/search": {
+      "get": {
+        "parameters": [
+          {
+            "description": "The search keyword.",
+            "in": "query",
+            "name": "keyword",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "sessionId",
+            "type": "string"
+          },
+          {
+            "default": 10,
+            "description": "The number of results per request.",
+            "enum": [
+              10,
+              25,
+              50,
+              100
+            ],
+            "format": "int32",
+            "in": "query",
+            "name": "limit",
+            "type": "integer"
+          },
+          {
+            "description": "The paging cursor for the previous or next page.",
+            "in": "query",
+            "name": "cursor",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "UserSearch:SearchUsers"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.Models.ApiPageResponse[Roblox.Users.Api.UserSearchResponse]"
+            }
+          },
+          "400": {
+            "description": "5: The keyword was filtered.\r\n6: The keyword is too short."
+          },
+          "429": {
+            "description": "4: Too many requests."
+          }
+        },
+        "summary": "Searches for users by keyword.",
+        "tags": [
+          "UserSearch"
+        ]
+      }
+    },
+    "/v1/users/{userId}": {
+      "get": {
+        "parameters": [
+          {
+            "description": "The user id.",
+            "format": "int64",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Users:GetUser"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Users.Api.GetUserResponse"
+            }
+          },
+          "404": {
+            "description": "3: The user id is invalid."
+          }
+        },
+        "summary": "Gets detailed user information by id.",
+        "tags": [
+          "Users"
+        ]
+      }
+    },
+    "/v1/users/{userId}/display-names": {
+      "patch": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "description": "the user id",
+            "format": "int64",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Roblox.Users.Api.SetDisplayNameRequest",
+            "in": "body",
+            "name": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Users.Api.SetDisplayNameRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "DisplayNames:SetDisplayName"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.ApiEmptyResponseModel"
+            }
+          },
+          "400": {
+            "description": "1: Display name is too short\r\n2: Display name is too long\r\n3: Display name contains invalid characters\r\n4: Display name has been moderated\r\n8: Display name has too many combinations of character sets"
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed\r\n7: The user id is invalid."
+          },
+          "429": {
+            "description": "5: Display name updates for this user have been throttled"
+          }
+        },
+        "summary": "Set the display name for the authorized user.",
+        "tags": [
+          "DisplayNames"
+        ]
+      }
+    },
+    "/v1/users/{userId}/display-names/validate": {
+      "get": {
+        "parameters": [
+          {
+            "description": "The user id.",
+            "format": "int64",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "The display name.",
+            "in": "query",
+            "name": "displayName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "DisplayNames:ValidateExistingUserDisplayName"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.ApiEmptyResponseModel"
+            }
+          },
+          "400": {
+            "description": "1: Display name is too short\r\n2: Display name is too long\r\n3: Display name contains invalid characters\r\n4: Display name has been moderated\r\n8: Display name has too many combinations of character sets"
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "7: The user id is invalid."
+          },
+          "429": {
+            "description": "5: Display name updates for this user have been throttled"
+          }
+        },
+        "summary": "Validate a display name for an existing user.",
+        "tags": [
+          "DisplayNames"
+        ]
+      }
+    },
+    "/v1/users/{userId}/username-history": {
+      "get": {
+        "parameters": [
+          {
+            "description": "",
+            "format": "int64",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "default": 10,
+            "description": "The number of results per request.",
+            "enum": [
+              10,
+              25,
+              50,
+              100
+            ],
+            "format": "int32",
+            "in": "query",
+            "name": "limit",
+            "type": "integer"
+          },
+          {
+            "description": "The paging cursor for the previous or next page.",
+            "in": "query",
+            "name": "cursor",
+            "type": "string"
+          },
+          {
+            "default": "Asc",
+            "description": "The order the results are sorted in.",
+            "enum": [
+              "Asc",
+              "Desc"
+            ],
+            "in": "query",
+            "name": "sortOrder",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Usernames:GetUsernameHistory"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.Models.ApiPageResponse[Roblox.Users.Api.UsernameHistoryResponse]"
+            }
+          },
+          "400": {
+            "description": "3: The user id is invalid."
+          }
+        },
+        "summary": "Retrieves the username history for a particular user.",
+        "tags": [
+          "Usernames"
+        ]
+      }
+    }
+  },
+  "schemes": [
+    "https"
+  ],
+  "swagger": "2.0"
+}

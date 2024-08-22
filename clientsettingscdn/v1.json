@@ -1,0 +1,142 @@
+{
+  "definitions": {
+    "Roblox.ClientSettings.Api.Models.Response.ClientVersionResponse": {
+      "properties": {
+        "bootstrapperVersion": {
+          "type": "string"
+        },
+        "clientVersionUpload": {
+          "type": "string"
+        },
+        "nextClientVersion": {
+          "type": "string"
+        },
+        "nextClientVersionUpload": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.ClientSettings.Api.Models.Response.MobileClientVersionResponse": {
+      "properties": {
+        "MD5Sum": {
+          "type": "string"
+        },
+        "activeVersion": {
+          "type": "string"
+        },
+        "data": {},
+        "upgradeSource": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "host": "clientsettings.roblox.com",
+  "info": {
+    "title": "ClientSettings Api v1",
+    "version": "v1"
+  },
+  "paths": {
+    "/v1/client-version/{binaryType}": {
+      "get": {
+        "parameters": [
+          {
+            "description": "Platform(WindowsPlayer, WindowsStudio, MacPlayer or MacStudio) for which we want the latest version",
+            "in": "path",
+            "name": "binaryType",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "VersionCheck:GetClientVersion"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.ClientSettings.Api.Models.Response.ClientVersionResponse"
+            }
+          }
+        },
+        "summary": "Get client version information for specific binary type",
+        "tags": [
+          "VersionCheck"
+        ]
+      }
+    },
+    "/v1/installer-cdns": {
+      "get": {
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Cdn:GetInstallerCdns"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "summary": "Get information about which CDNs to use for installation.",
+        "tags": [
+          "Cdn"
+        ]
+      }
+    },
+    "/v1/mobile-client-version": {
+      "get": {
+        "parameters": [
+          {
+            "description": "AppiOSV2.13, AppVersioniOS2.0.1, etc",
+            "in": "query",
+            "name": "appVersion",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "VersionCheck:MobileGetClientVersion"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.ClientSettings.Api.Models.Response.MobileClientVersionResponse"
+            }
+          },
+          "400": {
+            "description": "2: Invalid binaryType."
+          }
+        },
+        "summary": "Get mobile client version information based on app version parameter",
+        "tags": [
+          "VersionCheck"
+        ]
+      }
+    }
+  },
+  "schemes": [
+    "https"
+  ],
+  "swagger": "2.0"
+}

@@ -1,0 +1,978 @@
+{
+  "definitions": {
+    "Roblox.Badges.Api.BadgeAwardResponse": {
+      "description": "The result of being awarded a badge.",
+      "properties": {
+        "awardedDate": {
+          "description": "When the badge was awarded.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "badgeId": {
+          "description": "The badge Id.",
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Badges.Api.BadgeMetadataResponse": {
+      "description": "Metadata about badges.",
+      "properties": {
+        "badgeCreationPrice": {
+          "description": "The cost in Robux for creating a new badge.",
+          "format": "int64",
+          "type": "integer"
+        },
+        "maxBadgeDescriptionLength": {
+          "description": "The max length for a badge description.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "maxBadgeNameLength": {
+          "description": "The max length for a badge name.",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Badges.Api.BadgeResponse": {
+      "description": "A response containing badge information.",
+      "properties": {
+        "awardingUniverse": {
+          "$ref": "#/definitions/Roblox.Badges.Api.UniverseResponse"
+        },
+        "created": {
+          "description": "When the badge was created.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "description": {
+          "description": "The badge description.",
+          "type": "string"
+        },
+        "displayDescription": {
+          "description": "The localized badge description.",
+          "type": "string"
+        },
+        "displayIconImageId": {
+          "description": "The localized badge icon asset Id.",
+          "format": "int64",
+          "type": "integer"
+        },
+        "displayName": {
+          "description": "The localized name of the badge.",
+          "type": "string"
+        },
+        "enabled": {
+          "description": "Whether or not the badge is enabled.",
+          "type": "boolean"
+        },
+        "iconImageId": {
+          "description": "The badge icon asset Id.",
+          "format": "int64",
+          "type": "integer"
+        },
+        "id": {
+          "description": "The badge Id.",
+          "format": "int64",
+          "type": "integer"
+        },
+        "name": {
+          "description": "The name of the badge.",
+          "type": "string"
+        },
+        "statistics": {
+          "$ref": "#/definitions/Roblox.Web.Responses.Badges.BadgeAwardStatisticsResponse"
+        },
+        "updated": {
+          "description": "When the badge was updated.",
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Badges.Api.UniverseResponse": {
+      "description": "A response containing universe information.",
+      "properties": {
+        "id": {
+          "description": "The universe Id.",
+          "format": "int64",
+          "type": "integer"
+        },
+        "name": {
+          "description": "The universe name.",
+          "type": "string"
+        },
+        "rootPlaceId": {
+          "description": "The description of the universe.",
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Badges.Api.UpdateBadgeRequest": {
+      "description": "A request model used for updating badge information.",
+      "properties": {
+        "description": {
+          "description": "The new badge description.",
+          "type": "string"
+        },
+        "enabled": {
+          "description": "The new enabled state of the badge.",
+          "type": "boolean"
+        },
+        "name": {
+          "description": "The new badge name.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Paging.ExclusiveStartKeyCursor[System.String]": {
+      "properties": {
+        "count": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "discriminator": {
+          "type": "string"
+        },
+        "key": {
+          "type": "string"
+        },
+        "pageNumber": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "pagingDirection": {
+          "description": " ['Forward' = 1, 'Backward' = 2]",
+          "enum": [
+            1,
+            2
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "sortOrder": {
+          "description": " ['Asc' = 1, 'Desc' = 2]",
+          "enum": [
+            1,
+            2
+          ],
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Web.Responses.Badges.BadgeAwardStatisticsResponse": {
+      "properties": {
+        "awardedCount": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "pastDayAwardedCount": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "winRatePercentage": {
+          "format": "double",
+          "type": "number"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Web.Responses.Badges.BadgeResponseV2": {
+      "properties": {
+        "awarder": {
+          "$ref": "#/definitions/Roblox.Web.Responses.RelatedEntityTypeResponse[Roblox.Platform.Badges.BadgeAwarderType]"
+        },
+        "created": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "displayDescription": {
+          "type": "string"
+        },
+        "displayIconImageId": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "iconImageId": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "statistics": {
+          "$ref": "#/definitions/Roblox.Web.Responses.Badges.BadgeAwardStatisticsResponse"
+        },
+        "updated": {
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Web.Responses.RelatedEntityTypeResponse[Roblox.Platform.Badges.BadgeAwarderType]": {
+      "properties": {
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "description": " ['Place' = 1]",
+          "enum": [
+            1
+          ],
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Web.WebAPI.ApiEmptyResponseModel": {
+      "type": "object"
+    },
+    "Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.Badges.Api.BadgeAwardResponse]": {
+      "properties": {
+        "data": {
+          "items": {
+            "$ref": "#/definitions/Roblox.Badges.Api.BadgeAwardResponse"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Web.WebAPI.Models.ApiPageResponse[Roblox.Badges.Api.BadgeResponse]": {
+      "properties": {
+        "data": {
+          "items": {
+            "$ref": "#/definitions/Roblox.Badges.Api.BadgeResponse"
+          },
+          "type": "array"
+        },
+        "nextPageCursor": {
+          "type": "string"
+        },
+        "previousPageCursor": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Web.WebAPI.Models.ApiPageResponse[Roblox.Web.Responses.Badges.BadgeResponseV2]": {
+      "properties": {
+        "data": {
+          "items": {
+            "$ref": "#/definitions/Roblox.Web.Responses.Badges.BadgeResponseV2"
+          },
+          "type": "array"
+        },
+        "nextPageCursor": {
+          "type": "string"
+        },
+        "previousPageCursor": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Web.WebApi.FormData.IUploadedFile": {
+      "properties": {
+        "ContentEncoding": {
+          "description": " ['None' = 0, 'GZip' = 1, 'Deflate' = 2, 'Brotli' = 4, 'All' = -1]",
+          "enum": [
+            0,
+            1,
+            2,
+            4,
+            -1
+          ],
+          "format": "int32",
+          "readOnly": true,
+          "type": "integer"
+        },
+        "Name": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "Stream": {
+          "$ref": "#/definitions/System.IO.Stream"
+        }
+      },
+      "type": "file"
+    },
+    "System.IO.Stream": {
+      "properties": {
+        "CanRead": {
+          "readOnly": true,
+          "type": "boolean"
+        },
+        "CanSeek": {
+          "readOnly": true,
+          "type": "boolean"
+        },
+        "CanTimeout": {
+          "readOnly": true,
+          "type": "boolean"
+        },
+        "CanWrite": {
+          "readOnly": true,
+          "type": "boolean"
+        },
+        "Length": {
+          "format": "int64",
+          "readOnly": true,
+          "type": "integer"
+        },
+        "Position": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "ReadTimeout": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "WriteTimeout": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "host": "badges.roblox.com",
+  "info": {
+    "title": "Badges Api v1",
+    "version": "v1"
+  },
+  "paths": {
+    "/v1/badges/metadata": {
+      "get": {
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Badges:GetMetadata"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Badges.Api.BadgeMetadataResponse"
+            }
+          }
+        },
+        "summary": "Gets metadata about the badges system.",
+        "tags": [
+          "Badges"
+        ]
+      }
+    },
+    "/v1/badges/{badgeId}": {
+      "get": {
+        "parameters": [
+          {
+            "description": "The badge Id.",
+            "format": "int64",
+            "in": "path",
+            "name": "badgeId",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Badges:GetBadge"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Badges.Api.BadgeResponse"
+            }
+          },
+          "404": {
+            "description": "1: Badge is invalid or does not exist."
+          }
+        },
+        "summary": "Gets badge information by the badge Id.",
+        "tags": [
+          "Badges"
+        ]
+      },
+      "patch": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "description": "The badge Id.",
+            "format": "int64",
+            "in": "path",
+            "name": "badgeId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "The request body.",
+            "in": "body",
+            "name": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Badges.Api.UpdateBadgeRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Badges:UpdateBadge"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.ApiEmptyResponseModel"
+            }
+          },
+          "400": {
+            "description": "6: Text moderated."
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed\r\n2: You do not have permission to manage this badge."
+          },
+          "404": {
+            "description": "1: Badge is invalid or does not exist."
+          }
+        },
+        "summary": "Updates badge configuration.",
+        "tags": [
+          "Badges"
+        ]
+      }
+    },
+    "/v1/universes/{universeId}/badges": {
+      "get": {
+        "parameters": [
+          {
+            "description": "The universe Id.",
+            "format": "int64",
+            "in": "path",
+            "name": "universeId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "The key to sort badges by.",
+            "enum": [
+              "Rank",
+              "DateCreated"
+            ],
+            "in": "query",
+            "name": "sortBy",
+            "type": "string"
+          },
+          {
+            "default": 10,
+            "description": "The number of results per request.",
+            "enum": [
+              10,
+              25,
+              50,
+              100
+            ],
+            "format": "int32",
+            "in": "query",
+            "name": "limit",
+            "type": "integer"
+          },
+          {
+            "description": "The paging cursor for the previous or next page.",
+            "in": "query",
+            "name": "cursor",
+            "type": "string"
+          },
+          {
+            "default": "Asc",
+            "description": "The order the results are sorted in.",
+            "enum": [
+              "Asc",
+              "Desc"
+            ],
+            "in": "query",
+            "name": "sortOrder",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Badges:GetBadgesByAwarder"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.Models.ApiPageResponse[Roblox.Badges.Api.BadgeResponse]"
+            }
+          },
+          "404": {
+            "description": "3: The game is invalid or does not exist."
+          }
+        },
+        "summary": "Gets badges by their awarding game.",
+        "tags": [
+          "Badges"
+        ]
+      },
+      "post": {
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "description": "The ID of the universe to create the badge for.",
+            "format": "int64",
+            "in": "path",
+            "name": "universeId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "The badge name.",
+            "in": "formData",
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "description": "The badge description.",
+            "in": "formData",
+            "name": "description",
+            "type": "string"
+          },
+          {
+            "description": "Whether or not to pay for the badge with user funds, or group funds. ['User' = 1, 'Group' = 2]",
+            "enum": [
+              1,
+              2
+            ],
+            "format": "int32",
+            "in": "formData",
+            "name": "paymentSourceType",
+            "type": "integer"
+          },
+          {
+            "description": "The badge icon.",
+            "in": "formData",
+            "name": "files",
+            "type": "file"
+          },
+          {
+            "description": "User expected cost of a badge.",
+            "format": "int64",
+            "in": "formData",
+            "name": "expectedCost",
+            "type": "integer"
+          },
+          {
+            "description": "Whether or not the badge should be created in the active state.",
+            "in": "formData",
+            "name": "isActive",
+            "type": "boolean"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Badges:CreateBadge"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.Responses.Badges.BadgeResponseV2"
+            }
+          },
+          "400": {
+            "description": "11: The badge icon is invalid.\r\n14: Invalid badge name.\r\n15: Invalid badge description.\r\n16: Payment source is invalid.\r\n18: Expected badge cost is different from the actual badge cost."
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed\r\n6: Text moderated.\r\n12: You do not have permission to manage this game's badges.\r\n17: Insufficient funds."
+          },
+          "404": {
+            "description": "3: The game is invalid or does not exist."
+          },
+          "429": {
+            "description": "13: Too many requests, try again later."
+          }
+        },
+        "summary": "Creates a new badge.",
+        "tags": [
+          "Badges"
+        ]
+      }
+    },
+    "/v1/universes/{universeId}/free-badges-quota": {
+      "get": {
+        "parameters": [
+          {
+            "description": "The universe Id.",
+            "format": "int64",
+            "in": "path",
+            "name": "universeId",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Badges:GetFreeBadgesQuotaByAwarder"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "format": "int32",
+              "type": "integer"
+            }
+          },
+          "404": {
+            "description": "3: The game is invalid or does not exist."
+          }
+        },
+        "summary": "Gets the number of free badges left for the current UTC day by their awarding game.",
+        "tags": [
+          "Badges"
+        ]
+      }
+    },
+    "/v1/user/badges/{badgeId}": {
+      "delete": {
+        "parameters": [
+          {
+            "description": "The badge Id.",
+            "format": "int64",
+            "in": "path",
+            "name": "badgeId",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "BadgeAwards:DeleteBadgeAward"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.ApiEmptyResponseModel"
+            }
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed"
+          },
+          "404": {
+            "description": "1: Badge is invalid or does not exist."
+          }
+        },
+        "summary": "Removes a badge from the authenticated user.",
+        "tags": [
+          "BadgeAwards"
+        ]
+      }
+    },
+    "/v1/user/{userId}/badges/{badgeId}": {
+      "delete": {
+        "parameters": [
+          {
+            "description": "The user Id.",
+            "format": "int64",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "The badge Id.",
+            "format": "int64",
+            "in": "path",
+            "name": "badgeId",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "BadgeAwards:DeleteBadgeAward"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.ApiEmptyResponseModel"
+            }
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed"
+          },
+          "404": {
+            "description": "1: Badge is invalid or does not exist."
+          }
+        },
+        "summary": "Removes a badge from the user.",
+        "tags": [
+          "BadgeAwards"
+        ]
+      }
+    },
+    "/v1/users/{userId}/badges": {
+      "get": {
+        "parameters": [
+          {
+            "description": "The user Id.",
+            "format": "int64",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "default": 10,
+            "description": "The number of results per request.",
+            "enum": [
+              10,
+              25,
+              50,
+              100
+            ],
+            "format": "int32",
+            "in": "query",
+            "name": "limit",
+            "type": "integer"
+          },
+          {
+            "description": "The paging cursor for the previous or next page.",
+            "in": "query",
+            "name": "cursor",
+            "type": "string"
+          },
+          {
+            "default": "Asc",
+            "description": "The order the results are sorted in.",
+            "enum": [
+              "Asc",
+              "Desc"
+            ],
+            "in": "query",
+            "name": "sortOrder",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Badges:GetBadgesByUser"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.Models.ApiPageResponse[Roblox.Web.Responses.Badges.BadgeResponseV2]"
+            }
+          },
+          "404": {
+            "description": "4: User is invalid or does not exist."
+          }
+        },
+        "summary": "Gets a list of badges a user has been awarded.",
+        "tags": [
+          "Badges"
+        ]
+      }
+    },
+    "/v1/users/{userId}/badges/awarded-dates": {
+      "get": {
+        "parameters": [
+          {
+            "description": "The user Id.",
+            "format": "int64",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "collectionFormat": "csv",
+            "description": "The CSV of badge Ids.",
+            "in": "query",
+            "items": {
+              "format": "int64",
+              "type": "integer"
+            },
+            "name": "badgeIds",
+            "required": true,
+            "type": "array"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "BadgeAwards:GetBadgeAwardDates"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.Badges.Api.BadgeAwardResponse]"
+            }
+          },
+          "400": {
+            "description": "5: Too many badge Ids."
+          },
+          "404": {
+            "description": "4: User is invalid or does not exist."
+          }
+        },
+        "summary": "Gets timestamps for when badges were awarded to a user.",
+        "tags": [
+          "BadgeAwards"
+        ]
+      }
+    },
+    "/v1/users/{userId}/badges/{badgeId}/awarded-date": {
+      "get": {
+        "parameters": [
+          {
+            "description": "User id.",
+            "format": "int64",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Badge id.",
+            "format": "int64",
+            "in": "path",
+            "name": "badgeId",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "BadgeAwards:GetBadgeAwardDate"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "4: User is invalid or does not exist."
+          }
+        },
+        "summary": "Gets timestamp for when a single badge was awarded to a user.",
+        "tags": [
+          "BadgeAwards"
+        ]
+      }
+    }
+  },
+  "schemes": [
+    "https"
+  ],
+  "swagger": "2.0"
+}

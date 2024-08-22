@@ -1,0 +1,2776 @@
+{
+  "definitions": {
+    "Roblox.Games.Api.CreateVipServersRequest": {
+      "description": "An create request for a vip server",
+      "properties": {
+        "expectedPrice": {
+          "description": "the expected price of the vip server",
+          "format": "int64",
+          "type": "integer"
+        },
+        "isPurchaseConfirmed": {
+          "description": "Optional bool to confirm intention to purchase multiple private servers in quick succession.",
+          "type": "boolean"
+        },
+        "name": {
+          "description": "The name new vip server will be",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Games.Api.GameResponse": {
+      "description": "Response model for a VIP server game.",
+      "properties": {
+        "id": {
+          "description": "Game id",
+          "format": "int64",
+          "type": "integer"
+        },
+        "name": {
+          "description": "Game name",
+          "type": "string"
+        },
+        "rootPlace": {
+          "$ref": "#/definitions/Roblox.Games.Api.PlaceResponse"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Games.Api.GameServerPlayerResponse": {
+      "description": "A response model representing a game server player.",
+      "properties": {
+        "displayName": {
+          "type": "string"
+        },
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "playerToken": {
+          "description": "The thumbnail token for the player.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Games.Api.Models.Request.GameFavoritesRequest": {
+      "description": "Game favorite request model.",
+      "properties": {
+        "isFavorited": {
+          "description": "true for favor the game, false for unfavor the game.",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Games.Api.Models.Request.SetUserGameVoteRequest": {
+      "description": "A request for set user's vote for a game",
+      "properties": {
+        "vote": {
+          "description": "The vote to set",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Games.Api.Models.Response.GameCreator": {
+      "description": "Response model for getting the game creator",
+      "properties": {
+        "hasVerifiedBadge": {
+          "description": "Builder verified badge status.",
+          "type": "boolean"
+        },
+        "id": {
+          "description": "The game creator id",
+          "format": "int64",
+          "type": "integer"
+        },
+        "isRNVAccount": {
+          "description": "The game creator account is Luobu Real Name Verified",
+          "type": "boolean"
+        },
+        "name": {
+          "description": "The game creator name",
+          "type": "string"
+        },
+        "type": {
+          "description": "The game creator type",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Games.Api.Models.Response.GameDetailResponse": {
+      "description": "Response model for getting the game detail",
+      "properties": {
+        "allowedGearCategories": {
+          "description": "The game allowed gear categoris",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "allowedGearGenres": {
+          "description": "The game allowed gear genres",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "copyingAllowed": {
+          "description": "The game allows place to be copied",
+          "type": "boolean"
+        },
+        "createVipServersAllowed": {
+          "description": "Gets or sets the flag to indicate whether the create vip servers button should be allowed in game details page",
+          "type": "boolean"
+        },
+        "created": {
+          "description": "The game created time",
+          "format": "date-time",
+          "type": "string"
+        },
+        "creator": {
+          "$ref": "#/definitions/Roblox.Games.Api.Models.Response.GameCreator"
+        },
+        "description": {
+          "description": "The game description",
+          "type": "string"
+        },
+        "favoritedCount": {
+          "description": "Game number of favorites.",
+          "format": "int64",
+          "type": "integer"
+        },
+        "genre": {
+          "description": "The game genre display name",
+          "type": "string"
+        },
+        "id": {
+          "description": "The game universe id",
+          "format": "int64",
+          "type": "integer"
+        },
+        "isAllGenre": {
+          "description": "Is this game all genre.",
+          "type": "boolean"
+        },
+        "isFavoritedByUser": {
+          "description": "Is this game favorited by user.",
+          "type": "boolean"
+        },
+        "isGenreEnforced": {
+          "description": "The game allows place to be copied",
+          "type": "boolean"
+        },
+        "maxPlayers": {
+          "description": "The game max players",
+          "format": "int32",
+          "type": "integer"
+        },
+        "name": {
+          "description": "The game name",
+          "type": "string"
+        },
+        "playing": {
+          "description": "Current player count of the game",
+          "format": "int64",
+          "type": "integer"
+        },
+        "price": {
+          "description": "The game paid access price",
+          "format": "int64",
+          "type": "integer"
+        },
+        "rootPlaceId": {
+          "description": "The game root place id",
+          "format": "int64",
+          "type": "integer"
+        },
+        "sourceDescription": {
+          "description": "The game description in the source language, if different from the returned description.",
+          "type": "string"
+        },
+        "sourceName": {
+          "description": "The game name in the source language, if different from the returned name.",
+          "type": "string"
+        },
+        "studioAccessToApisAllowed": {
+          "description": "The setting of IsStudioAccessToApisAllowed of the universe",
+          "type": "boolean"
+        },
+        "universeAvatarType": {
+          "description": "Avatar type. Possible values are MorphToR6, MorphToR15, and PlayerChoice ['MorphToR6' = 1, 'PlayerChoice' = 2, 'MorphToR15' = 3]",
+          "enum": [
+            1,
+            2,
+            3
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "updated": {
+          "description": "The game updated time",
+          "format": "date-time",
+          "type": "string"
+        },
+        "visits": {
+          "description": "The total visits to the game",
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Games.Api.Models.Response.GameFavoriteResponse": {
+      "description": "Game favorite response model.",
+      "properties": {
+        "isFavorited": {
+          "description": "Is it a favorite game.",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Games.Api.Models.Response.GameFavoritesCountResponse": {
+      "description": "Response model for favorited game count.",
+      "properties": {
+        "favoritesCount": {
+          "description": "Favorites count.",
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Games.Api.Models.Response.GameMediaItem": {
+      "description": "Response model for getting the game media item",
+      "properties": {
+        "altText": {
+          "description": "The media item's alt text",
+          "type": "string"
+        },
+        "approved": {
+          "description": "The media item is approved or not",
+          "type": "boolean"
+        },
+        "assetType": {
+          "description": "The media item type, Image or YouTubeVideo",
+          "type": "string"
+        },
+        "assetTypeId": {
+          "description": "The media item type id",
+          "format": "int64",
+          "type": "integer"
+        },
+        "id": {
+          "description": "The media item id.",
+          "format": "int64",
+          "type": "integer"
+        },
+        "imageId": {
+          "description": "The media item image id",
+          "format": "int64",
+          "type": "integer"
+        },
+        "videoHash": {
+          "description": "The media item video hash",
+          "type": "string"
+        },
+        "videoTitle": {
+          "description": "The video title for video items.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Games.Api.Models.Response.GamePassResponse": {
+      "description": "Response model for getting game passes",
+      "properties": {
+        "displayName": {
+          "description": "The game pass display name",
+          "type": "string"
+        },
+        "id": {
+          "description": "The game pass id",
+          "format": "int64",
+          "type": "integer"
+        },
+        "isOwned": {
+          "description": "Is an owned game pass",
+          "type": "boolean"
+        },
+        "name": {
+          "description": "The game pass name",
+          "type": "string"
+        },
+        "price": {
+          "description": "The game pass price",
+          "format": "int64",
+          "type": "integer"
+        },
+        "productId": {
+          "description": "The game pass product id",
+          "format": "int64",
+          "type": "integer"
+        },
+        "sellerId": {
+          "description": "The seller's ID",
+          "format": "int64",
+          "type": "integer"
+        },
+        "sellerName": {
+          "description": "The seller's display name",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Games.Api.Models.Response.GameProductResponse": {
+      "description": "Response model for getting the game product information",
+      "properties": {
+        "isForSale": {
+          "description": "The game purchasability",
+          "type": "boolean"
+        },
+        "price": {
+          "description": "The game price",
+          "format": "int64",
+          "type": "integer"
+        },
+        "productId": {
+          "description": "The game product id",
+          "format": "int64",
+          "type": "integer"
+        },
+        "sellerId": {
+          "description": "The game seller id\r\nUser ID for users, Agent ID for groups",
+          "format": "int64",
+          "type": "integer"
+        },
+        "universeId": {
+          "description": "The game universe id",
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Games.Api.Models.Response.GameRecommendationsResponse": {
+      "description": "Game recommendations response model.",
+      "properties": {
+        "games": {
+          "description": "The recommended games.",
+          "items": {
+            "$ref": "#/definitions/Roblox.Games.Api.Models.Response.GameResponseModel"
+          },
+          "type": "array"
+        },
+        "nextPaginationKey": {
+          "description": "The pagination key for next page query.\r\nIt will be null if there is no more data.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Games.Api.Models.Response.GameResponseModel": {
+      "description": "Response model for games.",
+      "properties": {
+        "ageRecommendationDisplayName": {
+          "description": "Age Recommendation display name.",
+          "type": "string"
+        },
+        "analyticsIdentifier": {
+          "description": "Provide all necessary information which helps analytics for improvement, for example, the algorithm, dataset version, position, etc..",
+          "type": "string"
+        },
+        "creatorHasVerifiedBadge": {
+          "description": "Creator verified badge status",
+          "type": "boolean"
+        },
+        "creatorId": {
+          "description": "Creator Id",
+          "format": "int64",
+          "type": "integer"
+        },
+        "creatorName": {
+          "description": "Creator name",
+          "type": "string"
+        },
+        "creatorType": {
+          "description": "Creator type",
+          "type": "string"
+        },
+        "gameDescription": {
+          "description": "Provide all necessary information which helps analytics for improvement, for example, the algorithm, dataset version, position, etc..",
+          "type": "string"
+        },
+        "genre": {
+          "description": "The game genre display name",
+          "type": "string"
+        },
+        "imageToken": {
+          "description": "Place image token",
+          "type": "string"
+        },
+        "isShowSponsoredLabel": {
+          "description": "Show the sponsored label",
+          "type": "boolean"
+        },
+        "isSponsored": {
+          "description": "Is sponsored",
+          "type": "boolean"
+        },
+        "minimumAge": {
+          "description": "Age Recommendation minimum age.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "name": {
+          "description": "Game name",
+          "type": "string"
+        },
+        "nativeAdData": {
+          "description": "Native ad data",
+          "type": "string"
+        },
+        "placeId": {
+          "description": "Place Id",
+          "format": "int64",
+          "type": "integer"
+        },
+        "playerCount": {
+          "description": "Player count",
+          "format": "int32",
+          "type": "integer"
+        },
+        "price": {
+          "description": "The game paid access price",
+          "format": "int64",
+          "type": "integer"
+        },
+        "totalDownVotes": {
+          "description": "Total down votes",
+          "format": "int64",
+          "type": "integer"
+        },
+        "totalUpVotes": {
+          "description": "Total up votes",
+          "format": "int64",
+          "type": "integer"
+        },
+        "universeId": {
+          "description": "Universe id",
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Games.Api.Models.Response.GameSpotlightResponse": {
+      "description": "Response model for a spotlight game.",
+      "properties": {
+        "gameInfo": {
+          "$ref": "#/definitions/Roblox.Games.Api.Models.Response.GameResponseModel"
+        },
+        "spotlightActionText": {
+          "description": "Localized text to display on the client for this spotlight game (call to action).",
+          "type": "string"
+        },
+        "spotlightType": {
+          "description": "The spotlight game type; reason the game has been spotlighted.",
+          "type": "string"
+        },
+        "spotlightTypeData": {
+          "$ref": "#/definitions/Roblox.Games.Api.Models.Response.SpotlightTypeData"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Games.Api.Models.Response.GameVoteResponse": {
+      "description": "Response model for getting the game vote",
+      "properties": {
+        "downVotes": {
+          "description": "The game down votes",
+          "format": "int64",
+          "type": "integer"
+        },
+        "id": {
+          "description": "The game universe id",
+          "format": "int64",
+          "type": "integer"
+        },
+        "upVotes": {
+          "description": "The game up votes",
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Games.Api.Models.Response.PlaceDetails": {
+      "description": "Response model for a place.",
+      "properties": {
+        "builder": {
+          "description": "Creator name",
+          "type": "string"
+        },
+        "builderId": {
+          "description": "Creator Id",
+          "format": "int64",
+          "type": "integer"
+        },
+        "description": {
+          "description": "Place description",
+          "type": "string"
+        },
+        "hasVerifiedBadge": {
+          "description": "Builder verified badge status.",
+          "type": "boolean"
+        },
+        "imageToken": {
+          "description": "Place image token",
+          "type": "string"
+        },
+        "isPlayable": {
+          "description": "Is playable",
+          "type": "boolean"
+        },
+        "name": {
+          "description": "Place name",
+          "type": "string"
+        },
+        "placeId": {
+          "description": "Place Id",
+          "format": "int64",
+          "type": "integer"
+        },
+        "price": {
+          "description": "Price",
+          "format": "int64",
+          "type": "integer"
+        },
+        "reasonProhibited": {
+          "description": "Reason prohibited",
+          "type": "string"
+        },
+        "sourceDescription": {
+          "description": "Place description in source language",
+          "type": "string"
+        },
+        "sourceName": {
+          "description": "Place name in source language",
+          "type": "string"
+        },
+        "universeId": {
+          "description": "Universe id",
+          "format": "int64",
+          "type": "integer"
+        },
+        "universeRootPlaceId": {
+          "description": "UniverseRootPlaceId",
+          "format": "int64",
+          "type": "integer"
+        },
+        "url": {
+          "description": "Url",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Games.Api.Models.Response.PlayabilityStatusResponse": {
+      "description": "Response model for getting a universe's playability status for a user",
+      "properties": {
+        "isPlayable": {
+          "description": "Whether or not the universe is playable for the user",
+          "type": "boolean"
+        },
+        "playabilityStatus": {
+          "description": "The actual playability status of the universe including the reason if unplayable ['UnplayableOtherReason' = 0, 'Playable' = 1, 'GuestProhibited' = 2, 'GameUnapproved' = 3, 'IncorrectConfiguration' = 4, 'UniverseRootPlaceIsPrivate' = 5, 'InsufficientPermissionFriendsOnly' = 6, 'InsufficientPermissionGroupOnly' = 7, 'DeviceRestricted' = 8, 'UnderReview' = 9, 'PurchaseRequired' = 10, 'AccountRestricted' = 11, 'TemporarilyUnavailable' = 12, 'PlaceHasNoPublishedVersion' = 13, 'ComplianceBlocked' = 14, 'ContextualPlayabilityRegionalAvailability' = 15, 'ContextualPlayabilityRegionalCompliance' = 16, 'ContextualPlayabilityAgeRecommendationParentalControls' = 17, 'ContextualPlayabilityAgeGated' = 18, 'ContextualPlayabilityUnverifiedSeventeenPlusUser' = 19]",
+          "enum": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "universeId": {
+          "description": "The universeId of the requested universe to help with batching requests",
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Games.Api.Models.Response.PrivateServersEnabledInUniverseResponse": {
+      "description": "Response model for getting whether a universe has private servers enabled.",
+      "properties": {
+        "privateServersEnabled": {
+          "description": "Whether private servers are enabled in the universe.",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Games.Api.Models.Response.SpotlightTypeData": {
+      "description": "Parent class to derive custom data for each spotlight type.",
+      "type": "object"
+    },
+    "Roblox.Games.Api.Models.Response.Thumbnail": {
+      "description": "Thumbnail response model.",
+      "properties": {
+        "cdnUrl": {
+          "description": "CdnUrl",
+          "type": "string"
+        },
+        "final": {
+          "description": "Final",
+          "type": "boolean"
+        },
+        "placeId": {
+          "description": "PlaceId",
+          "format": "int64",
+          "type": "integer"
+        },
+        "retryToken": {
+          "description": "RetryToken",
+          "type": "string"
+        },
+        "universeId": {
+          "description": "UniverseId",
+          "format": "int64",
+          "type": "integer"
+        },
+        "url": {
+          "description": "Url",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Games.Api.Models.Response.UserGameVoteResponse": {
+      "description": "Response model for getting the user vote status for a game",
+      "properties": {
+        "canVote": {
+          "description": "Whether the user can vote the game",
+          "type": "boolean"
+        },
+        "reasonForNotVoteable": {
+          "description": "The reason why the user can't vote",
+          "type": "string"
+        },
+        "userVote": {
+          "description": "The user's vote status for the game",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Games.Api.Models.Response.VerifiedBadgeUserResponse": {
+      "description": "A response model specific to multi-get user.",
+      "properties": {
+        "displayName": {
+          "type": "string"
+        },
+        "hasVerifiedBadge": {
+          "description": "The user's verified badge status.",
+          "type": "boolean"
+        },
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Games.Api.PlaceResponse": {
+      "description": "Response model for a VIP server place",
+      "properties": {
+        "id": {
+          "description": "Place id",
+          "format": "int64",
+          "type": "integer"
+        },
+        "name": {
+          "description": "Place name",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Games.Api.PrivateServersResponse": {
+      "description": "User Presences Response model",
+      "properties": {
+        "privateServerResponses": {
+          "description": "A collection of game server responses",
+          "items": {
+            "$ref": "#/definitions/Roblox.Web.Responses.Games.GameServerResponse"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Games.Api.VipServerCanInviteResponse": {
+      "description": "Response model for VIP server can-invite user.",
+      "properties": {
+        "canInvite": {
+          "description": "Sufficient permissions to invite user",
+          "type": "boolean"
+        },
+        "doesOwnerPrivacyRestrictJoins": {
+          "description": "Does owner privacy restrict joins",
+          "type": "boolean"
+        },
+        "inviteResponseType": {
+          "description": "Invite response type ['Invalid' = 0, 'CanInvite' = 1, 'UnableToAddAnyUser' = 2, 'UnableToAddNonFriends' = 3, 'UnableToAddSpecificUser' = 4]",
+          "enum": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Games.Api.VipServerPermissionsResponse": {
+      "description": "Response model for VIP server permissions.",
+      "properties": {
+        "clanAllowed": {
+          "description": "Clan access",
+          "type": "boolean"
+        },
+        "enemyClanId": {
+          "description": "EnemyClanId",
+          "format": "int64",
+          "type": "integer"
+        },
+        "friendsAllowed": {
+          "description": "Friend access",
+          "type": "boolean"
+        },
+        "users": {
+          "description": "Users",
+          "items": {
+            "$ref": "#/definitions/Roblox.Web.Responses.Users.SkinnyUserResponse"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Games.Api.VipServerResponse": {
+      "description": "Response model for a VIP server.",
+      "properties": {
+        "active": {
+          "description": "Server status",
+          "type": "boolean"
+        },
+        "game": {
+          "$ref": "#/definitions/Roblox.Games.Api.GameResponse"
+        },
+        "id": {
+          "description": "Server Id",
+          "format": "int64",
+          "type": "integer"
+        },
+        "joinCode": {
+          "description": "Server join code",
+          "type": "string"
+        },
+        "link": {
+          "description": "Private server link",
+          "type": "string"
+        },
+        "name": {
+          "description": "Server name",
+          "type": "string"
+        },
+        "permissions": {
+          "$ref": "#/definitions/Roblox.Games.Api.VipServerPermissionsResponse"
+        },
+        "subscription": {
+          "$ref": "#/definitions/Roblox.Games.Api.VipServerSubscriptionResponse"
+        },
+        "voiceSettings": {
+          "$ref": "#/definitions/Roblox.Games.Api.VipServerVoiceSettingsResponse"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Games.Api.VipServerSubscriptionResponse": {
+      "description": "Response model for VIP server subscription.",
+      "properties": {
+        "active": {
+          "description": "Active",
+          "type": "boolean"
+        },
+        "canRenew": {
+          "description": "Can renew a subscription",
+          "type": "boolean"
+        },
+        "expirationDate": {
+          "description": "Expiration date",
+          "format": "date-time",
+          "type": "string"
+        },
+        "expired": {
+          "description": "Expired",
+          "type": "boolean"
+        },
+        "hasInsufficientFunds": {
+          "description": "Subscription cancelled due to insufficient funds",
+          "type": "boolean"
+        },
+        "hasPriceChanged": {
+          "description": "Subscriptions price has changed",
+          "type": "boolean"
+        },
+        "hasRecurringProfile": {
+          "description": "Subscription has a recurring profile",
+          "type": "boolean"
+        },
+        "price": {
+          "description": "Price",
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Games.Api.VipServerUpdatePermissionsRequest": {
+      "description": "Request model for updating permissions for a VIP server.",
+      "properties": {
+        "clanAllowed": {
+          "description": "Clan access",
+          "type": "boolean"
+        },
+        "enemyClanId": {
+          "description": "EnemyClanId",
+          "format": "int32",
+          "type": "integer"
+        },
+        "friendsAllowed": {
+          "description": "Friend access",
+          "type": "boolean"
+        },
+        "usersToAdd": {
+          "description": "Users to add",
+          "items": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        "usersToRemove": {
+          "description": "Users to remove",
+          "items": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Games.Api.VipServerUpdateRequest": {
+      "description": "Request model to update a VIP server.",
+      "properties": {
+        "active": {
+          "description": "Server status",
+          "type": "boolean"
+        },
+        "name": {
+          "description": "Server name",
+          "type": "string"
+        },
+        "newJoinCode": {
+          "description": "Server join code",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Games.Api.VipServerUpdateSubscriptionRequest": {
+      "description": "Request model to update subscriptions for a VIP server.",
+      "properties": {
+        "active": {
+          "description": "Active",
+          "type": "boolean"
+        },
+        "price": {
+          "description": "Price",
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Games.Api.VipServerUpdateVoiceSettingsRequest": {
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Games.Api.VipServerVoiceSettingsResponse": {
+      "description": "Contains voice settings of a vip server",
+      "properties": {
+        "enabled": {
+          "description": "Whether the voice chat is enabled",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Paging.ExclusiveStartKeyCursor[System.String]": {
+      "properties": {
+        "count": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "discriminator": {
+          "type": "string"
+        },
+        "key": {
+          "type": "string"
+        },
+        "pageNumber": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "pagingDirection": {
+          "description": " ['Forward' = 1, 'Backward' = 2]",
+          "enum": [
+            1,
+            2
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "sortOrder": {
+          "description": " ['Asc' = 1, 'Desc' = 2]",
+          "enum": [
+            1,
+            2
+          ],
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Paging.StartIndexCursor": {
+      "properties": {
+        "count": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "discriminator": {
+          "type": "string"
+        },
+        "startIndex": {
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Web.Responses.Games.GameServerResponse": {
+      "description": "Game server list response model.",
+      "properties": {
+        "accessCode": {
+          "description": "The private server access code.",
+          "format": "uuid",
+          "type": "string"
+        },
+        "fps": {
+          "description": "The current frames per second the server is running at.",
+          "format": "double",
+          "type": "number"
+        },
+        "id": {
+          "description": "The game server ID.",
+          "format": "uuid",
+          "type": "string"
+        },
+        "maxPlayers": {
+          "description": "The max number of players allowed to enter the server at the same time.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "name": {
+          "description": "The name of the private server.",
+          "type": "string"
+        },
+        "owner": {
+          "$ref": "#/definitions/Roblox.Games.Api.Models.Response.VerifiedBadgeUserResponse"
+        },
+        "ping": {
+          "description": "The game server ping time (measured in milliseconds).",
+          "format": "int32",
+          "type": "integer"
+        },
+        "playerTokens": {
+          "description": "The thumbnail tokens for all the players in the server.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "players": {
+          "description": "The players in the server.",
+          "items": {
+            "$ref": "#/definitions/Roblox.Games.Api.GameServerPlayerResponse"
+          },
+          "type": "array"
+        },
+        "playing": {
+          "description": "The number of players actively in the server.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "vipServerId": {
+          "description": "The private server ID.",
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Web.Responses.Users.SkinnyUserResponse": {
+      "properties": {
+        "displayName": {
+          "type": "string"
+        },
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Web.WebAPI.ApiEmptyResponseModel": {
+      "type": "object"
+    },
+    "Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.Games.Api.Models.Response.GameDetailResponse]": {
+      "properties": {
+        "data": {
+          "items": {
+            "$ref": "#/definitions/Roblox.Games.Api.Models.Response.GameDetailResponse"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.Games.Api.Models.Response.GameMediaItem]": {
+      "properties": {
+        "data": {
+          "items": {
+            "$ref": "#/definitions/Roblox.Games.Api.Models.Response.GameMediaItem"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.Games.Api.Models.Response.GameProductResponse]": {
+      "properties": {
+        "data": {
+          "items": {
+            "$ref": "#/definitions/Roblox.Games.Api.Models.Response.GameProductResponse"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.Games.Api.Models.Response.GameSpotlightResponse]": {
+      "properties": {
+        "data": {
+          "items": {
+            "$ref": "#/definitions/Roblox.Games.Api.Models.Response.GameSpotlightResponse"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.Games.Api.Models.Response.GameVoteResponse]": {
+      "properties": {
+        "data": {
+          "items": {
+            "$ref": "#/definitions/Roblox.Games.Api.Models.Response.GameVoteResponse"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Web.WebAPI.Models.ApiPageResponse[Roblox.Games.Api.Models.Response.GamePassResponse]": {
+      "properties": {
+        "data": {
+          "items": {
+            "$ref": "#/definitions/Roblox.Games.Api.Models.Response.GamePassResponse"
+          },
+          "type": "array"
+        },
+        "nextPageCursor": {
+          "type": "string"
+        },
+        "previousPageCursor": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Web.WebAPI.Models.ApiPageResponse[Roblox.Web.Responses.Games.GameServerResponse]": {
+      "properties": {
+        "data": {
+          "items": {
+            "$ref": "#/definitions/Roblox.Web.Responses.Games.GameServerResponse"
+          },
+          "type": "array"
+        },
+        "nextPageCursor": {
+          "type": "string"
+        },
+        "previousPageCursor": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "host": "games.roblox.com",
+  "info": {
+    "title": "Games Api v1",
+    "version": "v1"
+  },
+  "paths": {
+    "/v1/games": {
+      "get": {
+        "parameters": [
+          {
+            "collectionFormat": "csv",
+            "description": "A list of universe Ids. Cannot exceed a maximum of 100 IDs.",
+            "in": "query",
+            "items": {
+              "format": "int64",
+              "type": "integer"
+            },
+            "name": "universeIds",
+            "required": true,
+            "type": "array"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Games:GetGameDetails"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.Games.Api.Models.Response.GameDetailResponse]"
+            }
+          },
+          "400": {
+            "description": "8: No universe IDs were specified.\r\n9: Too many universe IDs were requested."
+          }
+        },
+        "summary": "Gets a list of games' detail",
+        "tags": [
+          "Games"
+        ]
+      }
+    },
+    "/v1/games/game-thumbnail": {
+      "get": {
+        "deprecated": true,
+        "parameters": [
+          {
+            "description": "",
+            "in": "query",
+            "name": "imageToken",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": 50,
+            "description": "",
+            "format": "int32",
+            "in": "query",
+            "name": "height",
+            "type": "integer"
+          },
+          {
+            "default": 50,
+            "description": "",
+            "format": "int32",
+            "in": "query",
+            "name": "width",
+            "type": "integer"
+          }
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Games:GetGameThumbnail"
+          ],
+          "obsoleteMessage": "Use https://thumbnails.roblox.com/docs#!/Games/get_v1_games_icons instead"
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "10: This endpoint is deprecated"
+          }
+        },
+        "summary": "Get a single game thumbnail",
+        "tags": [
+          "Games"
+        ]
+      }
+    },
+    "/v1/games/game-thumbnails": {
+      "get": {
+        "deprecated": true,
+        "parameters": [
+          {
+            "collectionFormat": "multi",
+            "description": "",
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "imageTokens",
+            "required": true,
+            "type": "array"
+          },
+          {
+            "default": 50,
+            "description": "",
+            "format": "int32",
+            "in": "query",
+            "name": "height",
+            "type": "integer"
+          },
+          {
+            "default": 50,
+            "description": "",
+            "format": "int32",
+            "in": "query",
+            "name": "width",
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Games:GetGameThumbnails"
+          ],
+          "obsoleteMessage": "Use https://thumbnails.roblox.com/docs#!/Games/get_v1_games_icons instead"
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/Roblox.Games.Api.Models.Response.Thumbnail"
+              },
+              "type": "array"
+            }
+          },
+          "404": {
+            "description": "10: This endpoint is deprecated"
+          }
+        },
+        "summary": "Gets a list of game thumbnails",
+        "tags": [
+          "Games"
+        ]
+      }
+    },
+    "/v1/games/games-product-info": {
+      "get": {
+        "parameters": [
+          {
+            "collectionFormat": "csv",
+            "description": "A list of universe Ids. Cannot exceed a maximum of 100 IDs.",
+            "in": "query",
+            "items": {
+              "format": "int64",
+              "type": "integer"
+            },
+            "name": "universeIds",
+            "required": true,
+            "type": "array"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Games:GetGamesProductsInfo"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.Games.Api.Models.Response.GameProductResponse]"
+            }
+          },
+          "400": {
+            "description": "8: No universe IDs were specified.\r\n9: Too many universe IDs were requested."
+          }
+        },
+        "summary": "Gets a list of games' product info, used to purchase a game",
+        "tags": [
+          "Games"
+        ]
+      }
+    },
+    "/v1/games/list-spotlight": {
+      "get": {
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Games:GetSpotlightGames"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.Games.Api.Models.Response.GameSpotlightResponse]"
+            }
+          },
+          "500": {
+            "description": "0: Compliance Context service is unavailable."
+          }
+        },
+        "summary": "Gets games that the client should spotlight.",
+        "tags": [
+          "Games"
+        ]
+      }
+    },
+    "/v1/games/multiget-place-details": {
+      "get": {
+        "parameters": [
+          {
+            "collectionFormat": "multi",
+            "description": "List of placeId to uniquely Identify a place",
+            "in": "query",
+            "items": {
+              "format": "int64",
+              "type": "integer"
+            },
+            "name": "placeIds",
+            "required": true,
+            "type": "array"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Games:MultiGetPlaceDetails"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/Roblox.Games.Api.Models.Response.PlaceDetails"
+              },
+              "type": "array"
+            }
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          }
+        },
+        "summary": "Get place details",
+        "tags": [
+          "Games"
+        ]
+      }
+    },
+    "/v1/games/multiget-playability-status": {
+      "get": {
+        "parameters": [
+          {
+            "collectionFormat": "csv",
+            "description": "A list of universe Ids. Cannot exceed a maximum of 100 IDs.",
+            "in": "query",
+            "items": {
+              "format": "int64",
+              "type": "integer"
+            },
+            "name": "universeIds",
+            "required": true,
+            "type": "array"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Games:MultiUniversePlayabilityStatus"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/Roblox.Games.Api.Models.Response.PlayabilityStatusResponse"
+              },
+              "type": "array"
+            }
+          },
+          "400": {
+            "description": "8: No universe IDs were specified.\r\n9: Too many universe IDs were requested."
+          }
+        },
+        "summary": "Gets a list of universe playability statuses for the authenticated user",
+        "tags": [
+          "Games"
+        ]
+      }
+    },
+    "/v1/games/recommendations/algorithm/{algorithmName}": {
+      "get": {
+        "deprecated": true,
+        "parameters": [
+          {
+            "description": "The algorithm name of recommendations",
+            "in": "path",
+            "name": "algorithmName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The key of a page, which includes the start row index and all other necessary information to query the data.\r\nThis parameter is usually not needed for the first page.",
+            "in": "query",
+            "name": "PaginationKey",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The requested number of rows.",
+            "format": "int32",
+            "in": "query",
+            "name": "MaxRows",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Truncated Results",
+            "in": "query",
+            "name": "IsTruncatedResultsEnabled",
+            "required": true,
+            "type": "boolean"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Games:Recommendations"
+          ],
+          "obsoleteMessage": "Please do not use this endpoint."
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Games.Api.Models.Response.GameRecommendationsResponse"
+            }
+          },
+          "400": {
+            "description": "1: The pagination key is invalid."
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          }
+        },
+        "summary": "Get games recommendations",
+        "tags": [
+          "Games"
+        ]
+      }
+    },
+    "/v1/games/recommendations/game/{universeId}": {
+      "get": {
+        "parameters": [
+          {
+            "description": "The universe to base recommendations on",
+            "format": "int64",
+            "in": "path",
+            "name": "universeId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "The key of a page, which includes the start row index and all other necessary information to query the data.\r\nThis parameter is usually not needed for the first page.",
+            "in": "query",
+            "name": "PaginationKey",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The requested number of rows.",
+            "format": "int32",
+            "in": "query",
+            "name": "MaxRows",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Truncated Results",
+            "in": "query",
+            "name": "IsTruncatedResultsEnabled",
+            "required": true,
+            "type": "boolean"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Games:RecommendationsByUniverse"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Games.Api.Models.Response.GameRecommendationsResponse"
+            }
+          },
+          "400": {
+            "description": "1: The pagination key is invalid."
+          },
+          "404": {
+            "description": "2: The requested universe does not exist."
+          }
+        },
+        "summary": "Get games recommendations based on a given universe",
+        "tags": [
+          "Games"
+        ]
+      }
+    },
+    "/v1/games/vip-servers/{universeId}": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "description": "The id of the universe.",
+            "format": "int64",
+            "in": "path",
+            "name": "universeId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "The request body.",
+            "in": "body",
+            "name": "requestBody",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Games.Api.CreateVipServersRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "VipServers:CreateVipServer"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.Responses.Games.GameServerResponse"
+            }
+          },
+          "400": {
+            "description": "15: The price for purchasing this private server has changed. Please refresh the page and try again."
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed"
+          },
+          "404": {
+            "description": "4: The universe does not exist."
+          },
+          "500": {
+            "description": "16: We are having a problem completing your purchase. Please try again in a few minutes."
+          }
+        },
+        "summary": "Create VIP server for a game",
+        "tags": [
+          "VipServers"
+        ]
+      }
+    },
+    "/v1/games/votes": {
+      "get": {
+        "parameters": [
+          {
+            "collectionFormat": "csv",
+            "description": "A list of universe Ids. Cannot exceed a maximum of 100 IDs.",
+            "in": "query",
+            "items": {
+              "format": "int64",
+              "type": "integer"
+            },
+            "name": "universeIds",
+            "required": true,
+            "type": "array"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Votes:MultiUniversePlayabilityStatus"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.Games.Api.Models.Response.GameVoteResponse]"
+            }
+          },
+          "400": {
+            "description": "3: The asset is not voteable.\r\n8: No universe IDs were specified.\r\n9: Too many universe IDs were requested."
+          },
+          "429": {
+            "description": "10: Internal service busy. Please try again later."
+          },
+          "500": {
+            "description": "0: An unknown error occurred."
+          }
+        },
+        "summary": "Gets a list of universe vote status",
+        "tags": [
+          "Votes"
+        ]
+      }
+    },
+    "/v1/games/{placeId}/private-servers": {
+      "get": {
+        "parameters": [
+          {
+            "description": "The Id of the place we are geting the private server list for.",
+            "format": "int64",
+            "in": "path",
+            "name": "placeId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "default": 10,
+            "description": "The number of results per request.",
+            "enum": [
+              10,
+              25,
+              50,
+              100
+            ],
+            "format": "int32",
+            "in": "query",
+            "name": "limit",
+            "type": "integer"
+          },
+          {
+            "description": "The paging cursor for the previous or next page.",
+            "in": "query",
+            "name": "cursor",
+            "type": "string"
+          },
+          {
+            "default": "Asc",
+            "description": "The order the results are sorted in.",
+            "enum": [
+              "Asc",
+              "Desc"
+            ],
+            "in": "query",
+            "name": "sortOrder",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "GameInstances:GetPrivateServerList"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.Models.ApiPageResponse[Roblox.Web.Responses.Games.GameServerResponse]"
+            }
+          },
+          "400": {
+            "description": "1: The place is invalid.\r\n7: Guest users are not allowed."
+          },
+          "404": {
+            "description": "1: The place is invalid."
+          }
+        },
+        "summary": "Get list of private servers user can access for given game id.",
+        "tags": [
+          "GameInstances"
+        ]
+      }
+    },
+    "/v1/games/{placeId}/servers/{serverType}": {
+      "get": {
+        "parameters": [
+          {
+            "description": "The Id of the place we are geting the server list for.",
+            "format": "int64",
+            "in": "path",
+            "name": "placeId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "The type of the server we geting the server list for.",
+            "enum": [
+              0,
+              1
+            ],
+            "format": "int32",
+            "in": "path",
+            "name": "serverType",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "default": 2,
+            "description": "The sort order of the servers.",
+            "enum": [
+              1,
+              2
+            ],
+            "format": "int32",
+            "in": "query",
+            "name": "sortOrder",
+            "type": "integer"
+          },
+          {
+            "default": false,
+            "description": "Exclude full servers.",
+            "in": "query",
+            "name": "excludeFullGames",
+            "type": "boolean"
+          },
+          {
+            "default": 10,
+            "description": "The number of results per request.",
+            "enum": [
+              10,
+              25,
+              50,
+              100
+            ],
+            "format": "int32",
+            "in": "query",
+            "name": "limit",
+            "type": "integer"
+          },
+          {
+            "description": "The paging cursor for the previous or next page.",
+            "in": "query",
+            "name": "cursor",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "GameInstances:GetServerList"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.Models.ApiPageResponse[Roblox.Web.Responses.Games.GameServerResponse]"
+            }
+          },
+          "400": {
+            "description": "1: The place is invalid.\r\n6: The server type is invalid. For fetching private servers, please use https://games.roblox.com/v1/games/{placeId}/private-servers.\r\n7: Guest users are not allowed."
+          },
+          "404": {
+            "description": "1: The place is invalid."
+          }
+        },
+        "summary": "Get the game server list",
+        "tags": [
+          "GameInstances"
+        ]
+      }
+    },
+    "/v1/games/{universeId}/favorites": {
+      "get": {
+        "parameters": [
+          {
+            "description": "The Id of the universe.",
+            "format": "int64",
+            "in": "path",
+            "name": "universeId",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Favorites:GetGameFavorite"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Games.Api.Models.Response.GameFavoriteResponse"
+            }
+          },
+          "400": {
+            "description": "3: The universe's root place is invalid."
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "404": {
+            "description": "2: The requested universe does not exist."
+          }
+        },
+        "summary": "Returns if a game was marked as favorite for the authenticated user",
+        "tags": [
+          "Favorites"
+        ]
+      },
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "description": "The Id of the universe.",
+            "format": "int64",
+            "in": "path",
+            "name": "universeId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Request data.",
+            "in": "body",
+            "name": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Games.Api.Models.Request.GameFavoritesRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Favorites:SetGameFavorite"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.ApiEmptyResponseModel"
+            }
+          },
+          "400": {
+            "description": "3: The universe's root place is invalid."
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed\r\n11: You are not authorized to perform this action."
+          },
+          "404": {
+            "description": "2: The requested universe does not exist."
+          },
+          "429": {
+            "description": "4: Too many requests have been made."
+          }
+        },
+        "summary": "Favors (or unfavors) a game for the authenticated user",
+        "tags": [
+          "Favorites"
+        ]
+      }
+    },
+    "/v1/games/{universeId}/favorites/count": {
+      "get": {
+        "parameters": [
+          {
+            "description": "The Id of the universe.",
+            "format": "int64",
+            "in": "path",
+            "name": "universeId",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Favorites:GetFavoritesCount"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Games.Api.Models.Response.GameFavoritesCountResponse"
+            }
+          },
+          "400": {
+            "description": "3: The universe's root place is invalid."
+          },
+          "404": {
+            "description": "2: The requested universe does not exist."
+          }
+        },
+        "summary": "Get the favorites count of the a specific game",
+        "tags": [
+          "Favorites"
+        ]
+      }
+    },
+    "/v1/games/{universeId}/game-passes": {
+      "get": {
+        "parameters": [
+          {
+            "description": "The id of the universe.",
+            "format": "int64",
+            "in": "path",
+            "name": "universeId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "",
+            "format": "int32",
+            "in": "query",
+            "name": "limit",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "default": 1,
+            "description": "",
+            "enum": [
+              1,
+              2
+            ],
+            "format": "int32",
+            "in": "query",
+            "name": "sortOrder",
+            "type": "integer"
+          },
+          {
+            "description": "The cursor to figure out where to start fetching",
+            "in": "query",
+            "name": "cursor",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "GamePasses:GetUniverseGamePasses"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.Models.ApiPageResponse[Roblox.Games.Api.Models.Response.GamePassResponse]"
+            }
+          },
+          "400": {
+            "description": "2: The universe's root place is invalid."
+          },
+          "404": {
+            "description": "1: The requested universe does not exist."
+          }
+        },
+        "summary": "Get the game's game passes",
+        "tags": [
+          "GamePasses"
+        ]
+      }
+    },
+    "/v1/games/{universeId}/media": {
+      "get": {
+        "deprecated": true,
+        "parameters": [
+          {
+            "description": "The id of the universe we get media data from.",
+            "format": "int64",
+            "in": "path",
+            "name": "universeId",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Games:GetGameMediaData"
+          ],
+          "obsoleteMessage": "Use https://games.roblox.com/v2/games/{universeId}/media instead"
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.Games.Api.Models.Response.GameMediaItem]"
+            }
+          },
+          "400": {
+            "description": "3: The universe's root place is invalid."
+          },
+          "404": {
+            "description": "2: The requested universe does not exist."
+          }
+        },
+        "summary": "Get the game media data",
+        "tags": [
+          "Games"
+        ]
+      }
+    },
+    "/v1/games/{universeId}/user-votes": {
+      "patch": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "description": "The id of the universe.",
+            "format": "int64",
+            "in": "path",
+            "name": "universeId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "The request body.",
+            "in": "body",
+            "name": "requestBody",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Games.Api.Models.Request.SetUserGameVoteRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Votes:SetGameVoteForUser"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.ApiEmptyResponseModel"
+            }
+          },
+          "400": {
+            "description": "2: The universe's root place is invalid.\r\n3: The asset is not voteable.\r\n4: The requested vote is invalid."
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed\r\n6: The user needs to play the game before vote.\r\n7: The user needs additional permission to vote."
+          },
+          "404": {
+            "description": "1: The requested universe does not exist."
+          },
+          "429": {
+            "description": "5: Too many attempts to vote. Please try again later.\r\n10: Internal service busy. Please try again later."
+          },
+          "500": {
+            "description": "0: An unknown error occurred."
+          }
+        },
+        "summary": "Set the user's vote for a game",
+        "tags": [
+          "Votes"
+        ]
+      }
+    },
+    "/v1/games/{universeId}/votes": {
+      "get": {
+        "deprecated": true,
+        "parameters": [
+          {
+            "description": "The id of the universe we get vote status from.",
+            "format": "int64",
+            "in": "path",
+            "name": "universeId",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Votes:GetGameVoteStatus"
+          ],
+          "obsoleteMessage": "Use https://games.roblox.com/docs#!/Votes/get_v1_games_votes instead"
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Games.Api.Models.Response.GameVoteResponse"
+            }
+          },
+          "400": {
+            "description": "2: The universe's root place is invalid.\r\n3: The asset is not voteable."
+          },
+          "404": {
+            "description": "1: The requested universe does not exist."
+          },
+          "429": {
+            "description": "10: Internal service busy. Please try again later."
+          },
+          "500": {
+            "description": "0: An unknown error occurred."
+          }
+        },
+        "summary": "Get the game vote status",
+        "tags": [
+          "Votes"
+        ]
+      }
+    },
+    "/v1/games/{universeId}/votes/user": {
+      "get": {
+        "parameters": [
+          {
+            "description": "The id of the universe we get user vote status from.",
+            "format": "int64",
+            "in": "path",
+            "name": "universeId",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Votes:GetGameVoteStatusForUser"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Games.Api.Models.Response.UserGameVoteResponse"
+            }
+          },
+          "400": {
+            "description": "2: The universe's root place is invalid.\r\n3: The asset is not voteable."
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "404": {
+            "description": "1: The requested universe does not exist."
+          },
+          "429": {
+            "description": "10: Internal service busy. Please try again later."
+          },
+          "500": {
+            "description": "0: An unknown error occurred."
+          }
+        },
+        "summary": "Get the user's vote status for a game",
+        "tags": [
+          "Votes"
+        ]
+      }
+    },
+    "/v1/private-servers": {
+      "get": {
+        "parameters": [
+          {
+            "collectionFormat": "csv",
+            "description": "",
+            "in": "query",
+            "items": {
+              "format": "int64",
+              "type": "integer"
+            },
+            "name": "privateServerIds",
+            "required": true,
+            "type": "array"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "VipServers:GetPrivateServers"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Games.Api.PrivateServersResponse"
+            }
+          },
+          "400": {
+            "description": "8: The creator of this game has disabled private servers for this game.\r\n34: Invalid request, private server ids cannot be null.\r\n35: Guest users are not allowed."
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "2: You are not the owner of this private server."
+          },
+          "404": {
+            "description": "1: The private server is invalid or does not exist.\r\n4: The universe does not exist."
+          }
+        },
+        "summary": "Get private servers from private server ids",
+        "tags": [
+          "VipServers"
+        ]
+      }
+    },
+    "/v1/private-servers/enabled-in-universe/{universeId}": {
+      "get": {
+        "parameters": [
+          {
+            "description": "",
+            "format": "int64",
+            "in": "path",
+            "name": "universeId",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "VipServers:PrivateServersEnabledInUniverse"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Games.Api.Models.Response.PrivateServersEnabledInUniverseResponse"
+            }
+          },
+          "400": {
+            "description": "8: No universe IDs were specified."
+          }
+        },
+        "summary": "Checks if the private servers are enabled in the specified universe.",
+        "tags": [
+          "VipServers"
+        ]
+      }
+    },
+    "/v1/vip-server/can-invite/{userId}": {
+      "get": {
+        "parameters": [
+          {
+            "description": "The user id.",
+            "format": "int64",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "VipServers:CanInviteUserId"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Games.Api.VipServerCanInviteResponse"
+            }
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "404": {
+            "description": "19: The user is does not exist."
+          }
+        },
+        "summary": "Determines if a user by id is allowed to receive a VIP Server invite from the authenticated user.",
+        "tags": [
+          "VipServers"
+        ]
+      }
+    },
+    "/v1/vip-servers/{id}": {
+      "get": {
+        "parameters": [
+          {
+            "description": "The VIP Server ID",
+            "format": "int64",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "VipServers:GetVipServer"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Games.Api.VipServerResponse"
+            }
+          },
+          "400": {
+            "description": "8: The creator of this game has disabled private servers for this game."
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "2: You are not the owner of this private server."
+          },
+          "404": {
+            "description": "1: The private server is invalid or does not exist.\r\n4: The universe does not exist."
+          }
+        },
+        "summary": "Get necessary data to generate webpage",
+        "tags": [
+          "VipServers"
+        ]
+      },
+      "patch": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "description": "The VIP Server ID",
+            "format": "int64",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "The Roblox.Games.Api.VipServerUpdateRequest",
+            "in": "body",
+            "name": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Games.Api.VipServerUpdateRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "VipServers:UpdateVipServer"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Games.Api.VipServerResponse"
+            }
+          },
+          "400": {
+            "description": "8: The creator of this game has disabled private servers for this game.\r\n10: The name of the private server is either empty or too long."
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed\r\n2: You are not the owner of this private server.\r\n11: You cannot activate a cancelled private server.\r\n12: The game must not be Friends Only to allow private servers.\r\n13: Join Link can be generated only for active private servers."
+          },
+          "404": {
+            "description": "1: The private server is invalid or does not exist.\r\n4: The universe does not exist."
+          },
+          "429": {
+            "description": "3: Please wait a few minutes before configuring your private server again."
+          }
+        },
+        "summary": "Updates vip server",
+        "tags": [
+          "VipServers"
+        ]
+      }
+    },
+    "/v1/vip-servers/{id}/permissions": {
+      "patch": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "description": "The VIP Server ID",
+            "format": "int64",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "The Roblox.Games.Api.VipServerUpdatePermissionsRequest",
+            "in": "body",
+            "name": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Games.Api.VipServerUpdatePermissionsRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "VipServers:UpdateVipServerPermissions"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Games.Api.VipServerPermissionsResponse"
+            }
+          },
+          "400": {
+            "description": "6: You cannot add so many players to the private server's invite list.\r\n8: The creator of this game has disabled private servers for this game.\r\n12: The game must not be Friends Only to allow private servers.\r\n28: You may only add or remove valid players to your private server's invite list.\r\n29: You may only add or remove players when your private server is active."
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed\r\n2: You are not the owner of this private server."
+          },
+          "404": {
+            "description": "1: The private server is invalid or does not exist.\r\n4: The universe does not exist."
+          }
+        },
+        "summary": "Update friend/clan access and allowed friends/clan list",
+        "tags": [
+          "VipServers"
+        ]
+      }
+    },
+    "/v1/vip-servers/{id}/subscription": {
+      "patch": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "description": "The VIP Server ID",
+            "format": "int64",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "The Roblox.Games.Api.VipServerUpdateSubscriptionRequest",
+            "in": "body",
+            "name": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Games.Api.VipServerUpdateSubscriptionRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "VipServers:UpdateVipServerSubscription"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Games.Api.VipServerSubscriptionResponse"
+            }
+          },
+          "400": {
+            "description": "8: The creator of this game has disabled private servers for this game.\r\n32: You do not have enough funds available to renew the subscription for this private server."
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed\r\n2: You are not the owner of this private server.\r\n21: You may not configure a cancelled private server. Please renew your subscription before configuring."
+          },
+          "404": {
+            "description": "1: The private server is invalid or does not exist.\r\n4: The universe does not exist."
+          },
+          "429": {
+            "description": "3: Please wait a few minutes before configuring your private server again."
+          }
+        },
+        "summary": "Updates subscription status of a vip server",
+        "tags": [
+          "VipServers"
+        ]
+      }
+    },
+    "/v1/vip-servers/{id}/voicesettings": {
+      "patch": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "description": "The VIP Server ID",
+            "format": "int64",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "The Roblox.Games.Api.VipServerUpdateVoiceSettingsRequest",
+            "in": "body",
+            "name": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Games.Api.VipServerUpdateVoiceSettingsRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "VipServers:UpdateVipServerVoiceSettings"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Games.Api.VipServerVoiceSettingsResponse"
+            }
+          },
+          "400": {
+            "description": "8: The creator of this game has disabled private servers for this game."
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed\r\n2: You are not the owner of this private server.\r\n33: You are not eligible for voice chat."
+          },
+          "404": {
+            "description": "1: The private server is invalid or does not exist."
+          }
+        },
+        "summary": "Update voice settings for a private server.",
+        "tags": [
+          "VipServers"
+        ]
+      }
+    }
+  },
+  "schemes": [
+    "https"
+  ],
+  "swagger": "2.0"
+}

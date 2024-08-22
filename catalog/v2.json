@@ -1,0 +1,12 @@
+{
+  "host": "catalog.roblox.com",
+  "info": {
+    "title": "Catalog Api v2",
+    "version": "v2"
+  },
+  "paths": {},
+  "schemes": [
+    "https"
+  ],
+  "swagger": "2.0"
+}

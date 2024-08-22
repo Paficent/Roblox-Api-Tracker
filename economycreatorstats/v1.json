@@ -1,0 +1,111 @@
+{
+  "definitions": {
+    "Roblox.EconomyCreatorStats.Api.Models.StatisticsResponse": {
+      "description": "The response model",
+      "properties": {
+        "data": {
+          "additionalProperties": {
+            "items": {
+              "items": {
+                "format": "double",
+                "type": "number"
+              },
+              "type": "array"
+            },
+            "type": "array"
+          },
+          "description": "The actual data.",
+          "type": "object"
+        },
+        "dataGranularity": {
+          "description": "The Roblox.EconomyCreatorStats.Api.StatisticsDataGranularity. ['Hourly' = 0, 'Daily' = 1, 'Monthly' = 2]",
+          "enum": [
+            0,
+            1,
+            2
+          ],
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "host": "economycreatorstats.roblox.com",
+  "info": {
+    "title": "Roblox.EconomyCreatorStats.Api v1",
+    "version": "v1"
+  },
+  "paths": {
+    "/v1/universes/{universeId}/stats": {
+      "get": {
+        "parameters": [
+          {
+            "description": "The universe id.",
+            "format": "int64",
+            "in": "path",
+            "name": "universeId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "enum": [
+              "PremiumUpsells",
+              "PremiumVisits"
+            ],
+            "in": "query",
+            "name": "Type",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "format": "date-time",
+            "in": "query",
+            "name": "StartTime",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "format": "date-time",
+            "in": "query",
+            "name": "EndTime",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Statistics:GetStatistics"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.EconomyCreatorStats.Api.Models.StatisticsResponse"
+            }
+          },
+          "400": {
+            "description": "1: The Universe is invalid.\r\n3: Too many data points requested.\r\n4: The requested data type is not known."
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request.\r\n2: Not authorized to perform this action."
+          }
+        },
+        "summary": "Get statistics data for a universe.",
+        "tags": [
+          "Statistics"
+        ]
+      }
+    }
+  },
+  "schemes": [
+    "https"
+  ],
+  "swagger": "2.0"
+}

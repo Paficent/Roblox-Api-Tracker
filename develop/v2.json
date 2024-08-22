@@ -1,0 +1,931 @@
+{
+  "definitions": {
+    "Roblox.Api.Develop.AssetVersion": {
+      "description": "Model of an asset version.",
+      "properties": {
+        "Id": {
+          "description": "The VersionID of the asset version.",
+          "format": "int64",
+          "type": "integer"
+        },
+        "assetId": {
+          "description": "The ID of the asset.",
+          "format": "int64",
+          "type": "integer"
+        },
+        "assetVersionNumber": {
+          "description": "The version number.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "created": {
+          "description": "The created date of this asset version.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "creatingUniverseId": {
+          "description": "ID of the universe this asset version was created in.",
+          "format": "int64",
+          "type": "integer"
+        },
+        "creatorTargetId": {
+          "description": "ID of the asset version creator.",
+          "format": "int64",
+          "type": "integer"
+        },
+        "creatorType": {
+          "description": "Type of the asset version creator.",
+          "type": "string"
+        },
+        "isEqualToCurrentPublishedVersion": {
+          "description": "Indicates if this version is same to current published version.\r\nThis property is available on /v1/{assetId}/published-versions and /v1/{assetId}/version/{versionNumber}.",
+          "type": "boolean"
+        },
+        "isPublished": {
+          "description": "Indicates if this version is / was published.\r\nThis property is available on /v1/{assetId}/saved-versions.",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Api.Develop.Models.PlaceConfigurationModelV2": {
+      "description": "A model containing information about a place to be configured",
+      "properties": {
+        "allowCopying": {
+          "description": "Determines if copying of the place is allowed.",
+          "type": "boolean"
+        },
+        "allowedGearTypes": {
+          "description": "List of allowed gear types",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "customSocialSlotsCount": {
+          "description": "The number of social slots for the place when the slot type is custom.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "description": {
+          "description": "The new description for the place.",
+          "type": "string"
+        },
+        "isAllGenresAllowed": {
+          "description": "If all genres are allowed, or only the experience type",
+          "type": "boolean"
+        },
+        "maxPlayerCount": {
+          "description": "The max number of players for the place.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "name": {
+          "description": "The name for the place.",
+          "type": "string"
+        },
+        "socialSlotType": {
+          "description": "The social slot type for the place. Determines how users are placed into servers.\r\n Examples: \r\n     Automatic,\r\n     Empty,\r\n     Custom",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Api.Develop.Models.PlaceModelV2": {
+      "description": "A model containing information about a place",
+      "properties": {
+        "allowCopying": {
+          "description": "Determines if copying of the place is allowed.",
+          "type": "boolean"
+        },
+        "allowedGearTypes": {
+          "description": "Types of Roblox gear that are allowed to exist in the place.\r\nValid values are from amp::AssetCategory",
+          "items": {
+            "description": "The types of Gear that can be worn inside a place.\r\nValid values are derived from amp::AssetCategory ['Invalid' = 0, 'Melee' = 8, 'Ranged' = 9, 'Explosive' = 10, 'PowerUps' = 11, 'Navigation' = 12, 'Musical' = 13, 'Social' = 14, 'Building' = 21, 'PersonalTransport' = 22]",
+            "enum": [
+              0,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              21,
+              22
+            ],
+            "format": "int32",
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        "currentSavedVersion": {
+          "description": "The current saved version number of the place.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "customSocialSlotsCount": {
+          "description": "The number of social slots for the place when the slot type is custom.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "description": {
+          "description": "Returns the place description.",
+          "type": "string"
+        },
+        "id": {
+          "description": "Returns the place id.",
+          "format": "int64",
+          "type": "integer"
+        },
+        "isAllGenresAllowed": {
+          "description": "Whether all genres allowed in the place.",
+          "type": "boolean"
+        },
+        "isRootPlace": {
+          "description": "Returns whether this place is the root place.",
+          "type": "boolean"
+        },
+        "maxPlayerCount": {
+          "description": "The max number of players for the place.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "maxPlayersAllowed": {
+          "description": "The maximum allowed number of players for the place that the user can set, based on user roleset.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "name": {
+          "description": "Returns the place name.",
+          "type": "string"
+        },
+        "socialSlotType": {
+          "description": "The social slot type for the place. Determines how users are placed into servers.\r\n Examples: \r\n     Automatic,\r\n     Empty,\r\n     Custom",
+          "type": "string"
+        },
+        "universeId": {
+          "description": "Returns the id of the place's universe, or null - if the place is not part of a universe.",
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Api.Develop.Models.UniverseModerationPolicyStatus": {
+      "description": "Represents a universe moderation policy status",
+      "properties": {
+        "region": {
+          "description": "The region policy label ['Unknown' = 0, 'China' = 1]",
+          "enum": [
+            0,
+            1
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "status": {
+          "description": "The status of the universe",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Api.Develop.Models.UniverseSettingsRequestV2": {
+      "description": "Model for UniverseSettings patch requests",
+      "properties": {
+        "allowPrivateServers": {
+          "description": "If the universe allows the use of private servers.",
+          "type": "boolean"
+        },
+        "description": {
+          "description": "The description of the universe.",
+          "type": "string"
+        },
+        "genre": {
+          "description": "Game genre.",
+          "enum": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "isArchived": {
+          "description": "Archive status of the universe.",
+          "type": "boolean"
+        },
+        "isForSale": {
+          "description": "Whether the game is offered for sale.",
+          "type": "boolean"
+        },
+        "isFriendsOnly": {
+          "description": "Whether game access is limited to friends for user-owned games or group members for group-owned games.",
+          "type": "boolean"
+        },
+        "isMeshTextureApiAccessAllowed": {
+          "description": "Sets whether access to APIs for mesh and texture is enabled for this universe.",
+          "type": "boolean"
+        },
+        "name": {
+          "description": "The name of the universe.",
+          "type": "string"
+        },
+        "optInRegions": {
+          "description": "A list of opt in region.",
+          "items": {
+            "description": "Universe opt in regions ['Unknown' = 0, 'China' = 1]",
+            "enum": [
+              0,
+              1
+            ],
+            "format": "int32",
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        "optOutRegions": {
+          "description": "A list of opt out region.",
+          "items": {
+            "description": "Universe opt in regions ['Unknown' = 0, 'China' = 1]",
+            "enum": [
+              0,
+              1
+            ],
+            "format": "int32",
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        "permissions": {
+          "$ref": "#/definitions/Roblox.UniversePluginPermissionAuthority.Models.UniversePluginPermissions"
+        },
+        "playableDevices": {
+          "description": "List of device types this game can be played on.",
+          "items": {
+            "description": " ['Computer' = 1, 'Phone' = 2, 'Tablet' = 3, 'Console' = 4, 'VR' = 5]",
+            "enum": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "format": "int32",
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        "price": {
+          "description": "Price of the game, in Robux.",
+          "format": "int64",
+          "type": "integer"
+        },
+        "privateServerPrice": {
+          "description": "The price to purchase a private server in robux.",
+          "format": "int64",
+          "type": "integer"
+        },
+        "studioAccessToApisAllowed": {
+          "description": "Whether Studio can access data stores of this universe.",
+          "type": "boolean"
+        },
+        "universeAnimationType": {
+          "description": "Whether custom animations are allowed in the universe.",
+          "enum": [
+            1,
+            2
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "universeAvatarAssetOverrides": {
+          "description": "A list of avatar asset overrides.",
+          "items": {
+            "$ref": "#/definitions/Roblox.Platform.UniverseSettings.UniverseAvatarAssetOverrideResponseModel"
+          },
+          "type": "array"
+        },
+        "universeAvatarMaxScales": {
+          "$ref": "#/definitions/Roblox.Web.Responses.Avatar.ScaleModel"
+        },
+        "universeAvatarMinScales": {
+          "$ref": "#/definitions/Roblox.Web.Responses.Avatar.ScaleModel"
+        },
+        "universeAvatarType": {
+          "description": "Which avatar types are allowed in the universe.",
+          "enum": [
+            1,
+            2,
+            3
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "universeCollisionType": {
+          "description": "What type of collisions are used by the universe.",
+          "enum": [
+            1,
+            2
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "universeJointPositioningType": {
+          "description": "What avatar joint positioning type is allowed by the universe.",
+          "enum": [
+            1,
+            2
+          ],
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Api.Develop.Models.UniverseSettingsResponseV2": {
+      "description": "Model for UniverseSettings controller responses",
+      "properties": {
+        "allowPrivateServers": {
+          "description": "If the universe allows the use of private servers.",
+          "type": "boolean"
+        },
+        "description": {
+          "description": "The universe description.",
+          "type": "string"
+        },
+        "genre": {
+          "description": "Game genre. ['All' = 0, 'Tutorial' = 1, 'Scary' = 2, 'TownAndCity' = 3, 'War' = 4, 'Funny' = 5, 'Fantasy' = 6, 'Adventure' = 7, 'SciFi' = 8, 'Pirate' = 9, 'FPS' = 10, 'RPG' = 11, 'Sports' = 12, 'Ninja' = 13, 'WildWest' = 14]",
+          "enum": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "id": {
+          "description": "The universe Id.",
+          "format": "int64",
+          "type": "integer"
+        },
+        "isArchived": {
+          "description": "Archive status of the universe",
+          "type": "boolean"
+        },
+        "isForSale": {
+          "description": "Whether the game is offered for sale.",
+          "type": "boolean"
+        },
+        "isFriendsOnly": {
+          "description": "Whether game access is limited to friends for user-owned games or group members for group-owned games.",
+          "type": "boolean"
+        },
+        "isMeshTextureApiAccessAllowed": {
+          "description": "Whether access to APIs for mesh and texture is enabled for this universe.",
+          "type": "boolean"
+        },
+        "name": {
+          "description": "The universe name.",
+          "type": "string"
+        },
+        "optInRegions": {
+          "description": "The regions the universe has opted in for",
+          "items": {
+            "$ref": "#/definitions/Roblox.Api.Develop.Models.UniverseModerationPolicyStatus"
+          },
+          "type": "array"
+        },
+        "permissions": {
+          "$ref": "#/definitions/Roblox.UniversePluginPermissionAuthority.Models.UniversePluginPermissions"
+        },
+        "playableDevices": {
+          "description": "List of device types this game can be played on.",
+          "items": {
+            "description": " ['Computer' = 1, 'Phone' = 2, 'Tablet' = 3, 'Console' = 4, 'VR' = 5]",
+            "enum": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "format": "int32",
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        "price": {
+          "description": "Price of the game, in Robux.",
+          "format": "int64",
+          "type": "integer"
+        },
+        "privateServerPrice": {
+          "description": "The price to purchase a private server in robux.",
+          "format": "int64",
+          "type": "integer"
+        },
+        "studioAccessToApisAllowed": {
+          "description": "Whether Studio can access data stores of this universe.",
+          "type": "boolean"
+        },
+        "universeAnimationType": {
+          "description": "Whether custom animations are allowed in the universe. ['Standard' = 1, 'PlayerChoice' = 2]",
+          "enum": [
+            1,
+            2
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "universeAvatarAssetOverrides": {
+          "description": "A collection of avatar asset settings allowed by the universe.",
+          "items": {
+            "$ref": "#/definitions/Roblox.Platform.UniverseSettings.UniverseAvatarAssetOverrideResponseModel"
+          },
+          "type": "array"
+        },
+        "universeAvatarMaxScales": {
+          "$ref": "#/definitions/Roblox.Web.Responses.Avatar.ScaleModel"
+        },
+        "universeAvatarMinScales": {
+          "$ref": "#/definitions/Roblox.Web.Responses.Avatar.ScaleModel"
+        },
+        "universeAvatarType": {
+          "description": "Which avatar types are allowed in the universe. ['MorphToR6' = 1, 'PlayerChoice' = 2, 'MorphToR15' = 3]",
+          "enum": [
+            1,
+            2,
+            3
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "universeCollisionType": {
+          "description": "What type of collisions are used by the universe. ['InnerBox' = 1, 'OuterBox' = 2]",
+          "enum": [
+            1,
+            2
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "universeJointPositioningType": {
+          "description": "What avatar joint positioning is allowed by the universe. ['Standard' = 1, 'ArtistIntent' = 2]",
+          "enum": [
+            1,
+            2
+          ],
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Platform.Core.ExclusiveStartPaging.IExclusiveStartKeyInfo[System.String]": {
+      "properties": {
+        "Count": {
+          "format": "int32",
+          "readOnly": true,
+          "type": "integer"
+        },
+        "PagingDirection": {
+          "description": " ['Forward' = 1, 'Backward' = 2]",
+          "enum": [
+            1,
+            2
+          ],
+          "format": "int32",
+          "readOnly": true,
+          "type": "integer"
+        },
+        "SortOrder": {
+          "description": " ['Asc' = 1, 'Desc' = 2]",
+          "enum": [
+            1,
+            2
+          ],
+          "format": "int32",
+          "readOnly": true,
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Platform.UniverseSettings.UniverseAvatarAssetOverrideResponseModel": {
+      "properties": {
+        "assetID": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "assetTypeID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "isPlayerChoice": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.UniversePluginPermissionAuthority.Models.UniversePluginPermissions": {
+      "properties": {
+        "IsThirdPartyAssetAllowed": {
+          "type": "boolean"
+        },
+        "IsThirdPartyPurchaseAllowed": {
+          "type": "boolean"
+        },
+        "IsThirdPartyTeleportAllowed": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Web.Responses.Avatar.ScaleModel": {
+      "properties": {
+        "bodyType": {
+          "format": "double",
+          "type": "number"
+        },
+        "depth": {
+          "format": "double",
+          "type": "number"
+        },
+        "head": {
+          "format": "double",
+          "type": "number"
+        },
+        "height": {
+          "format": "double",
+          "type": "number"
+        },
+        "proportion": {
+          "format": "double",
+          "type": "number"
+        },
+        "width": {
+          "format": "double",
+          "type": "number"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Web.WebAPI.ApiEmptyResponseModel": {
+      "type": "object"
+    },
+    "Roblox.Web.WebAPI.ExclusiveStartRequest[System.String]": {
+      "properties": {
+        "CursorRecipe": {
+          "type": "string"
+        },
+        "ExclusiveStartKeyInfo": {
+          "$ref": "#/definitions/Roblox.Platform.Core.ExclusiveStartPaging.IExclusiveStartKeyInfo[System.String]"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Web.WebAPI.Models.ApiPageResponse[Roblox.Api.Develop.AssetVersion]": {
+      "properties": {
+        "data": {
+          "items": {
+            "$ref": "#/definitions/Roblox.Api.Develop.AssetVersion"
+          },
+          "type": "array"
+        },
+        "nextPageCursor": {
+          "type": "string"
+        },
+        "previousPageCursor": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "host": "develop.roblox.com",
+  "info": {
+    "title": "Develop Api v2",
+    "version": "v2"
+  },
+  "paths": {
+    "/v2/assets/{id}/versions": {
+      "get": {
+        "deprecated": true,
+        "parameters": [
+          {
+            "description": "The ID of the asset.Roblox.Platform.Assets.IAsset",
+            "format": "int64",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "The ID of the place.Roblox.Platform.Assets.IPlace",
+            "format": "int64",
+            "in": "header",
+            "name": "Roblox-Place-Id",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "default": 10,
+            "description": "The number of results per request.",
+            "enum": [
+              10,
+              25,
+              50,
+              100
+            ],
+            "format": "int32",
+            "in": "query",
+            "name": "limit",
+            "type": "integer"
+          },
+          {
+            "description": "The paging cursor for the previous or next page.",
+            "in": "query",
+            "name": "cursor",
+            "type": "string"
+          },
+          {
+            "default": "Desc",
+            "description": "Sort by version number, default is desc.",
+            "enum": [
+              "Asc",
+              "Desc"
+            ],
+            "in": "query",
+            "name": "sortOrder",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "AssetsV2:GetAssetVersionsByAssetIdAndPlaceId"
+          ],
+          "obsoleteMessage": "Use OpenCloud Assets API instead."
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.Models.ApiPageResponse[Roblox.Api.Develop.AssetVersion]"
+            }
+          }
+        },
+        "summary": "Retrieves asset information for the specified asset ID. The authenticated user must be able to manage the asset\r\nor granted by package permission.",
+        "tags": [
+          "AssetsV2"
+        ]
+      }
+    },
+    "/v2/places/{placeId}": {
+      "get": {
+        "parameters": [
+          {
+            "description": "The place id for the place to be updated.",
+            "format": "int64",
+            "in": "path",
+            "name": "placeId",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "PlacesV2:GetPlaceConfiguration"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Api.Develop.Models.PlaceModelV2"
+            }
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "Authenticated user is not authorized to manage this place."
+          },
+          "404": {
+            "description": "placeId Place not found."
+          }
+        },
+        "summary": "Gets the place configuration for the place with the id placeId",
+        "tags": [
+          "PlacesV2"
+        ]
+      },
+      "patch": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "description": "The place id for the place to be updated.",
+            "format": "int64",
+            "in": "path",
+            "name": "placeId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "",
+            "in": "body",
+            "name": "configuration",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Api.Develop.Models.PlaceConfigurationModelV2"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "PlacesV2:UpdatePlaceConfiguration"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Api.Develop.Models.PlaceModelV2"
+            }
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "Authenticated user is not authorized to manage this place.\r\n0: Token Validation Failed"
+          },
+          "404": {
+            "description": "placeId Place not found."
+          }
+        },
+        "summary": "Updates the place configuration for the place with the id placeId",
+        "tags": [
+          "PlacesV2"
+        ]
+      }
+    },
+    "/v2/teamtest/{placeId}": {
+      "delete": {
+        "parameters": [
+          {
+            "description": "The Id of the place we are setting the metadata for.",
+            "format": "int64",
+            "in": "path",
+            "name": "placeId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "the Guid of the game instance System.Guid",
+            "format": "uuid",
+            "in": "query",
+            "name": "gameId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "TeamTestV2:CloseTeamTestGame"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.ApiEmptyResponseModel"
+            }
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed"
+          }
+        },
+        "summary": "Close a game instance that is being used for team testing",
+        "tags": [
+          "TeamTestV2"
+        ]
+      }
+    },
+    "/v2/universes/{universeId}/configuration": {
+      "patch": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "description": "The universeId.",
+            "format": "int64",
+            "in": "path",
+            "name": "universeId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "The Roblox.Api.Develop.Models.UniverseSettingsRequest model.",
+            "in": "body",
+            "name": "model",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Api.Develop.Models.UniverseSettingsRequestV2"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "UniverseSettings:UpdateUniverseSettingsV2"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Api.Develop.Models.UniverseSettingsResponseV2"
+            }
+          },
+          "400": {
+            "description": "1: The universe does not exist.\r\n3: Invalid UniverseAvatarType.\r\n4: Invalid UniverseScaleType.\r\n5: Invalid UniverseAnimationType.\r\n6: Invalid UniverseCollisionType.\r\n7: New universe name or description has been rejected.\r\n8: New universe name is too long.\r\n10: Invalid UniverseBodyType.\r\n11: Invalid UniverseJointPositioningType.\r\n12: The universe has no root place.\r\n15: Price is required when isForSale is true.\r\n16: This game cannot be offered for sale because it is not public.\r\n17: This game cannot be offered for sale because it has private servers enabled.\r\n18: The game price is outside of the allowed range.\r\n19: Invalid genre.\r\n20: The request body is missing.\r\n21: Invalid device type.\r\n22: Invalid asset type.\r\n23: Invalid value, the min must be less than or equal to the max\r\n24: Invalid scale value\r\n28: OptIn/Out Regions Not Supported."
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed\r\n2: You are not authorized to configure this universe.\r\n14: You are not authorized to sell games.\r\n29: Luobu app terms of service user agreement is missing.\r\n30: Unknown error while updating Opt in out region."
+          },
+          "409": {
+            "description": "9: Failed to shutdown all intances of game after changing AvatarType. The change has been reverted."
+          }
+        },
+        "summary": "Update universe settings for an owned universe.\r\nV2 Contains data for avatar scale and asset override.",
+        "tags": [
+          "UniverseSettings"
+        ]
+      }
+    }
+  },
+  "schemes": [
+    "https"
+  ],
+  "swagger": "2.0"
+}

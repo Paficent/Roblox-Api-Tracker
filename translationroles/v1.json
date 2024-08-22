@@ -1,0 +1,380 @@
+{
+  "definitions": {
+    "Roblox.GameLocalization.Client.GameLocalizationRoles.Assignee": {
+      "properties": {
+        "assigneeType": {
+          "description": " ['User' = 0, 'Group' = 1, 'GroupRole' = 2]",
+          "enum": [
+            "user",
+            "group",
+            "groupRole"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.GameLocalization.Client.GameLocalizationRoles.GameLocalizationRoleAssignment": {
+      "properties": {
+        "assignee": {
+          "$ref": "#/definitions/Roblox.GameLocalization.Client.GameLocalizationRoles.Assignee"
+        },
+        "gameId": {
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.TranslationRoles.Api.Assignee": {
+      "properties": {
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "description": " ['User' = 0, 'Group' = 1, 'GroupRole' = 2]",
+          "enum": [
+            "user",
+            "group",
+            "groupRole"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.TranslationRoles.Api.GetGameLocalizationRoleAssignmentsForUserResponse": {
+      "description": "Response model containing a list of games and associated role assignment info for the requested user and role.",
+      "properties": {
+        "games": {
+          "description": "List of games with associated role assignment info.",
+          "items": {
+            "$ref": "#/definitions/Roblox.GameLocalization.Client.GameLocalizationRoles.GameLocalizationRoleAssignment"
+          },
+          "type": "array"
+        },
+        "nextPageCursor": {
+          "description": "Cursor which can be used for navigating to next page.",
+          "type": "string"
+        },
+        "previousPageCursor": {
+          "description": "Cursor which can be used for navigating to previous page.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.TranslationRoles.Api.UpdateRoleRequest": {
+      "description": "The request body for update role endpoints",
+      "properties": {
+        "assigneeId": {
+          "description": "The id of the assignee",
+          "format": "int64",
+          "type": "integer"
+        },
+        "assigneeType": {
+          "description": "The type of the assignee ['User' = 0, 'Group' = 1, 'GroupRole' = 2]",
+          "enum": [
+            "user",
+            "group",
+            "groupRole"
+          ],
+          "type": "string"
+        },
+        "revoke": {
+          "description": "To assign or to revoke",
+          "type": "boolean"
+        },
+        "role": {
+          "description": "The role to be assigned or revoked ['Translator' = 0]",
+          "enum": [
+            "translator"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Web.WebAPI.ApiEmptyResponseModel": {
+      "type": "object"
+    },
+    "Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.TranslationRoles.Api.Assignee]": {
+      "properties": {
+        "data": {
+          "items": {
+            "$ref": "#/definitions/Roblox.TranslationRoles.Api.Assignee"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Web.WebAPI.Models.ApiArrayResponse[System.String]": {
+      "properties": {
+        "data": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "host": "translationroles.roblox.com",
+  "info": {
+    "title": "TranslationRoles Api v1",
+    "version": "v1"
+  },
+  "paths": {
+    "/v1/game-localization-roles/games/{gameId}": {
+      "patch": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "description": "The id of the game",
+            "format": "int64",
+            "in": "path",
+            "name": "gameId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "The request body",
+            "in": "body",
+            "name": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.TranslationRoles.Api.UpdateRoleRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "GameLocalizationRoles:UpdateRole"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.ApiEmptyResponseModel"
+            }
+          },
+          "400": {
+            "description": "3: Invalid game id\r\n4: Invalid assignee id\r\n6: Request body can't be null\r\n7: The role you are assigning has reached max limit"
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed\r\n1: You must be authorized to use this endpoint"
+          },
+          "429": {
+            "description": "5: Too many attempts. Please try again later."
+          },
+          "503": {
+            "description": "2: Feature is disabled"
+          }
+        },
+        "summary": "Assigns or revokes a role",
+        "tags": [
+          "GameLocalizationRoles"
+        ]
+      }
+    },
+    "/v1/game-localization-roles/games/{gameId}/current-user/roles": {
+      "get": {
+        "parameters": [
+          {
+            "description": "The id of the game",
+            "format": "int64",
+            "in": "path",
+            "name": "gameId",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "GameLocalizationRoles:GetRolesForAssignee"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.Models.ApiArrayResponse[System.String]"
+            }
+          },
+          "400": {
+            "description": "3: Invalid game id"
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "503": {
+            "description": "2: Feature is disabled"
+          }
+        },
+        "summary": "Retrieves the list of roles granted to current logged-in user",
+        "tags": [
+          "GameLocalizationRoles"
+        ]
+      }
+    },
+    "/v1/game-localization-roles/games/{gameId}/roles/{role}/assignees": {
+      "get": {
+        "parameters": [
+          {
+            "description": "The id of the game",
+            "format": "int64",
+            "in": "path",
+            "name": "gameId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "The Roblox.GameLocalization.Client.GameLocalizationRoles.GameLocalizationRoleType",
+            "enum": [
+              "translator"
+            ],
+            "in": "path",
+            "name": "role",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "GameLocalizationRoles:GetAssigneesInRole"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.TranslationRoles.Api.Assignee]"
+            }
+          },
+          "400": {
+            "description": "3: Invalid game id"
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "1: You must be authorized to use this endpoint"
+          },
+          "503": {
+            "description": "2: Feature is disabled"
+          }
+        },
+        "summary": "Gets list of users assigned a specific role in a game.",
+        "tags": [
+          "GameLocalizationRoles"
+        ]
+      }
+    },
+    "/v1/game-localization-roles/roles/{role}/current-user": {
+      "get": {
+        "parameters": [
+          {
+            "description": "The Roblox.GameLocalization.Client.GameLocalizationRoles.GameLocalizationRoleType",
+            "enum": [
+              "translator"
+            ],
+            "in": "path",
+            "name": "role",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Part of pagination. Last primary key of returned items in previous operation.",
+            "in": "query",
+            "name": "exclusiveStartKey",
+            "type": "string"
+          },
+          {
+            "description": "Part of pagination. Maximum number of items that might be returned in the page.",
+            "format": "int32",
+            "in": "query",
+            "name": "pageSize",
+            "type": "integer"
+          },
+          {
+            "description": "Optional seleted groupId of resources requested for the user and role.",
+            "format": "int64",
+            "in": "query",
+            "name": "groupId",
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "GameLocalizationRoles:GetGameLocalizationRoleAssignmentsForUser"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.TranslationRoles.Api.GetGameLocalizationRoleAssignmentsForUserResponse"
+            }
+          },
+          "400": {
+            "description": "10: Invalid page size\r\n11: Maximum page size exceeded\r\n12: Invalid exclusive start key"
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "500": {
+            "description": "0: An unknown error occurred"
+          },
+          "503": {
+            "description": "2: Feature is disabled"
+          }
+        },
+        "summary": "Gets the list of games and associated role assignment info for the requested user and role.",
+        "tags": [
+          "GameLocalizationRoles"
+        ]
+      }
+    }
+  },
+  "schemes": [
+    "https"
+  ],
+  "swagger": "2.0"
+}

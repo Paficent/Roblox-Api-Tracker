@@ -33,8 +33,7 @@ jobs:
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "Roblox Api Tracker"
           git add .
-          diff=$(git diff --name-only)
-          git commit -m "$diff"
+          git commit -m "Api Updated"
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

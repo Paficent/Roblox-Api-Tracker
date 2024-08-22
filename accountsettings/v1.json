@@ -277,6 +277,14 @@
         "localizedName": {
           "description": "",
           "type": "string"
+        },
+        "localizedSubdivision": {
+          "description": "",
+          "type": "string"
+        },
+        "subdivisionIso": {
+          "description": "",
+          "type": "string"
         }
       },
       "type": "object"

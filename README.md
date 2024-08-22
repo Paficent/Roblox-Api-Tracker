@@ -1,7 +1,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-This repository tracks changes made to Roblox's Web Api Documentation. Repository updates every 10 minutes via GitHub Actions.
+This repository tracks changes made to Roblox's Web Api Documentation. Repository updates every 15 minutes via GitHub Actions.
 
 
 <!-- Usage -->
@@ -39,7 +39,7 @@ You can make use of this project in many different ways, such as:
 <!-- CONTRIBUTING -->
 ## Contributing
 
-All contributions are appreciated, no matter your skill level, you can also contribute to this project's [backend](https://github.com/Paficent/Roblox-Api-Tracker-Backend)!
+All contributions are appreciated, mainly contribute to endpoints.json if a new roblox api is added, or you can contribute to this project's [backend](https://github.com/Paficent/Roblox-Api-Tracker-Backend).
 
 If you have a suggestion that would make Roblox Api Tracker better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
 Don't forget to give this project a star if you found any use from it!

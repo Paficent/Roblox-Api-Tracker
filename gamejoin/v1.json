@@ -34,6 +34,10 @@
           "description": "Boolean representing whether this is a PlayTogether game",
           "type": "boolean"
         },
+        "isQueueAllowedOverride": {
+          "description": "Whether or not the game full join queue is used depends on the API and whether the join is a teleport.\r\nThis optional override allows the Client to specify if it wants to queue when joining full games",
+          "type": "boolean"
+        },
         "isTeleport": {
           "description": "Is this a teleport request",
           "type": "boolean"
@@ -138,6 +142,10 @@
           "description": "Boolean representing whether this is a PlayTogether game",
           "type": "boolean"
         },
+        "isQueueAllowedOverride": {
+          "description": "Whether or not the game full join queue is used depends on the API and whether the join is a teleport.\r\nThis optional override allows the Client to specify if it wants to queue when joining full games",
+          "type": "boolean"
+        },
         "isTeleport": {
           "description": "Is this a teleport request",
           "type": "boolean"
@@ -193,6 +201,10 @@
           "description": "Boolean representing whether this is a PlayTogether game",
           "type": "boolean"
         },
+        "isQueueAllowedOverride": {
+          "description": "Whether or not the game full join queue is used depends on the API and whether the join is a teleport.\r\nThis optional override allows the Client to specify if it wants to queue when joining full games",
+          "type": "boolean"
+        },
         "isTeleport": {
           "description": "Is this a teleport request",
           "type": "boolean"
@@ -245,6 +257,10 @@
         },
         "isPlayTogetherGame": {
           "description": "Boolean representing whether this is a PlayTogether game",
+          "type": "boolean"
+        },
+        "isQueueAllowedOverride": {
+          "description": "Whether or not the game full join queue is used depends on the API and whether the join is a teleport.\r\nThis optional override allows the Client to specify if it wants to queue when joining full games",
           "type": "boolean"
         },
         "isTeleport": {
@@ -308,6 +324,10 @@
           "description": "Boolean representing whether this is a PlayTogether game",
           "type": "boolean"
         },
+        "isQueueAllowedOverride": {
+          "description": "Whether or not the game full join queue is used depends on the API and whether the join is a teleport.\r\nThis optional override allows the Client to specify if it wants to queue when joining full games",
+          "type": "boolean"
+        },
         "isTeleport": {
           "description": "Is this a teleport request",
           "type": "boolean"
@@ -356,6 +376,10 @@
         },
         "isPlayTogetherGame": {
           "description": "Boolean representing whether this is a PlayTogether game",
+          "type": "boolean"
+        },
+        "isQueueAllowedOverride": {
+          "description": "Whether or not the game full join queue is used depends on the API and whether the join is a teleport.\r\nThis optional override allows the Client to specify if it wants to queue when joining full games",
           "type": "boolean"
         },
         "isTeleport": {
@@ -411,6 +435,10 @@
         },
         "isPlayTogetherGame": {
           "description": "Boolean representing whether this is a PlayTogether game",
+          "type": "boolean"
+        },
+        "isQueueAllowedOverride": {
+          "description": "Whether or not the game full join queue is used depends on the API and whether the join is a teleport.\r\nThis optional override allows the Client to specify if it wants to queue when joining full games",
           "type": "boolean"
         },
         "isTeleport": {

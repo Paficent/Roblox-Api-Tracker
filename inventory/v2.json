@@ -309,6 +309,9 @@
       },
       "type": "object"
     },
+    "Roblox.Web.WebAPI.ApiEmptyResponseModel": {
+      "type": "object"
+    },
     "Roblox.Web.WebAPI.ExclusiveStartRequest[System.Int64]": {
       "properties": {
         "CursorRecipe": {
@@ -448,6 +451,54 @@
         "summary": "Gets a list of owners of an asset.",
         "tags": [
           "AssetsV2"
+        ]
+      }
+    },
+    "/v2/inventory/asset/{assetId}": {
+      "delete": {
+        "parameters": [
+          {
+            "description": "ID of the asset to delete.",
+            "format": "int64",
+            "in": "path",
+            "name": "assetId",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "InventoryV2:DeleteInventoryAsset"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.ApiEmptyResponseModel"
+            }
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request.\r\n4: You are not authorized."
+          },
+          "403": {
+            "description": "0: Token Validation Failed\r\n2: You don't own the specified item.\r\n3: The item is not allowed to be deleted."
+          },
+          "404": {
+            "description": "1: The item does not exist."
+          },
+          "500": {
+            "description": "0: An unknown error occured."
+          }
+        },
+        "summary": "Give up an asset owned by the authenticated user.\r\nAssets that are created by Roblox user or are limited edition are not eligible for deletion\r\nand will return NotEligibleForDelete.",
+        "tags": [
+          "InventoryV2"
         ]
       }
     },

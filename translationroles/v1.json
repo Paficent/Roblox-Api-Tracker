@@ -154,7 +154,6 @@
             "description": "The request body",
             "in": "body",
             "name": "request",
-            "required": true,
             "schema": {
               "$ref": "#/definitions/Roblox.TranslationRoles.Api.UpdateRoleRequest"
             }

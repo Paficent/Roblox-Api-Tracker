@@ -1362,6 +1362,7 @@
         "parameters": [
           {
             "collectionFormat": "multi",
+            "description": "The universe Ids.",
             "in": "query",
             "items": {
               "format": "int64",

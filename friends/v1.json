@@ -1718,6 +1718,7 @@
             "type": "integer"
           },
           {
+            "default": 0,
             "description": "Specifies how to sort the returned friends.",
             "enum": [
               0,

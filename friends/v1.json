@@ -342,45 +342,6 @@
       },
       "type": "object"
     },
-    "Roblox.Friends.Api.Models.Response.UserRecommendation": {
-      "properties": {
-        "userId": {
-          "format": "int64",
-          "type": "integer"
-        },
-        "userName": {
-          "type": "string"
-        },
-        "userPresenceType": {
-          "description": " ['Offline' = 0, 'Online' = 1, 'InGame' = 2, 'InStudio' = 3, 'Invisible' = 4]",
-          "enum": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "format": "int32",
-          "type": "integer"
-        },
-        "userProfilePageUrl": {
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "Roblox.Friends.Api.Models.Response.UserRecommendationsResponse": {
-      "properties": {
-        "recommendedUsers": {
-          "description": "A collection of User Recommendations for a user.",
-          "items": {
-            "$ref": "#/definitions/Roblox.Friends.Api.Models.Response.UserRecommendation"
-          },
-          "type": "array"
-        }
-      },
-      "type": "object"
-    },
     "Roblox.Friends.Api.Models.Response.UserResponse": {
       "description": "A response model representing user information that also contains select presence information",
       "properties": {
@@ -878,35 +839,6 @@
         "summary": "Get all users that friend requests with targetUserId using exclusive start paging",
         "tags": [
           "Friends"
-        ]
-      }
-    },
-    "/v1/recommended-users": {
-      "get": {
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
-        "properties": {
-          "internal": false,
-          "metricIds": [
-            "UserRecommendations:GetRecommendedUsers"
-          ]
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/Roblox.Friends.Api.Models.Response.UserRecommendationsResponse"
-            }
-          },
-          "401": {
-            "description": "0: Authorization has been denied for this request."
-          }
-        },
-        "summary": "Return a list of Recommendations for the Authenticated User.\r\nV1 API to just return list of existing friends for the Authenticated user.",
-        "tags": [
-          "UserRecommendations"
         ]
       }
     },
@@ -1718,6 +1650,7 @@
             "type": "integer"
           },
           {
+            "default": 2,
             "description": "Specifies how to sort the returned friends.",
             "enum": [
               0,

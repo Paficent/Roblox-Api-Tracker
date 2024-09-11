@@ -29,6 +29,45 @@
       },
       "type": "object"
     },
+    "Roblox.LocalizationTables.Api.AutoScrapeEntry": {
+      "properties": {
+        "context": {
+          "type": "string"
+        },
+        "meta": {
+          "$ref": "#/definitions/Roblox.LocalizationTables.Api.AutoScrapeEntryMetadata"
+        },
+        "screenshot": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.LocalizationTables.Api.AutoScrapeEntryMetadata": {
+      "properties": {
+        "matchedEntry": {
+          "$ref": "#/definitions/Roblox.LocalizationTables.Api.MatchedEntry"
+        },
+        "osPlatform": {
+          "type": "string"
+        },
+        "sessionId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        },
+        "userId": {
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
     "Roblox.LocalizationTables.Api.CreateTableRequest": {
       "properties": {
         "name": {
@@ -305,34 +344,14 @@
         "isAutolocalizationEnabled": {
           "type": "boolean"
         },
+        "isAutomaticEntriesDeletionEnabled": {
+          "type": "boolean"
+        },
         "isAutomaticEntriesSettingEnabled": {
           "type": "boolean"
         },
         "shouldUseLocalizationTable": {
           "type": "boolean"
-        }
-      },
-      "type": "object"
-    },
-    "Roblox.LocalizationTables.Api.GetLanguageTranslationCountsForTableResponse": {
-      "description": "Response model for GetLanguageTranslationCountsForTable.",
-      "properties": {
-        "gameId": {
-          "description": "Id of the game that the translation counts were retrieved for.",
-          "format": "int64",
-          "type": "integer"
-        },
-        "languageTranslationCounts": {
-          "description": "The translation counts with relevant language information.",
-          "items": {
-            "$ref": "#/definitions/Roblox.LocalizationTables.Api.LanguageTranslationCount"
-          },
-          "type": "array"
-        },
-        "tableId": {
-          "description": "Id of the table that the translation counts were retrieved for.",
-          "format": "uuid",
-          "type": "string"
         }
       },
       "type": "object"
@@ -484,6 +503,47 @@
       },
       "type": "object"
     },
+    "Roblox.LocalizationTables.Api.IngestAutoScrapedContentForGameRequest": {
+      "description": "An ingest content request to IngestAutoScrapedContentForGame.",
+      "properties": {
+        "entries": {
+          "description": "The entries of an ingest content request.",
+          "items": {
+            "$ref": "#/definitions/Roblox.LocalizationTables.Api.AutoScrapeEntry"
+          },
+          "type": "array"
+        },
+        "metadata": {
+          "$ref": "#/definitions/Roblox.LocalizationTables.Api.IngestContentMetadata"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.LocalizationTables.Api.IngestContentMetadata": {
+      "description": "The metadata of an ingest content request.",
+      "properties": {
+        "placeInformation": {
+          "$ref": "#/definitions/Roblox.LocalizationTables.Api.IngestContentMetadataPlaceInformation"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.LocalizationTables.Api.IngestContentMetadataPlaceInformation": {
+      "description": "The place information metadata of an ingest content request.",
+      "properties": {
+        "placeId": {
+          "description": "The place id of an ingest content request.",
+          "format": "int64",
+          "type": "integer"
+        },
+        "placeVersionNumber": {
+          "description": "The place version number of an ingest content request.",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
     "Roblox.LocalizationTables.Api.Language": {
       "properties": {
         "languageCode": {
@@ -494,21 +554,6 @@
         },
         "nativeName": {
           "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "Roblox.LocalizationTables.Api.LanguageTranslationCount": {
-      "description": "Model containing a translation count for a language and relevant language information.",
-      "properties": {
-        "locale": {
-          "description": "The locale of the language.",
-          "type": "string"
-        },
-        "translationCount": {
-          "description": "The translation count value.",
-          "format": "int32",
-          "type": "integer"
         }
       },
       "type": "object"
@@ -538,6 +583,18 @@
         "isUntranslatedFilterEnabled": {
           "description": "Is untranslated filter on UI is enabled",
           "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.LocalizationTables.Api.MatchedEntry": {
+      "properties": {
+        "matchedParamIndex": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "source": {
+          "type": "string"
         }
       },
       "type": "object"
@@ -609,6 +666,9 @@
     "Roblox.LocalizationTables.Api.SetAutolocalizationSettingsForGameRequest": {
       "properties": {
         "isAutolocalizationEnabled": {
+          "type": "boolean"
+        },
+        "isAutomaticEntriesDeletionsEnabled": {
           "type": "boolean"
         },
         "isAutomaticEntriesSettingEnabled": {
@@ -878,6 +938,67 @@
           }
         },
         "summary": "Enqueues an event to flush the auto scraped entries which doesn't have translations.",
+        "tags": [
+          "AutoLocalizationTable"
+        ]
+      }
+    },
+    "/v1/auto-localization-table/games/{gameId}/ingestion": {
+      "patch": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "description": "The game id.",
+            "format": "int64",
+            "in": "path",
+            "name": "gameId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "The request body.",
+            "in": "body",
+            "name": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.LocalizationTables.Api.IngestAutoScrapedContentForGameRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "AutoLocalizationTable:IngestStudioScrapedContentForUniverse"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "400": {
+            "description": "10: Maximum entries exceeded. Please keep the number of entries per request below the maximum.\r\n13: Request body can't be null\r\n16: Entries can't be null or empty\r\n34: Actor provided is invalid"
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed"
+          },
+          "503": {
+            "description": "17: Feature is disabled"
+          }
+        },
+        "summary": "Ingests entries for auto localization. Needs to be an authorized user.",
         "tags": [
           "AutoLocalizationTable"
         ]
@@ -1596,69 +1717,6 @@
           }
         },
         "summary": "Gets the number of entries in the specified table",
-        "tags": [
-          "LocalizationTable"
-        ]
-      }
-    },
-    "/v1/localization-table/tables/{tableId}/language-translation-counts": {
-      "get": {
-        "parameters": [
-          {
-            "description": "The table id",
-            "format": "uuid",
-            "in": "path",
-            "name": "tableId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "collectionFormat": "multi",
-            "description": "The locales corresponding to the language translation counts to retrieve. This will return 0 for the translation count of locales that do not exist for the given table.",
-            "in": "query",
-            "items": {
-              "type": "string"
-            },
-            "name": "locales",
-            "required": true,
-            "type": "array"
-          },
-          {
-            "description": "The game id",
-            "format": "int64",
-            "in": "query",
-            "name": "gameId",
-            "type": "integer"
-          }
-        ],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
-        "properties": {
-          "internal": false,
-          "metricIds": [
-            "LocalizationTable:GetLanguageTranslationCountsForTable"
-          ]
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/Roblox.LocalizationTables.Api.GetLanguageTranslationCountsForTableResponse"
-            }
-          },
-          "400": {
-            "description": "3: Invalid table id.\r\n46: Locales can't be null or empty"
-          },
-          "401": {
-            "description": "0: Authorization has been denied for this request."
-          },
-          "403": {
-            "description": "2: You do not have permission to get this table."
-          }
-        },
-        "summary": "Gets the language translation counts for the specified table.\r\nThe languages to retrieve must be provided.",
         "tags": [
           "LocalizationTable"
         ]

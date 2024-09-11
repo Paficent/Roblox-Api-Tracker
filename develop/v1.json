@@ -1493,7 +1493,6 @@
           "application/json",
           "text/json"
         ],
-        "deprecated": true,
         "parameters": [
           {
             "description": "The universe Id.",
@@ -1521,8 +1520,7 @@
           "internal": false,
           "metricIds": [
             "Aliases:CreateAlias"
-          ],
-          "obsoleteMessage": "Use Content Aliases API instead."
+          ]
         },
         "responses": {
           "200": {
@@ -1555,7 +1553,6 @@
     },
     "/v1/universes/{universeId}/aliases/{name}": {
       "delete": {
-        "deprecated": true,
         "parameters": [
           {
             "description": "The universe id.",
@@ -1581,8 +1578,7 @@
           "internal": false,
           "metricIds": [
             "Aliases:DeleteAlias"
-          ],
-          "obsoleteMessage": "Use Content Aliases API instead."
+          ]
         },
         "responses": {
           "200": {
@@ -1611,7 +1607,6 @@
           "application/json",
           "text/json"
         ],
-        "deprecated": true,
         "parameters": [
           {
             "description": "The universe Id.",
@@ -1646,8 +1641,7 @@
           "internal": false,
           "metricIds": [
             "Aliases:UpdateAlias"
-          ],
-          "obsoleteMessage": "Use Content Aliases API instead."
+          ]
         },
         "responses": {
           "200": {

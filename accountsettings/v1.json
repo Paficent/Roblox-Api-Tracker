@@ -1482,7 +1482,6 @@
     },
     "/v1/users/{userId}/block": {
       "post": {
-        "description": "WHEN DEPRECATED, RESTORE GOLDEN SIGNAL DEFAULT ALERT: https://roblox.atlassian.net/browse/ACCMAN-2520",
         "parameters": [
           {
             "description": "The user ID to block.",
@@ -1523,7 +1522,7 @@
             "description": "3: User blocking is disabled.\r\n8: The request failed internally. Please try again later."
           }
         },
-        "summary": "Blocks another user.\r\nWHEN DEPRECATED, RESTORE GOLDEN SIGNAL DEFAULT ALERT: https://roblox.atlassian.net/browse/ACCMAN-2520",
+        "summary": "Blocks another user.",
         "tags": [
           "BlockUser"
         ]

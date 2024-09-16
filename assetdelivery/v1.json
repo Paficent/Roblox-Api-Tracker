@@ -1,6 +1,7 @@
 {
   "definitions": {
     "Roblox.Web.Assets.AssetContentRepresentationSpecifier": {
+      "additionalProperties": false,
       "properties": {
         "fidelity": {
           "type": "string"
@@ -14,7 +15,45 @@
       },
       "type": "object"
     },
+    "Roblox.Web.Assets.AssetResponseItemV1": {
+      "additionalProperties": false,
+      "properties": {
+        "IsCopyrightProtected": {
+          "description": "Whether the content's copyright is protected.",
+          "type": "boolean"
+        },
+        "IsHashDynamic": {
+          "type": "boolean"
+        },
+        "assetTypeId": {
+          "description": "Asset Type.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "contentRepresentationSpecifier": {
+          "$ref": "#/definitions/Roblox.Web.Assets.AssetContentRepresentationSpecifier"
+        },
+        "errors": {
+          "items": {
+            "$ref": "#/definitions/Roblox.Web.Assets.IAssetItemError"
+          },
+          "type": "array"
+        },
+        "isArchived": {
+          "description": "Whether the asset has been archived.",
+          "type": "boolean"
+        },
+        "location": {
+          "type": "string"
+        },
+        "requestId": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "Roblox.Web.Assets.BatchAssetRequestItem": {
+      "additionalProperties": false,
       "properties": {
         "accept": {
           "type": "string"
@@ -88,6 +127,7 @@
       "type": "object"
     },
     "Roblox.Web.Assets.IAssetItemError": {
+      "additionalProperties": false,
       "properties": {
         "Code": {
           "format": "int32",
@@ -112,43 +152,6 @@
           "type": "integer"
         },
         "Message": {
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "Roblox.Web.Assets.IAssetResponseItem": {
-      "properties": {
-        "AssetTypeId": {
-          "description": "Asset Type.",
-          "format": "int32",
-          "type": "integer"
-        },
-        "ContentRepresentationSpecifier": {
-          "$ref": "#/definitions/Roblox.Web.Assets.AssetContentRepresentationSpecifier"
-        },
-        "Errors": {
-          "items": {
-            "$ref": "#/definitions/Roblox.Web.Assets.IAssetItemError"
-          },
-          "type": "array"
-        },
-        "IsArchived": {
-          "description": "Whether or not the asset has been archived.",
-          "readOnly": true,
-          "type": "boolean"
-        },
-        "IsCopyrightProtected": {
-          "description": "Whether the content's copyright is protected.",
-          "type": "boolean"
-        },
-        "IsHashDynamic": {
-          "type": "boolean"
-        },
-        "Location": {
-          "type": "string"
-        },
-        "RequestId": {
           "type": "string"
         }
       },
@@ -260,7 +263,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/Roblox.Web.Assets.IAssetResponseItem"
+              "$ref": "#/definitions/Roblox.Web.Assets.AssetResponseItemV1"
             }
           }
         },
@@ -540,7 +543,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/Roblox.Web.Assets.IAssetResponseItem"
+              "$ref": "#/definitions/Roblox.Web.Assets.AssetResponseItemV1"
             }
           }
         },
@@ -669,7 +672,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/Roblox.Web.Assets.IAssetResponseItem"
+              "$ref": "#/definitions/Roblox.Web.Assets.AssetResponseItemV1"
             }
           }
         },
@@ -777,7 +780,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/Roblox.Web.Assets.IAssetResponseItem"
+              "$ref": "#/definitions/Roblox.Web.Assets.AssetResponseItemV1"
             }
           }
         },
@@ -839,7 +842,7 @@
             "description": "OK",
             "schema": {
               "items": {
-                "$ref": "#/definitions/Roblox.Web.Assets.IAssetResponseItem"
+                "$ref": "#/definitions/Roblox.Web.Assets.AssetResponseItemV1"
               },
               "type": "array"
             }
@@ -955,7 +958,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/Roblox.Web.Assets.IAssetResponseItem"
+              "$ref": "#/definitions/Roblox.Web.Assets.AssetResponseItemV1"
             }
           },
           "400": {
@@ -1069,7 +1072,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/Roblox.Web.Assets.IAssetResponseItem"
+              "$ref": "#/definitions/Roblox.Web.Assets.AssetResponseItemV1"
             }
           }
         },

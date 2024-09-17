@@ -1072,23 +1072,19 @@
       "type": "object"
     },
     "Roblox.Api.Avatar.Models.OutfitModel": {
-      "description": "A slim model for user outfits.",
+      "description": "A slim model for user outfits",
       "properties": {
         "id": {
-          "description": "The id.",
+          "description": "The id",
           "format": "int64",
           "type": "integer"
         },
         "isEditable": {
-          "description": "Whether the outfit can be modified by the user.",
+          "description": "Whether the outfit can be modified by the user",
           "type": "boolean"
         },
         "name": {
-          "description": "The name.",
-          "type": "string"
-        },
-        "outfitType": {
-          "description": "The type of the Outfit.",
+          "description": "The name",
           "type": "string"
         }
       },

@@ -9,7 +9,7 @@
           "type": "integer"
         },
         "position": {
-          "$ref": "#/definitions/Roblox.Avatarcore.Shared.V3Beta1.AssetPosition"
+          "$ref": "#/definitions/Roblox.Avatarcore.Shared.V3.AssetPosition"
         },
         "puffiness": {
           "description": "Layered-clothing puffiness",
@@ -17,10 +17,10 @@
           "type": "number"
         },
         "rotation": {
-          "$ref": "#/definitions/Roblox.Avatarcore.Shared.V3Beta1.AssetRotation"
+          "$ref": "#/definitions/Roblox.Avatarcore.Shared.V3.AssetRotation"
         },
         "scale": {
-          "$ref": "#/definitions/Roblox.Avatarcore.Shared.V3Beta1.AssetScale"
+          "$ref": "#/definitions/Roblox.Avatarcore.Shared.V3.AssetScale"
         },
         "version": {
           "description": "Client-authoritative meta model format version\r\n- default is always 1",
@@ -225,7 +225,7 @@
       },
       "type": "object"
     },
-    "Roblox.Avatarcore.Shared.V3Beta1.AssetPosition": {
+    "Roblox.Avatarcore.Shared.V3.AssetPosition": {
       "properties": {
         "X": {
           "format": "float",
@@ -242,7 +242,7 @@
       },
       "type": "object"
     },
-    "Roblox.Avatarcore.Shared.V3Beta1.AssetRotation": {
+    "Roblox.Avatarcore.Shared.V3.AssetRotation": {
       "properties": {
         "X": {
           "format": "float",
@@ -259,12 +259,8 @@
       },
       "type": "object"
     },
-    "Roblox.Avatarcore.Shared.V3Beta1.AssetScale": {
+    "Roblox.Avatarcore.Shared.V3.AssetScale": {
       "properties": {
-        "Scale": {
-          "format": "float",
-          "type": "number"
-        },
         "X": {
           "format": "float",
           "type": "number"

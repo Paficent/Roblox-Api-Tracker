@@ -300,6 +300,32 @@
           "format": "int64",
           "type": "integer"
         },
+        "genres": {
+          "description": "The System.Collections.Generic.IEnumerable`1, serialized if item has genres.",
+          "items": {
+            "description": " ['All' = 0, 'Tutorial' = 1, 'Scary' = 2, 'TownAndCity' = 3, 'War' = 4, 'Funny' = 5, 'Fantasy' = 6, 'Adventure' = 7, 'SciFi' = 8, 'Pirate' = 9, 'FPS' = 10, 'RPG' = 11, 'Sports' = 12, 'Ninja' = 13, 'WildWest' = 14]",
+            "enum": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "format": "int32",
+            "type": "integer"
+          },
+          "type": "array"
+        },
         "hasResellers": {
           "description": "An indicator if the item has resellers or not (null if not resellable).",
           "type": "boolean"
@@ -375,6 +401,9 @@
           "format": "date-time",
           "type": "string"
         },
+        "premiumPricing": {
+          "$ref": "#/definitions/Roblox.Catalog.Api.PremiumPricingModel"
+        },
         "price": {
           "description": "The item's price.",
           "format": "int64",
@@ -386,6 +415,11 @@
         },
         "productId": {
           "description": "The product id of corresponding item.",
+          "format": "int64",
+          "type": "integer"
+        },
+        "purchaseCount": {
+          "description": "The number of times the item has been purchased.",
           "format": "int64",
           "type": "integer"
         },

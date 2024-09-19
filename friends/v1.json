@@ -1820,16 +1820,6 @@
             "type": "string"
           },
           {
-            "description": "Specifies how to sort the returned friends.",
-            "enum": [
-              0
-            ],
-            "format": "int32",
-            "in": "query",
-            "name": "userSort",
-            "type": "integer"
-          },
-          {
             "description": "The paging cursor for the previous or next page.",
             "in": "query",
             "name": "cursor",

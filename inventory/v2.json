@@ -604,8 +604,16 @@
           },
           {
             "default": false,
+            "description": "Filters moderated assets when enabled.",
             "in": "query",
             "name": "filterDisapprovedAssets",
+            "type": "boolean"
+          },
+          {
+            "default": false,
+            "description": "Filters moderated assets and assets pending review when enabled.",
+            "in": "query",
+            "name": "showApprovedOnly",
             "type": "boolean"
           },
           {

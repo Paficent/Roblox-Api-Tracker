@@ -150,14 +150,6 @@
           "description": "The game genre display name",
           "type": "string"
         },
-        "genre_l1": {
-          "description": "The game genre from experience-genres-service",
-          "type": "string"
-        },
-        "genre_l2": {
-          "description": "The game subgenre from experience-genres-service",
-          "type": "string"
-        },
         "id": {
           "description": "The game universe id",
           "format": "int64",
@@ -516,61 +508,6 @@
           "description": "The game up votes",
           "format": "int64",
           "type": "integer"
-        }
-      },
-      "type": "object"
-    },
-    "Roblox.Games.Api.Models.Response.MyPrivateServersData": {
-      "description": "Data model for private server",
-      "properties": {
-        "name": {
-          "description": "The name of the private server.",
-          "type": "string"
-        },
-        "ownerId": {
-          "description": "The id of the owner of the private server",
-          "format": "int64",
-          "type": "integer"
-        },
-        "ownerName": {
-          "description": "The name of the owner of the private server",
-          "type": "string"
-        },
-        "placeId": {
-          "description": "The place id of the private server.",
-          "format": "int64",
-          "type": "integer"
-        },
-        "priceInRobux": {
-          "description": "The price of the private server product in robux",
-          "format": "int64",
-          "type": "integer"
-        },
-        "universeId": {
-          "description": "The universe id of the private server.",
-          "format": "int64",
-          "type": "integer"
-        }
-      },
-      "type": "object"
-    },
-    "Roblox.Games.Api.Models.Response.MyPrivateServersResponse": {
-      "description": "Response model for getting private servers",
-      "properties": {
-        "data": {
-          "description": "The data of the response.",
-          "items": {
-            "$ref": "#/definitions/Roblox.Games.Api.Models.Response.MyPrivateServersData"
-          },
-          "type": "array"
-        },
-        "nextPageCursor": {
-          "description": "The cursor to use for the next page of data.",
-          "type": "string"
-        },
-        "previousPageCursor": {
-          "description": "The cursor to use for the previous page of data.",
-          "type": "string"
         }
       },
       "type": "object"
@@ -2488,67 +2425,6 @@
           }
         },
         "summary": "Checks if the private servers are enabled in the specified universe.",
-        "tags": [
-          "VipServers"
-        ]
-      }
-    },
-    "/v1/private-servers/my-private-servers": {
-      "get": {
-        "parameters": [
-          {
-            "default": 0,
-            "description": "Type of private server to fetch",
-            "enum": [
-              0,
-              1
-            ],
-            "format": "int32",
-            "in": "query",
-            "name": "privateServersTab",
-            "type": "integer"
-          },
-          {
-            "default": 25,
-            "description": "Number of items per page",
-            "format": "int32",
-            "in": "query",
-            "name": "itemsPerPage",
-            "type": "integer"
-          },
-          {
-            "default": "",
-            "description": "Current cursor",
-            "in": "query",
-            "name": "cursor",
-            "type": "string"
-          }
-        ],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
-        "properties": {
-          "internal": false,
-          "metricIds": [
-            "VipServers:GetMyPrivateServers"
-          ]
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/Roblox.Games.Api.Models.Response.MyPrivateServersResponse"
-            }
-          },
-          "400": {
-            "description": "39: Invalid cursor provided in the request."
-          },
-          "401": {
-            "description": "0: Authorization has been denied for this request."
-          }
-        },
-        "summary": "Get private servers for the authenticated user",
         "tags": [
           "VipServers"
         ]

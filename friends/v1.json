@@ -405,20 +405,6 @@
       },
       "type": "object"
     },
-    "Roblox.Friends.Api.MultigetAreFriendsRequestModel": {
-      "description": "Request model for MultigetAreFriends endpoint",
-      "properties": {
-        "targetUserIds": {
-          "description": "The target userIds to check against with the requesting user regarding friendship.",
-          "items": {
-            "format": "int64",
-            "type": "integer"
-          },
-          "type": "array"
-        }
-      },
-      "type": "object"
-    },
     "Roblox.Friends.Api.PendingFriendRequestCountModel": {
       "description": "Response model for Pending Friend Request Count",
       "properties": {
@@ -965,60 +951,6 @@
           }
         },
         "summary": "Decline all pending friend requests for the authenticated user.",
-        "tags": [
-          "Friends"
-        ]
-      }
-    },
-    "/v1/user/multiget-are-friends": {
-      "post": {
-        "consumes": [
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "description": "The user ids to check against with the requesting user.",
-            "in": "body",
-            "name": "multigetAreFriendsRequestModel",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/Roblox.Friends.Api.MultigetAreFriendsRequestModel"
-            }
-          }
-        ],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
-        "properties": {
-          "internal": false,
-          "metricIds": [
-            "Friends:MultigetAreFriends"
-          ]
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "items": {
-                "format": "int64",
-                "type": "integer"
-              },
-              "type": "array"
-            }
-          },
-          "400": {
-            "description": "1: The target user is invalid or does not exist."
-          },
-          "401": {
-            "description": "0: Authorization has been denied for this request."
-          },
-          "403": {
-            "description": "0: Token Validation Failed"
-          }
-        },
-        "summary": "Check if the requesting user is friends with the specified users.",
         "tags": [
           "Friends"
         ]

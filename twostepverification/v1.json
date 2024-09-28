@@ -666,7 +666,7 @@
             "description": "1: Invalid challenge ID.\r\n2: The user ID is invalid.\r\n10: The two step verification challenge code is invalid."
           },
           "403": {
-            "description": "0: Token Validation Failed\r\n9: The two step verification configuration is invalid for this action."
+            "description": "0: Token Validation Failed"
           },
           "429": {
             "description": "5: Too many requests."
@@ -843,7 +843,7 @@
             "description": "0: An unknown error occurred with the request.\r\n1: Invalid challenge ID.\r\n2: The user ID is invalid."
           },
           "403": {
-            "description": "0: Token Validation Failed\r\n9: The two step verification configuration is invalid for this action.\r\n19: Challenge denied."
+            "description": "0: Token Validation Failed\r\n19: Challenge denied."
           },
           "503": {
             "description": "7: Two step verification is currently under maintenance."
@@ -898,7 +898,7 @@
             }
           },
           "400": {
-            "description": "1: Invalid challenge ID.\r\n9: The two step verification configuration is invalid for this action."
+            "description": "1: Invalid challenge ID."
           },
           "403": {
             "description": "0: Token Validation Failed\r\n2: The user ID is invalid."
@@ -959,7 +959,7 @@
             }
           },
           "400": {
-            "description": "1: Invalid challenge ID.\r\n9: The two step verification configuration is invalid for this action.\r\n10: The two step verification challenge code is invalid."
+            "description": "1: Invalid challenge ID.\r\n10: The two step verification challenge code is invalid."
           },
           "403": {
             "description": "0: Token Validation Failed\r\n2: The user ID is invalid."
@@ -1085,7 +1085,7 @@
             "description": "1: Invalid challenge ID.\r\n2: The user ID is invalid.\r\n10: The two step verification challenge code is invalid."
           },
           "403": {
-            "description": "0: Token Validation Failed\r\n9: The two step verification configuration is invalid for this action."
+            "description": "0: Token Validation Failed"
           },
           "503": {
             "description": "7: Two step verification is currently under maintenance."
@@ -1198,7 +1198,7 @@
             }
           },
           "400": {
-            "description": "1: Invalid challenge ID.\r\n9: The two step verification configuration is invalid for this action."
+            "description": "1: Invalid challenge ID."
           },
           "403": {
             "description": "0: Token Validation Failed\r\n2: The user ID is invalid."

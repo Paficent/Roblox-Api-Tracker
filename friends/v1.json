@@ -970,13 +970,21 @@
         ]
       }
     },
-    "/v1/user/multiget-are-friends": {
+    "/v1/user/{userId}/multiget-are-friends": {
       "post": {
         "consumes": [
           "application/json",
           "text/json"
         ],
         "parameters": [
+          {
+            "description": "The requesting userId.",
+            "format": "int64",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "integer"
+          },
           {
             "description": "The user ids to check against with the requesting user.",
             "in": "body",

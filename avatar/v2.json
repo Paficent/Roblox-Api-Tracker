@@ -756,7 +756,6 @@
           "application/json",
           "text/json"
         ],
-        "deprecated": true,
         "description": "Fails if the user does not own any of the assetIds or if they are not wearable asset types.\r\nAccepts partial updates.",
         "parameters": [
           {
@@ -785,8 +784,7 @@
           "internal": false,
           "metricIds": [
             "OutfitsV2:UpdateOutfitPatch"
-          ],
-          "obsoleteMessage": "Please use PATCH v3/outfits/{userOutfitId}"
+          ]
         },
         "responses": {
           "200": {

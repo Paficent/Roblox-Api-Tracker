@@ -3769,7 +3769,7 @@
             }
           },
           "400": {
-            "description": "14: Invalid game id\r\n22: Invalid language code\r\n53: Language is not supported for the game."
+            "description": "14: Invalid game id\r\n22: Invalid language code\r\n26: You can't update translations for source language\r\n53: Language is not supported for the game."
           },
           "401": {
             "description": "0: Authorization has been denied for this request."

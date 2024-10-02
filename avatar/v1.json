@@ -1466,6 +1466,7 @@
     },
     "/v1/avatar/assets/{assetId}/remove": {
       "post": {
+        "deprecated": true,
         "parameters": [
           {
             "description": "The asset id.",
@@ -1484,7 +1485,8 @@
           "internal": false,
           "metricIds": [
             "Avatar:RemoveAsset"
-          ]
+          ],
+          "obsoleteMessage": "Use v2/avatar/set-wearing-assets"
         },
         "responses": {
           "200": {
@@ -1511,6 +1513,7 @@
     },
     "/v1/avatar/assets/{assetId}/wear": {
       "post": {
+        "deprecated": true,
         "parameters": [
           {
             "description": "The asset id.",
@@ -1529,7 +1532,8 @@
           "internal": false,
           "metricIds": [
             "Avatar:WearAsset"
-          ]
+          ],
+          "obsoleteMessage": "Use v2/avatar/set-wearing-assets"
         },
         "responses": {
           "200": {
@@ -1767,6 +1771,7 @@
           "application/json",
           "text/json"
         ],
+        "deprecated": true,
         "description": "Only allows items that you own, are not expired, and are wearable asset types.\r\nAny assets being worn before this method is called are automatically removed.",
         "parameters": [
           {
@@ -1787,7 +1792,8 @@
           "internal": false,
           "metricIds": [
             "Avatar:SetWearingAssets"
-          ]
+          ],
+          "obsoleteMessage": "Use v2/avatar/set-wearing-assets"
         },
         "responses": {
           "200": {
@@ -1857,6 +1863,7 @@
           "application/json",
           "text/json"
         ],
+        "deprecated": true,
         "description": "Fails if any of the assetIds are not owned by the user, or not wearable types.\r\nThe name property of the request is optional as one will be auto-generated when the request has a null name.",
         "parameters": [
           {
@@ -1877,7 +1884,8 @@
           "internal": false,
           "metricIds": [
             "Outfits:CreateOutfit"
-          ]
+          ],
+          "obsoleteMessage": "Use v3/outfits/create"
         },
         "responses": {
           "200": {
@@ -1941,7 +1949,7 @@
           "metricIds": [
             "Outfits:UpdateOutfitPatch"
           ],
-          "obsoleteMessage": "Use v2/outfits/{userOutfitId}"
+          "obsoleteMessage": "Use PATCH v3/outfits/{userOutfitId}"
         },
         "responses": {
           "200": {
@@ -2094,7 +2102,7 @@
           "metricIds": [
             "Outfits:UpdateOutfit"
           ],
-          "obsoleteMessage": "Use v2/outfits/{userOutfitId}/update"
+          "obsoleteMessage": "Use PATCH v3/outfits/{userOutfitId}"
         },
         "responses": {
           "200": {

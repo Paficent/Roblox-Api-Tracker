@@ -690,6 +690,9 @@
           "format": "int32",
           "type": "integer"
         },
+        "WhoCanWhisperChatWithMeInExperiences": {
+          "type": "string"
+        },
         "characterAppearanceId": {
           "format": "int64",
           "type": "integer"

@@ -419,6 +419,20 @@
       },
       "type": "object"
     },
+    "Roblox.Friends.Api.MultigetAreFriendsResponse": {
+      "description": "Response model for MultigetAreFriendsResponse",
+      "properties": {
+        "friendsId": {
+          "description": "friends id list",
+          "items": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
     "Roblox.Friends.Api.PendingFriendRequestCountModel": {
       "description": "Response model for Pending Friend Request Count",
       "properties": {
@@ -1009,11 +1023,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "items": {
-                "format": "int64",
-                "type": "integer"
-              },
-              "type": "array"
+              "$ref": "#/definitions/Roblox.Friends.Api.MultigetAreFriendsResponse"
             }
           },
           "400": {

@@ -206,6 +206,17 @@
     "Roblox.AccountSettings.Api.Models.Response.AccountCountrySettingsResponse": {
       "description": "",
       "properties": {
+        "modifiable": {
+          "description": "",
+          "type": "boolean"
+        },
+        "options": {
+          "description": "",
+          "items": {
+            "$ref": "#/definitions/Roblox.AccountSettings.Api.Models.Response.UserAccountCountry"
+          },
+          "type": "array"
+        },
         "value": {
           "$ref": "#/definitions/Roblox.AccountSettings.Api.Models.Response.UserAccountCountry"
         }

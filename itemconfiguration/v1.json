@@ -50,6 +50,10 @@
           "description": "Is the asset archived",
           "type": "boolean"
         },
+        "isDelisted": {
+          "description": "If the asset is delisted",
+          "type": "boolean"
+        },
         "name": {
           "description": "The asset name",
           "type": "string"

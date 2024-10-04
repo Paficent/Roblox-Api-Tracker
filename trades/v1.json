@@ -675,7 +675,7 @@
             "format": "int32",
             "in": "path",
             "name": "tradeStatusType",
-            "pattern": "^[a-z]*$",
+            "pattern": "^[A-Za-z]*$",
             "required": true,
             "type": "integer"
           },

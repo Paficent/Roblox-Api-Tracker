@@ -4065,6 +4065,7 @@
           "application/json",
           "text/json"
         ],
+        "deprecated": true,
         "parameters": [
           {
             "description": "The id of the game",
@@ -4092,7 +4093,8 @@
           "internal": false,
           "metricIds": [
             "NameDescription:GetNameDescriptionHistory"
-          ]
+          ],
+          "obsoleteMessage": "Please use the /translation-history endpoint instead."
         },
         "responses": {
           "200": {

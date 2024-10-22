@@ -1029,9 +1029,6 @@
           "400": {
             "description": "1: The target user is invalid or does not exist."
           },
-          "401": {
-            "description": "0: Authorization has been denied for this request."
-          },
           "403": {
             "description": "0: Token Validation Failed"
           }

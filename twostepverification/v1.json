@@ -424,7 +424,9 @@
             2,
             3,
             4,
-            5
+            5,
+            6,
+            7
           ],
           "format": "int32",
           "type": "integer"
@@ -440,14 +442,16 @@
           "type": "boolean"
         },
         "mediaType": {
-          "description": "The Roblox.TwoStepVerification.Client.TwoStepVerificationMediaType for the method. ['Email' = 0, 'SMS' = 1, 'Authenticator' = 2, 'RecoveryCode' = 3, 'SecurityKey' = 4, 'CrossDevice' = 5]",
+          "description": "The Roblox.TwoStepVerification.Client.TwoStepVerificationMediaType for the method. ['Email' = 0, 'SMS' = 1, 'Authenticator' = 2, 'RecoveryCode' = 3, 'SecurityKey' = 4, 'CrossDevice' = 5, 'Password' = 6, 'Passkey' = 7]",
           "enum": [
             0,
             1,
             2,
             3,
             4,
-            5
+            5,
+            6,
+            7
           ],
           "format": "int32",
           "type": "integer"

@@ -175,6 +175,9 @@
           "description": "The game allows place to be copied",
           "type": "boolean"
         },
+        "licenseDescription": {
+          "type": "string"
+        },
         "maxPlayers": {
           "description": "The game max players",
           "format": "int32",

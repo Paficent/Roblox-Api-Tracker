@@ -2,7 +2,7 @@
   "definitions": {
     "Roblox.ItemConfiguration.Api.AssetCreationsDetailsRequest": {
       "properties": {
-        "assetIds": {
+        "AssetIds": {
           "items": {
             "format": "int64",
             "type": "integer"
@@ -15,26 +15,26 @@
     "Roblox.ItemConfiguration.Api.AssetCreationsDetailsResponse": {
       "properties": {
         "assetId": {
-          "description": "The asset Id",
+          "description": "The asset Id.",
           "format": "int64",
           "type": "integer"
         },
         "assetType": {
-          "description": "Type of the asset",
+          "description": "Type of the asset.",
           "type": "string"
         },
         "created": {
-          "description": "Date asset was created",
+          "description": "Date asset was created.",
           "format": "date-time",
           "type": "string"
         },
         "creatorTargetId": {
-          "description": "The creator target Id",
+          "description": "The creator target Id.",
           "format": "int64",
           "type": "integer"
         },
         "creatorType": {
-          "description": "The creator type ['Unknown' = 0, 'User' = 1, 'Group' = 2]",
+          "description": "The creator type. ['Unknown' = 0, 'User' = 1, 'Group' = 2]",
           "enum": [
             "Unknown",
             "User",
@@ -43,23 +43,23 @@
           "type": "string"
         },
         "description": {
-          "description": "The asset description",
+          "description": "The asset description.",
           "type": "string"
         },
         "isArchived": {
-          "description": "Is the asset archived",
+          "description": "Is the asset archived.",
           "type": "boolean"
         },
         "isDelisted": {
-          "description": "If the asset is delisted",
+          "description": "If the asset is delisted.",
           "type": "boolean"
         },
         "name": {
-          "description": "The asset name",
+          "description": "The asset name.",
           "type": "string"
         },
         "price": {
-          "description": "The Price for onSale asset\r\nNote: This is now considered deprecated in favor of PriceConfiguration",
+          "description": "The Price for onSale asset\r\nNote: This is now considered deprecated in favor of PriceConfiguration.",
           "format": "int64",
           "type": "integer"
         },
@@ -70,7 +70,7 @@
           "$ref": "#/definitions/Roblox.ItemConfiguration.Api.ReleaseConfigurationResponseModel"
         },
         "status": {
-          "description": "The asset status ['Unknown' = 0, 'ReviewPending' = 1, 'Moderated' = 2, 'ReviewApproved' = 3, 'OnSale' = 4, 'OffSale' = 5, 'DelayedRelease' = 6, 'Free' = 7]",
+          "description": "The asset status. ['Unknown' = 0, 'ReviewPending' = 1, 'Moderated' = 2, 'ReviewApproved' = 3, 'OnSale' = 4, 'OffSale' = 5, 'DelayedRelease' = 6, 'Free' = 7]",
           "enum": [
             "Unknown",
             "ReviewPending",
@@ -84,7 +84,7 @@
           "type": "string"
         },
         "updated": {
-          "description": "Date asset was created",
+          "description": "Date asset was created.",
           "format": "date-time",
           "type": "string"
         }
@@ -92,29 +92,29 @@
       "type": "object"
     },
     "Roblox.ItemConfiguration.Api.AssetCreationsResponse": {
-      "description": "Asset Status response model",
+      "description": "Asset Status response model.",
       "properties": {
         "assetId": {
-          "description": "The asset Id",
+          "description": "The asset Id.",
           "format": "int64",
           "type": "integer"
         },
         "name": {
-          "description": "The asset name",
+          "description": "The asset name.",
           "type": "string"
         }
       },
       "type": "object"
     },
     "Roblox.ItemConfiguration.Api.CreateItemTagRequest": {
-      "description": "Request model to add a tag to an item",
+      "description": "Request model to add a tag to an item.",
       "properties": {
         "itemId": {
-          "description": "Gets or sets the item Id",
+          "description": "Gets or sets the item Id.",
           "type": "string"
         },
         "tagId": {
-          "description": "Gets or sets the tag Id",
+          "description": "Gets or sets the tag Id.",
           "type": "string"
         }
       },
@@ -123,7 +123,7 @@
     "Roblox.ItemConfiguration.Api.ItemTagDetails": {
       "properties": {
         "id": {
-          "description": "Gets or sets the item tag id",
+          "description": "Gets or sets the item tag id.",
           "type": "string"
         },
         "tag": {
@@ -133,7 +133,7 @@
       "type": "object"
     },
     "Roblox.ItemConfiguration.Api.ItemTagsMetadataResponse": {
-      "description": "Item-tags related metadata response model",
+      "description": "Item-tags related metadata response model.",
       "properties": {
         "enabledAssetTypes": {
           "description": "Gets or sets the asset types where item tagging is enabled.",
@@ -143,11 +143,11 @@
           "type": "array"
         },
         "isItemTagsFeatureEnabled": {
-          "description": "Gets or sets a value indicating whether the item tags feature is enabled",
+          "description": "Gets or sets a value indicating whether the item tags feature is enabled.",
           "type": "boolean"
         },
         "maximumItemTagsPerItem": {
-          "description": "Gets or sets the maximum item tags per item limit",
+          "description": "Gets or sets the maximum item tags per item limit.",
           "format": "int32",
           "type": "integer"
         }
@@ -157,11 +157,11 @@
     "Roblox.ItemConfiguration.Api.ItemWithTags": {
       "properties": {
         "id": {
-          "description": "Gets or sets the item id",
+          "description": "Gets or sets the item id.",
           "type": "string"
         },
         "itemTags": {
-          "description": "Gets or sets the item tag details related to this item",
+          "description": "Gets or sets the item tag details related to this item.",
           "items": {
             "$ref": "#/definitions/Roblox.ItemConfiguration.Api.ItemTagDetails"
           },
@@ -171,20 +171,20 @@
       "type": "object"
     },
     "Roblox.ItemConfiguration.Api.PriceConfigurationModel": {
-      "description": "Defines the configuration options for an items price",
+      "description": "Defines the configuration options for an items price.",
       "properties": {
         "premiumDiscountPercentage": {
-          "description": "Gets or sets the discount rate on the price of the item that is given to premium users\r\nShould not be used while applying a PremiumPriceInRobux",
+          "description": "Gets or sets the discount rate on the price of the item that is given to premium users\r\nShould not be used while applying a PremiumPriceInRobux.",
           "format": "int32",
           "type": "integer"
         },
         "premiumPriceInRobux": {
-          "description": "Gets or sets the price of the item in Robux that applies only to premium users\r\nShould not be used while applying a PremiumDiscountPercentage",
+          "description": "Gets or sets the price of the item in Robux that applies only to premium users\r\nShould not be used while applying a PremiumDiscountPercentage.",
           "format": "int64",
           "type": "integer"
         },
         "priceInRobux": {
-          "description": "Gets or sets the standard price of the item in Robux",
+          "description": "Gets or sets the standard price of the item in Robux.",
           "format": "int64",
           "type": "integer"
         },
@@ -197,10 +197,10 @@
       "type": "object"
     },
     "Roblox.ItemConfiguration.Api.ReleaseConfigurationResponseModel": {
-      "description": "Defines the configuration options associated with releasing an item",
+      "description": "Defines the configuration options associated with releasing an item.",
       "properties": {
         "saleAvailabilityLocations": {
-          "description": "Get or sets the sale availability locations list",
+          "description": "Get or sets the sale availability locations list.",
           "items": {
             "description": " ['Undefined' = 0, 'Catalog' = 1, 'AllUniverses' = 2, 'MyUniverses' = 3]",
             "enum": [
@@ -217,18 +217,18 @@
       "type": "object"
     },
     "Roblox.ItemConfiguration.Api.TagDetails": {
-      "description": "The tag model for any tag-related gets",
+      "description": "The tag model for any tag-related gets.",
       "properties": {
         "localizedDisplayName": {
-          "description": "Gets or sets the localized display name of the tag",
+          "description": "Gets or sets the localized display name of the tag.",
           "type": "string"
         },
         "name": {
-          "description": "Gets or sets the name of the tag",
+          "description": "Gets or sets the name of the tag.",
           "type": "string"
         },
         "status": {
-          "description": "Gets or sets the status for the fetch of this tag ['Success' = 0, 'MissingItem' = 1]",
+          "description": "Gets or sets the status for the fetch of this tag. ['Success' = 0, 'MissingItem' = 1]",
           "enum": [
             "Success",
             "MissingItem"
@@ -236,7 +236,7 @@
           "type": "string"
         },
         "tagId": {
-          "description": "Gets or sets the tag Id",
+          "description": "Gets or sets the tag Id.",
           "type": "string"
         }
       },
@@ -363,7 +363,7 @@
             "description": "6: Service Unavailable"
           }
         },
-        "summary": "Gets the asset status and other configuration details for the given assetIds list",
+        "summary": "Gets the asset status and other configuration details for the given assetIds list.",
         "tags": [
           "Item"
         ]
@@ -446,7 +446,7 @@
             "description": "6: Service Unavailable"
           }
         },
-        "summary": "Gets the user created asset information filtered by the given asset type",
+        "summary": "Gets the user created asset information filtered by the given asset type.",
         "tags": [
           "Item"
         ]
@@ -491,7 +491,7 @@
             "description": "7: Too many requests"
           }
         },
-        "summary": "Gets all related item tags for each item id listed",
+        "summary": "Gets all related item tags for each item id listed.",
         "tags": [
           "ItemTags"
         ]
@@ -542,7 +542,7 @@
             "description": "7: Too many requests"
           }
         },
-        "summary": "Creates a new item tag",
+        "summary": "Creates a new item tag.",
         "tags": [
           "ItemTags"
         ]
@@ -568,7 +568,7 @@
             }
           }
         },
-        "summary": "Gets the metadata related to item tags",
+        "summary": "Gets the metadata related to item tags.",
         "tags": [
           "ItemTags"
         ]
@@ -612,7 +612,7 @@
             "description": "7: Too many requests"
           }
         },
-        "summary": "Deletes an item tag from an item",
+        "summary": "Deletes an item tag from an item.",
         "tags": [
           "ItemTags"
         ]
@@ -657,7 +657,7 @@
             "description": "3: Too many requests"
           }
         },
-        "summary": "Gets the information for a list of tag Ids",
+        "summary": "Gets the information for a list of tag Ids.",
         "tags": [
           "Tags"
         ]
@@ -674,7 +674,7 @@
             "type": "string"
           },
           {
-            "description": "Must be 1, 5, 10, or 25",
+            "description": "Must be 1, 5, 10, or 25.",
             "format": "int32",
             "in": "query",
             "name": "numberOfResults",
@@ -712,7 +712,7 @@
             "description": "3: Too many requests"
           }
         },
-        "summary": "Searches for up to numberOfResults tags based on the given prefix",
+        "summary": "Searches for up to numberOfResults tags based on the given prefix.",
         "tags": [
           "Tags"
         ]

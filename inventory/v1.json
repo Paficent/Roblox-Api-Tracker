@@ -144,6 +144,27 @@
       },
       "type": "object"
     },
+    "Roblox.Inventory.Api.Models.CreatorModel": {
+      "properties": {
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "description": " ['User' = 1, 'Group' = 2]",
+          "enum": [
+            1,
+            2
+          ],
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
     "Roblox.Inventory.Api.Models.IItemModel": {
       "description": "Model representing an inventory item",
       "properties": {
@@ -189,6 +210,29 @@
           "type": "boolean"
         },
         "total": {
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Inventory.Api.Models.PlaceModel": {
+      "properties": {
+        "creator": {
+          "$ref": "#/definitions/Roblox.Inventory.Api.Models.CreatorModel"
+        },
+        "name": {
+          "type": "string"
+        },
+        "placeId": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "priceInRobux": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "universeId": {
           "format": "int64",
           "type": "integer"
         }
@@ -261,6 +305,23 @@
         "data": {
           "items": {
             "$ref": "#/definitions/Roblox.Inventory.Api.Models.IItemModel"
+          },
+          "type": "array"
+        },
+        "nextPageCursor": {
+          "type": "string"
+        },
+        "previousPageCursor": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Web.WebAPI.Models.ApiPageResponse[Roblox.Inventory.Api.Models.PlaceModel]": {
+      "properties": {
+        "data": {
+          "items": {
+            "$ref": "#/definitions/Roblox.Inventory.Api.Models.PlaceModel"
           },
           "type": "array"
         },
@@ -970,6 +1031,80 @@
         "summary": "Gets whether a user owns an item of type itemType with id itemTargetId.",
         "tags": [
           "Inventory"
+        ]
+      }
+    },
+    "/v1/users/{userId}/places/inventory": {
+      "get": {
+        "parameters": [
+          {
+            "description": "",
+            "format": "int64",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "",
+            "enum": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "format": "int32",
+            "in": "query",
+            "name": "placesTab",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "",
+            "format": "int32",
+            "in": "query",
+            "name": "itemsPerPage",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "",
+            "format": "int32",
+            "in": "query",
+            "name": "cursor",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "PlacesInventory:GetPlacesInventory"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.Models.ApiPageResponse[Roblox.Inventory.Api.Models.PlaceModel]"
+            }
+          },
+          "400": {
+            "description": "6: Invalid request"
+          },
+          "403": {
+            "description": "3: Insufficient permission."
+          }
+        },
+        "summary": "Gets Created, MyGames, or OtherGames places inventory for a user",
+        "tags": [
+          "PlacesInventory"
         ]
       }
     }

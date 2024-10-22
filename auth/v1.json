@@ -1345,7 +1345,7 @@
             "description": "0: Token Validation Failed"
           }
         },
-        "summary": "Reuqest to create the account pin.",
+        "summary": "Request to create the account pin.",
         "tags": [
           "AccountPin"
         ]

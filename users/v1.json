@@ -54,7 +54,7 @@
       },
       "type": "object"
     },
-    "Roblox.Users.Api.AuthenticatedUserResponse": {
+    "Roblox.Users.Api.AuthenticatedGetUserResponse": {
       "description": "A response model representing absolute minimal authenticating user information.\r\nNo new attributes should be added to this response since it is in the critical path of app launch and we want to minimize dependencies.",
       "properties": {
         "displayName": {
@@ -262,6 +262,59 @@
       },
       "type": "object"
     },
+    "Roblox.Users.Api.MultiGetUserResponse": {
+      "description": "\u003cp\u003eA response model specific to multi-get user.\u003c/p\u003e\r\n\u003cp\u003e\r\n            Note: Currently the MultiGet responses don't have all the data that the single gets have, to reduce payload size!\r\n            We might want to revisit this decision in the future.\r\n            \u003c/p\u003e",
+      "properties": {
+        "displayName": {
+          "description": "The user DisplayName.",
+          "type": "string"
+        },
+        "hasVerifiedBadge": {
+          "description": "The user's verified badge status.",
+          "type": "boolean"
+        },
+        "id": {
+          "description": "The user Id.",
+          "format": "int64",
+          "type": "integer"
+        },
+        "name": {
+          "description": "The user name.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Users.Api.SearchGetUserResponse": {
+      "description": "A user response model specific to getting a user from user search.",
+      "properties": {
+        "displayName": {
+          "description": "The user DisplayName.",
+          "type": "string"
+        },
+        "hasVerifiedBadge": {
+          "description": "The user's verified badge status.",
+          "type": "boolean"
+        },
+        "id": {
+          "description": "The user Id.",
+          "format": "int64",
+          "type": "integer"
+        },
+        "name": {
+          "description": "The user name.",
+          "type": "string"
+        },
+        "previousUsernames": {
+          "description": "Previous usernames for a user.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
     "Roblox.Users.Api.SetDisplayNameRequest": {
       "description": "Request model for changing a display name.",
       "properties": {
@@ -306,63 +359,10 @@
       },
       "type": "object"
     },
-    "Roblox.Users.Api.UserSearchResponse": {
-      "description": "A user response model specific to getting a user from user search.",
-      "properties": {
-        "displayName": {
-          "description": "The user DisplayName.",
-          "type": "string"
-        },
-        "hasVerifiedBadge": {
-          "description": "The user's verified badge status.",
-          "type": "boolean"
-        },
-        "id": {
-          "description": "The user Id.",
-          "format": "int64",
-          "type": "integer"
-        },
-        "name": {
-          "description": "The user name.",
-          "type": "string"
-        },
-        "previousUsernames": {
-          "description": "Previous usernames for a user.",
-          "items": {
-            "type": "string"
-          },
-          "type": "array"
-        }
-      },
-      "type": "object"
-    },
     "Roblox.Users.Api.UsernameHistoryResponse": {
       "properties": {
         "name": {
           "description": "A past username belonging to a particular userId",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "Roblox.Users.Api.VerifiedBadgeUserResponse": {
-      "description": "A response model specific to multi-get user.",
-      "properties": {
-        "displayName": {
-          "description": "The user DisplayName.",
-          "type": "string"
-        },
-        "hasVerifiedBadge": {
-          "description": "The user's verified badge status.",
-          "type": "boolean"
-        },
-        "id": {
-          "description": "The user Id.",
-          "format": "int64",
-          "type": "integer"
-        },
-        "name": {
-          "description": "The user name.",
           "type": "string"
         }
       },
@@ -382,22 +382,22 @@
       },
       "type": "object"
     },
-    "Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.Users.Api.VerifiedBadgeUserResponse]": {
+    "Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.Users.Api.MultiGetUserResponse]": {
       "properties": {
         "data": {
           "items": {
-            "$ref": "#/definitions/Roblox.Users.Api.VerifiedBadgeUserResponse"
+            "$ref": "#/definitions/Roblox.Users.Api.MultiGetUserResponse"
           },
           "type": "array"
         }
       },
       "type": "object"
     },
-    "Roblox.Web.WebAPI.Models.ApiPageResponse[Roblox.Users.Api.UserSearchResponse]": {
+    "Roblox.Web.WebAPI.Models.ApiPageResponse[Roblox.Users.Api.SearchGetUserResponse]": {
       "properties": {
         "data": {
           "items": {
-            "$ref": "#/definitions/Roblox.Users.Api.UserSearchResponse"
+            "$ref": "#/definitions/Roblox.Users.Api.SearchGetUserResponse"
           },
           "type": "array"
         },
@@ -812,7 +812,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.Users.Api.VerifiedBadgeUserResponse]"
+              "$ref": "#/definitions/Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.Users.Api.MultiGetUserResponse]"
             }
           },
           "400": {
@@ -841,7 +841,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/Roblox.Users.Api.AuthenticatedUserResponse"
+              "$ref": "#/definitions/Roblox.Users.Api.AuthenticatedGetUserResponse"
             }
           },
           "401": {
@@ -991,7 +991,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/Roblox.Web.WebAPI.Models.ApiPageResponse[Roblox.Users.Api.UserSearchResponse]"
+              "$ref": "#/definitions/Roblox.Web.WebAPI.Models.ApiPageResponse[Roblox.Users.Api.SearchGetUserResponse]"
             }
           },
           "400": {

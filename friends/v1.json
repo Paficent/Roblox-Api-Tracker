@@ -196,6 +196,16 @@
       },
       "type": "object"
     },
+    "Roblox.Friends.Api.Models.Response.ClearNewFriendRequestResponse": {
+      "description": "The friendship status response model.",
+      "properties": {
+        "status": {
+          "description": "Returns if the cache was successfully cleared.",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
     "Roblox.Friends.Api.Models.Response.DeclineAllFriendRequestsResponse": {
       "description": "response for DeclineAllFriendRequests",
       "properties": {
@@ -277,6 +287,17 @@
         },
         "userName": {
           "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Friends.Api.Models.Response.NewFriendRequestsCountResponse": {
+      "description": "The friendship status response model.",
+      "properties": {
+        "count": {
+          "description": "Count of new friend requests.",
+          "format": "int64",
+          "type": "integer"
         }
       },
       "type": "object"
@@ -865,6 +886,65 @@
           }
         },
         "summary": "Get all users that friend requests with targetUserId using exclusive start paging",
+        "tags": [
+          "Friends"
+        ]
+      }
+    },
+    "/v1/my/new-friend-requests": {
+      "delete": {
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Friends:ClearNewFriendRequestsCount"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Friends.Api.Models.Response.ClearNewFriendRequestResponse"
+            }
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed"
+          }
+        },
+        "tags": [
+          "Friends"
+        ]
+      }
+    },
+    "/v1/my/new-friend-requests/count": {
+      "get": {
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Friends:GetNewFriendRequestsCount"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Friends.Api.Models.Response.NewFriendRequestsCountResponse"
+            }
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          }
+        },
         "tags": [
           "Friends"
         ]
@@ -1779,9 +1859,6 @@
           },
           "400": {
             "description": "1: The target user is invalid or does not exist.\r\n6: Invalid parameters."
-          },
-          "401": {
-            "description": "0: Authorization has been denied for this request."
           }
         },
         "summary": "Get a paginated list of all friends for the specified user.",

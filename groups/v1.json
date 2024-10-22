@@ -3233,7 +3233,7 @@
             "description": "0: Token Validation Failed"
           }
         },
-        "summary": "Updates the group's settings",
+        "summary": "Updates the user's group notification preferences",
         "tags": [
           "Groups"
         ]

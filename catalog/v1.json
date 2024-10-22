@@ -285,6 +285,7 @@
         "creatorType": {
           "description": "The Roblox.Catalog.Api.CatalogSearchDetailedResponseItem.CreatorType of the item's creator.",
           "enum": [
+            0,
             1,
             2
           ],

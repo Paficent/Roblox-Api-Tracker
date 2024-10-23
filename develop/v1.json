@@ -290,6 +290,10 @@
           "description": "Sets whether access to APIs for mesh and texture is enabled for this universe.",
           "type": "boolean"
         },
+        "isRewardedOnDemandAdsAllowed": {
+          "description": "Set is rewarded on-demand ads are allowed for this universe.",
+          "type": "boolean"
+        },
         "name": {
           "description": "The name of the universe.",
           "type": "string"
@@ -421,6 +425,10 @@
         },
         "isMeshTextureApiAccessAllowed": {
           "description": "Whether access to APIs for mesh and texture is enabled for this universe.",
+          "type": "boolean"
+        },
+        "isRewardedOnDemandAdsAllowed": {
+          "description": "Whether rewarded on-demand ads are allowed for this universe.",
           "type": "boolean"
         },
         "isStudioAccessToApisAllowed": {

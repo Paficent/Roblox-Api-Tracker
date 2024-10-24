@@ -956,14 +956,16 @@
     "Roblox.Authentication.Api.Models.TwoStepVerificationSentResponse": {
       "properties": {
         "mediaType": {
-          "description": " ['Email' = 0, 'SMS' = 1, 'Authenticator' = 2, 'RecoveryCode' = 3, 'SecurityKey' = 4, 'CrossDevice' = 5]",
+          "description": " ['Email' = 0, 'SMS' = 1, 'Authenticator' = 2, 'RecoveryCode' = 3, 'SecurityKey' = 4, 'CrossDevice' = 5, 'Password' = 6, 'Passkey' = 7]",
           "enum": [
             0,
             1,
             2,
             3,
             4,
-            5
+            5,
+            6,
+            7
           ],
           "format": "int32",
           "type": "integer"
@@ -1669,6 +1671,72 @@
           }
         },
         "summary": "Unlink the logged in Roblox account from the current external provider ID",
+        "tags": [
+          "ExternalIdentitiesGateway"
+        ]
+      }
+    },
+    "/v1/external/{identityProviderId}/sso/oauth/callback": {
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "identityProviderId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "authorizationCode",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "state",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "ExternalIdentitiesGateway:OAuthCallback"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "summary": "Callback function that external identity provider calls post user authentication.",
+        "tags": [
+          "ExternalIdentitiesGateway"
+        ]
+      }
+    },
+    "/v1/external/{identityProviderId}/sso/oauth/init": {
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "identityProviderId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "ExternalIdentitiesGateway:OAuthInit"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "summary": "Signs a user up for Roblox and links the account to the authenticated external provider ID.",
         "tags": [
           "ExternalIdentitiesGateway"
         ]

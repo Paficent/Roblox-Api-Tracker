@@ -1,31 +1,7 @@
 {
   "definitions": {
-    "Roblox.AccountInformation.Api.Models.BirthdateRequest": {
-      "description": "The birthdate request",
-      "properties": {
-        "birthDay": {
-          "description": "The birth day",
-          "format": "int32",
-          "type": "integer"
-        },
-        "birthMonth": {
-          "description": "The birth month",
-          "format": "int32",
-          "type": "integer"
-        },
-        "birthYear": {
-          "description": "The birth year",
-          "format": "int32",
-          "type": "integer"
-        },
-        "password": {
-          "description": "Password",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
     "Roblox.AccountInformation.Api.Models.BirthdateResponse": {
+      "additionalProperties": false,
       "description": "The birthdate response",
       "properties": {
         "birthDay": {
@@ -46,18 +22,8 @@
       },
       "type": "object"
     },
-    "Roblox.AccountInformation.Api.Models.ConsecutiveLoginDaysResponse": {
-      "description": "The consecutive login days response",
-      "properties": {
-        "count": {
-          "description": "Consecutive login days",
-          "format": "int32",
-          "type": "integer"
-        }
-      },
-      "type": "object"
-    },
     "Roblox.AccountInformation.Api.Models.DescriptionRequest": {
+      "additionalProperties": false,
       "description": "The description request",
       "properties": {
         "description": {
@@ -68,6 +34,7 @@
       "type": "object"
     },
     "Roblox.AccountInformation.Api.Models.DescriptionResponse": {
+      "additionalProperties": false,
       "description": "The description response",
       "properties": {
         "description": {
@@ -78,10 +45,12 @@
       "type": "object"
     },
     "Roblox.AccountInformation.Api.Models.EmptyRequest": {
+      "additionalProperties": false,
       "description": "For API calls without a request body.",
       "type": "object"
     },
     "Roblox.AccountInformation.Api.Models.GenderRequest": {
+      "additionalProperties": false,
       "description": "The gender request",
       "properties": {
         "gender": {
@@ -92,6 +61,7 @@
       "type": "object"
     },
     "Roblox.AccountInformation.Api.Models.GenderResponse": {
+      "additionalProperties": false,
       "description": "The gender response",
       "properties": {
         "gender": {
@@ -103,6 +73,7 @@
       "type": "object"
     },
     "Roblox.AccountInformation.Api.Models.MetadataResponse": {
+      "additionalProperties": false,
       "description": "The metadata response",
       "properties": {
         "MaxUserDescriptionLength": {
@@ -120,6 +91,7 @@
         },
         "isPasswordRequiredForAgingDown": {
           "description": "Switch for requiring password to change age below 13.",
+          "readOnly": true,
           "type": "boolean"
         },
         "isPhoneNumberEnabled": {
@@ -146,6 +118,7 @@
       "type": "object"
     },
     "Roblox.AccountInformation.Api.Models.PhoneRequest": {
+      "additionalProperties": false,
       "description": "The phone request",
       "properties": {
         "countryCode": {
@@ -172,6 +145,7 @@
       "type": "object"
     },
     "Roblox.AccountInformation.Api.Models.PhoneResponse": {
+      "additionalProperties": false,
       "description": "The phone response",
       "properties": {
         "canBypassPasswordForPhoneUpdate": {
@@ -203,14 +177,11 @@
       "type": "object"
     },
     "Roblox.AccountInformation.Api.Models.PromotionChannelsByUserIdResponse": {
+      "additionalProperties": false,
       "description": "The promotion channels response",
       "properties": {
         "facebook": {
           "description": "The Facebook channel",
-          "type": "string"
-        },
-        "guilded": {
-          "description": "The Guilded channel",
           "type": "string"
         },
         "twitch": {
@@ -229,14 +200,11 @@
       "type": "object"
     },
     "Roblox.AccountInformation.Api.Models.PromotionChannelsRequest": {
+      "additionalProperties": false,
       "description": "The promotion channels request",
       "properties": {
         "facebook": {
           "description": "The Facebook channel",
-          "type": "string"
-        },
-        "guilded": {
-          "description": "The Guilded channel",
           "type": "string"
         },
         "promotionChannelsVisibilityPrivacy": {
@@ -259,14 +227,11 @@
       "type": "object"
     },
     "Roblox.AccountInformation.Api.Models.PromotionChannelsResponse": {
+      "additionalProperties": false,
       "description": "The promotion channels response",
       "properties": {
         "facebook": {
           "description": "The Facebook channel",
-          "type": "string"
-        },
-        "guilded": {
-          "description": "The Guilded channel",
           "type": "string"
         },
         "promotionChannelsVisibilityPrivacy": {
@@ -289,6 +254,7 @@
       "type": "object"
     },
     "Roblox.AccountInformation.Api.Models.StarCodeAffiliateRequest": {
+      "additionalProperties": false,
       "description": "The star code affiliate request",
       "properties": {
         "code": {
@@ -299,6 +265,7 @@
       "type": "object"
     },
     "Roblox.AccountInformation.Api.Models.StarCodeAffiliateResponse": {
+      "additionalProperties": false,
       "description": "The star code affiliate response",
       "properties": {
         "code": {
@@ -318,6 +285,7 @@
       "type": "object"
     },
     "Roblox.AccountInformation.Api.Models.VerifyEmailRequest": {
+      "additionalProperties": false,
       "description": "Verify Email Request",
       "properties": {
         "ticket": {
@@ -328,6 +296,7 @@
       "type": "object"
     },
     "Roblox.AccountInformation.Api.Models.VerifyEmailResponse": {
+      "additionalProperties": false,
       "description": "The verify email response",
       "properties": {
         "verifiedUserHatAssetId": {
@@ -339,6 +308,7 @@
       "type": "object"
     },
     "Roblox.AccountInformation.Api.Models.VerifyPhoneRequest": {
+      "additionalProperties": false,
       "description": "Verify Phone Request",
       "properties": {
         "code": {
@@ -349,6 +319,7 @@
       "type": "object"
     },
     "Roblox.AccountInformation.Api.RobloxBadgeResponse": {
+      "additionalProperties": false,
       "properties": {
         "description": {
           "description": "The description belonging to this Roblox badge.",
@@ -371,6 +342,7 @@
       "type": "object"
     },
     "Roblox.Platform.UserPhoneNumberVerification.Models.PendingVerificationResponse": {
+      "additionalProperties": false,
       "properties": {
         "data": {
           "type": "string"
@@ -382,6 +354,7 @@
       "type": "object"
     },
     "Roblox.Web.WebAPI.ApiEmptyResponseModel": {
+      "additionalProperties": false,
       "type": "object"
     }
   },
@@ -393,6 +366,7 @@
   "paths": {
     "/v1/birthdate": {
       "get": {
+        "deprecated": true,
         "produces": [
           "application/json",
           "text/json"
@@ -401,7 +375,8 @@
           "internal": false,
           "metricIds": [
             "AccountInformation:GetBirthdate"
-          ]
+          ],
+          "obsoleteMessage": "Replaced by users.roblox.com/v1/birthdate"
         },
         "responses": {
           "200": {
@@ -421,61 +396,11 @@
         "tags": [
           "AccountInformation"
         ]
-      },
-      "post": {
-        "consumes": [
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "description": "The Roblox.AccountInformation.Api.Models.BirthdateRequest",
-            "in": "body",
-            "name": "request",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/Roblox.AccountInformation.Api.Models.BirthdateRequest"
-            }
-          }
-        ],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
-        "properties": {
-          "internal": false,
-          "metricIds": [
-            "AccountInformation:SetBirthdate"
-          ]
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/Roblox.Web.WebAPI.ApiEmptyResponseModel"
-            }
-          },
-          "400": {
-            "description": "1: User not found.\r\n4: The birthdate provided is invalid.\r\n8: Password is incorrect."
-          },
-          "401": {
-            "description": "0: Authorization has been denied for this request."
-          },
-          "403": {
-            "description": "0: Token Validation Failed\r\n2: PIN is locked.\r\n5: Invalid birthdate change."
-          },
-          "500": {
-            "description": "0: An unknown error occured.\r\n5: Invalid birthdate change."
-          }
-        },
-        "summary": "Update the user's birthdate",
-        "tags": [
-          "AccountInformation"
-        ]
       }
     },
     "/v1/description": {
       "get": {
+        "deprecated": true,
         "produces": [
           "application/json",
           "text/json"
@@ -484,7 +409,8 @@
           "internal": false,
           "metricIds": [
             "AccountInformation:GetDescription"
-          ]
+          ],
+          "obsoleteMessage": "Replaced by users.roblox.com/v1/description"
         },
         "responses": {
           "200": {
@@ -510,6 +436,7 @@
           "application/json",
           "text/json"
         ],
+        "deprecated": true,
         "parameters": [
           {
             "description": "The Roblox.AccountInformation.Api.Models.DescriptionRequest",
@@ -529,7 +456,8 @@
           "internal": false,
           "metricIds": [
             "AccountInformation:SetDescription"
-          ]
+          ],
+          "obsoleteMessage": "Replaced by users.roblox.com/v1/description"
         },
         "responses": {
           "200": {
@@ -545,7 +473,7 @@
             "description": "0: Authorization has been denied for this request."
           },
           "403": {
-            "description": "0: Token Validation Failed\r\n2: PIN is locked."
+            "description": "0: Token Validation Failed"
           },
           "500": {
             "description": "0: An unknown error occured."
@@ -606,6 +534,7 @@
     },
     "/v1/gender": {
       "get": {
+        "deprecated": true,
         "produces": [
           "application/json",
           "text/json"
@@ -614,7 +543,8 @@
           "internal": false,
           "metricIds": [
             "AccountInformation:GetGender"
-          ]
+          ],
+          "obsoleteMessage": "Replaced by users.roblox.com/v1/gender"
         },
         "responses": {
           "200": {
@@ -640,6 +570,7 @@
           "application/json",
           "text/json"
         ],
+        "deprecated": true,
         "parameters": [
           {
             "description": "The Roblox.AccountInformation.Api.Models.GenderRequest",
@@ -659,7 +590,8 @@
           "internal": false,
           "metricIds": [
             "AccountInformation:SetGender"
-          ]
+          ],
+          "obsoleteMessage": "Replaced by users.roblox.com/v1/gender"
         },
         "responses": {
           "200": {
@@ -675,7 +607,7 @@
             "description": "0: Authorization has been denied for this request."
           },
           "403": {
-            "description": "0: Token Validation Failed\r\n2: PIN is locked."
+            "description": "0: Token Validation Failed"
           },
           "500": {
             "description": "0: An unknown error occured."
@@ -784,7 +716,7 @@
             "description": "0: Authorization has been denied for this request."
           },
           "403": {
-            "description": "0: Token Validation Failed\r\n4: Account Pin Locked\r\n5: Incorrect Password\r\n10: "
+            "description": "0: Token Validation Failed\r\n5: Incorrect Password\r\n10: "
           },
           "429": {
             "description": "6: Flooded"
@@ -840,7 +772,7 @@
             "description": "0: Authorization has been denied for this request."
           },
           "403": {
-            "description": "0: Token Validation Failed\r\n4: Account Pin Locked\r\n5: Incorrect Password"
+            "description": "0: Token Validation Failed\r\n5: Incorrect Password"
           },
           "429": {
             "description": "6: Flooded"
@@ -1060,13 +992,13 @@
             }
           },
           "400": {
-            "description": "2: The request was empty.\r\n11: The Facebook profile url is invalid.\r\n12: The Twitter handle is invalid.\r\n13: The YouTube url is invalid.\r\n14: The Twitch profile url is invalid.\r\n15: The Guilded profile url is invalid."
+            "description": "2: The request was empty.\r\n11: The Facebook profile url is invalid.\r\n12: The Twitter handle is invalid.\r\n13: The YouTube url is invalid.\r\n14: The Twitch profile url is invalid."
           },
           "401": {
             "description": "0: Authorization has been denied for this request."
           },
           "403": {
-            "description": "0: Token Validation Failed\r\n3: PIN is locked.\r\n4: Only users who are over twelve years of age may edit social network channels."
+            "description": "0: Token Validation Failed\r\n4: Only users who are over twelve years of age may edit social network channels."
           }
         },
         "summary": "Update the user's promotion channels",
@@ -1280,35 +1212,6 @@
         "summary": "Returns a list of Roblox badges belonging to a user.",
         "tags": [
           "RobloxBadges"
-        ]
-      }
-    },
-    "/v1/xbox-live/consecutive-login-days": {
-      "get": {
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
-        "properties": {
-          "internal": false,
-          "metricIds": [
-            "AccountInformation:GetXboxLiveConsecutiveLoginDays"
-          ]
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/Roblox.AccountInformation.Api.Models.ConsecutiveLoginDaysResponse"
-            }
-          },
-          "401": {
-            "description": "0: Authorization has been denied for this request.\r\n7: The account is not connected to an Xbox Live account"
-          }
-        },
-        "summary": "Returns number of consecutive login days for xbox users",
-        "tags": [
-          "AccountInformation"
         ]
       }
     }

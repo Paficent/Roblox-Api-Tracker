@@ -1,6 +1,31 @@
 {
   "definitions": {
+    "Roblox.Groups.Api.BlockedKeywordPageResponse[Roblox.Groups.Client.BlockedKeywordModel]": {
+      "additionalProperties": false,
+      "description": "ApiPageResponse for blocked keywords",
+      "properties": {
+        "data": {
+          "items": {
+            "$ref": "#/definitions/Roblox.Groups.Client.BlockedKeywordModel"
+          },
+          "type": "array"
+        },
+        "nextPageCursor": {
+          "type": "string"
+        },
+        "previousPageCursor": {
+          "type": "string"
+        },
+        "totalActiveKeywordsCount": {
+          "description": "Total number of active keywords in the group",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
     "Roblox.Groups.Api.ChangeOwnerRequest": {
+      "additionalProperties": false,
       "description": "A request model for changing the group owner.",
       "properties": {
         "userId": {
@@ -11,7 +36,20 @@
       },
       "type": "object"
     },
+    "Roblox.Groups.Api.CreateBlockedKeywordsRequest": {
+      "additionalProperties": false,
+      "properties": {
+        "isPrivate": {
+          "type": "boolean"
+        },
+        "keywords": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "Roblox.Groups.Api.CreateWallPostRequest": {
+      "additionalProperties": false,
       "description": "A request model for creating a group wall post",
       "properties": {
         "body": {
@@ -33,7 +71,31 @@
       },
       "type": "object"
     },
+    "Roblox.Groups.Api.GetSocialLinkResponse": {
+      "additionalProperties": false,
+      "description": "A social link response from a create request",
+      "properties": {
+        "data": {
+          "items": {
+            "$ref": "#/definitions/Roblox.Groups.Api.SocialLinkResponse"
+          },
+          "type": "array"
+        },
+        "socialLinksVerificationStatus": {
+          "enum": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
     "Roblox.Groups.Api.GroupAllRolesResponse": {
+      "additionalProperties": false,
       "description": "A group roles response model",
       "properties": {
         "groupId": {
@@ -52,6 +114,7 @@
       "type": "object"
     },
     "Roblox.Groups.Api.GroupAuditLogPageResponse[Roblox.Groups.Api.Models.Response.GroupAuditLogResponseItem]": {
+      "additionalProperties": false,
       "description": "ApiPageResponse for group audit log",
       "properties": {
         "data": {
@@ -69,7 +132,62 @@
       },
       "type": "object"
     },
+    "Roblox.Groups.Api.GroupBanMemberResponse": {
+      "additionalProperties": false,
+      "description": "A ban member from group response",
+      "properties": {
+        "actingUser": {
+          "$ref": "#/definitions/Roblox.Groups.Api.UserGroupRoleResponse"
+        },
+        "created": {
+          "description": "The group ban's created time",
+          "format": "date-time",
+          "type": "string"
+        },
+        "user": {
+          "$ref": "#/definitions/Roblox.Groups.Api.Models.Response.UserModel"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Groups.Api.GroupChannelPermissionsModel": {
+      "additionalProperties": false,
+      "description": "A model for communication channel permissions.",
+      "properties": {
+        "channelId": {
+          "description": "Group Channel Id",
+          "type": "string"
+        },
+        "groupForumsPermissions": {
+          "$ref": "#/definitions/Roblox.Groups.Api.GroupForumsPermissionsModel"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Groups.Api.GroupConfigurationDetailsResponse": {
+      "additionalProperties": false,
+      "description": "A detailed group response model",
+      "properties": {
+        "coverPhotoId": {
+          "description": "The group cover photo id",
+          "format": "int64",
+          "type": "integer"
+        },
+        "emblemId": {
+          "description": "The group emblem id",
+          "format": "int64",
+          "type": "integer"
+        },
+        "groupId": {
+          "description": "The group id",
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
     "Roblox.Groups.Api.GroupConfigurationDisplayOptionsResponse": {
+      "additionalProperties": false,
       "description": "A response model for group configuration",
       "properties": {
         "groupConfiguration": {
@@ -96,11 +214,17 @@
       "type": "object"
     },
     "Roblox.Groups.Api.GroupConfigurationResponse": {
+      "additionalProperties": false,
       "description": "A response model for group configuration",
       "properties": {
         "cost": {
           "description": "The cost of purchasing a group",
           "format": "int64",
+          "type": "integer"
+        },
+        "coverPhotoMaxFileSizeMb": {
+          "description": "The maximum file size of the group cover photo in megabytes",
+          "format": "int32",
           "type": "integer"
         },
         "descriptionMaxLength": {
@@ -121,11 +245,31 @@
           "description": "The maximum length of a group name",
           "format": "int32",
           "type": "integer"
+        },
+        "validCoverPhotoDimensions": {
+          "description": "The valid dimensions of the group cover photo in CSV format",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Groups.Api.GroupContentModerationPermissionsModel": {
+      "additionalProperties": false,
+      "description": "A model representing group content moderation permissions",
+      "properties": {
+        "manageKeywordBlockList": {
+          "description": "Manage keyword block list permission",
+          "type": "boolean"
+        },
+        "viewKeywordBlockList": {
+          "description": "View keyword block list permission",
+          "type": "boolean"
         }
       },
       "type": "object"
     },
     "Roblox.Groups.Api.GroupDescriptionResponse": {
+      "additionalProperties": false,
       "properties": {
         "newDescription": {
           "description": "The new description returned",
@@ -135,11 +279,16 @@
       "type": "object"
     },
     "Roblox.Groups.Api.GroupDetailResponse": {
+      "additionalProperties": false,
       "description": "A detailed group response model",
       "properties": {
         "description": {
           "description": "The group description",
           "type": "string"
+        },
+        "hasSocialModules": {
+          "description": "Whether the group has social modules enabled (e.g. Forums)\r\n(determines if \"Followers\" vs \"Members\" should be shown).",
+          "type": "boolean"
         },
         "hasVerifiedBadge": {
           "description": "Whether the group has a verified badge.",
@@ -181,6 +330,7 @@
       "type": "object"
     },
     "Roblox.Groups.Api.GroupEconomyPermissionsModel": {
+      "additionalProperties": false,
       "description": "A model representing data about an Roblox.Platform.Membership.IUser",
       "properties": {
         "addGroupPlaces": {
@@ -218,8 +368,48 @@
       },
       "type": "object"
     },
+    "Roblox.Groups.Api.GroupForumsPermissionsModel": {
+      "additionalProperties": false,
+      "description": "A model representing group posts permissions",
+      "properties": {
+        "createComments": {
+          "description": "Create comments permission",
+          "type": "boolean"
+        },
+        "createPosts": {
+          "description": "Create posts permission",
+          "type": "boolean"
+        },
+        "lockPosts": {
+          "description": "Lock posts permission",
+          "type": "boolean"
+        },
+        "manageCategories": {
+          "description": "Manage categories permission",
+          "type": "boolean"
+        },
+        "pinPosts": {
+          "description": "Pin posts permission",
+          "type": "boolean"
+        },
+        "removeComments": {
+          "description": "Remove comments permission",
+          "type": "boolean"
+        },
+        "removePosts": {
+          "description": "Remove posts permission",
+          "type": "boolean"
+        },
+        "viewForums": {
+          "description": "View forums permission",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
     "Roblox.Groups.Api.GroupJoinRequestResponse": {
-      "description": "Response model for !:GroupJoinRequests",
+      "additionalProperties": false,
+      "description": "Response model for a group join request",
       "properties": {
         "created": {
           "description": "The DateTime the request was created",
@@ -233,8 +423,13 @@
       "type": "object"
     },
     "Roblox.Groups.Api.GroupManagementPermissionsModel": {
+      "additionalProperties": false,
       "description": "A model representing data about an Roblox.Platform.Membership.IUser",
       "properties": {
+        "bypassSlowmode": {
+          "description": "Bypass slowmode permission.",
+          "type": "boolean"
+        },
         "manageClan": {
           "description": "Manage clan permission",
           "type": "boolean"
@@ -251,6 +446,7 @@
       "type": "object"
     },
     "Roblox.Groups.Api.GroupMembershipDetailResponse": {
+      "additionalProperties": false,
       "description": "A group membership response model",
       "properties": {
         "group": {
@@ -264,6 +460,12 @@
           "description": "Whether the group is the user's Primary Group",
           "type": "boolean"
         },
+        "notificationPreferences": {
+          "items": {
+            "$ref": "#/definitions/Roblox.Groups.Api.GroupNotificationPreferenceData"
+          },
+          "type": "array"
+        },
         "role": {
           "$ref": "#/definitions/Roblox.Groups.Api.GroupRoleResponse"
         }
@@ -271,6 +473,7 @@
       "type": "object"
     },
     "Roblox.Groups.Api.GroupMembershipMetadataResponse": {
+      "additionalProperties": false,
       "description": "A user's group membership metadata response model",
       "properties": {
         "areEnemiesAllowed": {
@@ -288,6 +491,17 @@
         "canConfigure": {
           "description": "If the user can configure the group",
           "type": "boolean"
+        },
+        "canViewMemberList": {
+          "description": "Whether the user can view the group member list",
+          "type": "boolean"
+        },
+        "channelPermissions": {
+          "description": "The users's permissions for each communication channel in the group",
+          "items": {
+            "$ref": "#/definitions/Roblox.Groups.Api.GroupChannelPermissionsModel"
+          },
+          "type": "array"
         },
         "groupId": {
           "description": "The group id",
@@ -310,6 +524,12 @@
           "description": "Whether the group is primary",
           "type": "boolean"
         },
+        "notificationPreferences": {
+          "items": {
+            "$ref": "#/definitions/Roblox.Groups.Api.GroupNotificationPreferenceData"
+          },
+          "type": "array"
+        },
         "permissions": {
           "$ref": "#/definitions/Roblox.Groups.Api.GroupPermissionsModel"
         },
@@ -320,6 +540,7 @@
       "type": "object"
     },
     "Roblox.Groups.Api.GroupMembershipPermissionsModel": {
+      "additionalProperties": false,
       "description": "A model representing data about an Roblox.Platform.Membership.IUser",
       "properties": {
         "banMembers": {
@@ -342,6 +563,7 @@
       "type": "object"
     },
     "Roblox.Groups.Api.GroupNameChangeConfigurationResponse": {
+      "additionalProperties": false,
       "properties": {
         "cooldownInDays": {
           "description": "The cooldown for group name changes in days",
@@ -361,7 +583,35 @@
       },
       "type": "object"
     },
+    "Roblox.Groups.Api.GroupNotificationPreferenceData": {
+      "additionalProperties": false,
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "description": " ['AnnouncementCreatedNotification' = 0, 'ForumPostCreatedNotification' = 1, 'ForumCommentCreatedNotification' = 2, 'ForumCommentReplyCreatedNotification' = 3, 'ForumSubscriberNotification' = 4]",
+          "enum": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
     "Roblox.Groups.Api.GroupOpenCloudPermissionsModel": {
+      "additionalProperties": false,
       "properties": {
         "administerCloudAuthentication": {
           "description": "Permission to administer all of the group's API keys.",
@@ -375,6 +625,7 @@
       "type": "object"
     },
     "Roblox.Groups.Api.GroupPayoutResponse": {
+      "additionalProperties": false,
       "description": "A group payout response",
       "properties": {
         "percentage": {
@@ -389,6 +640,7 @@
       "type": "object"
     },
     "Roblox.Groups.Api.GroupPayoutRestrictionResponse": {
+      "additionalProperties": false,
       "description": "Response model for Group Payout Restriction",
       "properties": {
         "canUseOneTimePayout": {
@@ -403,10 +655,17 @@
       "type": "object"
     },
     "Roblox.Groups.Api.GroupPermissionsModel": {
+      "additionalProperties": false,
       "description": "A model for group permissions.",
       "properties": {
+        "groupContentModerationPermissions": {
+          "$ref": "#/definitions/Roblox.Groups.Api.GroupContentModerationPermissionsModel"
+        },
         "groupEconomyPermissions": {
           "$ref": "#/definitions/Roblox.Groups.Api.GroupEconomyPermissionsModel"
+        },
+        "groupForumsPermissions": {
+          "$ref": "#/definitions/Roblox.Groups.Api.GroupForumsPermissionsModel"
         },
         "groupManagementPermissions": {
           "$ref": "#/definitions/Roblox.Groups.Api.GroupManagementPermissionsModel"
@@ -424,6 +683,7 @@
       "type": "object"
     },
     "Roblox.Groups.Api.GroupPermissionsResponse": {
+      "additionalProperties": false,
       "description": "A group role's permissions response model",
       "properties": {
         "groupId": {
@@ -441,6 +701,7 @@
       "type": "object"
     },
     "Roblox.Groups.Api.GroupPoliciesResponse": {
+      "additionalProperties": false,
       "properties": {
         "groups": {
           "items": {
@@ -452,6 +713,7 @@
       "type": "object"
     },
     "Roblox.Groups.Api.GroupPolicyRequest": {
+      "additionalProperties": false,
       "properties": {
         "groupIds": {
           "items": {
@@ -464,6 +726,7 @@
       "type": "object"
     },
     "Roblox.Groups.Api.GroupPolicyResponse": {
+      "additionalProperties": false,
       "properties": {
         "canViewGroup": {
           "type": "boolean"
@@ -476,6 +739,7 @@
       "type": "object"
     },
     "Roblox.Groups.Api.GroupPostsPermissionsModel": {
+      "additionalProperties": false,
       "description": "A model representing group posts permissions",
       "properties": {
         "deleteFromWall": {
@@ -502,6 +766,7 @@
       "type": "object"
     },
     "Roblox.Groups.Api.GroupRelationshipsResponse": {
+      "additionalProperties": false,
       "description": "A group relationships response model",
       "properties": {
         "groupId": {
@@ -539,6 +804,7 @@
       "type": "object"
     },
     "Roblox.Groups.Api.GroupRoleDetailResponse": {
+      "additionalProperties": false,
       "properties": {
         "description": {
           "description": "The role description",
@@ -572,6 +838,7 @@
       "type": "object"
     },
     "Roblox.Groups.Api.GroupRoleResponse": {
+      "additionalProperties": false,
       "description": "A group role response model",
       "properties": {
         "description": {
@@ -601,6 +868,7 @@
       "type": "object"
     },
     "Roblox.Groups.Api.GroupSearchMetadataResponse": {
+      "additionalProperties": false,
       "description": "Response Model For Group Search Metadata Endpoint",
       "properties": {
         "ShowFriendsGroupsSort": {
@@ -618,6 +886,7 @@
       "type": "object"
     },
     "Roblox.Groups.Api.GroupSearchPageResponse": {
+      "additionalProperties": false,
       "description": "ApiPageResponse for catalog search",
       "properties": {
         "data": {
@@ -640,6 +909,7 @@
       "type": "object"
     },
     "Roblox.Groups.Api.GroupSearchResponseItem": {
+      "additionalProperties": false,
       "description": "A group search response",
       "properties": {
         "created": {
@@ -670,6 +940,7 @@
           "type": "string"
         },
         "previousName": {
+          "description": "The previous name of the group",
           "type": "string"
         },
         "publicEntryAllowed": {
@@ -685,8 +956,22 @@
       "type": "object"
     },
     "Roblox.Groups.Api.GroupSettingsResponse": {
+      "additionalProperties": false,
       "description": "Response model for Group Settings",
       "properties": {
+        "accountTenureRequirement": {
+          "description": "The account tenure requirement for the group. Null if the account tenure requirement could not be determined due to an error.",
+          "enum": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
         "areEnemiesAllowed": {
           "description": "Whether enemy club declarations are allowed.",
           "type": "boolean"
@@ -710,11 +995,38 @@
         "isGroupNameChangeEnabled": {
           "description": "If the group name change feature is enabled for this group.",
           "type": "boolean"
+        },
+        "isMemberListVisibleToPublic": {
+          "description": "Whether the group member list is visible to public.",
+          "type": "boolean"
+        },
+        "slowmode": {
+          "description": "The slowmode level for the group (0-4).\r\n0 = No slowmode, 1-4 = Slowmode levels with increasing restrictions.",
+          "enum": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "verificationLevel": {
+          "description": "The verification level for the group. Null if the verification level could not be determined due to an error.",
+          "enum": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "format": "int32",
+          "type": "integer"
         }
       },
       "type": "object"
     },
     "Roblox.Groups.Api.GroupsDisplayOptionsResponse": {
+      "additionalProperties": false,
       "description": "A group roles response model",
       "properties": {
         "areGroupBansEnabled": {
@@ -723,6 +1035,10 @@
         },
         "areProfileGroupsHidden": {
           "description": "If set to true, groups showcase will not show on users profiles.\r\n            \r\nIf set to false, group showcase will display on users profiles.",
+          "type": "boolean"
+        },
+        "canEnableGroupNotifications": {
+          "description": "Whether or not group notifications can be enabled",
           "type": "boolean"
         },
         "currentGroupCount": {
@@ -766,6 +1082,7 @@
       "type": "object"
     },
     "Roblox.Groups.Api.JoinGroupRequest": {
+      "additionalProperties": false,
       "description": "A request model for joining group.",
       "properties": {
         "captchaId": {
@@ -790,6 +1107,7 @@
       "type": "object"
     },
     "Roblox.Groups.Api.MembersRequest": {
+      "additionalProperties": false,
       "properties": {
         "UserIds": {
           "description": "The user ids being either accepted or declined",
@@ -803,6 +1121,7 @@
       "type": "object"
     },
     "Roblox.Groups.Api.Models.Request.CreateRoleSetRequest": {
+      "additionalProperties": false,
       "properties": {
         "description": {
           "description": "The description of the roleset.",
@@ -825,6 +1144,7 @@
       "type": "object"
     },
     "Roblox.Groups.Api.Models.Request.UpdateRoleSetRequest": {
+      "additionalProperties": false,
       "properties": {
         "description": {
           "description": "The description of the roleset.",
@@ -843,6 +1163,7 @@
       "type": "object"
     },
     "Roblox.Groups.Api.Models.Response.GroupAuditLogResponseItem": {
+      "additionalProperties": false,
       "description": "A group audit log response model",
       "properties": {
         "actionType": {
@@ -864,6 +1185,7 @@
       "type": "object"
     },
     "Roblox.Groups.Api.Models.Response.GroupNameHistoryResponseItem": {
+      "additionalProperties": false,
       "description": "A group name history response model",
       "properties": {
         "created": {
@@ -879,6 +1201,7 @@
       "type": "object"
     },
     "Roblox.Groups.Api.Models.Response.GroupWallPostModel": {
+      "additionalProperties": false,
       "description": "A response model for group wall post information",
       "properties": {
         "body": {
@@ -907,6 +1230,7 @@
       "type": "object"
     },
     "Roblox.Groups.Api.Models.Response.UserModel": {
+      "additionalProperties": false,
       "description": "A model representing data about an Roblox.Platform.Membership.IUser",
       "properties": {
         "buildersClubMembershipType": {
@@ -939,6 +1263,7 @@
       "type": "object"
     },
     "Roblox.Groups.Api.PayoutRecipientRequest": {
+      "additionalProperties": false,
       "description": "A request model for paying out Robux.",
       "properties": {
         "amount": {
@@ -964,8 +1289,13 @@
       "type": "object"
     },
     "Roblox.Groups.Api.PayoutRequest": {
+      "additionalProperties": false,
       "description": "Multi-payout request information.",
       "properties": {
+        "IdempotencyKey": {
+          "description": "The idempotency key of the payout request.",
+          "type": "string"
+        },
         "PayoutType": {
           "description": "The Roblox.Groups.Api.PayoutType. ['FixedAmount' = 1, 'Percentage' = 2]",
           "enum": [
@@ -986,6 +1316,7 @@
       "type": "object"
     },
     "Roblox.Groups.Api.PostGroupStatusRequest": {
+      "additionalProperties": false,
       "description": "A request model for setting the authenticated user's primary group.",
       "properties": {
         "message": {
@@ -996,6 +1327,7 @@
       "type": "object"
     },
     "Roblox.Groups.Api.PrimaryGroupRequest": {
+      "additionalProperties": false,
       "description": "A request model for setting the authenticated user's primary group.",
       "properties": {
         "groupId": {
@@ -1007,6 +1339,7 @@
       "type": "object"
     },
     "Roblox.Groups.Api.RecurringPayoutsConfigurationResponse": {
+      "additionalProperties": false,
       "description": "A response model for recurring payout configuration",
       "properties": {
         "maxPayoutPartners": {
@@ -1018,6 +1351,7 @@
       "type": "object"
     },
     "Roblox.Groups.Api.RelationshipsRequest": {
+      "additionalProperties": false,
       "properties": {
         "GroupIds": {
           "description": "The group ids being either accepted or declined",
@@ -1031,6 +1365,7 @@
       "type": "object"
     },
     "Roblox.Groups.Api.RoleConfigurationResponse": {
+      "additionalProperties": false,
       "description": "A response model for role configuration",
       "properties": {
         "cost": {
@@ -1067,6 +1402,7 @@
       "type": "object"
     },
     "Roblox.Groups.Api.ShoutResponse": {
+      "additionalProperties": false,
       "properties": {
         "body": {
           "description": "The shout's message",
@@ -1089,6 +1425,7 @@
       "type": "object"
     },
     "Roblox.Groups.Api.SocialLinkRequest": {
+      "additionalProperties": false,
       "description": "An update request for a social link",
       "properties": {
         "title": {
@@ -1119,6 +1456,7 @@
       "type": "object"
     },
     "Roblox.Groups.Api.SocialLinkResponse": {
+      "additionalProperties": false,
       "description": "A social link response from a create request",
       "properties": {
         "id": {
@@ -1153,7 +1491,20 @@
       },
       "type": "object"
     },
+    "Roblox.Groups.Api.UpdateBlockedKeywordRequest": {
+      "additionalProperties": false,
+      "properties": {
+        "isPrivate": {
+          "type": "boolean"
+        },
+        "keyword": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "Roblox.Groups.Api.UpdateGroupDescriptionRequest": {
+      "additionalProperties": false,
       "description": "A request model for setting a description for the group",
       "properties": {
         "description": {
@@ -1164,6 +1515,7 @@
       "type": "object"
     },
     "Roblox.Groups.Api.UpdateGroupNameRequest": {
+      "additionalProperties": false,
       "description": "A request model for setting a name for the group",
       "properties": {
         "name": {
@@ -1174,6 +1526,7 @@
       "type": "object"
     },
     "Roblox.Groups.Api.UpdateGroupNameResponse": {
+      "additionalProperties": false,
       "properties": {
         "newName": {
           "description": "The new description returned",
@@ -1183,18 +1536,45 @@
       "type": "object"
     },
     "Roblox.Groups.Api.UpdateGroupNotificationPreferenceRequest": {
+      "additionalProperties": false,
       "description": "A request model for updating a group's notification preference.",
       "properties": {
         "notificationsEnabled": {
           "description": "Whether the user wants to receive notifications from the group.",
           "type": "boolean"
+        },
+        "type": {
+          "description": " ['AnnouncementCreatedNotification' = 0, 'ForumPostCreatedNotification' = 1, 'ForumCommentCreatedNotification' = 2, 'ForumCommentReplyCreatedNotification' = 3, 'ForumSubscriberNotification' = 4]",
+          "enum": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "format": "int32",
+          "type": "integer"
         }
       },
       "type": "object"
     },
     "Roblox.Groups.Api.UpdateGroupSettingsRequest": {
+      "additionalProperties": false,
       "description": "A request model for updating a group's settings.",
       "properties": {
+        "accountTenureRequirement": {
+          "description": "The account tenure requirement for the group.",
+          "enum": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
         "areEnemiesAllowed": {
           "description": "Whether enemy club declarations are allowed.",
           "type": "boolean"
@@ -1210,14 +1590,42 @@
         "isApprovalRequired": {
           "description": "Whether public entry is allowed.",
           "type": "boolean"
+        },
+        "isMemberListVisibleToPublic": {
+          "description": "Whether the group member list is visible to public.",
+          "type": "boolean"
+        },
+        "slowmode": {
+          "description": "The slowmode level for the group (0-4).\r\n0 = No slowmode, 1-4 = Slowmode levels with increasing restrictions.\r\nNull = No change to current slowmode setting.",
+          "enum": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "verificationLevel": {
+          "description": "The verification level for the group.",
+          "enum": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "format": "int32",
+          "type": "integer"
         }
       },
       "type": "object"
     },
     "Roblox.Groups.Api.UpdatePermissionsRequest": {
+      "additionalProperties": false,
       "description": "A request model for updating a group's roleset's permissions.",
       "properties": {
         "permissions": {
+          "additionalProperties": false,
           "description": "The permission-value pairs to be updated.",
           "properties": {
             "AddGroupPlaces": {
@@ -1232,16 +1640,31 @@
             "BanMembers": {
               "type": "boolean"
             },
+            "BypassSlowmode": {
+              "type": "boolean"
+            },
             "ChangeRank": {
               "type": "boolean"
             },
+            "CreateComments": {
+              "type": "boolean"
+            },
             "CreateItems": {
+              "type": "boolean"
+            },
+            "CreatePosts": {
               "type": "boolean"
             },
             "DeleteFromWall": {
               "type": "boolean"
             },
             "InviteMembers": {
+              "type": "boolean"
+            },
+            "LockPosts": {
+              "type": "boolean"
+            },
+            "ManageCategories": {
               "type": "boolean"
             },
             "ManageClan": {
@@ -1253,7 +1676,13 @@
             "ManageItems": {
               "type": "boolean"
             },
+            "ManageKeywordBlockList": {
+              "type": "boolean"
+            },
             "ManageRelationships": {
+              "type": "boolean"
+            },
+            "PinPosts": {
               "type": "boolean"
             },
             "PostToStatus": {
@@ -1262,7 +1691,13 @@
             "PostToWall": {
               "type": "boolean"
             },
+            "RemoveComments": {
+              "type": "boolean"
+            },
             "RemoveMembers": {
+              "type": "boolean"
+            },
+            "RemovePosts": {
               "type": "boolean"
             },
             "SpendGroupFunds": {
@@ -1275,6 +1710,12 @@
               "type": "boolean"
             },
             "ViewAuditLogs": {
+              "type": "boolean"
+            },
+            "ViewForums": {
+              "type": "boolean"
+            },
+            "ViewKeywordBlockList": {
               "type": "boolean"
             },
             "ViewStatus": {
@@ -1290,6 +1731,7 @@
       "type": "object"
     },
     "Roblox.Groups.Api.UpdateUserRoleRequest": {
+      "additionalProperties": false,
       "description": "A request model for setting a users role in a group.",
       "properties": {
         "roleId": {
@@ -1301,6 +1743,7 @@
       "type": "object"
     },
     "Roblox.Groups.Api.UserGroupMembershipResponse": {
+      "additionalProperties": false,
       "description": "A users group membership response model",
       "properties": {
         "groups": {
@@ -1317,6 +1760,7 @@
       "type": "object"
     },
     "Roblox.Groups.Api.UserGroupRoleResponse": {
+      "additionalProperties": false,
       "description": "A user group role response model",
       "properties": {
         "role": {
@@ -1328,7 +1772,95 @@
       },
       "type": "object"
     },
+    "Roblox.Groups.Client.BlockedKeywordModel": {
+      "additionalProperties": false,
+      "properties": {
+        "createdAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "createdBy": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "id": {
+          "type": "string"
+        },
+        "isPrivate": {
+          "type": "boolean"
+        },
+        "keyword": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Groups.Client.CreateBlockedKeywordsResponse": {
+      "additionalProperties": false,
+      "properties": {
+        "createdKeywords": {
+          "items": {
+            "$ref": "#/definitions/Roblox.Groups.Client.BlockedKeywordModel"
+          },
+          "type": "array"
+        },
+        "hadDuplicateKeywords": {
+          "type": "boolean"
+        },
+        "hadModeratedKeywords": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Groups.Client.EmoteModel": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Groups.Client.EmoteSetModel": {
+      "additionalProperties": false,
+      "properties": {
+        "emotes": {
+          "items": {
+            "$ref": "#/definitions/Roblox.Groups.Client.EmoteModel"
+          },
+          "type": "array"
+        },
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Groups.Client.GetGroupEmoteSetsResponse": {
+      "additionalProperties": false,
+      "properties": {
+        "emoteSets": {
+          "items": {
+            "$ref": "#/definitions/Roblox.Groups.Client.EmoteSetModel"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
     "Roblox.Groups.Client.GroupFeaturedContentResponse": {
+      "additionalProperties": false,
       "properties": {
         "contentId": {
           "type": "string"
@@ -1343,120 +1875,8 @@
       },
       "type": "object"
     },
-    "Roblox.Paging.ExclusiveStartKeyCursor[System.String]": {
-      "properties": {
-        "count": {
-          "format": "int32",
-          "type": "integer"
-        },
-        "discriminator": {
-          "type": "string"
-        },
-        "key": {
-          "type": "string"
-        },
-        "pageNumber": {
-          "format": "int32",
-          "type": "integer"
-        },
-        "pagingDirection": {
-          "description": " ['Forward' = 1, 'Backward' = 2]",
-          "enum": [
-            1,
-            2
-          ],
-          "format": "int32",
-          "type": "integer"
-        },
-        "sortOrder": {
-          "description": " ['Asc' = 1, 'Desc' = 2]",
-          "enum": [
-            1,
-            2
-          ],
-          "format": "int32",
-          "type": "integer"
-        }
-      },
-      "type": "object"
-    },
-    "Roblox.Paging.StartIndexCursor": {
-      "properties": {
-        "count": {
-          "format": "int32",
-          "type": "integer"
-        },
-        "discriminator": {
-          "type": "string"
-        },
-        "startIndex": {
-          "format": "int64",
-          "type": "integer"
-        }
-      },
-      "type": "object"
-    },
-    "Roblox.Platform.Core.ExclusiveStartPaging.IExclusiveStartKeyInfo[System.Int32]": {
-      "properties": {
-        "Count": {
-          "format": "int32",
-          "readOnly": true,
-          "type": "integer"
-        },
-        "PagingDirection": {
-          "description": " ['Forward' = 1, 'Backward' = 2]",
-          "enum": [
-            1,
-            2
-          ],
-          "format": "int32",
-          "readOnly": true,
-          "type": "integer"
-        },
-        "SortOrder": {
-          "description": " ['Asc' = 1, 'Desc' = 2]",
-          "enum": [
-            1,
-            2
-          ],
-          "format": "int32",
-          "readOnly": true,
-          "type": "integer"
-        }
-      },
-      "type": "object"
-    },
-    "Roblox.Platform.Core.ExclusiveStartPaging.IExclusiveStartKeyInfo[System.Int64]": {
-      "properties": {
-        "Count": {
-          "format": "int32",
-          "readOnly": true,
-          "type": "integer"
-        },
-        "PagingDirection": {
-          "description": " ['Forward' = 1, 'Backward' = 2]",
-          "enum": [
-            1,
-            2
-          ],
-          "format": "int32",
-          "readOnly": true,
-          "type": "integer"
-        },
-        "SortOrder": {
-          "description": " ['Asc' = 1, 'Desc' = 2]",
-          "enum": [
-            1,
-            2
-          ],
-          "format": "int32",
-          "readOnly": true,
-          "type": "integer"
-        }
-      },
-      "type": "object"
-    },
     "Roblox.Web.Responses.Groups.GroupBasicResponse": {
+      "additionalProperties": false,
       "properties": {
         "hasVerifiedBadge": {
           "type": "boolean"
@@ -1476,6 +1896,7 @@
       "type": "object"
     },
     "Roblox.Web.Responses.Groups.GroupResponseV2": {
+      "additionalProperties": false,
       "properties": {
         "created": {
           "format": "date-time",
@@ -1505,6 +1926,7 @@
       "type": "object"
     },
     "Roblox.Web.Responses.RelatedEntityTypeResponse[Roblox.Web.Responses.Groups.GroupOwnerType]": {
+      "additionalProperties": false,
       "properties": {
         "id": {
           "format": "int64",
@@ -1525,31 +1947,11 @@
       "type": "object"
     },
     "Roblox.Web.WebAPI.ApiEmptyResponseModel": {
-      "type": "object"
-    },
-    "Roblox.Web.WebAPI.ExclusiveStartRequest[System.Int32]": {
-      "properties": {
-        "CursorRecipe": {
-          "type": "string"
-        },
-        "ExclusiveStartKeyInfo": {
-          "$ref": "#/definitions/Roblox.Platform.Core.ExclusiveStartPaging.IExclusiveStartKeyInfo[System.Int32]"
-        }
-      },
-      "type": "object"
-    },
-    "Roblox.Web.WebAPI.ExclusiveStartRequest[System.Int64]": {
-      "properties": {
-        "CursorRecipe": {
-          "type": "string"
-        },
-        "ExclusiveStartKeyInfo": {
-          "$ref": "#/definitions/Roblox.Platform.Core.ExclusiveStartPaging.IExclusiveStartKeyInfo[System.Int64]"
-        }
-      },
+      "additionalProperties": false,
       "type": "object"
     },
     "Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.Groups.Api.GroupDetailResponse]": {
+      "additionalProperties": false,
       "properties": {
         "data": {
           "items": {
@@ -1561,6 +1963,7 @@
       "type": "object"
     },
     "Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.Groups.Api.GroupMembershipDetailResponse]": {
+      "additionalProperties": false,
       "properties": {
         "data": {
           "items": {
@@ -1572,6 +1975,7 @@
       "type": "object"
     },
     "Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.Groups.Api.GroupPayoutResponse]": {
+      "additionalProperties": false,
       "properties": {
         "data": {
           "items": {
@@ -1583,6 +1987,7 @@
       "type": "object"
     },
     "Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.Groups.Api.GroupPermissionsResponse]": {
+      "additionalProperties": false,
       "properties": {
         "data": {
           "items": {
@@ -1594,6 +1999,7 @@
       "type": "object"
     },
     "Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.Groups.Api.GroupRoleDetailResponse]": {
+      "additionalProperties": false,
       "properties": {
         "data": {
           "items": {
@@ -1604,18 +2010,8 @@
       },
       "type": "object"
     },
-    "Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.Groups.Api.SocialLinkResponse]": {
-      "properties": {
-        "data": {
-          "items": {
-            "$ref": "#/definitions/Roblox.Groups.Api.SocialLinkResponse"
-          },
-          "type": "array"
-        }
-      },
-      "type": "object"
-    },
     "Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.Groups.Api.UserGroupMembershipResponse]": {
+      "additionalProperties": false,
       "properties": {
         "data": {
           "items": {
@@ -1627,6 +2023,7 @@
       "type": "object"
     },
     "Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.Web.Responses.Groups.GroupBasicResponse]": {
+      "additionalProperties": false,
       "properties": {
         "data": {
           "items": {
@@ -1637,7 +2034,26 @@
       },
       "type": "object"
     },
+    "Roblox.Web.WebAPI.Models.ApiPageResponse[Roblox.Groups.Api.GroupBanMemberResponse]": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "items": {
+            "$ref": "#/definitions/Roblox.Groups.Api.GroupBanMemberResponse"
+          },
+          "type": "array"
+        },
+        "nextPageCursor": {
+          "type": "string"
+        },
+        "previousPageCursor": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "Roblox.Web.WebAPI.Models.ApiPageResponse[Roblox.Groups.Api.GroupJoinRequestResponse]": {
+      "additionalProperties": false,
       "properties": {
         "data": {
           "items": {
@@ -1655,6 +2071,7 @@
       "type": "object"
     },
     "Roblox.Web.WebAPI.Models.ApiPageResponse[Roblox.Groups.Api.Models.Response.GroupNameHistoryResponseItem]": {
+      "additionalProperties": false,
       "properties": {
         "data": {
           "items": {
@@ -1672,6 +2089,7 @@
       "type": "object"
     },
     "Roblox.Web.WebAPI.Models.ApiPageResponse[Roblox.Groups.Api.Models.Response.GroupWallPostModel]": {
+      "additionalProperties": false,
       "properties": {
         "data": {
           "items": {
@@ -1689,6 +2107,7 @@
       "type": "object"
     },
     "Roblox.Web.WebAPI.Models.ApiPageResponse[Roblox.Groups.Api.Models.Response.UserModel]": {
+      "additionalProperties": false,
       "properties": {
         "data": {
           "items": {
@@ -1706,6 +2125,7 @@
       "type": "object"
     },
     "Roblox.Web.WebAPI.Models.ApiPageResponse[Roblox.Groups.Api.UserGroupRoleResponse]": {
+      "additionalProperties": false,
       "properties": {
         "data": {
           "items": {
@@ -1718,80 +2138,6 @@
         },
         "previousPageCursor": {
           "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "Roblox.Web.WebApi.FormData.IUploadedFile": {
-      "properties": {
-        "ContentEncoding": {
-          "description": " ['None' = 0, 'GZip' = 1, 'Deflate' = 2, 'Brotli' = 4, 'All' = -1]",
-          "enum": [
-            0,
-            1,
-            2,
-            4,
-            -1
-          ],
-          "format": "int32",
-          "readOnly": true,
-          "type": "integer"
-        },
-        "Name": {
-          "readOnly": true,
-          "type": "string"
-        },
-        "Stream": {
-          "$ref": "#/definitions/System.IO.Stream"
-        }
-      },
-      "type": "file"
-    },
-    "System.IO.Stream": {
-      "properties": {
-        "CanRead": {
-          "readOnly": true,
-          "type": "boolean"
-        },
-        "CanSeek": {
-          "readOnly": true,
-          "type": "boolean"
-        },
-        "CanTimeout": {
-          "readOnly": true,
-          "type": "boolean"
-        },
-        "CanWrite": {
-          "readOnly": true,
-          "type": "boolean"
-        },
-        "Length": {
-          "format": "int64",
-          "readOnly": true,
-          "type": "integer"
-        },
-        "Position": {
-          "format": "int64",
-          "type": "integer"
-        },
-        "ReadTimeout": {
-          "format": "int32",
-          "type": "integer"
-        },
-        "WriteTimeout": {
-          "format": "int32",
-          "type": "integer"
-        }
-      },
-      "type": "object"
-    },
-    "System.ValueTuple[Roblox.Web.WebAPI.ExclusiveStartRequest[System.Int64],Roblox.Paging.ExclusiveStartKeyCursor[System.String]]": {
-      "properties": {
-        "Item1": {
-          "$ref": "#/definitions/Roblox.Web.WebAPI.ExclusiveStartRequest[System.Int64]"
-        },
-        "Item2": {
-          "$ref": "#/definitions/Roblox.Paging.ExclusiveStartKeyCursor[System.String]"
         }
       },
       "type": "object"
@@ -1953,7 +2299,7 @@
         "consumes": [
           "multipart/form-data"
         ],
-        "description": "This endpoint will charge Robux for the group purchase.\r\nHttp status code 413 is thrown when the group icon file size is too large.",
+        "description": "This endpoint will charge Robux for the group purchase.\r\nAccepts \"icon\" and \"coverPhoto\" in Files object. Defaults to first file if \"icon\" is not present.\r\nHttp status code 413 is thrown when the group icon file size is too large.",
         "parameters": [
           {
             "description": "The name of the group.",
@@ -2003,7 +2349,7 @@
             }
           },
           "400": {
-            "description": "13: The name is invalid.\r\n15: The group icon is invalid.\r\n16: The group icon is missing from the request.\r\n18: The description is too long.\r\n19: The name is too long.\r\n20: The name has been taken."
+            "description": "13: The name is invalid.\r\n15: The group icon is invalid.\r\n16: The group icon is missing from the request.\r\n18: The description is too long.\r\n19: The name is too long.\r\n20: The name has been taken.\r\n46: Invalid file format or dimensions for group cover photo."
           },
           "401": {
             "description": "0: Authorization has been denied for this request."
@@ -2120,6 +2466,7 @@
         ],
         "parameters": [
           {
+            "description": "",
             "in": "body",
             "name": "groupPolicyRequest",
             "required": true,
@@ -2173,7 +2520,7 @@
           },
           {
             "default": false,
-            "description": "Whether or not to prioritize the exact match for the keyword (optional, defaults to false.",
+            "description": "Whether or not to prioritize the exact match for the keyword (optional, defaults to false).",
             "in": "query",
             "name": "prioritizeExactMatch",
             "type": "boolean"
@@ -2346,6 +2693,7 @@
             "type": "integer"
           },
           {
+            "description": "Filter for specific type of action performed",
             "enum": [
               "DeletePost",
               "RemoveMember",
@@ -2393,7 +2741,30 @@
               "UpdateRolesetRank",
               "UpdateRolesetData",
               "BanMember",
-              "UnbanMember"
+              "UnbanMember",
+              "CreateForumCategory",
+              "UpdateForumCategory",
+              "ArchiveForumCategory",
+              "DeleteForumCategory",
+              "DeleteForumPost",
+              "DeleteForumComment",
+              "PinForumPost",
+              "UnpinForumPost",
+              "LockForumPost",
+              "UnlockForumPost",
+              "CreateRoleset",
+              "DeleteRoleset",
+              "CreateCommerceProduct",
+              "SetCommerceProductActive",
+              "ArchiveCommerceProduct",
+              "AcceptCommerceProductBundlingFee",
+              "SetCommerceProductInactive",
+              "ConnectMerchant",
+              "DisconnectMerchant",
+              "JoinGroup",
+              "LeaveGroup",
+              "UpdateGroupIcon",
+              "UpdateGroupCoverPhoto"
             ],
             "in": "query",
             "name": "actionType",
@@ -2456,7 +2827,7 @@
             }
           },
           "400": {
-            "description": "1: Group is invalid or does not exist."
+            "description": "1: Group is invalid or does not exist.\r\n8: Invalid or missing pagination parameters"
           },
           "401": {
             "description": "0: Authorization has been denied for this request."
@@ -2468,6 +2839,511 @@
         "summary": "Gets the Group's audit log",
         "tags": [
           "Groups"
+        ]
+      }
+    },
+    "/v1/groups/{groupId}/bans": {
+      "get": {
+        "parameters": [
+          {
+            "description": "The group Id.",
+            "format": "int64",
+            "in": "path",
+            "name": "groupId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "default": 10,
+            "description": "The number of results per request.",
+            "enum": [
+              10,
+              25,
+              50,
+              100
+            ],
+            "format": "int32",
+            "in": "query",
+            "name": "limit",
+            "type": "integer"
+          },
+          {
+            "description": "The paging cursor for the previous or next page.",
+            "in": "query",
+            "name": "cursor",
+            "type": "string"
+          },
+          {
+            "default": "Asc",
+            "description": "The order the results are sorted in.",
+            "enum": [
+              "Asc",
+              "Desc"
+            ],
+            "in": "query",
+            "name": "sortOrder",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Membership:GetGroupBans"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.Models.ApiPageResponse[Roblox.Groups.Api.GroupBanMemberResponse]"
+            }
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "19: You have insufficient permissions for this request."
+          },
+          "404": {
+            "description": "1: The group is invalid or does not exist."
+          },
+          "405": {
+            "description": "18: The operation is temporarily unavailable. Please try again later."
+          }
+        },
+        "summary": "Gets the bans for the group",
+        "tags": [
+          "Membership"
+        ]
+      }
+    },
+    "/v1/groups/{groupId}/bans/{userId}": {
+      "delete": {
+        "parameters": [
+          {
+            "description": "The group Id.",
+            "format": "int64",
+            "in": "path",
+            "name": "groupId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "The Id of the user being unbanned.",
+            "format": "int64",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Membership:UnbanUserFromGroup"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.ApiEmptyResponseModel"
+            }
+          },
+          "400": {
+            "description": "29: The user is not banned from the group."
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed\r\n19: You have insufficient permissions for this request."
+          },
+          "404": {
+            "description": "1: The group is invalid or does not exist."
+          },
+          "405": {
+            "description": "18: The operation is temporarily unavailable. Please try again later."
+          }
+        },
+        "summary": "Unbans a user from a group",
+        "tags": [
+          "Membership"
+        ]
+      },
+      "get": {
+        "parameters": [
+          {
+            "description": "The group Id.",
+            "format": "int64",
+            "in": "path",
+            "name": "groupId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "The user Id.",
+            "format": "int64",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Membership:GetUserGroupBan"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Groups.Api.GroupBanMemberResponse"
+            }
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "19: You have insufficient permissions for this request."
+          },
+          "404": {
+            "description": "1: The group is invalid or does not exist.\r\n3: The user is invalid or does not exist."
+          },
+          "405": {
+            "description": "18: The operation is temporarily unavailable. Please try again later."
+          }
+        },
+        "summary": "Fetch the group ban of a user from a group",
+        "tags": [
+          "Membership"
+        ]
+      },
+      "post": {
+        "parameters": [
+          {
+            "description": "The group Id.",
+            "format": "int64",
+            "in": "path",
+            "name": "groupId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "The Id of the user being banned.",
+            "format": "int64",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Membership:BanUserFromGroup"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Groups.Api.GroupBanMemberResponse"
+            }
+          },
+          "400": {
+            "description": "28: The user is already banned from the group.\r\n31: You cannot perform this action against the group owner."
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed\r\n19: You have insufficient permissions for this request."
+          },
+          "404": {
+            "description": "1: The group is invalid or does not exist.\r\n3: The user is invalid or does not exist.\r\n3: The user is invalid or does not exist.\r\n15: User is not a member of the group."
+          },
+          "405": {
+            "description": "18: The operation is temporarily unavailable. Please try again later."
+          }
+        },
+        "summary": "Bans a user from a group",
+        "tags": [
+          "Membership"
+        ]
+      }
+    },
+    "/v1/groups/{groupId}/blocked-keywords": {
+      "get": {
+        "parameters": [
+          {
+            "format": "int64",
+            "in": "path",
+            "name": "groupId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "default": 10,
+            "description": "The number of results per request.",
+            "enum": [
+              10,
+              25,
+              50,
+              100
+            ],
+            "format": "int32",
+            "in": "query",
+            "name": "limit",
+            "type": "integer"
+          },
+          {
+            "description": "The paging cursor for the previous or next page.",
+            "in": "query",
+            "name": "cursor",
+            "type": "string"
+          },
+          {
+            "default": "Asc",
+            "description": "The order the results are sorted in.",
+            "enum": [
+              "Asc",
+              "Desc"
+            ],
+            "in": "query",
+            "name": "sortOrder",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "BlockedKeywords:GetBlockedKeywords"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Groups.Api.BlockedKeywordPageResponse[Roblox.Groups.Client.BlockedKeywordModel]"
+            }
+          },
+          "400": {
+            "description": "1: Group is invalid or does not exist.\r\n6: Limit is invalid."
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "9: User is invalid or does not exist.\r\n10: Insufficient permissions to complete the request."
+          },
+          "405": {
+            "description": "31: Service is currently unavailable."
+          }
+        },
+        "summary": "Retrieves a paginated list of blocked keywords for a specific Group.",
+        "tags": [
+          "BlockedKeywords"
+        ]
+      },
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "format": "int64",
+            "in": "path",
+            "name": "groupId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Groups.Api.CreateBlockedKeywordsRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "BlockedKeywords:CreateBlockedKeywords"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Groups.Client.CreateBlockedKeywordsResponse"
+            }
+          },
+          "400": {
+            "description": "1: Group is invalid or does not exist.\r\n2: One or more keywords are invalid.\r\n4: Invalid request.\r\n12: The provided content was moderated."
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed\r\n8: Insufficient permissions to complete the request.\r\n9: User is invalid or does not exist.\r\n10: Insufficient permissions to complete the request."
+          },
+          "405": {
+            "description": "31: Service is currently unavailable."
+          },
+          "409": {
+            "description": "11: There was a conflict in your request."
+          }
+        },
+        "summary": "Adds new blocked keyword(s) to the specified Group.",
+        "tags": [
+          "BlockedKeywords"
+        ]
+      }
+    },
+    "/v1/groups/{groupId}/blocked-keywords/{keywordId}": {
+      "delete": {
+        "parameters": [
+          {
+            "format": "int64",
+            "in": "path",
+            "name": "groupId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "in": "path",
+            "name": "keywordId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "BlockedKeywords:DeleteBlockedKeyword"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "1: Group is invalid or does not exist.\r\n3: KeywordId is invalid.\r\n4: Invalid request."
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed\r\n9: User is invalid or does not exist.\r\n10: Insufficient permissions to complete the request."
+          },
+          "404": {
+            "description": "7: Not found."
+          },
+          "405": {
+            "description": "31: Service is currently unavailable."
+          }
+        },
+        "summary": "Deletes a specific blocked keyword from the specified Group.",
+        "tags": [
+          "BlockedKeywords"
+        ]
+      },
+      "patch": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "format": "int64",
+            "in": "path",
+            "name": "groupId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "in": "path",
+            "name": "keywordId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Groups.Api.UpdateBlockedKeywordRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "BlockedKeywords:UpdateBlockedKeyword"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Groups.Client.BlockedKeywordModel"
+            }
+          },
+          "400": {
+            "description": "1: Group is invalid or does not exist.\r\n3: KeywordId is invalid.\r\n4: Invalid request.\r\n12: The provided content was moderated."
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed\r\n8: Insufficient permissions to complete the request.\r\n9: User is invalid or does not exist.\r\n10: Insufficient permissions to complete the request."
+          },
+          "404": {
+            "description": "7: Not found."
+          },
+          "405": {
+            "description": "31: Service is currently unavailable."
+          },
+          "409": {
+            "description": "11: There was a conflict in your request."
+          }
+        },
+        "summary": "Updates an existing blocked keyword for the specified Group.",
+        "tags": [
+          "BlockedKeywords"
         ]
       }
     },
@@ -2577,6 +3453,51 @@
         ]
       }
     },
+    "/v1/groups/{groupId}/configuration": {
+      "get": {
+        "parameters": [
+          {
+            "description": "The group Id.",
+            "format": "int64",
+            "in": "path",
+            "name": "groupId",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Groups:GetGroupConfiguration"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Groups.Api.GroupConfigurationDetailsResponse"
+            }
+          },
+          "400": {
+            "description": "1: Group is invalid or does not exist.\r\n15: User is not a member of the group."
+          },
+          "403": {
+            "description": "1: Group is invalid or does not exist.\r\n23: Insufficient permissions to complete the request."
+          },
+          "503": {
+            "description": "31: Service is currently unavailable."
+          }
+        },
+        "summary": "Gets group configuration information",
+        "tags": [
+          "Groups"
+        ]
+      }
+    },
     "/v1/groups/{groupId}/description": {
       "patch": {
         "consumes": [
@@ -2632,6 +3553,42 @@
         "summary": "Updates the groups description",
         "tags": [
           "Groups"
+        ]
+      }
+    },
+    "/v1/groups/{groupId}/emotes": {
+      "get": {
+        "parameters": [
+          {
+            "description": "",
+            "format": "int64",
+            "in": "path",
+            "name": "groupId",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Emotes:GetEmoteSets"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Groups.Client.GetGroupEmoteSetsResponse"
+            }
+          }
+        },
+        "summary": "Gets a groups emote sets.",
+        "tags": [
+          "Emotes"
         ]
       }
     },
@@ -3233,7 +4190,7 @@
             "description": "0: Token Validation Failed"
           }
         },
-        "summary": "Updates the user's group notification preferences",
+        "summary": "Updates the group's settings",
         "tags": [
           "Groups"
         ]
@@ -4066,7 +5023,7 @@
           },
           {
             "description": "The group's role set id.",
-            "format": "int32",
+            "format": "int64",
             "in": "path",
             "name": "roleSetId",
             "required": true,
@@ -4121,7 +5078,7 @@
           },
           {
             "description": "The roleset's id.",
-            "format": "int32",
+            "format": "int64",
             "in": "path",
             "name": "roleSetId",
             "required": true,
@@ -4183,7 +5140,7 @@
           },
           {
             "description": "The group's role set id.",
-            "format": "int32",
+            "format": "int64",
             "in": "path",
             "name": "roleSetId",
             "required": true,
@@ -4242,7 +5199,7 @@
             "description": "1: The group is invalid or does not exist."
           },
           "403": {
-            "description": "2: The roleset is invalid or does not exist."
+            "description": "2: The roleset is invalid or does not exist.\r\n35: You do not have permission to view this group's member list."
           }
         },
         "summary": "Gets a list of users in a group for a specific roleset.",
@@ -4556,7 +5513,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.Groups.Api.SocialLinkResponse]"
+              "$ref": "#/definitions/Roblox.Groups.Api.GetSocialLinkResponse"
             }
           },
           "400": {
@@ -4584,7 +5541,7 @@
         ],
         "parameters": [
           {
-            "description": "The id of the game",
+            "description": "The id of the group",
             "format": "int64",
             "in": "path",
             "name": "groupId",
@@ -4644,7 +5601,7 @@
       "delete": {
         "parameters": [
           {
-            "description": "The id of the game you are editting, required for permissions checking",
+            "description": "The id of the game you are editing, required for permissions checking",
             "format": "int64",
             "in": "path",
             "name": "groupId",
@@ -4809,7 +5766,7 @@
             }
           },
           "400": {
-            "description": "1: Group is invalid or does not exist.\r\n7: Missing group status content."
+            "description": "1: Group is invalid or does not exist.\r\n7: Missing group status content.\r\n32: Description was filtered."
           },
           "401": {
             "description": "0: Authorization has been denied for this request."
@@ -4886,6 +5843,9 @@
           },
           "400": {
             "description": "1: The group is invalid or does not exist."
+          },
+          "403": {
+            "description": "35: You do not have permission to view this group's member list."
           }
         },
         "summary": "Gets a list of users in a group.",
@@ -4906,6 +5866,25 @@
             "name": "groupId",
             "required": true,
             "type": "integer"
+          },
+          {
+            "description": "The place ID of the experience the player is in.",
+            "format": "int64",
+            "in": "header",
+            "name": "Roblox-Place-Id",
+            "type": "integer"
+          },
+          {
+            "description": "The player's current game Id.",
+            "in": "header",
+            "name": "Roblox-Game-Id",
+            "type": "string"
+          },
+          {
+            "description": "The player's current session Id.",
+            "in": "header",
+            "name": "Roblox-Session-Id",
+            "type": "string"
           },
           {
             "description": "Only supplied when captcha has been solved.",
@@ -4941,7 +5920,7 @@
             "description": "0: Authorization has been denied for this request."
           },
           "403": {
-            "description": "0: Token Validation Failed\r\n6: You are already in the maximum number of groups.\r\n9: You do not have the builders club membership necessary to join this group.\r\n14: You cannot join a closed group."
+            "description": "0: Token Validation Failed\r\n6: You are already in the maximum number of groups.\r\n9: You do not have the builders club membership necessary to join this group.\r\n14: You cannot join a closed group.\r\n33: You do not have the required verification level to join this group.\r\n34: You do not have the required account tenure to join this group."
           },
           "409": {
             "description": "7: You have already requested to join this group.\r\n8: You are already a member of this group."
@@ -5082,6 +6061,59 @@
         ]
       }
     },
+    "/v1/groups/{groupId}/users/{userId}/permissions": {
+      "get": {
+        "parameters": [
+          {
+            "description": "The group id.",
+            "format": "int64",
+            "in": "path",
+            "name": "groupId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "The user id.",
+            "format": "int64",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Permissions:GetPermissionsForUser"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Groups.Api.GroupPermissionsResponse"
+            }
+          },
+          "400": {
+            "description": "1: Group is invalid or does not exist."
+          },
+          "403": {
+            "description": "3: You are not authorized to view/edit permissions for this role."
+          },
+          "404": {
+            "description": "3: The user is invalid or does not exist."
+          }
+        },
+        "summary": "Gets the permissions a user has in a group. Only available to group owner and RCC",
+        "tags": [
+          "Permissions"
+        ]
+      }
+    },
     "/v1/groups/{groupId}/wall/posts": {
       "get": {
         "parameters": [
@@ -5196,13 +6228,16 @@
             }
           },
           "400": {
-            "description": "1: The group is invalid or does not exist.\r\n5: Your post was empty, white space, or more than 500 characters."
+            "description": "1: The group is invalid or does not exist.\r\n5: Your post was empty, white space, or more than 500 characters.\r\n9: The provided content was moderated."
           },
           "401": {
             "description": "0: Authorization has been denied for this request."
           },
           "403": {
             "description": "0: Token Validation Failed\r\n2: You do not have permission to access this group wall."
+          },
+          "405": {
+            "description": "1: The group is invalid or does not exist."
           },
           "429": {
             "description": "4: You are posting too fast, please try again in a few minutes."
@@ -5605,14 +6640,22 @@
           {
             "in": "query",
             "name": "includeLocked",
-            "required": true,
             "type": "boolean"
           },
           {
             "in": "query",
             "name": "includeNotificationPreferences",
-            "required": true,
             "type": "boolean"
+          },
+          {
+            "enum": [
+              0,
+              1
+            ],
+            "format": "int32",
+            "in": "query",
+            "name": "discoveryType",
+            "type": "integer"
           }
         ],
         "produces": [

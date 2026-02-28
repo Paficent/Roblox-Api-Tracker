@@ -1,6 +1,7 @@
 {
   "definitions": {
     "Roblox.GameInternationalization.Api.AssociateLocalizationTablesToGameRequest": {
+      "additionalProperties": false,
       "properties": {
         "tables": {
           "items": {
@@ -12,6 +13,7 @@
       "type": "object"
     },
     "Roblox.GameInternationalization.Api.AssociateLocalizationTablesToGameResponse": {
+      "additionalProperties": false,
       "properties": {
         "success": {
           "type": "boolean"
@@ -20,6 +22,7 @@
       "type": "object"
     },
     "Roblox.GameInternationalization.Api.AutoLocalizationMetadataResponse": {
+      "additionalProperties": false,
       "properties": {
         "isAutomaticTranslationQuotaUIEnabled": {
           "description": "Is Quota UI Enabled for Automatic Translations",
@@ -41,6 +44,7 @@
       "type": "object"
     },
     "Roblox.GameInternationalization.Api.AutomaticTranslationStatusTargetLanguage": {
+      "additionalProperties": false,
       "properties": {
         "isAutomaticTranslationAllowed": {
           "description": "Indicates whether or not automatic translation is allowed for the target language.",
@@ -54,6 +58,7 @@
       "type": "object"
     },
     "Roblox.GameInternationalization.Api.EditAutomaticTranslationStatusForGameAndLanguageResponse": {
+      "additionalProperties": false,
       "properties": {
         "gameId": {
           "description": "The game id.",
@@ -72,6 +77,7 @@
       "type": "object"
     },
     "Roblox.GameInternationalization.Api.FailedNameDescription": {
+      "additionalProperties": false,
       "properties": {
         "errorCode": {
           "format": "int32",
@@ -84,6 +90,7 @@
       "type": "object"
     },
     "Roblox.GameInternationalization.Api.GameAutolocalizationInformationResponse": {
+      "additionalProperties": false,
       "properties": {
         "assetId": {
           "format": "int64",
@@ -103,6 +110,7 @@
       "type": "object"
     },
     "Roblox.GameInternationalization.Api.GetAllowedAutomaticTranslationStatusForLanguagesResponse": {
+      "additionalProperties": false,
       "description": "A response model for getting the automatic translation allowed status of target languages.",
       "properties": {
         "sourceLanguage": {
@@ -120,6 +128,7 @@
       "type": "object"
     },
     "Roblox.GameInternationalization.Api.GetAutomaticTranslationFeatureStatusForGameResponse": {
+      "additionalProperties": false,
       "description": "A response model for getting the automatic translation allowed status of a game.",
       "properties": {
         "gameId": {
@@ -139,6 +148,7 @@
       "type": "object"
     },
     "Roblox.GameInternationalization.Api.GetAutomaticTranslationQuotaForGameResponse": {
+      "additionalProperties": false,
       "description": "A response model for getting the automatic translation quota info of a game.",
       "properties": {
         "bankQuota": {
@@ -151,6 +161,7 @@
       "type": "object"
     },
     "Roblox.GameInternationalization.Api.GetBadgeIconResponse": {
+      "additionalProperties": false,
       "properties": {
         "imageId": {
           "type": "string"
@@ -176,6 +187,7 @@
       "type": "object"
     },
     "Roblox.GameInternationalization.Api.GetDeveloperProductIconResponse": {
+      "additionalProperties": false,
       "description": "A response model for getting developer product icon",
       "properties": {
         "imageId": {
@@ -202,6 +214,7 @@
       "type": "object"
     },
     "Roblox.GameInternationalization.Api.GetGameIconResponse": {
+      "additionalProperties": false,
       "properties": {
         "imageId": {
           "type": "string"
@@ -227,6 +240,7 @@
       "type": "object"
     },
     "Roblox.GameInternationalization.Api.GetGamePassIconResponse": {
+      "additionalProperties": false,
       "description": "A response model for getting game pass icon",
       "properties": {
         "imageId": {
@@ -253,6 +267,7 @@
       "type": "object"
     },
     "Roblox.GameInternationalization.Api.GetGameThumbnailsResponse": {
+      "additionalProperties": false,
       "properties": {
         "languageCode": {
           "type": "string"
@@ -266,39 +281,8 @@
       },
       "type": "object"
     },
-    "Roblox.GameInternationalization.Api.GetNameDescriptionHistoryRequest": {
-      "description": "A model containing request for getting history of name or description.",
-      "properties": {
-        "count": {
-          "format": "int32",
-          "type": "integer"
-        },
-        "cursor": {
-          "type": "string"
-        },
-        "languageCode": {
-          "type": "string"
-        },
-        "requestType": {
-          "description": "The enum representing the type of request while requesting name/description history ['Name' = 0, 'Description' = 1]",
-          "enum": [
-            "Name",
-            "Description"
-          ],
-          "type": "string"
-        },
-        "sortOrder": {
-          "description": " ['Asc' = 1, 'Desc' = 2]",
-          "enum": [
-            "Asc",
-            "Desc"
-          ],
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
     "Roblox.GameInternationalization.Api.GetNameDescriptionHistoryResponse": {
+      "additionalProperties": false,
       "properties": {
         "history": {
           "items": {
@@ -313,6 +297,7 @@
       "type": "object"
     },
     "Roblox.GameInternationalization.Api.GetNameDescriptionHistoryV2Request": {
+      "additionalProperties": false,
       "description": "A model containing request for getting the translation history of\r\na content source type's name or description.",
       "properties": {
         "contentId": {
@@ -354,30 +339,8 @@
       },
       "type": "object"
     },
-    "Roblox.GameInternationalization.Api.GetPlayerPoliciesResponse": {
-      "properties": {
-        "allowedExternalLinkReferences": {
-          "items": {
-            "type": "string"
-          },
-          "type": "array"
-        },
-        "areAdsAllowed": {
-          "type": "boolean"
-        },
-        "arePaidRandomItemsRestricted": {
-          "type": "boolean"
-        },
-        "isPaidItemTradingAllowed": {
-          "type": "boolean"
-        },
-        "isSubjectToChinaPolicies": {
-          "type": "boolean"
-        }
-      },
-      "type": "object"
-    },
     "Roblox.GameInternationalization.Api.GetTranslationCountsForGameResponse": {
+      "additionalProperties": false,
       "description": "A response model that contains game info for getting a translation count.",
       "properties": {
         "gameId": {
@@ -396,6 +359,7 @@
       "type": "object"
     },
     "Roblox.GameInternationalization.Api.GetTranslationCountsForLanguageOrLocaleResponse": {
+      "additionalProperties": false,
       "description": "A response model for getting translation counts for a language or locale.",
       "properties": {
         "games": {
@@ -421,6 +385,7 @@
       "type": "object"
     },
     "Roblox.GameInternationalization.Api.GetUiConfigurationsResponse": {
+      "additionalProperties": false,
       "properties": {
         "isBadgeIconEnabled": {
           "description": "Badge Icon translation management is enabled or not.",
@@ -442,6 +407,7 @@
       "type": "object"
     },
     "Roblox.GameInternationalization.Api.Language": {
+      "additionalProperties": false,
       "properties": {
         "languageCode": {
           "type": "string"
@@ -456,6 +422,7 @@
       "type": "object"
     },
     "Roblox.GameInternationalization.Api.LanguageOrLocale": {
+      "additionalProperties": false,
       "properties": {
         "languageCode": {
           "type": "string"
@@ -475,6 +442,7 @@
       "type": "object"
     },
     "Roblox.GameInternationalization.Api.LanguageOrLocaleSettings": {
+      "additionalProperties": false,
       "properties": {
         "isAutomaticTranslationEnabled": {
           "description": "Indicates whether or not automatic translation is currently enabled for the game and language.",
@@ -496,6 +464,7 @@
       "type": "object"
     },
     "Roblox.GameInternationalization.Api.LocalizationTableGameAssociation": {
+      "additionalProperties": false,
       "properties": {
         "dissociate": {
           "type": "boolean"
@@ -508,6 +477,7 @@
       "type": "object"
     },
     "Roblox.GameInternationalization.Api.MediaAssetResponse": {
+      "additionalProperties": false,
       "properties": {
         "mediaAssetAltText": {
           "type": "string"
@@ -533,6 +503,7 @@
       "type": "object"
     },
     "Roblox.GameInternationalization.Api.Models.Request.SetUserLocalizationSettingsRequest": {
+      "additionalProperties": false,
       "properties": {
         "settingValue": {
           "$ref": "#/definitions/Roblox.GameLocalization.Client.UserUniverseLocalizationSettingValue"
@@ -541,6 +512,7 @@
       "type": "object"
     },
     "Roblox.GameInternationalization.Api.Models.Response.GameNameDescriptionMetadataResponse": {
+      "additionalProperties": false,
       "properties": {
         "isNameDescriptionMigrationEnabled": {
           "type": "boolean"
@@ -549,6 +521,7 @@
       "type": "object"
     },
     "Roblox.GameInternationalization.Api.Models.Response.GetUserLocalizationSettingsForUniverseResponse": {
+      "additionalProperties": false,
       "properties": {
         "userUniverseLocalizationSettingValue": {
           "$ref": "#/definitions/Roblox.GameLocalization.Client.UserUniverseLocalizationSettingValue"
@@ -557,9 +530,11 @@
       "type": "object"
     },
     "Roblox.GameInternationalization.Api.Models.Response.SetUserLocalizationSettingsResponse": {
+      "additionalProperties": false,
       "type": "object"
     },
     "Roblox.GameInternationalization.Api.Models.Response.UploadImageForGameThumbnailResponse": {
+      "additionalProperties": false,
       "properties": {
         "mediaAssetId": {
           "type": "string"
@@ -568,6 +543,7 @@
       "type": "object"
     },
     "Roblox.GameInternationalization.Api.MonthlyQuotaModel": {
+      "additionalProperties": false,
       "properties": {
         "capacity": {
           "format": "int64",
@@ -589,6 +565,7 @@
       "type": "object"
     },
     "Roblox.GameInternationalization.Api.NameDescription": {
+      "additionalProperties": false,
       "properties": {
         "description": {
           "type": "string"
@@ -611,6 +588,7 @@
       "type": "object"
     },
     "Roblox.GameInternationalization.Api.PatchLanguage": {
+      "additionalProperties": false,
       "properties": {
         "delete": {
           "description": "An optional field used to indicate whether a language should be deleted from this game's list of supported languages.",
@@ -632,6 +610,7 @@
       "type": "object"
     },
     "Roblox.GameInternationalization.Api.QuotaModel": {
+      "additionalProperties": false,
       "properties": {
         "capacity": {
           "format": "int64",
@@ -645,6 +624,7 @@
       "type": "object"
     },
     "Roblox.GameInternationalization.Api.RequestTranslationAnalyticsReportRequest": {
+      "additionalProperties": false,
       "properties": {
         "endDateTime": {
           "description": "The exclusive end dateTime of report in UTC",
@@ -675,6 +655,7 @@
       "type": "object"
     },
     "Roblox.GameInternationalization.Api.RequestTranslationAnalyticsReportResponse": {
+      "additionalProperties": false,
       "properties": {
         "reportGenerationStatus": {
           "description": " ['InProgress' = 0, 'Ready' = 1, 'Unavailable' = 2]",
@@ -689,6 +670,7 @@
       "type": "object"
     },
     "Roblox.GameInternationalization.Api.SetAutolocalizationSettingsForGameRequest": {
+      "additionalProperties": false,
       "properties": {
         "isAutolocalizationEnabled": {
           "type": "boolean"
@@ -700,6 +682,7 @@
       "type": "object"
     },
     "Roblox.GameInternationalization.Api.SetAutolocalizationTableForGameRequest": {
+      "additionalProperties": false,
       "properties": {
         "tableId": {
           "format": "uuid",
@@ -709,6 +692,7 @@
       "type": "object"
     },
     "Roblox.GameInternationalization.Api.SortImageIdsRequest": {
+      "additionalProperties": false,
       "description": "A request model for sorting of image Ids for game thumbnails",
       "properties": {
         "mediaAssetIds": {
@@ -722,7 +706,26 @@
       },
       "type": "object"
     },
+    "Roblox.GameInternationalization.Api.SourceLanguageWithLocales": {
+      "additionalProperties": false,
+      "properties": {
+        "childLocales": {
+          "items": {
+            "$ref": "#/definitions/Roblox.Localization.Client.SupportedLocale"
+          },
+          "type": "array"
+        },
+        "defaultLocale": {
+          "$ref": "#/definitions/Roblox.Localization.Client.SupportedLocale"
+        },
+        "languageFamily": {
+          "$ref": "#/definitions/Roblox.GameInternationalization.Api.Language"
+        }
+      },
+      "type": "object"
+    },
     "Roblox.GameInternationalization.Api.SupportedLanguagesMetadataResponse": {
+      "additionalProperties": false,
       "properties": {
         "areAllLanguagesEnabled": {
           "type": "boolean"
@@ -750,6 +753,7 @@
       "type": "object"
     },
     "Roblox.GameInternationalization.Api.TranslationAnalyticsMetadataResponse": {
+      "additionalProperties": false,
       "properties": {
         "isFeatureEnabledOnUI": {
           "description": "Is Translation Analytics feature enabled on UI",
@@ -769,6 +773,7 @@
       "type": "object"
     },
     "Roblox.GameInternationalization.Api.TranslationCount": {
+      "additionalProperties": false,
       "description": "A model that contains the count value of a translation count and relevant metadata.",
       "properties": {
         "count": {
@@ -794,6 +799,7 @@
       "type": "object"
     },
     "Roblox.GameInternationalization.Api.TranslationCountCategoryInfoResponse": {
+      "additionalProperties": false,
       "description": "A response model that contains category info for getting a translation count.",
       "properties": {
         "category": {
@@ -819,6 +825,7 @@
       "type": "object"
     },
     "Roblox.GameInternationalization.Api.TranslationCountGameInfoResponse": {
+      "additionalProperties": false,
       "description": "A response model that contains game info for getting a translation count.",
       "properties": {
         "categories": {
@@ -850,6 +857,7 @@
       "type": "object"
     },
     "Roblox.GameInternationalization.Api.TranslationCountLanguageOrLocaleResponse": {
+      "additionalProperties": false,
       "properties": {
         "categories": {
           "description": "Categories of translation counts.",
@@ -884,6 +892,7 @@
       "type": "object"
     },
     "Roblox.GameInternationalization.Api.TranslationHistory": {
+      "additionalProperties": false,
       "description": "A model containing a translation, translator, and translation time.",
       "properties": {
         "created": {
@@ -902,6 +911,7 @@
       "type": "object"
     },
     "Roblox.GameInternationalization.Api.Translator": {
+      "additionalProperties": false,
       "properties": {
         "agentType": {
           "description": " ['User' = 0, 'Automation' = 1]",
@@ -919,6 +929,7 @@
       "type": "object"
     },
     "Roblox.GameInternationalization.Api.UniverseDisplayInfoAutomaticTranslationSettings": {
+      "additionalProperties": false,
       "properties": {
         "isUniverseDisplayInfoAutomaticTranslationEnabled": {
           "description": "Indicates whether or not automatic translation is currently enabled for Game and Place Information for a game and language.",
@@ -932,6 +943,7 @@
       "type": "object"
     },
     "Roblox.GameInternationalization.Api.UpdateBadgeDescriptionRequest": {
+      "additionalProperties": false,
       "description": "A request model for updating badge description",
       "properties": {
         "description": {
@@ -942,6 +954,7 @@
       "type": "object"
     },
     "Roblox.GameInternationalization.Api.UpdateBadgeDescriptionResponse": {
+      "additionalProperties": false,
       "description": "A response model for updating badge description",
       "properties": {
         "description": {
@@ -952,6 +965,7 @@
       "type": "object"
     },
     "Roblox.GameInternationalization.Api.UpdateBadgeNameDescriptionRequest": {
+      "additionalProperties": false,
       "description": "A request model for updating badge name and description",
       "properties": {
         "description": {
@@ -966,6 +980,7 @@
       "type": "object"
     },
     "Roblox.GameInternationalization.Api.UpdateBadgeNameDescriptionResponse": {
+      "additionalProperties": false,
       "description": "A response model for updating badge name and description",
       "properties": {
         "description": {
@@ -980,6 +995,7 @@
       "type": "object"
     },
     "Roblox.GameInternationalization.Api.UpdateBadgeNameRequest": {
+      "additionalProperties": false,
       "description": "A request model for updating badge name",
       "properties": {
         "name": {
@@ -990,6 +1006,7 @@
       "type": "object"
     },
     "Roblox.GameInternationalization.Api.UpdateBadgeNameResponse": {
+      "additionalProperties": false,
       "description": "A response model for updating badge name",
       "properties": {
         "name": {
@@ -1000,6 +1017,7 @@
       "type": "object"
     },
     "Roblox.GameInternationalization.Api.UpdateDeveloperProductDescriptionRequest": {
+      "additionalProperties": false,
       "description": "A request model for updating developer product description",
       "properties": {
         "description": {
@@ -1010,6 +1028,7 @@
       "type": "object"
     },
     "Roblox.GameInternationalization.Api.UpdateDeveloperProductDescriptionResponse": {
+      "additionalProperties": false,
       "description": "A response model for updating developer product description",
       "properties": {
         "description": {
@@ -1020,6 +1039,7 @@
       "type": "object"
     },
     "Roblox.GameInternationalization.Api.UpdateDeveloperProductNameDescriptionRequest": {
+      "additionalProperties": false,
       "description": "A request model for updating developer product name and description",
       "properties": {
         "description": {
@@ -1034,6 +1054,7 @@
       "type": "object"
     },
     "Roblox.GameInternationalization.Api.UpdateDeveloperProductNameDescriptionResponse": {
+      "additionalProperties": false,
       "description": "A response model for updating developer product name and description",
       "properties": {
         "description": {
@@ -1048,6 +1069,7 @@
       "type": "object"
     },
     "Roblox.GameInternationalization.Api.UpdateDeveloperProductNameRequest": {
+      "additionalProperties": false,
       "description": "A request model for updating developer product name",
       "properties": {
         "name": {
@@ -1058,6 +1080,7 @@
       "type": "object"
     },
     "Roblox.GameInternationalization.Api.UpdateDeveloperProductNameResponse": {
+      "additionalProperties": false,
       "description": "A response model for updating developer product name",
       "properties": {
         "name": {
@@ -1068,6 +1091,7 @@
       "type": "object"
     },
     "Roblox.GameInternationalization.Api.UpdateGamePassDescriptionRequest": {
+      "additionalProperties": false,
       "description": "A request model for updating game pass description",
       "properties": {
         "description": {
@@ -1078,6 +1102,7 @@
       "type": "object"
     },
     "Roblox.GameInternationalization.Api.UpdateGamePassDescriptionResponse": {
+      "additionalProperties": false,
       "description": "A response model for updating game pass description",
       "properties": {
         "description": {
@@ -1088,6 +1113,7 @@
       "type": "object"
     },
     "Roblox.GameInternationalization.Api.UpdateGamePassNameDescriptionRequest": {
+      "additionalProperties": false,
       "description": "A request model for updating game pass name and description",
       "properties": {
         "description": {
@@ -1102,6 +1128,7 @@
       "type": "object"
     },
     "Roblox.GameInternationalization.Api.UpdateGamePassNameDescriptionResponse": {
+      "additionalProperties": false,
       "description": "A response model for updating game pass name and description",
       "properties": {
         "description": {
@@ -1116,6 +1143,7 @@
       "type": "object"
     },
     "Roblox.GameInternationalization.Api.UpdateGamePassNameRequest": {
+      "additionalProperties": false,
       "description": "A request model for updating game pass name",
       "properties": {
         "name": {
@@ -1126,6 +1154,7 @@
       "type": "object"
     },
     "Roblox.GameInternationalization.Api.UpdateGamePassNameResponse": {
+      "additionalProperties": false,
       "description": "A response model for updating game pass name",
       "properties": {
         "name": {
@@ -1136,6 +1165,7 @@
       "type": "object"
     },
     "Roblox.GameInternationalization.Api.UpdateNameDescriptionsRequest": {
+      "additionalProperties": false,
       "properties": {
         "data": {
           "items": {
@@ -1147,6 +1177,7 @@
       "type": "object"
     },
     "Roblox.GameInternationalization.Api.UpdateNameDescriptionsResponse": {
+      "additionalProperties": false,
       "properties": {
         "failedOperations": {
           "items": {
@@ -1164,6 +1195,7 @@
       "type": "object"
     },
     "Roblox.GameInternationalization.Api.UpdateThumbnailAltTextRequest": {
+      "additionalProperties": false,
       "properties": {
         "altText": {
           "type": "string"
@@ -1176,6 +1208,7 @@
       "type": "object"
     },
     "Roblox.GameInternationalization.Api.UpdateUniverseDisplayInfoAutomaticTranslationSettingsResponse": {
+      "additionalProperties": false,
       "description": "A response model for getting the automatic translation allowed status for game information.",
       "properties": {
         "gameId": {
@@ -1195,6 +1228,7 @@
       "type": "object"
     },
     "Roblox.GameLocalization.Client.UserUniverseLocalizationSettingValue": {
+      "additionalProperties": false,
       "properties": {
         "settingTargetId": {
           "format": "int64",
@@ -1212,10 +1246,112 @@
       },
       "type": "object"
     },
+    "Roblox.Localization.Client.LanguageFamily": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "isRightToLeft": {
+          "type": "boolean"
+        },
+        "languageCode": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "nativeName": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Localization.Client.SupportedLocale": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "language": {
+          "$ref": "#/definitions/Roblox.Localization.Client.LanguageFamily"
+        },
+        "locale": {
+          "enum": [
+            "en_us",
+            "es_es",
+            "fr_fr",
+            "id_id",
+            "it_it",
+            "ja_jp",
+            "ko_kr",
+            "ru_ru",
+            "th_th",
+            "tr_tr",
+            "vi_vn",
+            "pt_br",
+            "de_de",
+            "zh_cn",
+            "zh_tw",
+            "bg_bg",
+            "bn_bd",
+            "cs_cz",
+            "da_dk",
+            "el_gr",
+            "et_ee",
+            "fi_fi",
+            "hi_in",
+            "hr_hr",
+            "hu_hu",
+            "ka_ge",
+            "kk_kz",
+            "km_kh",
+            "lt_lt",
+            "lv_lv",
+            "ms_my",
+            "my_mm",
+            "nb_no",
+            "nl_nl",
+            "fil_ph",
+            "pl_pl",
+            "ro_ro",
+            "uk_ua",
+            "si_lk",
+            "sk_sk",
+            "sl_sl",
+            "sq_al",
+            "bs_ba",
+            "sr_rs",
+            "sv_se",
+            "zh_cjv",
+            "ar_001",
+            "en_gb",
+            "pt_pt",
+            "es_mx",
+            "fr_ca"
+          ],
+          "type": "string"
+        },
+        "localeCode": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "nativeName": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "Roblox.Web.WebAPI.ApiEmptyResponseModel": {
+      "additionalProperties": false,
       "type": "object"
     },
     "Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.GameInternationalization.Api.GetBadgeIconResponse]": {
+      "additionalProperties": false,
       "properties": {
         "data": {
           "items": {
@@ -1227,6 +1363,7 @@
       "type": "object"
     },
     "Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.GameInternationalization.Api.GetDeveloperProductIconResponse]": {
+      "additionalProperties": false,
       "properties": {
         "data": {
           "items": {
@@ -1238,6 +1375,7 @@
       "type": "object"
     },
     "Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.GameInternationalization.Api.GetGameIconResponse]": {
+      "additionalProperties": false,
       "properties": {
         "data": {
           "items": {
@@ -1249,6 +1387,7 @@
       "type": "object"
     },
     "Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.GameInternationalization.Api.GetGamePassIconResponse]": {
+      "additionalProperties": false,
       "properties": {
         "data": {
           "items": {
@@ -1260,6 +1399,7 @@
       "type": "object"
     },
     "Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.GameInternationalization.Api.GetGameThumbnailsResponse]": {
+      "additionalProperties": false,
       "properties": {
         "data": {
           "items": {
@@ -1271,6 +1411,7 @@
       "type": "object"
     },
     "Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.GameInternationalization.Api.LanguageOrLocaleSettings]": {
+      "additionalProperties": false,
       "properties": {
         "data": {
           "items": {
@@ -1282,6 +1423,7 @@
       "type": "object"
     },
     "Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.GameInternationalization.Api.LanguageOrLocale]": {
+      "additionalProperties": false,
       "properties": {
         "data": {
           "items": {
@@ -1293,6 +1435,7 @@
       "type": "object"
     },
     "Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.GameInternationalization.Api.NameDescription]": {
+      "additionalProperties": false,
       "properties": {
         "data": {
           "items": {
@@ -1304,74 +1447,13 @@
       "type": "object"
     },
     "Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.GameInternationalization.Api.UniverseDisplayInfoAutomaticTranslationSettings]": {
+      "additionalProperties": false,
       "properties": {
         "data": {
           "items": {
             "$ref": "#/definitions/Roblox.GameInternationalization.Api.UniverseDisplayInfoAutomaticTranslationSettings"
           },
           "type": "array"
-        }
-      },
-      "type": "object"
-    },
-    "Roblox.Web.WebApi.FormData.IUploadedFile": {
-      "properties": {
-        "ContentEncoding": {
-          "description": " ['None' = 0, 'GZip' = 1, 'Deflate' = 2, 'Brotli' = 4, 'All' = -1]",
-          "enum": [
-            "None",
-            "GZip",
-            "Deflate",
-            "Brotli",
-            "All"
-          ],
-          "readOnly": true,
-          "type": "string"
-        },
-        "Name": {
-          "readOnly": true,
-          "type": "string"
-        },
-        "Stream": {
-          "$ref": "#/definitions/System.IO.Stream"
-        }
-      },
-      "type": "file"
-    },
-    "System.IO.Stream": {
-      "properties": {
-        "CanRead": {
-          "readOnly": true,
-          "type": "boolean"
-        },
-        "CanSeek": {
-          "readOnly": true,
-          "type": "boolean"
-        },
-        "CanTimeout": {
-          "readOnly": true,
-          "type": "boolean"
-        },
-        "CanWrite": {
-          "readOnly": true,
-          "type": "boolean"
-        },
-        "Length": {
-          "format": "int64",
-          "readOnly": true,
-          "type": "integer"
-        },
-        "Position": {
-          "format": "int64",
-          "type": "integer"
-        },
-        "ReadTimeout": {
-          "format": "int32",
-          "type": "integer"
-        },
-        "WriteTimeout": {
-          "format": "int32",
-          "type": "integer"
         }
       },
       "type": "object"
@@ -4059,72 +4141,6 @@
         ]
       }
     },
-    "/v1/name-description/games/{gameId}/history": {
-      "post": {
-        "consumes": [
-          "application/json",
-          "text/json"
-        ],
-        "deprecated": true,
-        "parameters": [
-          {
-            "description": "The id of the game",
-            "format": "int64",
-            "in": "path",
-            "name": "gameId",
-            "required": true,
-            "type": "integer"
-          },
-          {
-            "description": "The request.",
-            "in": "body",
-            "name": "request",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/Roblox.GameInternationalization.Api.GetNameDescriptionHistoryRequest"
-            }
-          }
-        ],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
-        "properties": {
-          "internal": false,
-          "metricIds": [
-            "NameDescription:GetNameDescriptionHistory"
-          ],
-          "obsoleteMessage": "Please use the /translation-history endpoint instead."
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/Roblox.GameInternationalization.Api.GetNameDescriptionHistoryResponse"
-            }
-          },
-          "400": {
-            "description": "13: Request body can't be null\r\n14: Invalid game id\r\n18: You do not have permission to manage this game\r\n22: Invalid language code\r\n39: Count should be at least 1 and less than 50.\r\n53: Language is not supported for the game.\r\n54: No history available for source data\r\n55: Invalid exclusive start Id"
-          },
-          "401": {
-            "description": "0: Authorization has been denied for this request."
-          },
-          "403": {
-            "description": "0: Token Validation Failed"
-          },
-          "500": {
-            "description": "0: An unknown error occurred."
-          },
-          "503": {
-            "description": "17: Feature is disabled"
-          }
-        },
-        "summary": "Gets the history for name or description in a provided language.",
-        "tags": [
-          "NameDescription"
-        ]
-      }
-    },
     "/v1/name-description/metadata": {
       "get": {
         "produces": [
@@ -4151,65 +4167,6 @@
         "summary": "Rollout settings for name/description migration to new page",
         "tags": [
           "NameDescription"
-        ]
-      }
-    },
-    "/v1/player-policies-client": {
-      "get": {
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
-        "properties": {
-          "internal": false,
-          "metricIds": [
-            "PlayerPolicy:GetPlayerPoliciesForClient"
-          ]
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/Roblox.GameInternationalization.Api.GetPlayerPoliciesResponse"
-            }
-          },
-          "401": {
-            "description": "0: Authorization has been denied for this request."
-          },
-          "403": {
-            "description": "17: Feature is disabled"
-          }
-        },
-        "tags": [
-          "PlayerPolicy"
-        ]
-      }
-    },
-    "/v1/player-policies/all-values": {
-      "get": {
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
-        "properties": {
-          "internal": false,
-          "metricIds": [
-            "PlayerPolicy:GetPlayerPoliciesWithAllValues"
-          ]
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/Roblox.GameInternationalization.Api.GetPlayerPoliciesResponse"
-            }
-          },
-          "403": {
-            "description": "17: Feature is disabled"
-          }
-        },
-        "tags": [
-          "PlayerPolicy"
         ]
       }
     },
@@ -4306,6 +4263,48 @@
           }
         },
         "summary": "Sets the source language of a game",
+        "tags": [
+          "SourceLanguage"
+        ]
+      }
+    },
+    "/v1/source-language/games/{gameId}/language-with-locales": {
+      "get": {
+        "parameters": [
+          {
+            "description": "",
+            "format": "int64",
+            "in": "path",
+            "name": "gameId",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "SourceLanguage:GetSourceLanguageWithLocales"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.GameInternationalization.Api.SourceLanguageWithLocales"
+            }
+          },
+          "400": {
+            "description": "14: Invalid game id"
+          },
+          "503": {
+            "description": "17: Feature is disabled"
+          }
+        },
+        "summary": "Gets the source language of a game",
         "tags": [
           "SourceLanguage"
         ]
@@ -4458,6 +4457,48 @@
           }
         },
         "summary": "Get the automatic translation status of supported languages for a game.",
+        "tags": [
+          "SupportedLanguages"
+        ]
+      }
+    },
+    "/v1/supported-languages/games/{gameId}/in-experience-language-selection": {
+      "get": {
+        "parameters": [
+          {
+            "description": "The id of the game.",
+            "format": "int64",
+            "in": "path",
+            "name": "gameId",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "SupportedLanguages:GetInExperienceLanguageSelectionsForGame"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.GameInternationalization.Api.LanguageOrLocale]"
+            }
+          },
+          "400": {
+            "description": "14: Invalid game id"
+          },
+          "503": {
+            "description": "17: Feature is disabled"
+          }
+        },
+        "summary": "Get the user's in-experience language selector languages for a game.",
         "tags": [
           "SupportedLanguages"
         ]

@@ -1,6 +1,7 @@
 {
   "definitions": {
     "Roblox.EngagementPayouts.Api.PayoutResponseModel": {
+      "additionalProperties": false,
       "description": "A model for payout responses",
       "properties": {
         "eligibilityType": {

@@ -1,35 +1,22 @@
 {
   "definitions": {
-    "Roblox.AccountSettings.Api.AppChatPrivacyRequest": {
-      "description": "Request model for app chat privacy setting update",
+    "Roblox.AccountSettings.Api.CurrentEmailsResponse": {
+      "additionalProperties": false,
+      "description": "Response model for getting the user's verified and pending email addresses",
       "properties": {
-        "appChatPrivacy": {
-          "description": "The desired app chat privacy setting for the active user ['NoOne' = 1, 'Friends' = 2, 'FriendsAndFollowing' = 3, 'FriendsFollowingAndFollowers' = 4, 'AllAuthenticatedUsers' = 5, 'AllUsers' = 6]",
-          "enum": [
-            1,
-            2,
-            3,
-            4,
-            5,
-            6
-          ],
-          "format": "int32",
-          "type": "integer"
-        }
-      },
-      "type": "object"
-    },
-    "Roblox.AccountSettings.Api.AppChatPrivacyResponse": {
-      "description": "Response model for getting the user's app chat privacy setting GET",
-      "properties": {
-        "appChatPrivacy": {
-          "description": "The current app chat privacy setting for the current user",
+        "pendingEmail": {
+          "description": "The user's pending (unverified) email address if one exists (masked)",
+          "type": "string"
+        },
+        "verifiedEmail": {
+          "description": "The user's most recent verified email address (masked)",
           "type": "string"
         }
       },
       "type": "object"
     },
     "Roblox.AccountSettings.Api.EmailResponse": {
+      "additionalProperties": false,
       "description": "Response model for getting the user's email address and verified status",
       "properties": {
         "canBypassPasswordForEmailUpdate": {
@@ -47,117 +34,8 @@
       },
       "type": "object"
     },
-    "Roblox.AccountSettings.Api.GameChatPrivacyRequest": {
-      "description": "Request model for game chat privacy setting update",
-      "properties": {
-        "gameChatPrivacy": {
-          "description": "The desired game chat privacy setting for the active user ['NoOne' = 1, 'Friends' = 2, 'FriendsAndFollowing' = 3, 'FriendsFollowingAndFollowers' = 4, 'AllAuthenticatedUsers' = 5, 'AllUsers' = 6]",
-          "enum": [
-            1,
-            2,
-            3,
-            4,
-            5,
-            6
-          ],
-          "format": "int32",
-          "type": "integer"
-        }
-      },
-      "type": "object"
-    },
-    "Roblox.AccountSettings.Api.GameChatPrivacyResponse": {
-      "description": "Response model for getting the user's game chat privacy settings",
-      "properties": {
-        "gameChatPrivacy": {
-          "description": "The current game chat privacy setting for the current user",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "Roblox.AccountSettings.Api.InventoryPrivacyRequest": {
-      "description": "Request model for inventory privacy setting update",
-      "properties": {
-        "inventoryPrivacy": {
-          "description": "The desired inventory privacy setting for the active user ['NoOne' = 1, 'Friends' = 2, 'FriendsAndFollowing' = 3, 'FriendsFollowingAndFollowers' = 4, 'AllAuthenticatedUsers' = 5, 'AllUsers' = 6]",
-          "enum": [
-            1,
-            2,
-            3,
-            4,
-            5,
-            6
-          ],
-          "format": "int32",
-          "type": "integer"
-        }
-      },
-      "type": "object"
-    },
-    "Roblox.AccountSettings.Api.InventoryPrivacyResponse": {
-      "description": "Response model for getting the user's inventory privacy settings",
-      "properties": {
-        "inventoryPrivacy": {
-          "description": "The current inventory privacy setting for the current user ['NoOne' = 1, 'Friends' = 2, 'FriendsAndFollowing' = 3, 'FriendsFollowingAndFollowers' = 4, 'AllAuthenticatedUsers' = 5, 'AllUsers' = 6]",
-          "enum": [
-            1,
-            2,
-            3,
-            4,
-            5,
-            6
-          ],
-          "format": "int32",
-          "type": "integer"
-        }
-      },
-      "type": "object"
-    },
-    "Roblox.AccountSettings.Api.InventoryPrivacyUpdateResponse": {
-      "description": "Response model for updating the user's inventory privacy settings",
-      "properties": {
-        "inventoryPrivacy": {
-          "description": "The inventory privacy setting after updating ['NoOne' = 1, 'Friends' = 2, 'FriendsAndFollowing' = 3, 'FriendsFollowingAndFollowers' = 4, 'AllAuthenticatedUsers' = 5, 'AllUsers' = 6]",
-          "enum": [
-            1,
-            2,
-            3,
-            4,
-            5,
-            6
-          ],
-          "format": "int32",
-          "type": "integer"
-        },
-        "privacySettingResponse": {
-          "description": "The response state after updating inventory privacy ['Success' = 0, 'Conflict' = 1]",
-          "enum": [
-            0,
-            1
-          ],
-          "format": "int32",
-          "type": "integer"
-        },
-        "tradePrivacy": {
-          "description": "The trade privacy setting after updating ['Undefined' = 0, 'Disabled' = 1, 'NoOne' = 2, 'Friends' = 3, 'TopFriends' = 4, 'Following' = 5, 'Followers' = 6, 'All' = 7]",
-          "enum": [
-            0,
-            1,
-            2,
-            3,
-            4,
-            5,
-            6,
-            7
-          ],
-          "format": "int32",
-          "type": "integer"
-        }
-      },
-      "type": "object"
-    },
     "Roblox.AccountSettings.Api.Models.AccountsSettingsMetadataModel": {
+      "additionalProperties": false,
       "description": "A model containing website metadata for avatars",
       "properties": {
         "IsAccountsRestrictionsSpamBugFixEnabled": {
@@ -184,26 +62,8 @@
       },
       "type": "object"
     },
-    "Roblox.AccountSettings.Api.Models.BlockedUser": {
-      "description": "Another user that has been blocked by this user.",
-      "properties": {
-        "displayName": {
-          "description": "The display name of the blockee.",
-          "type": "string"
-        },
-        "name": {
-          "description": "The user name of the blockee.",
-          "type": "string"
-        },
-        "userId": {
-          "description": "The user id of the blockee.",
-          "format": "int64",
-          "type": "integer"
-        }
-      },
-      "type": "object"
-    },
     "Roblox.AccountSettings.Api.Models.Response.AccountCountrySettingsResponse": {
+      "additionalProperties": false,
       "description": "",
       "properties": {
         "value": {
@@ -212,46 +72,12 @@
       },
       "type": "object"
     },
-    "Roblox.AccountSettings.Api.Models.Response.GetBlockedUsersResponse": {
-      "properties": {
-        "blockedUserIds": {
-          "description": "The list of userIds the user has blocked",
-          "items": {
-            "format": "int64",
-            "type": "integer"
-          },
-          "type": "array"
-        }
-      },
-      "type": "object"
-    },
-    "Roblox.AccountSettings.Api.Models.Response.GetDetailedBlockedUsersResponse": {
-      "description": "Response model for getting blocked users.",
-      "properties": {
-        "blockedUsers": {
-          "description": "Other users blocked by this user.",
-          "items": {
-            "$ref": "#/definitions/Roblox.AccountSettings.Api.Models.BlockedUser"
-          },
-          "type": "array"
-        },
-        "maxBlockedUsers": {
-          "description": "The max number of users a user can block.",
-          "format": "int32",
-          "type": "integer"
-        },
-        "total": {
-          "description": "The total number of users this user has blocked.",
-          "format": "int64",
-          "type": "integer"
-        }
-      },
-      "type": "object"
-    },
     "Roblox.AccountSettings.Api.Models.Response.UpdateAccountCountryResponse": {
+      "additionalProperties": false,
       "type": "object"
     },
     "Roblox.AccountSettings.Api.Models.Response.UserAccountCountry": {
+      "additionalProperties": false,
       "description": "",
       "properties": {
         "countryId": {
@@ -278,27 +104,8 @@
       },
       "type": "object"
     },
-    "Roblox.AccountSettings.Api.PrivateMessagePrivacyRequest": {
-      "description": "Request model for private message privacy setting update",
-      "properties": {
-        "privateMessagePrivacy": {
-          "description": "The desired private message privacy setting for the active user",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "Roblox.AccountSettings.Api.PrivateMessagePrivacyResponse": {
-      "description": "Response model for getting the user's private message privacy settings",
-      "properties": {
-        "privateMessagePrivacy": {
-          "description": "The current private message privacy setting for the current user",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
     "Roblox.AccountSettings.Api.SendVerifyEmailRequest": {
+      "additionalProperties": false,
       "description": "Request model for sending a verify email request",
       "properties": {
         "freeItem": {
@@ -313,6 +120,7 @@
       "type": "object"
     },
     "Roblox.AccountSettings.Api.ThemeConfigurationRequest": {
+      "additionalProperties": false,
       "description": "Response model for get user's theme type",
       "properties": {
         "themeType": {
@@ -323,6 +131,7 @@
       "type": "object"
     },
     "Roblox.AccountSettings.Api.ThemeConfigurationResponse": {
+      "additionalProperties": false,
       "description": "Response model for get user's theme type",
       "properties": {
         "themeType": {
@@ -333,6 +142,7 @@
       "type": "object"
     },
     "Roblox.AccountSettings.Api.TradePrivacyResponse": {
+      "additionalProperties": false,
       "description": "Response model for getting the user's trade privacy settings",
       "properties": {
         "tradePrivacy": {
@@ -343,6 +153,7 @@
       "type": "object"
     },
     "Roblox.AccountSettings.Api.TradePrivacyUpdateResponse": {
+      "additionalProperties": false,
       "description": "Response model for updating the user's trade privacy settings",
       "properties": {
         "inventoryPrivacy": {
@@ -386,6 +197,7 @@
       "type": "object"
     },
     "Roblox.AccountSettings.Api.TradeValueRequest": {
+      "additionalProperties": false,
       "description": "Request model for trade value setting update",
       "properties": {
         "tradeValue": {
@@ -404,6 +216,7 @@
       "type": "object"
     },
     "Roblox.AccountSettings.Api.TradeValueResponse": {
+      "additionalProperties": false,
       "description": "Response model for getting the user's trade value settings",
       "properties": {
         "tradeValue": {
@@ -414,6 +227,7 @@
       "type": "object"
     },
     "Roblox.AccountSettings.Api.UpdateAccountCountryRequest": {
+      "additionalProperties": false,
       "description": "Request Model for updating a user's account country",
       "properties": {
         "targetCountryId": {
@@ -425,6 +239,7 @@
       "type": "object"
     },
     "Roblox.AccountSettings.Api.UpdateEmailRequest": {
+      "additionalProperties": false,
       "description": "Request model for updating an email",
       "properties": {
         "emailAddress": {
@@ -447,6 +262,7 @@
       "type": "object"
     },
     "Roblox.AccountSettings.Api.UpdateTradePrivacyRequest": {
+      "additionalProperties": false,
       "description": "Request model for trade privacy setting update",
       "properties": {
         "tradePrivacy": {
@@ -468,9 +284,11 @@
       "type": "object"
     },
     "Roblox.Web.WebAPI.ApiEmptyResponseModel": {
+      "additionalProperties": false,
       "type": "object"
     },
     "Roblox.Web.WebAPI.Models.ApiArrayResponse[System.String]": {
+      "additionalProperties": false,
       "properties": {
         "data": {
           "items": {
@@ -600,83 +418,6 @@
         ]
       }
     },
-    "/v1/app-chat-privacy": {
-      "get": {
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
-        "properties": {
-          "internal": false,
-          "metricIds": [
-            "PrivacySettings:GetAppChatPrivacy"
-          ]
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/Roblox.AccountSettings.Api.AppChatPrivacyResponse"
-            }
-          },
-          "401": {
-            "description": "0: Authorization has been denied for this request."
-          }
-        },
-        "summary": "Get a user's app chat privacy setting",
-        "tags": [
-          "PrivacySettings"
-        ]
-      },
-      "post": {
-        "consumes": [
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "description": "",
-            "in": "body",
-            "name": "model",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/Roblox.AccountSettings.Api.AppChatPrivacyRequest"
-            }
-          }
-        ],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
-        "properties": {
-          "internal": false,
-          "metricIds": [
-            "PrivacySettings:UpdateAppChatPrivacy"
-          ]
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/Roblox.Web.WebAPI.ApiEmptyResponseModel"
-            }
-          },
-          "400": {
-            "description": "Roblox.AccountSettings.Api.ResponseEnums.ContactSettingsErrors.InvalidSettingOption"
-          },
-          "401": {
-            "description": "0: Authorization has been denied for this request."
-          },
-          "403": {
-            "description": "Roblox.AccountSettings.Api.ResponseEnums.ContactSettingsErrors.AccountLocked\r\n            OR\r\n            Roblox.AccountSettings.Api.ResponseEnums.ContactSettingsErrors.SettingLockedCuratedGamesEnabled\r\n0: Token Validation Failed"
-          }
-        },
-        "summary": "Updates a user's app chat privacy setting",
-        "tags": [
-          "PrivacySettings"
-        ]
-      }
-    },
     "/v1/email": {
       "get": {
         "produces": [
@@ -745,7 +486,7 @@
             "description": "0: Authorization has been denied for this request."
           },
           "403": {
-            "description": "0: Token Validation Failed\r\n1: PIN is locked.\r\n2: This feature is currently disabled. Please try again later.\r\n3: There are too many accounts associated with this email address.\r\n11: You must be on the Corporate network to log in."
+            "description": "0: Token Validation Failed\r\n2: This feature is currently disabled. Please try again later.\r\n3: There are too many accounts associated with this email address.\r\n11: You must be on the Corporate network to log in."
           },
           "409": {
             "description": "4: This is already the current email."
@@ -802,7 +543,7 @@
             "description": "0: Authorization has been denied for this request."
           },
           "403": {
-            "description": "0: Token Validation Failed\r\n1: PIN is locked.\r\n2: This feature is currently disabled. Please try again later.\r\n3: There are too many accounts associated with this email address.\r\n11: You must be on the Corporate network to log in."
+            "description": "0: Token Validation Failed\r\n2: This feature is currently disabled. Please try again later.\r\n3: There are too many accounts associated with this email address.\r\n11: You must be on the Corporate network to log in."
           },
           "409": {
             "description": "4: This is already the current email."
@@ -860,7 +601,7 @@
             "description": "0: Authorization has been denied for this request."
           },
           "403": {
-            "description": "0: Token Validation Failed\r\n1: PIN is locked.\r\n2: This feature is currently disabled. Please try again later.\r\n11: You must be on the Corporate network to log in."
+            "description": "0: Token Validation Failed\r\n2: This feature is currently disabled. Please try again later.\r\n11: You must be on the Corporate network to log in."
           },
           "409": {
             "description": "5: The email is already verified."
@@ -878,7 +619,7 @@
         ]
       }
     },
-    "/v1/game-chat-privacy": {
+    "/v1/emails": {
       "get": {
         "produces": [
           "application/json",
@@ -887,225 +628,23 @@
         "properties": {
           "internal": false,
           "metricIds": [
-            "PrivacySettings:GetGameChatPrivacy"
+            "Email:GetCurrentEmails"
           ]
         },
         "responses": {
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/Roblox.AccountSettings.Api.GameChatPrivacyResponse"
+              "$ref": "#/definitions/Roblox.AccountSettings.Api.CurrentEmailsResponse"
             }
           },
           "401": {
             "description": "0: Authorization has been denied for this request."
           }
         },
-        "summary": "Get a user's game chat privacy setting",
+        "summary": "Gets the authenticated user's verified email and pending (unverified) email if one exists",
         "tags": [
-          "PrivacySettings"
-        ]
-      },
-      "post": {
-        "consumes": [
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "description": "",
-            "in": "body",
-            "name": "model",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/Roblox.AccountSettings.Api.GameChatPrivacyRequest"
-            }
-          }
-        ],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
-        "properties": {
-          "internal": false,
-          "metricIds": [
-            "PrivacySettings:UpdateGameChatPrivacy"
-          ]
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/Roblox.Web.WebAPI.ApiEmptyResponseModel"
-            }
-          },
-          "400": {
-            "description": "Roblox.AccountSettings.Api.ResponseEnums.ContactSettingsErrors.InvalidSettingOption"
-          },
-          "401": {
-            "description": "0: Authorization has been denied for this request."
-          },
-          "403": {
-            "description": "Roblox.AccountSettings.Api.ResponseEnums.ContactSettingsErrors.AccountLocked\r\n            OR\r\n            Roblox.AccountSettings.Api.ResponseEnums.ContactSettingsErrors.SettingLockedCuratedGamesEnabled\r\n0: Token Validation Failed"
-          }
-        },
-        "summary": "Updates a user's game chat privacy setting",
-        "tags": [
-          "PrivacySettings"
-        ]
-      }
-    },
-    "/v1/inventory-privacy": {
-      "get": {
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
-        "properties": {
-          "internal": false,
-          "metricIds": [
-            "PrivacySettings:GetInventoryPrivacy"
-          ]
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/Roblox.AccountSettings.Api.InventoryPrivacyResponse"
-            }
-          },
-          "401": {
-            "description": "0: Authorization has been denied for this request."
-          }
-        },
-        "summary": "Get a user's inventory privacy setting",
-        "tags": [
-          "PrivacySettings"
-        ]
-      },
-      "post": {
-        "consumes": [
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "description": "",
-            "in": "body",
-            "name": "model",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/Roblox.AccountSettings.Api.InventoryPrivacyRequest"
-            }
-          }
-        ],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
-        "properties": {
-          "internal": false,
-          "metricIds": [
-            "PrivacySettings:UpdateInventoryPrivacy"
-          ]
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/Roblox.AccountSettings.Api.InventoryPrivacyUpdateResponse"
-            }
-          },
-          "400": {
-            "description": "Roblox.AccountSettings.Api.ResponseEnums.ContactSettingsErrors.AccountLocked"
-          },
-          "401": {
-            "description": "0: Authorization has been denied for this request."
-          },
-          "403": {
-            "description": "Roblox.AccountSettings.Api.ResponseEnums.ContactSettingsErrors.InventoryHidingFeatureDisabled\r\n0: Token Validation Failed"
-          }
-        },
-        "summary": "Updates a user's inventory privacy setting",
-        "tags": [
-          "PrivacySettings"
-        ]
-      }
-    },
-    "/v1/private-message-privacy": {
-      "get": {
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
-        "properties": {
-          "internal": false,
-          "metricIds": [
-            "PrivacySettings:GetPrivateMessagePrivacy"
-          ]
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/Roblox.AccountSettings.Api.PrivateMessagePrivacyResponse"
-            }
-          },
-          "401": {
-            "description": "0: Authorization has been denied for this request."
-          }
-        },
-        "summary": "Get a user's private message privacy setting",
-        "tags": [
-          "PrivacySettings"
-        ]
-      },
-      "post": {
-        "consumes": [
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "description": "",
-            "in": "body",
-            "name": "model",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/Roblox.AccountSettings.Api.PrivateMessagePrivacyRequest"
-            }
-          }
-        ],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
-        "properties": {
-          "internal": false,
-          "metricIds": [
-            "PrivacySettings:UpdatePrivateMessagePrivacy"
-          ]
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/Roblox.Web.WebAPI.ApiEmptyResponseModel"
-            }
-          },
-          "400": {
-            "description": "Roblox.AccountSettings.Api.ResponseEnums.ContactSettingsErrors.InvalidSettingOption"
-          },
-          "401": {
-            "description": "0: Authorization has been denied for this request."
-          },
-          "403": {
-            "description": "Roblox.AccountSettings.Api.ResponseEnums.ContactSettingsErrors.AccountLocked\r\n            OR\r\n            Roblox.AccountSettings.Api.ResponseEnums.ContactSettingsErrors.SettingLockedCuratedGamesEnabled\r\n0: Token Validation Failed"
-          }
-        },
-        "summary": "Updates a user's private message privacy setting",
-        "tags": [
-          "PrivacySettings"
+          "Email"
         ]
       }
     },
@@ -1406,162 +945,6 @@
         "summary": "Updates a user's trade quality filter setting",
         "tags": [
           "TradeSettings"
-        ]
-      }
-    },
-    "/v1/users/get-blocked-users": {
-      "get": {
-        "deprecated": true,
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
-        "properties": {
-          "internal": false,
-          "metricIds": [
-            "BlockUser:GetBlockedUsers"
-          ],
-          "obsoleteMessage": "This is deprecated - please use GetDetailedBlockedUsers endpoint instead! This endpoint will be deleted!"
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/Roblox.AccountSettings.Api.Models.Response.GetBlockedUsersResponse"
-            }
-          },
-          "401": {
-            "description": "0: Authorization has been denied for this request."
-          }
-        },
-        "summary": "Gets all blocked users.",
-        "tags": [
-          "BlockUser"
-        ]
-      }
-    },
-    "/v1/users/get-detailed-blocked-users": {
-      "get": {
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
-        "properties": {
-          "internal": false,
-          "metricIds": [
-            "BlockUser:GetBlockedUsersForAccountSettingsPage"
-          ]
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/Roblox.AccountSettings.Api.Models.Response.GetDetailedBlockedUsersResponse"
-            }
-          },
-          "401": {
-            "description": "0: Authorization has been denied for this request."
-          }
-        },
-        "summary": "Gets all blocked users with details.",
-        "tags": [
-          "BlockUser"
-        ]
-      }
-    },
-    "/v1/users/{userId}/block": {
-      "post": {
-        "parameters": [
-          {
-            "description": "The user ID to block.",
-            "format": "int64",
-            "in": "path",
-            "name": "userId",
-            "required": true,
-            "type": "integer"
-          }
-        ],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
-        "properties": {
-          "internal": false,
-          "metricIds": [
-            "BlockUser:BlockUser"
-          ]
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/Roblox.Web.WebAPI.ApiEmptyResponseModel"
-            }
-          },
-          "400": {
-            "description": "0: Target user does not exist.\r\n1: Target user already blocked.\r\n2: User sending block request has reached their block limit."
-          },
-          "401": {
-            "description": "0: Authorization has been denied for this request.\r\n7: User is not logged in."
-          },
-          "403": {
-            "description": "0: Token Validation Failed"
-          },
-          "503": {
-            "description": "3: User blocking is disabled.\r\n8: The request failed internally. Please try again later."
-          }
-        },
-        "summary": "Blocks another user.",
-        "tags": [
-          "BlockUser"
-        ]
-      }
-    },
-    "/v1/users/{userId}/unblock": {
-      "post": {
-        "parameters": [
-          {
-            "description": "The user ID to unblock.",
-            "format": "int64",
-            "in": "path",
-            "name": "userId",
-            "required": true,
-            "type": "integer"
-          }
-        ],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
-        "properties": {
-          "internal": false,
-          "metricIds": [
-            "BlockUser:UnblockOtherUser"
-          ]
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/Roblox.Web.WebAPI.ApiEmptyResponseModel"
-            }
-          },
-          "400": {
-            "description": "0: Target user does not exist.\r\n4: Target user for unblock request is not currently blocked."
-          },
-          "401": {
-            "description": "0: Authorization has been denied for this request.\r\n7: User is not logged in."
-          },
-          "403": {
-            "description": "0: Token Validation Failed"
-          },
-          "503": {
-            "description": "3: User blocking is disabled.\r\n8: The request failed internally. Please try again later."
-          }
-        },
-        "summary": "Unblocks a previously blocked user.",
-        "tags": [
-          "BlockUser"
         ]
       }
     }

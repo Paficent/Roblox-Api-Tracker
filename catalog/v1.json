@@ -1,6 +1,7 @@
 {
   "definitions": {
     "Roblox.Catalog.Api.AssetFavoriteModel": {
+      "additionalProperties": false,
       "description": "A model to represent asset favorites.",
       "properties": {
         "assetId": {
@@ -22,6 +23,7 @@
       "type": "object"
     },
     "Roblox.Catalog.Api.BundleCreatorModel": {
+      "additionalProperties": false,
       "properties": {
         "hasVerifiedBadge": {
           "type": "boolean"
@@ -41,6 +43,8 @@
       "type": "object"
     },
     "Roblox.Catalog.Api.BundleDetailsModel": {
+      "additionalProperties": false,
+      "description": "The hydration model representing a bundle on marketplace. Returned in all bundles controller endpoints.\r\nBound in the game-engine MarketplaceService.GetProductInfo method.\r\nhttps://create.roblox.com/docs/reference/engine/classes/MarketplaceService#GetProductInfo.",
       "properties": {
         "bundleType": {
           "type": "string"
@@ -58,9 +62,12 @@
           "format": "int64",
           "type": "integer"
         },
+        "isRecolorable": {
+          "type": "boolean"
+        },
         "itemRestrictions": {
           "items": {
-            "description": "Catalog item restriction enum ['ThirteenPlus' = 1, 'LimitedUnique' = 2, 'Limited' = 3, 'BuildersClub' = 4, 'TurboBuildersClub' = 5, 'OutrageousBuildersClub' = 6, 'Rthro' = 7, 'Live' = 8, 'Collectible' = 9]",
+            "description": "Catalog item restriction enum. ['ThirteenPlus' = 1, 'LimitedUnique' = 2, 'Limited' = 3, 'BuildersClub' = 4, 'TurboBuildersClub' = 5, 'OutrageousBuildersClub' = 6, 'Rthro' = 7, 'Live' = 8, 'Collectible' = 9]",
             "enum": [
               1,
               2,
@@ -93,6 +100,7 @@
       "type": "object"
     },
     "Roblox.Catalog.Api.BundleFavoriteModel": {
+      "additionalProperties": false,
       "description": "A model to represent bundle favorites.",
       "properties": {
         "bundleId": {
@@ -114,7 +122,13 @@
       "type": "object"
     },
     "Roblox.Catalog.Api.BundleItemDetailModel": {
+      "additionalProperties": false,
       "properties": {
+        "assetType": {
+          "description": "The asset type of the bundle item, if it's an asset.",
+          "format": "int32",
+          "type": "integer"
+        },
         "id": {
           "format": "int64",
           "type": "integer"
@@ -125,6 +139,39 @@
         "owned": {
           "type": "boolean"
         },
+        "supportsHeadShapes": {
+          "description": "Whether the bundle item supports head shapes.",
+          "type": "boolean"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Catalog.Api.BundleItemDetailModelV2": {
+      "additionalProperties": false,
+      "description": "The is the beta (non game-engine) version of BundleItemDetailModel for internal consumption on Roblox web and universal-app.",
+      "properties": {
+        "assetType": {
+          "description": "The asset type of the bundle item, if it's an asset.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "owned": {
+          "type": "boolean"
+        },
+        "supportsHeadShapes": {
+          "description": "Whether the bundle item supports head shapes.",
+          "type": "boolean"
+        },
         "type": {
           "type": "string"
         }
@@ -132,6 +179,7 @@
       "type": "object"
     },
     "Roblox.Catalog.Api.BundleProductModel": {
+      "additionalProperties": false,
       "properties": {
         "id": {
           "format": "int64",
@@ -163,7 +211,8 @@
       "type": "object"
     },
     "Roblox.Catalog.Api.CatalogSearchDetailedResponseItem": {
-      "description": "The detailed model for catalog items.",
+      "additionalProperties": false,
+      "description": "Game-engine version of fully hydrated asset or bundle in catalog marketplace.\r\nDocumented here: https://create.roblox.com/docs/reference/engine/classes/AvatarEditorService#SearchCatalog.",
       "properties": {
         "assetType": {
           "description": "The Roblox.Platform.Assets.AssetType serialized if item is an asset.",
@@ -242,7 +291,15 @@
             79,
             80,
             81,
-            82
+            82,
+            83,
+            84,
+            85,
+            86,
+            87,
+            88,
+            89,
+            90
           ],
           "format": "int32",
           "type": "integer"
@@ -266,11 +323,11 @@
           "type": "array"
         },
         "collectibleItemId": {
-          "description": "The item's collectible item id. \r\nIt is an UUID if a item is collectible type. Otherwise, it is null.",
+          "description": "The item's collectible item id.\r\nIt is an UUID if a item is collectible type. Otherwise, it is null.",
           "type": "string"
         },
         "creatorHasVerifiedBadge": {
-          "description": "The verified status of a creator",
+          "description": "The verified status of a creator.",
           "type": "boolean"
         },
         "creatorName": {
@@ -314,10 +371,14 @@
           "description": "An indicator if the item is off sale or not.",
           "type": "boolean"
         },
+        "isRecolorable": {
+          "description": "Gets or sets the property whether a bundle is recolorable or not. Not serialized for asset.",
+          "type": "boolean"
+        },
         "itemRestrictions": {
           "description": "The System.Collections.Generic.IEnumerable`1 if item has Roblox.Catalog.Api.CatalogItemRestriction.",
           "items": {
-            "description": "Catalog item restriction enum ['ThirteenPlus' = 1, 'LimitedUnique' = 2, 'Limited' = 3, 'BuildersClub' = 4, 'TurboBuildersClub' = 5, 'OutrageousBuildersClub' = 6, 'Rthro' = 7, 'Live' = 8, 'Collectible' = 9]",
+            "description": "Catalog item restriction enum. ['ThirteenPlus' = 1, 'LimitedUnique' = 2, 'Limited' = 3, 'BuildersClub' = 4, 'TurboBuildersClub' = 5, 'OutrageousBuildersClub' = 6, 'Rthro' = 7, 'Live' = 8, 'Collectible' = 9]",
             "enum": [
               1,
               2,
@@ -337,7 +398,7 @@
         "itemStatus": {
           "description": "The System.Collections.Generic.IEnumerable`1 if item has Roblox.Catalog.Api.CatalogItemStatus.",
           "items": {
-            "description": "Catalog item status enum ['New' = 1, 'Sale' = 2, 'SaleTimer' = 7]",
+            "description": "Catalog item status enum. ['New' = 1, 'Sale' = 2, 'SaleTimer' = 7]",
             "enum": [
               1,
               2,
@@ -410,20 +471,397 @@
           "format": "int32",
           "type": "integer"
         },
+        "supportsHeadShapes": {
+          "description": "Whether the item supports head shapes.",
+          "type": "boolean"
+        },
+        "timedOptions": {
+          "description": "The timed options for the item.",
+          "items": {
+            "$ref": "#/definitions/Roblox.Catalog.Api.TimedOption"
+          },
+          "type": "array"
+        },
         "totalQuantity": {
           "description": "The collectible or limited-unique item's total quantity of unique instances.",
           "format": "int64",
           "type": "integer"
         },
         "unitsAvailableForConsumption": {
-          "description": "The number of items in stock, only if the item is resellable and is limitedEdition",
+          "description": "The number of items in stock, only if the item is resellable and is limitedEdition.",
           "format": "int64",
           "type": "integer"
         }
       },
       "type": "object"
     },
+    "Roblox.Catalog.Api.CatalogSearchDetailedResponseItemV2": {
+      "additionalProperties": false,
+      "description": "This is the beta (non game-engine) version of our hydration model representing asset or bundle in marketplace.",
+      "properties": {
+        "assetType": {
+          "description": "The Roblox.Platform.Assets.AssetType serialized if item is an asset.",
+          "enum": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            16,
+            17,
+            18,
+            19,
+            21,
+            22,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35,
+            37,
+            38,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48,
+            49,
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            56,
+            59,
+            60,
+            61,
+            62,
+            63,
+            64,
+            65,
+            66,
+            67,
+            68,
+            69,
+            70,
+            71,
+            72,
+            73,
+            74,
+            75,
+            76,
+            77,
+            78,
+            79,
+            80,
+            81,
+            82,
+            83,
+            84,
+            85,
+            86,
+            87,
+            88,
+            89,
+            90
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "bundleType": {
+          "description": "The Roblox.Platform.Bundles.Core.BundleType serialized if item is a bundle.",
+          "enum": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "bundledItems": {
+          "description": "The System.Collections.Generic.IEnumerable`1 contained in the bundle, serialized if item is a bundle.",
+          "items": {
+            "$ref": "#/definitions/Roblox.Catalog.Api.BundleItemDetailModelV2"
+          },
+          "type": "array"
+        },
+        "collectibleItemId": {
+          "description": "The item's collectible item id.\r\nIt is an UUID if a item is collectible type. Otherwise, it is null.",
+          "type": "string"
+        },
+        "creatorHasVerifiedBadge": {
+          "description": "The verified status of a creator.",
+          "type": "boolean"
+        },
+        "creatorName": {
+          "description": "The creator name of the item's creator.",
+          "type": "string"
+        },
+        "creatorTargetId": {
+          "description": "The creator id of the item's creator.",
+          "format": "int64",
+          "type": "integer"
+        },
+        "creatorType": {
+          "description": "The Roblox.Catalog.Api.CatalogSearchDetailedResponseItem.CreatorType of the item's creator.",
+          "enum": [
+            0,
+            1,
+            2
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "description": {
+          "description": "The item description.",
+          "type": "string"
+        },
+        "favoriteCount": {
+          "description": "The number of times the item has been favorited.",
+          "format": "int64",
+          "type": "integer"
+        },
+        "hasResellers": {
+          "description": "An indicator if the item has resellers or not (null if not resellable).",
+          "type": "boolean"
+        },
+        "id": {
+          "description": "The Item Id.",
+          "format": "int64",
+          "type": "integer"
+        },
+        "isOffSale": {
+          "description": "An indicator if the item is off sale or not.",
+          "type": "boolean"
+        },
+        "isRecolorable": {
+          "description": "Gets or sets the property whether a bundle is recolorable or not. Not serialized for asset.",
+          "type": "boolean"
+        },
+        "itemRestrictions": {
+          "description": "The System.Collections.Generic.IEnumerable`1 if item has Roblox.Catalog.Api.CatalogItemRestriction.",
+          "items": {
+            "description": "Catalog item restriction enum. ['ThirteenPlus' = 1, 'LimitedUnique' = 2, 'Limited' = 3, 'BuildersClub' = 4, 'TurboBuildersClub' = 5, 'OutrageousBuildersClub' = 6, 'Rthro' = 7, 'Live' = 8, 'Collectible' = 9]",
+            "enum": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9
+            ],
+            "format": "int32",
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        "itemStatus": {
+          "description": "The System.Collections.Generic.IEnumerable`1 if item has Roblox.Catalog.Api.CatalogItemStatus.",
+          "items": {
+            "description": "Catalog item status enum. ['New' = 1, 'Sale' = 2, 'SaleTimer' = 7]",
+            "enum": [
+              1,
+              2,
+              7
+            ],
+            "format": "int32",
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        "itemType": {
+          "description": "The Roblox.Catalog.Api.CatalogSearchDetailedResponseItem.ItemType item type. ['Asset' = 1, 'Bundle' = 2]",
+          "enum": [
+            1,
+            2
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "lowestPrice": {
+          "description": "The item's lowest price, only if the item is resellable and there are resellers.",
+          "format": "int64",
+          "type": "integer"
+        },
+        "lowestResalePrice": {
+          "description": "The item's lowest resale price, only if the item is resellable and there are resellers, including current user.",
+          "format": "int64",
+          "type": "integer"
+        },
+        "name": {
+          "description": "The item name.",
+          "type": "string"
+        },
+        "offSaleDeadline": {
+          "description": "When the item will go off sale, if the item has an off deadline.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "price": {
+          "description": "The item's price.",
+          "format": "int64",
+          "type": "integer"
+        },
+        "priceStatus": {
+          "description": "The localized string item status if the item's price should not be displayed.",
+          "type": "string"
+        },
+        "productId": {
+          "description": "The product id of corresponding item.",
+          "format": "int64",
+          "type": "integer"
+        },
+        "quantityLimitPerUser": {
+          "description": "Quantity limit for how many instances a user can buy.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "saleLocationType": {
+          "description": "The sale location type of the item. ['NotApplicable' = 0, 'ShopOnly' = 1, 'MyExperiencesOnly' = 2, 'ShopAndMyExperiences' = 3, 'ExperiencesById' = 4, 'ShopAndAllExperiences' = 5, 'ExperiencesDevApiOnly' = 6, 'ShopAndExperiencesById' = 7]",
+          "enum": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "supportsHeadShapes": {
+          "description": "Whether the item supports head shapes.",
+          "type": "boolean"
+        },
+        "taxonomy": {
+          "description": "The taxonomy ids and names for this item.",
+          "items": {
+            "$ref": "#/definitions/Roblox.Catalog.Api.TaxonomyModel"
+          },
+          "type": "array"
+        },
+        "timedOptions": {
+          "description": "The timed options for the item.",
+          "items": {
+            "$ref": "#/definitions/Roblox.Catalog.Api.TimedOption"
+          },
+          "type": "array"
+        },
+        "totalQuantity": {
+          "description": "The collectible or limited-unique item's total quantity of unique instances.",
+          "format": "int64",
+          "type": "integer"
+        },
+        "unitsAvailableForConsumption": {
+          "description": "The number of items in stock, only if the item is resellable and is limitedEdition.",
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Catalog.Api.CategoryModel": {
+      "additionalProperties": false,
+      "description": "Response model for category.",
+      "properties": {
+        "assetTypeIds": {
+          "description": "List of AssetTypeIds corresponding to AssetType enum that this category returns.",
+          "items": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        "bundleTypeIds": {
+          "description": "List of bundleTypeIds corresponding to BundleType enum that this category returns.",
+          "items": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        "category": {
+          "description": "Category type.",
+          "enum": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "categoryId": {
+          "description": "Category id.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "isSearchable": {
+          "description": "Gets or sets whether the category is searchable in search bar.",
+          "type": "boolean"
+        },
+        "name": {
+          "description": "Category name.",
+          "type": "string"
+        },
+        "orderIndex": {
+          "description": "Category order index.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "subcategories": {
+          "description": "Subcategories under this category.",
+          "items": {
+            "$ref": "#/definitions/Roblox.Catalog.Api.SubcategoryModel"
+          },
+          "type": "array"
+        },
+        "taxonomy": {
+          "description": "The associated public facing web_stable_id corresponding to internal taxonomy uuid for this category.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "Roblox.Catalog.Api.CollectibleItemDetail": {
+      "additionalProperties": false,
       "properties": {
         "collectibleItemId": {
           "type": "string"
@@ -507,6 +945,7 @@
       "type": "object"
     },
     "Roblox.Catalog.Api.FavoriteBundlesResponse": {
+      "additionalProperties": false,
       "description": "A response containing favorited bundles and whether there are more.",
       "properties": {
         "favorites": {
@@ -532,6 +971,7 @@
       "type": "object"
     },
     "Roblox.Catalog.Api.MultigetItemDetailsRequestItem": {
+      "additionalProperties": false,
       "properties": {
         "id": {
           "format": "int64",
@@ -550,6 +990,7 @@
       "type": "object"
     },
     "Roblox.Catalog.Api.MultigetItemDetailsRequestModel": {
+      "additionalProperties": false,
       "properties": {
         "items": {
           "items": {
@@ -561,6 +1002,7 @@
       "type": "object"
     },
     "Roblox.Catalog.Api.OwnedBundleModel": {
+      "additionalProperties": false,
       "description": "A model to represent owned bundles.",
       "properties": {
         "bundleType": {
@@ -580,15 +1022,16 @@
       "type": "object"
     },
     "Roblox.Catalog.Api.PremiumPricingModel": {
-      "description": "Defines the Premium pricing for a catalog item",
+      "additionalProperties": false,
+      "description": "Defines the Premium pricing for a catalog item.",
       "properties": {
         "premiumDiscountPercentage": {
-          "description": "The Premium discount percentage for a catalog item",
+          "description": "The Premium discount percentage for a catalog item.",
           "format": "int32",
           "type": "integer"
         },
         "premiumPriceInRobux": {
-          "description": "The Premium price for a catalog item",
+          "description": "The Premium price for a catalog item.",
           "format": "int64",
           "type": "integer"
         }
@@ -596,6 +1039,7 @@
       "type": "object"
     },
     "Roblox.Catalog.Api.SaleLocation": {
+      "additionalProperties": false,
       "description": "SaleLocation information for a collectible item (asset or bundle).",
       "properties": {
         "enabledUniverseIds": {
@@ -606,7 +1050,7 @@
           "type": "array"
         },
         "saleLocationType": {
-          "description": " ['NotApplicable' = 0, 'ShopOnly' = 1, 'MyExperiencesOnly' = 2, 'ShopAndMyExperiences' = 3, 'ExperiencesById' = 4, 'ShopAndAllExperiences' = 5, 'ExperiencesDevApiOnly' = 6, 'ShopAndExperiencesById' = 7]",
+          "description": "Sale location type related for an item detail. ['NotApplicable' = 0, 'ShopOnly' = 1, 'MyExperiencesOnly' = 2, 'ShopAndMyExperiences' = 3, 'ExperiencesById' = 4, 'ShopAndAllExperiences' = 5, 'ExperiencesDevApiOnly' = 6, 'ShopAndExperiencesById' = 7]",
           "enum": [
             0,
             1,
@@ -634,8 +1078,144 @@
       },
       "type": "object"
     },
-    "Roblox.Catalog.Api.Topics.TopicModel": {
-      "description": "Response model for avatar topics",
+    "Roblox.Catalog.Api.SubcategoryModel": {
+      "additionalProperties": false,
+      "description": "Response model for subcategory.",
+      "properties": {
+        "assetTypeIds": {
+          "description": "List of AssetTypeIds corresponding to AssetType enum that this category returns.",
+          "items": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        "bundleTypeIds": {
+          "description": "List of bundleTypeIds corresponding to BundleType enum that this category returns.",
+          "items": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        "name": {
+          "description": "Subcategory name.",
+          "type": "string"
+        },
+        "shortName": {
+          "description": "Subcategory short name.",
+          "type": "string"
+        },
+        "subcategory": {
+          "description": "Subcategory type.",
+          "enum": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            9,
+            10,
+            12,
+            13,
+            14,
+            15,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            37,
+            38,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48,
+            49,
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            56,
+            57,
+            58,
+            59,
+            60,
+            61,
+            62,
+            63,
+            64,
+            65,
+            66,
+            67
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "subcategoryId": {
+          "description": "Subcategory id.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "taxonomy": {
+          "description": "The taxonomy UUID associated with this node.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Catalog.Api.TaxonomyModel": {
+      "additionalProperties": false,
+      "description": "public api model coaslescing taxonomy information for a single item.",
+      "properties": {
+        "taxonomyId": {
+          "description": "The id value to pass into taxonomy field in SearchV2 catalog-api.",
+          "type": "string"
+        },
+        "taxonomyName": {
+          "description": "The localized human readable name of the category.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Catalog.Api.TimedOption": {
+      "additionalProperties": false,
+      "description": "Defines a timed option for a catalog item.",
+      "properties": {
+        "days": {
+          "description": "The days for the timed option.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "price": {
+          "description": "The price for the timed option.",
+          "format": "int64",
+          "type": "integer"
+        },
+        "selected": {
+          "description": "To indicate if this option is selected by the client.",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Catalog.Api.TopicModel": {
+      "additionalProperties": false,
+      "description": "Response model for avatar topics.",
       "properties": {
         "displayName": {
           "description": "The display topic name.",
@@ -648,7 +1228,8 @@
       },
       "type": "object"
     },
-    "Roblox.Catalog.Api.Topics.TopicRequestModel": {
+    "Roblox.Catalog.Api.TopicRequestModel": {
+      "additionalProperties": false,
       "properties": {
         "genderType": {
           "description": " ['Unknown' = 1, 'Male' = 2, 'Female' = 3]",
@@ -665,7 +1246,7 @@
         },
         "items": {
           "items": {
-            "$ref": "#/definitions/Roblox.Marketplacetopicdiscovery.Topicdiscoveryservice.V1Beta1.AvatarItem"
+            "$ref": "#/definitions/Roblox.MarketplaceTopicDiscovery.TopicDiscoveryService.V1Beta1.AvatarItem"
           },
           "type": "array"
         },
@@ -683,21 +1264,23 @@
       },
       "type": "object"
     },
-    "Roblox.Catalog.Api.Topics.TopicResponse": {
+    "Roblox.Catalog.Api.TopicResponse": {
+      "additionalProperties": false,
       "properties": {
         "error": {
-          "$ref": "#/definitions/Roblox.Marketplacetopicdiscovery.Topicdiscoveryservice.V1Beta1.Error"
+          "$ref": "#/definitions/Roblox.MarketplaceTopicDiscovery.TopicDiscoveryService.V1Beta1.Error"
         },
         "topics": {
           "items": {
-            "$ref": "#/definitions/Roblox.Catalog.Api.Topics.TopicModel"
+            "$ref": "#/definitions/Roblox.Catalog.Api.TopicModel"
           },
           "type": "array"
         }
       },
       "type": "object"
     },
-    "Roblox.Marketplacetopicdiscovery.Topicdiscoveryservice.V1Beta1.AvatarItem": {
+    "Roblox.MarketplaceTopicDiscovery.TopicDiscoveryService.V1Beta1.AvatarItem": {
+      "additionalProperties": false,
       "properties": {
         "ItemType": {
           "description": " ['Invalid' = 0, 'Asset' = 1, 'Bundle' = 2]",
@@ -716,7 +1299,8 @@
       },
       "type": "object"
     },
-    "Roblox.Marketplacetopicdiscovery.Topicdiscoveryservice.V1Beta1.Error": {
+    "Roblox.MarketplaceTopicDiscovery.TopicDiscoveryService.V1Beta1.Error": {
+      "additionalProperties": false,
       "properties": {
         "Code": {
           "format": "int32",
@@ -728,130 +1312,12 @@
       },
       "type": "object"
     },
-    "Roblox.Paging.ExclusiveStartKeyCursor[System.Nullable[System.Int64]]": {
-      "properties": {
-        "count": {
-          "format": "int32",
-          "type": "integer"
-        },
-        "discriminator": {
-          "type": "string"
-        },
-        "key": {
-          "format": "int64",
-          "type": "integer"
-        },
-        "pageNumber": {
-          "format": "int32",
-          "type": "integer"
-        },
-        "pagingDirection": {
-          "description": " ['Forward' = 1, 'Backward' = 2]",
-          "enum": [
-            1,
-            2
-          ],
-          "format": "int32",
-          "type": "integer"
-        },
-        "sortOrder": {
-          "description": " ['Asc' = 1, 'Desc' = 2]",
-          "enum": [
-            1,
-            2
-          ],
-          "format": "int32",
-          "type": "integer"
-        }
-      },
-      "type": "object"
-    },
-    "Roblox.Platform.Core.ExclusiveStartPaging.IExclusiveStartKeyInfo[Roblox.Platform.Bundles.Core.IBundleInstance]": {
-      "properties": {
-        "Count": {
-          "format": "int32",
-          "readOnly": true,
-          "type": "integer"
-        },
-        "PagingDirection": {
-          "description": " ['Forward' = 1, 'Backward' = 2]",
-          "enum": [
-            1,
-            2
-          ],
-          "format": "int32",
-          "readOnly": true,
-          "type": "integer"
-        },
-        "SortOrder": {
-          "description": " ['Asc' = 1, 'Desc' = 2]",
-          "enum": [
-            1,
-            2
-          ],
-          "format": "int32",
-          "readOnly": true,
-          "type": "integer"
-        }
-      },
-      "type": "object"
-    },
-    "Roblox.Platform.Core.ExclusiveStartPaging.IExclusiveStartKeyInfo[System.Int64]": {
-      "properties": {
-        "Count": {
-          "format": "int32",
-          "readOnly": true,
-          "type": "integer"
-        },
-        "PagingDirection": {
-          "description": " ['Forward' = 1, 'Backward' = 2]",
-          "enum": [
-            1,
-            2
-          ],
-          "format": "int32",
-          "readOnly": true,
-          "type": "integer"
-        },
-        "SortOrder": {
-          "description": " ['Asc' = 1, 'Desc' = 2]",
-          "enum": [
-            1,
-            2
-          ],
-          "format": "int32",
-          "readOnly": true,
-          "type": "integer"
-        }
-      },
-      "type": "object"
-    },
     "Roblox.Web.WebAPI.ApiEmptyResponseModel": {
-      "type": "object"
-    },
-    "Roblox.Web.WebAPI.ExclusiveStartRequest[Roblox.Platform.Bundles.Core.IBundleInstance]": {
-      "properties": {
-        "CursorRecipe": {
-          "type": "string"
-        },
-        "ExclusiveStartKeyInfo": {
-          "$ref": "#/definitions/Roblox.Platform.Core.ExclusiveStartPaging.IExclusiveStartKeyInfo[Roblox.Platform.Bundles.Core.IBundleInstance]"
-        }
-      },
-      "type": "object"
-    },
-    "Roblox.Web.WebAPI.ExclusiveStartRequest[System.Int64]": {
-      "properties": {
-        "CursorRecipe": {
-          "type": "string"
-        },
-        "ExclusiveStartKeyInfo": {
-          "$ref": "#/definitions/Roblox.Platform.Core.ExclusiveStartPaging.IExclusiveStartKeyInfo[System.Int64]"
-        }
-      },
+      "additionalProperties": false,
       "type": "object"
     },
     "Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.Catalog.Api.BundleDetailsModel]": {
+      "additionalProperties": false,
       "properties": {
         "data": {
           "items": {
@@ -862,11 +1328,12 @@
       },
       "type": "object"
     },
-    "Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.Catalog.Api.CatalogSearchDetailedResponseItem]": {
+    "Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.Catalog.Api.CatalogSearchDetailedResponseItemV2]": {
+      "additionalProperties": false,
       "properties": {
         "data": {
           "items": {
-            "$ref": "#/definitions/Roblox.Catalog.Api.CatalogSearchDetailedResponseItem"
+            "$ref": "#/definitions/Roblox.Catalog.Api.CatalogSearchDetailedResponseItemV2"
           },
           "type": "array"
         }
@@ -874,6 +1341,7 @@
       "type": "object"
     },
     "Roblox.Web.WebAPI.Models.ApiPageResponse[Roblox.Catalog.Api.BundleDetailsModel]": {
+      "additionalProperties": false,
       "properties": {
         "data": {
           "items": {
@@ -890,7 +1358,26 @@
       },
       "type": "object"
     },
+    "Roblox.Web.WebAPI.Models.ApiPageResponse[Roblox.Catalog.Api.CatalogSearchDetailedResponseItem]": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "items": {
+            "$ref": "#/definitions/Roblox.Catalog.Api.CatalogSearchDetailedResponseItem"
+          },
+          "type": "array"
+        },
+        "nextPageCursor": {
+          "type": "string"
+        },
+        "previousPageCursor": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "Roblox.Web.WebAPI.Models.ApiPageResponse[Roblox.Catalog.Api.OwnedBundleModel]": {
+      "additionalProperties": false,
       "properties": {
         "data": {
           "items": {
@@ -978,6 +1465,7 @@
       "get": {
         "parameters": [
           {
+            "description": "",
             "format": "int64",
             "in": "path",
             "name": "assetId",
@@ -1079,7 +1567,7 @@
             }
           },
           "400": {
-            "description": "2: Invalid collection of bundleIds\r\n3: Cannot request so many bundles at once."
+            "description": "3: Cannot request so many bundles at once."
           }
         },
         "summary": "Returns details about the given bundleIds.",
@@ -1092,6 +1580,7 @@
       "get": {
         "parameters": [
           {
+            "description": "",
             "format": "int64",
             "in": "path",
             "name": "bundleId",
@@ -1167,7 +1656,7 @@
             "description": "1: Invalid bundle\r\n2: Error retrieving bundles\r\n3: Error getting bundle recommendations\r\n4: NumItems exceed maximum"
           }
         },
-        "summary": "Gets recommendations for a given bundle, bundleId of 0 returns randomized bundles\r\n- Accepts both public and authenticated users",
+        "summary": "Gets recommendations for a given bundle, bundleId of 0 returns randomized bundles\r\n- Accepts both public and authenticated users.",
         "tags": [
           "Bundle"
         ]
@@ -1181,7 +1670,7 @@
         ],
         "parameters": [
           {
-            "description": "Roblox.Catalog.Api.MultigetItemDetailsRequestModel",
+            "description": "Roblox.Catalog.Api.MultigetItemDetailsRequestModel.",
             "in": "body",
             "name": "model",
             "required": true,
@@ -1204,7 +1693,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.Catalog.Api.CatalogSearchDetailedResponseItem]"
+              "$ref": "#/definitions/Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.Catalog.Api.CatalogSearchDetailedResponseItemV2]"
             }
           },
           "400": {
@@ -1239,15 +1728,14 @@
           "200": {
             "description": "OK",
             "schema": {
-              "additionalProperties": {
-                "format": "int64",
-                "type": "integer"
+              "items": {
+                "$ref": "#/definitions/Roblox.Catalog.Api.CategoryModel"
               },
-              "type": "object"
+              "type": "array"
             }
           }
         },
-        "summary": "Lists Category Names and their Ids",
+        "summary": "Lists Category Names and their Ids.",
         "tags": [
           "Category"
         ]
@@ -1257,6 +1745,7 @@
       "get": {
         "parameters": [
           {
+            "description": "",
             "format": "int64",
             "in": "path",
             "name": "assetId",
@@ -1296,6 +1785,7 @@
       "get": {
         "parameters": [
           {
+            "description": "",
             "format": "int64",
             "in": "path",
             "name": "bundleId",
@@ -1335,6 +1825,7 @@
       "delete": {
         "parameters": [
           {
+            "description": "",
             "format": "int64",
             "in": "path",
             "name": "userId",
@@ -1342,6 +1833,7 @@
             "type": "integer"
           },
           {
+            "description": "",
             "format": "int64",
             "in": "path",
             "name": "assetId",
@@ -1493,6 +1985,7 @@
       "delete": {
         "parameters": [
           {
+            "description": "",
             "format": "int64",
             "in": "path",
             "name": "userId",
@@ -1500,6 +1993,7 @@
             "type": "integer"
           },
           {
+            "description": "",
             "format": "int64",
             "in": "path",
             "name": "bundleId",
@@ -1594,6 +2088,7 @@
       "post": {
         "parameters": [
           {
+            "description": "",
             "format": "int64",
             "in": "path",
             "name": "userId",
@@ -1601,6 +2096,7 @@
             "type": "integer"
           },
           {
+            "description": "",
             "format": "int64",
             "in": "path",
             "name": "bundleId",
@@ -1647,10 +2143,11 @@
         ]
       }
     },
-    "/v1/favorites/users/{userId}/favorites/{subtypeId}/bundles": {
+    "/v1/favorites/users/{userId}/favorites/{assetTypeId}/assets": {
       "get": {
         "parameters": [
           {
+            "description": "",
             "format": "int64",
             "in": "path",
             "name": "userId",
@@ -1658,6 +2155,90 @@
             "type": "integer"
           },
           {
+            "description": "",
+            "format": "int32",
+            "in": "path",
+            "name": "assetTypeId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "default": 10,
+            "description": "The number of results per request.",
+            "enum": [
+              10,
+              18,
+              24,
+              25,
+              50,
+              100
+            ],
+            "format": "int32",
+            "in": "query",
+            "name": "limit",
+            "type": "integer"
+          },
+          {
+            "description": "The paging cursor for the previous or next page.",
+            "in": "query",
+            "name": "cursor",
+            "type": "string"
+          },
+          {
+            "default": "Desc",
+            "description": "The order the results are sorted in.",
+            "enum": [
+              "Asc",
+              "Desc"
+            ],
+            "in": "query",
+            "name": "sortOrder",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Favorites:GetFavoritedAssets"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.Models.ApiPageResponse[Roblox.Catalog.Api.CatalogSearchDetailedResponseItem]"
+            }
+          },
+          "400": {
+            "description": "1: Invalid user Id.\r\n8: Ascending order is not allowed.\r\n11: Invalid asset type id."
+          },
+          "500": {
+            "description": "99: Internal server error."
+          }
+        },
+        "summary": "Lists the marketplace assets favorited by a given user with the given assetTypeId.",
+        "tags": [
+          "Favorites"
+        ]
+      }
+    },
+    "/v1/favorites/users/{userId}/favorites/{subtypeId}/bundles": {
+      "get": {
+        "parameters": [
+          {
+            "description": "",
+            "format": "int64",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "",
             "format": "int32",
             "in": "path",
             "name": "subtypeId",
@@ -1665,26 +2246,22 @@
             "type": "integer"
           },
           {
-            "default": 1,
-            "format": "int32",
-            "in": "query",
-            "name": "pageNumber",
-            "type": "integer"
-          },
-          {
             "default": 24,
+            "description": "",
             "format": "int32",
             "in": "query",
             "name": "itemsPerPage",
             "type": "integer"
           },
           {
+            "description": "",
             "in": "query",
             "name": "cursor",
             "type": "string"
           },
           {
             "default": false,
+            "description": "",
             "in": "query",
             "name": "isPrevious",
             "type": "boolean"
@@ -1708,19 +2285,19 @@
             }
           },
           "400": {
-            "description": "1: Invalid user Id.\r\n3: Cannot request so many bundles at once.\r\n9: Invalid pagination request. Please provide only pageNumber or cursor, not both.\r\n10: Invalid previous pagination request. Please provide a cursor when isPrevious is true"
+            "description": "1: Invalid user Id.\r\n3: Cannot request so many bundles at once.\r\n10: Invalid previous pagination request. Please provide a cursor when isPrevious is true"
           },
           "401": {
             "description": "0: Authorization has been denied for this request."
           },
           "403": {
-            "description": "6: You are not authorized to perform this action.\r\n8: Invalid page number"
+            "description": "6: You are not authorized to perform this action."
           },
           "500": {
             "description": "11: Internal server error. Please check if you have provided correct pagination cursor"
           }
         },
-        "summary": "Lists the bundles favorited by a given user with the given bundle subtypeId.\r\nAfter 5/31/2024, only cursor based pagination will be supported.",
+        "summary": "Lists the bundles favorited by a given user with the given bundle subtypeId.Switched to EAAS style pagination cursors since July 2024.",
         "tags": [
           "Favorites"
         ]
@@ -1750,7 +2327,7 @@
             }
           }
         },
-        "summary": "Lists Subcategory Names and their Ids",
+        "summary": "Lists Subcategory Names and their Ids.",
         "tags": [
           "Category"
         ]
@@ -1769,7 +2346,7 @@
             "name": "model",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/Roblox.Catalog.Api.Topics.TopicRequestModel"
+              "$ref": "#/definitions/Roblox.Catalog.Api.TopicRequestModel"
             }
           }
         ],
@@ -1787,14 +2364,14 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/Roblox.Catalog.Api.Topics.TopicResponse"
+              "$ref": "#/definitions/Roblox.Catalog.Api.TopicResponse"
             }
           },
           "403": {
             "description": "0: Token Validation Failed"
           }
         },
-        "summary": "",
+        "summary": "Get topic given TopicRequestModel.",
         "tags": [
           "TopicDiscovery"
         ]
@@ -1804,6 +2381,7 @@
       "get": {
         "parameters": [
           {
+            "description": "",
             "format": "int64",
             "in": "path",
             "name": "userId",
@@ -1811,35 +2389,30 @@
             "type": "integer"
           },
           {
+            "description": "",
+            "in": "query",
+            "name": "cursor",
+            "type": "string"
+          },
+          {
             "default": 10,
-            "description": "The number of results per request.",
-            "enum": [
-              10,
-              25,
-              50,
-              100
-            ],
+            "description": "",
             "format": "int32",
             "in": "query",
             "name": "limit",
             "type": "integer"
           },
           {
-            "description": "The paging cursor for the previous or next page.",
-            "in": "query",
-            "name": "cursor",
-            "type": "string"
-          },
-          {
-            "default": "Asc",
-            "description": "Sorted by bundle",
+            "default": 2,
+            "description": "",
             "enum": [
-              "Asc",
-              "Desc"
+              1,
+              2
             ],
+            "format": "int32",
             "in": "query",
             "name": "sortOrder",
-            "type": "string"
+            "type": "integer"
           }
         ],
         "produces": [
@@ -1893,35 +2466,28 @@
             "type": "integer"
           },
           {
+            "in": "query",
+            "name": "cursor",
+            "required": true,
+            "type": "string"
+          },
+          {
             "default": 10,
-            "description": "The number of results per request.",
-            "enum": [
-              10,
-              25,
-              50,
-              100
-            ],
             "format": "int32",
             "in": "query",
             "name": "limit",
             "type": "integer"
           },
           {
-            "description": "The paging cursor for the previous or next page.",
-            "in": "query",
-            "name": "cursor",
-            "type": "string"
-          },
-          {
-            "default": "Desc",
-            "description": "The order the results are sorted in.",
+            "default": 2,
             "enum": [
-              "Asc",
-              "Desc"
+              1,
+              2
             ],
+            "format": "int32",
             "in": "query",
             "name": "sortOrder",
-            "type": "string"
+            "type": "integer"
           }
         ],
         "produces": [

@@ -1,6 +1,7 @@
 {
   "definitions": {
     "Roblox.GameInternationalization.Api.Language": {
+      "additionalProperties": false,
       "properties": {
         "languageCode": {
           "type": "string"
@@ -15,6 +16,7 @@
       "type": "object"
     },
     "Roblox.GameInternationalization.Api.LanguageWithLocales": {
+      "additionalProperties": false,
       "properties": {
         "childLocales": {
           "items": {
@@ -29,6 +31,7 @@
       "type": "object"
     },
     "Roblox.Localization.Client.LanguageFamily": {
+      "additionalProperties": false,
       "properties": {
         "id": {
           "format": "int32",
@@ -50,6 +53,7 @@
       "type": "object"
     },
     "Roblox.Localization.Client.SupportedLocale": {
+      "additionalProperties": false,
       "properties": {
         "id": {
           "format": "int32",
@@ -106,7 +110,11 @@
             "sr_rs",
             "sv_se",
             "zh_cjv",
-            "ar_001"
+            "ar_001",
+            "en_gb",
+            "pt_pt",
+            "es_mx",
+            "fr_ca"
           ],
           "type": "string"
         },
@@ -123,6 +131,7 @@
       "type": "object"
     },
     "Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.GameInternationalization.Api.LanguageWithLocales]": {
+      "additionalProperties": false,
       "properties": {
         "data": {
           "items": {

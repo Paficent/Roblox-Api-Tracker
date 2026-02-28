@@ -1,6 +1,7 @@
 {
   "definitions": {
     "Roblox.Groups.Api.CreateWallPostRequest": {
+      "additionalProperties": false,
       "description": "A request model for creating a group wall post",
       "properties": {
         "body": {
@@ -23,6 +24,7 @@
       "type": "object"
     },
     "Roblox.Groups.Api.GroupMembershipResponse": {
+      "additionalProperties": false,
       "description": "A basic group membership response model",
       "properties": {
         "group": {
@@ -32,13 +34,47 @@
           "description": "Whether the group notification preferences are enabled for the user",
           "type": "boolean"
         },
+        "notificationPreferences": {
+          "items": {
+            "$ref": "#/definitions/Roblox.Groups.Api.GroupNotificationPreferenceData"
+          },
+          "type": "array"
+        },
         "role": {
           "$ref": "#/definitions/Roblox.Web.Responses.Groups.GroupRoleBasicResponse"
         }
       },
       "type": "object"
     },
+    "Roblox.Groups.Api.GroupNotificationPreferenceData": {
+      "additionalProperties": false,
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "description": " ['AnnouncementCreatedNotification' = 0, 'ForumPostCreatedNotification' = 1, 'ForumCommentCreatedNotification' = 2, 'ForumCommentReplyCreatedNotification' = 3, 'ForumSubscriberNotification' = 4]",
+          "enum": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
     "Roblox.Groups.Api.GroupRoleResponse": {
+      "additionalProperties": false,
       "description": "A group role response model",
       "properties": {
         "description": {
@@ -68,6 +104,7 @@
       "type": "object"
     },
     "Roblox.Groups.Api.GroupWallPostV2Model": {
+      "additionalProperties": false,
       "description": "A response model for group wall post information",
       "properties": {
         "body": {
@@ -95,7 +132,49 @@
       },
       "type": "object"
     },
+    "Roblox.Groups.Api.Models.Response.GroupExperienceResponse": {
+      "additionalProperties": false,
+      "description": "A response model representing an experience/game.",
+      "properties": {
+        "created": {
+          "description": "When the game was created.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "creator": {
+          "$ref": "#/definitions/Roblox.Web.Responses.RelatedEntityTypeResponse[Roblox.Platform.Core.CreatorType]"
+        },
+        "description": {
+          "description": "The game description.",
+          "type": "string"
+        },
+        "id": {
+          "description": "The game (universe) Id.",
+          "format": "int64",
+          "type": "integer"
+        },
+        "name": {
+          "description": "The game name.",
+          "type": "string"
+        },
+        "placeVisits": {
+          "description": "The number of place visits for this game.",
+          "format": "int64",
+          "type": "integer"
+        },
+        "rootPlace": {
+          "$ref": "#/definitions/Roblox.Web.Responses.RelatedEntityTypeResponse[Roblox.Platform.Assets.AssetType]"
+        },
+        "updated": {
+          "description": "When the game was last updated.",
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "Roblox.Groups.Api.Models.Response.UserModel": {
+      "additionalProperties": false,
       "description": "A model representing data about an Roblox.Platform.Membership.IUser",
       "properties": {
         "buildersClubMembershipType": {
@@ -128,6 +207,7 @@
       "type": "object"
     },
     "Roblox.Groups.Api.UserGroupRoleResponse": {
+      "additionalProperties": false,
       "description": "A user group role response model",
       "properties": {
         "role": {
@@ -139,37 +219,8 @@
       },
       "type": "object"
     },
-    "Roblox.Platform.Core.ExclusiveStartPaging.IExclusiveStartKeyInfo[System.Int64]": {
-      "properties": {
-        "Count": {
-          "format": "int32",
-          "readOnly": true,
-          "type": "integer"
-        },
-        "PagingDirection": {
-          "description": " ['Forward' = 1, 'Backward' = 2]",
-          "enum": [
-            1,
-            2
-          ],
-          "format": "int32",
-          "readOnly": true,
-          "type": "integer"
-        },
-        "SortOrder": {
-          "description": " ['Asc' = 1, 'Desc' = 2]",
-          "enum": [
-            1,
-            2
-          ],
-          "format": "int32",
-          "readOnly": true,
-          "type": "integer"
-        }
-      },
-      "type": "object"
-    },
     "Roblox.Web.Responses.Groups.GroupBasicResponse": {
+      "additionalProperties": false,
       "properties": {
         "hasVerifiedBadge": {
           "type": "boolean"
@@ -189,6 +240,7 @@
       "type": "object"
     },
     "Roblox.Web.Responses.Groups.GroupResponseV2": {
+      "additionalProperties": false,
       "properties": {
         "created": {
           "format": "date-time",
@@ -218,6 +270,7 @@
       "type": "object"
     },
     "Roblox.Web.Responses.Groups.GroupRoleBasicResponse": {
+      "additionalProperties": false,
       "properties": {
         "id": {
           "format": "int64",
@@ -233,7 +286,133 @@
       },
       "type": "object"
     },
+    "Roblox.Web.Responses.RelatedEntityTypeResponse[Roblox.Platform.Assets.AssetType]": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "description": " ['Image' = 1, 'TShirt' = 2, 'Audio' = 3, 'Mesh' = 4, 'Lua' = 5, 'HTML' = 6, 'Text' = 7, 'Hat' = 8, 'Place' = 9, 'Model' = 10, 'Shirt' = 11, 'Pants' = 12, 'Decal' = 13, 'Avatar' = 16, 'Head' = 17, 'Face' = 18, 'Gear' = 19, 'Badge' = 21, 'GroupEmblem' = 22, 'Animation' = 24, 'Arms' = 25, 'Legs' = 26, 'Torso' = 27, 'RightArm' = 28, 'LeftArm' = 29, 'LeftLeg' = 30, 'RightLeg' = 31, 'Package' = 32, 'YouTubeVideo' = 33, 'GamePass' = 34, 'App' = 35, 'Code' = 37, 'Plugin' = 38, 'SolidModel' = 39, 'MeshPart' = 40, 'HairAccessory' = 41, 'FaceAccessory' = 42, 'NeckAccessory' = 43, 'ShoulderAccessory' = 44, 'FrontAccessory' = 45, 'BackAccessory' = 46, 'WaistAccessory' = 47, 'ClimbAnimation' = 48, 'DeathAnimation' = 49, 'FallAnimation' = 50, 'IdleAnimation' = 51, 'JumpAnimation' = 52, 'RunAnimation' = 53, 'SwimAnimation' = 54, 'WalkAnimation' = 55, 'PoseAnimation' = 56, 'LocalizationTableManifest' = 59, 'LocalizationTableTranslation' = 60, 'EmoteAnimation' = 61, 'Video' = 62, 'TexturePack' = 63, 'TShirtAccessory' = 64, 'ShirtAccessory' = 65, 'PantsAccessory' = 66, 'JacketAccessory' = 67, 'SweaterAccessory' = 68, 'ShortsAccessory' = 69, 'LeftShoeAccessory' = 70, 'RightShoeAccessory' = 71, 'DressSkirtAccessory' = 72, 'FontFamily' = 73, 'FontFace' = 74, 'MeshHiddenSurfaceRemoval' = 75, 'EyebrowAccessory' = 76, 'EyelashAccessory' = 77, 'MoodAnimation' = 78, 'DynamicHead' = 79, 'CodeSnippet' = 80, 'AdsVideo' = 81, 'OtaUpdate' = 82, 'Screenshot' = 83, 'RuntimePropertySet' = 84, 'StorePreviewVideo' = 85, 'GamePreviewVideo' = 86, 'CreatorExperienceConfig' = 87, 'FaceMakeup' = 88, 'LipMakeup' = 89, 'EyeMakeup' = 90]",
+          "enum": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            16,
+            17,
+            18,
+            19,
+            21,
+            22,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35,
+            37,
+            38,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48,
+            49,
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            56,
+            59,
+            60,
+            61,
+            62,
+            63,
+            64,
+            65,
+            66,
+            67,
+            68,
+            69,
+            70,
+            71,
+            72,
+            73,
+            74,
+            75,
+            76,
+            77,
+            78,
+            79,
+            80,
+            81,
+            82,
+            83,
+            84,
+            85,
+            86,
+            87,
+            88,
+            89,
+            90
+          ],
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Web.Responses.RelatedEntityTypeResponse[Roblox.Platform.Core.CreatorType]": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "description": " ['User' = 0, 'Group' = 1]",
+          "enum": [
+            0,
+            1
+          ],
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
     "Roblox.Web.Responses.RelatedEntityTypeResponse[Roblox.Web.Responses.Groups.GroupOwnerType]": {
+      "additionalProperties": false,
       "properties": {
         "id": {
           "format": "int64",
@@ -253,18 +432,8 @@
       },
       "type": "object"
     },
-    "Roblox.Web.WebAPI.ExclusiveStartRequest[System.Int64]": {
-      "properties": {
-        "CursorRecipe": {
-          "type": "string"
-        },
-        "ExclusiveStartKeyInfo": {
-          "$ref": "#/definitions/Roblox.Platform.Core.ExclusiveStartPaging.IExclusiveStartKeyInfo[System.Int64]"
-        }
-      },
-      "type": "object"
-    },
     "Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.Groups.Api.GroupMembershipResponse]": {
+      "additionalProperties": false,
       "properties": {
         "data": {
           "items": {
@@ -276,6 +445,7 @@
       "type": "object"
     },
     "Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.Web.Responses.Groups.GroupResponseV2]": {
+      "additionalProperties": false,
       "properties": {
         "data": {
           "items": {
@@ -287,10 +457,29 @@
       "type": "object"
     },
     "Roblox.Web.WebAPI.Models.ApiPageResponse[Roblox.Groups.Api.GroupWallPostV2Model]": {
+      "additionalProperties": false,
       "properties": {
         "data": {
           "items": {
             "$ref": "#/definitions/Roblox.Groups.Api.GroupWallPostV2Model"
+          },
+          "type": "array"
+        },
+        "nextPageCursor": {
+          "type": "string"
+        },
+        "previousPageCursor": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Web.WebAPI.Models.ApiPageResponse[Roblox.Groups.Api.Models.Response.GroupExperienceResponse]": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "items": {
+            "$ref": "#/definitions/Roblox.Groups.Api.Models.Response.GroupExperienceResponse"
           },
           "type": "array"
         },
@@ -349,6 +538,89 @@
           }
         },
         "summary": "Multi-get groups information by Ids.",
+        "tags": [
+          "GroupsV2"
+        ]
+      }
+    },
+    "/v2/groups/{groupId}/experiences": {
+      "get": {
+        "parameters": [
+          {
+            "description": "The group Id",
+            "format": "int64",
+            "in": "path",
+            "name": "groupId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "default": 1,
+            "description": "The access type of the experiences.",
+            "enum": [
+              1,
+              2,
+              4
+            ],
+            "format": "int32",
+            "in": "query",
+            "name": "accessFilter",
+            "type": "integer"
+          },
+          {
+            "default": 10,
+            "description": "The number of results per request.",
+            "enum": [
+              10,
+              25,
+              50,
+              100
+            ],
+            "format": "int32",
+            "in": "query",
+            "name": "limit",
+            "type": "integer"
+          },
+          {
+            "description": "The paging cursor for the previous or next page.",
+            "in": "query",
+            "name": "cursor",
+            "type": "string"
+          },
+          {
+            "default": "Asc",
+            "description": "The order the results are sorted in.",
+            "enum": [
+              "Asc",
+              "Desc"
+            ],
+            "in": "query",
+            "name": "sortOrder",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "GroupsV2:GetGroupExperiences"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.Models.ApiPageResponse[Roblox.Groups.Api.Models.Response.GroupExperienceResponse]"
+            }
+          },
+          "501": {
+            "description": "47: Code path is not implemented."
+          }
+        },
+        "summary": "Gets experiences created by the specified group id.",
         "tags": [
           "GroupsV2"
         ]
@@ -468,7 +740,7 @@
             }
           },
           "400": {
-            "description": "1: The group is invalid or does not exist.\r\n5: Your post was empty, white space, or more than 500 characters."
+            "description": "1: The group is invalid or does not exist.\r\n5: Your post was empty, white space, or more than 500 characters.\r\n9: The provided content was moderated."
           },
           "401": {
             "description": "0: Authorization has been denied for this request."
@@ -508,6 +780,17 @@
             "name": "includeNotificationPreferences",
             "required": true,
             "type": "boolean"
+          },
+          {
+            "enum": [
+              0,
+              1
+            ],
+            "format": "int32",
+            "in": "query",
+            "name": "discoveryType",
+            "required": true,
+            "type": "integer"
           }
         ],
         "produces": [

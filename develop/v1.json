@@ -1,6 +1,38 @@
 {
   "definitions": {
+    "Roblox.Api.Develop.Models.ActivationEligibilityResponse": {
+      "additionalProperties": false,
+      "description": "The result of various checks for a user's eligibility to activate a given universe from private to public.",
+      "properties": {
+        "isEligible": {
+          "type": "boolean"
+        },
+        "isPublicPublish": {
+          "description": "Whether the universe is publicly published or not.",
+          "type": "boolean"
+        },
+        "isPublishToExistingUniverse": {
+          "description": "Whether the universeId is within the tracked list of distinct allowed published universes.",
+          "type": "boolean"
+        },
+        "isUserEligibleForPublicPublish": {
+          "description": "isUserEligibleForPublicPublish",
+          "type": "boolean"
+        },
+        "maturityRated": {
+          "description": "Whether the place has an active content maturity rating or not.",
+          "type": "boolean"
+        },
+        "remainingPublicPublishCount": {
+          "description": "How many public publishes are remaining for the given user / group.",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
     "Roblox.Api.Develop.Models.GameTemplateModel": {
+      "additionalProperties": false,
       "description": "Represents a game template in API endpoint responses.",
       "properties": {
         "gameTemplateType": {
@@ -18,6 +50,7 @@
       "type": "object"
     },
     "Roblox.Api.Develop.Models.GroupModel": {
+      "additionalProperties": false,
       "description": "A model containing information about a group",
       "properties": {
         "id": {
@@ -33,10 +66,12 @@
       "type": "object"
     },
     "Roblox.Api.Develop.Models.IPlaceModel": {
+      "additionalProperties": false,
       "description": "A model containing information about a place",
       "type": "object"
     },
     "Roblox.Api.Develop.Models.PlaceConfigurationModel": {
+      "additionalProperties": false,
       "description": "A model containing information about a place to be configured",
       "properties": {
         "description": {
@@ -51,6 +86,7 @@
       "type": "object"
     },
     "Roblox.Api.Develop.Models.PlaceModel": {
+      "additionalProperties": false,
       "description": "A model containing information about a place",
       "properties": {
         "description": {
@@ -75,6 +111,7 @@
       "type": "object"
     },
     "Roblox.Api.Develop.Models.PrivateServerDetailsResponse": {
+      "additionalProperties": false,
       "description": "Model for private server details responses from the UniverseSettings controller.",
       "properties": {
         "activeServersCount": {
@@ -100,6 +137,7 @@
       "type": "object"
     },
     "Roblox.Api.Develop.Models.Response.AssetVotingModel": {
+      "additionalProperties": false,
       "description": "Asset voting information",
       "properties": {
         "assetId": {
@@ -137,6 +175,7 @@
       "type": "object"
     },
     "Roblox.Api.Develop.Models.Response.TeamCreateSettingsResponse": {
+      "additionalProperties": false,
       "description": "Team create settings",
       "properties": {
         "isEnabled": {
@@ -147,6 +186,7 @@
       "type": "object"
     },
     "Roblox.Api.Develop.Models.TeamCreateMembershipRequest": {
+      "additionalProperties": false,
       "description": "Request model for a TeamCreate membership",
       "properties": {
         "userId": {
@@ -158,6 +198,7 @@
       "type": "object"
     },
     "Roblox.Api.Develop.Models.UniverseIdPermissionsModel": {
+      "additionalProperties": false,
       "description": "A model containing information about a universe permissions",
       "properties": {
         "canCloudEdit": {
@@ -177,6 +218,7 @@
       "type": "object"
     },
     "Roblox.Api.Develop.Models.UniverseModel": {
+      "additionalProperties": false,
       "description": "Represents a universe in API endpoint results.",
       "properties": {
         "created": {
@@ -236,6 +278,7 @@
       "type": "object"
     },
     "Roblox.Api.Develop.Models.UniversePermissionsModel": {
+      "additionalProperties": false,
       "description": "A model containing information about a universe permissions",
       "properties": {
         "canCloudEdit": {
@@ -250,8 +293,24 @@
       "type": "object"
     },
     "Roblox.Api.Develop.Models.UniverseSettingsRequest": {
+      "additionalProperties": false,
       "description": "Model for UniverseSettings patch requests",
       "properties": {
+        "fiatBasePriceId": {
+          "description": "Sets the base price of the experience for Fiat purchases.",
+          "type": "string"
+        },
+        "fiatProductChangeType": {
+          "description": "Determines the change type of the Fiat Product Change request.\r\nCan either Activate the product, Update the price, or Deactivate the product.",
+          "enum": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
         "genre": {
           "description": "Game genre.",
           "enum": [
@@ -378,11 +437,28 @@
       "type": "object"
     },
     "Roblox.Api.Develop.Models.UniverseSettingsResponse": {
+      "additionalProperties": false,
       "description": "Model for UniverseSettings controller responses",
       "properties": {
         "allowPrivateServers": {
           "description": "If the universe allows the use of private servers.",
           "type": "boolean"
+        },
+        "fiatBasePriceId": {
+          "description": "The basePriceId for the Fiat product.",
+          "type": "string"
+        },
+        "fiatModerationStatus": {
+          "description": "The current moderation status of the game if it is for sale in fiat. ['Invalid' = 0, 'NotModerated' = 1, 'Pending' = 2, 'Approved' = 3, 'Rejected' = 4]",
+          "enum": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "format": "int32",
+          "type": "integer"
         },
         "genre": {
           "description": "Game genre. ['All' = 0, 'Tutorial' = 1, 'Scary' = 2, 'TownAndCity' = 3, 'War' = 4, 'Funny' = 5, 'Fantasy' = 6, 'Adventure' = 7, 'SciFi' = 8, 'Pirate' = 9, 'FPS' = 10, 'RPG' = 11, 'Sports' = 12, 'Ninja' = 13, 'WildWest' = 14]",
@@ -417,6 +493,10 @@
         },
         "isForSale": {
           "description": "Whether the game is offered for sale.",
+          "type": "boolean"
+        },
+        "isForSaleInFiat": {
+          "description": "Whether the game is offered for sale in fiat.",
           "type": "boolean"
         },
         "isFriendsOnly": {
@@ -528,6 +608,7 @@
       "type": "object"
     },
     "Roblox.Api.Develop.Models.UniverseTeamCreateSettingsModel": {
+      "additionalProperties": false,
       "description": "Team create settings of a universe",
       "properties": {
         "id": {
@@ -543,6 +624,7 @@
       "type": "object"
     },
     "Roblox.Api.Develop.Models.UpdateTeamCreateSettingsRequest": {
+      "additionalProperties": false,
       "description": "Team create settings request",
       "properties": {
         "isEnabled": {
@@ -552,7 +634,49 @@
       },
       "type": "object"
     },
+    "Roblox.Api.Develop.Models.UserPublicPublishEligibilityResponse": {
+      "additionalProperties": false,
+      "description": "The result of various checks for a user's eligibility to publish a public universe.",
+      "properties": {
+        "hasDevex": {
+          "description": "Whether user is eligible for the developer exchange program. ['Incomplete' = 0, 'NotRequired' = 1, 'Completed' = 2]",
+          "enum": [
+            0,
+            1,
+            2
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "hasTransactions": {
+          "description": "Whether user has spent any Robux since 1/1/25, including gift cards. ['Incomplete' = 0, 'NotRequired' = 1, 'Completed' = 2]",
+          "enum": [
+            0,
+            1,
+            2
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "idVerified": {
+          "description": "Whether user has completed ID Verification or not. ['Incomplete' = 0, 'NotRequired' = 1, 'Completed' = 2]",
+          "enum": [
+            0,
+            1,
+            2
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "isEligible": {
+          "description": "The overall result of eligibility.",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
     "Roblox.Develop.Api.UpdatePluginRequest": {
+      "additionalProperties": false,
       "description": "A request model for updating a plugin.",
       "properties": {
         "commentsEnabled": {
@@ -570,53 +694,8 @@
       },
       "type": "object"
     },
-    "Roblox.Paging.StartIndexCursor": {
-      "properties": {
-        "count": {
-          "format": "int32",
-          "type": "integer"
-        },
-        "discriminator": {
-          "type": "string"
-        },
-        "startIndex": {
-          "format": "int64",
-          "type": "integer"
-        }
-      },
-      "type": "object"
-    },
-    "Roblox.Platform.Core.ExclusiveStartPaging.IExclusiveStartKeyInfo[System.Int64]": {
-      "properties": {
-        "Count": {
-          "format": "int32",
-          "readOnly": true,
-          "type": "integer"
-        },
-        "PagingDirection": {
-          "description": " ['Forward' = 1, 'Backward' = 2]",
-          "enum": [
-            1,
-            2
-          ],
-          "format": "int32",
-          "readOnly": true,
-          "type": "integer"
-        },
-        "SortOrder": {
-          "description": " ['Asc' = 1, 'Desc' = 2]",
-          "enum": [
-            1,
-            2
-          ],
-          "format": "int32",
-          "readOnly": true,
-          "type": "integer"
-        }
-      },
-      "type": "object"
-    },
     "Roblox.Web.Responses.Plugins.PluginResponse": {
+      "additionalProperties": false,
       "description": "Represents information about a plugin.",
       "properties": {
         "commentsEnabled": {
@@ -655,6 +734,7 @@
       "type": "object"
     },
     "Roblox.Web.Responses.Users.SkinnyUserResponse": {
+      "additionalProperties": false,
       "properties": {
         "displayName": {
           "type": "string"
@@ -670,20 +750,11 @@
       "type": "object"
     },
     "Roblox.Web.WebAPI.ApiEmptyResponseModel": {
-      "type": "object"
-    },
-    "Roblox.Web.WebAPI.ExclusiveStartRequest[System.Int64]": {
-      "properties": {
-        "CursorRecipe": {
-          "type": "string"
-        },
-        "ExclusiveStartKeyInfo": {
-          "$ref": "#/definitions/Roblox.Platform.Core.ExclusiveStartPaging.IExclusiveStartKeyInfo[System.Int64]"
-        }
-      },
+      "additionalProperties": false,
       "type": "object"
     },
     "Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.Api.Develop.Models.GameTemplateModel]": {
+      "additionalProperties": false,
       "properties": {
         "data": {
           "items": {
@@ -695,6 +766,7 @@
       "type": "object"
     },
     "Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.Api.Develop.Models.GroupModel]": {
+      "additionalProperties": false,
       "properties": {
         "data": {
           "items": {
@@ -706,6 +778,7 @@
       "type": "object"
     },
     "Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.Api.Develop.Models.Response.AssetVotingModel]": {
+      "additionalProperties": false,
       "properties": {
         "data": {
           "items": {
@@ -717,6 +790,7 @@
       "type": "object"
     },
     "Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.Api.Develop.Models.UniverseIdPermissionsModel]": {
+      "additionalProperties": false,
       "properties": {
         "data": {
           "items": {
@@ -728,6 +802,7 @@
       "type": "object"
     },
     "Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.Api.Develop.Models.UniverseModel]": {
+      "additionalProperties": false,
       "properties": {
         "data": {
           "items": {
@@ -739,6 +814,7 @@
       "type": "object"
     },
     "Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.Api.Develop.Models.UniverseTeamCreateSettingsModel]": {
+      "additionalProperties": false,
       "properties": {
         "data": {
           "items": {
@@ -750,6 +826,7 @@
       "type": "object"
     },
     "Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.Web.Responses.Plugins.PluginResponse]": {
+      "additionalProperties": false,
       "properties": {
         "data": {
           "items": {
@@ -761,6 +838,7 @@
       "type": "object"
     },
     "Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.Web.Responses.Users.SkinnyUserResponse]": {
+      "additionalProperties": false,
       "properties": {
         "data": {
           "items": {
@@ -772,6 +850,7 @@
       "type": "object"
     },
     "Roblox.Web.WebAPI.Models.ApiPageResponse[Roblox.Api.Develop.Models.IPlaceModel]": {
+      "additionalProperties": false,
       "properties": {
         "data": {
           "items": {
@@ -789,6 +868,7 @@
       "type": "object"
     },
     "Roblox.Web.WebAPI.Models.ApiPageResponse[Roblox.Api.Develop.Models.UniverseModel]": {
+      "additionalProperties": false,
       "properties": {
         "data": {
           "items": {
@@ -1287,7 +1367,7 @@
             "description": "8: No universe IDs sent to get.\r\n9: Too many universe IDs sent to get, the limit is: "
           }
         },
-        "summary": "Gets a System.Collections.Generic.List`1.",
+        "summary": "Gets a list of universes.",
         "tags": [
           "Universes"
         ]
@@ -1386,6 +1466,32 @@
         ]
       }
     },
+    "/v1/universes/user-public-publish-eligibility": {
+      "get": {
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Universes:GetUserPublicPublishEligibility"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Api.Develop.Models.UserPublicPublishEligibilityResponse"
+            }
+          }
+        },
+        "summary": "Returns the result of various checks for a user's eligibility to publish a public universe",
+        "tags": [
+          "Universes"
+        ]
+      }
+    },
     "/v1/universes/{universeId}": {
       "get": {
         "parameters": [
@@ -1465,6 +1571,42 @@
           }
         },
         "summary": "Activates a universes.",
+        "tags": [
+          "Universes"
+        ]
+      }
+    },
+    "/v1/universes/{universeId}/activation-eligibility": {
+      "get": {
+        "parameters": [
+          {
+            "description": "The universe id.",
+            "format": "int64",
+            "in": "path",
+            "name": "universeId",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Universes:GetUniverseActivationEligibility"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Api.Develop.Models.ActivationEligibilityResponse"
+            }
+          }
+        },
+        "summary": "Returns the result of various checks for a user's eligibility to activate a given universe from private to public universeId for authenticated user",
         "tags": [
           "Universes"
         ]
@@ -1719,6 +1861,7 @@
           },
           {
             "default": false,
+            "description": "",
             "in": "query",
             "name": "isUniverseCreation",
             "type": "boolean"

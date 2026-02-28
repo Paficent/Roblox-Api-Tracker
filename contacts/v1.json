@@ -1,6 +1,7 @@
 {
   "definitions": {
     "Roblox.Contacts.Api.Models.Response.ContactsMetadataResponseModel": {
+      "additionalProperties": false,
       "properties": {
         "multiGetContactsCacheTTLinMS": {
           "format": "int32",
@@ -14,6 +15,7 @@
       "type": "object"
     },
     "Roblox.Contacts.Api.Request.GetUserTagsRequestModel": {
+      "additionalProperties": false,
       "properties": {
         "targetUserIds": {
           "items": {
@@ -26,6 +28,7 @@
       "type": "object"
     },
     "Roblox.Contacts.Api.Request.SetUserTagRequestModel": {
+      "additionalProperties": false,
       "properties": {
         "targetUserId": {
           "description": "The userId of the target of the userTag.",
@@ -40,6 +43,7 @@
       "type": "object"
     },
     "Roblox.Contacts.Api.Response.GetUserTagsResponseModel": {
+      "additionalProperties": false,
       "properties": {
         "targetUserId": {
           "format": "int64",
@@ -52,6 +56,7 @@
       "type": "object"
     },
     "Roblox.Contacts.Api.Response.SetUserTagResponseModel": {
+      "additionalProperties": false,
       "properties": {
         "status": {
           "description": "Status message to be sent to the setter of the userTag ['Success' = 0, 'Moderated' = 1]",
@@ -65,6 +70,7 @@
       "type": "object"
     },
     "Roblox.Contacts.Api.Response.ValidateUserTagResponseModel": {
+      "additionalProperties": false,
       "properties": {
         "status": {
           "description": "Status message to be sent to the requester of the userTag validation ['Success' = 0, 'Moderated' = 1, 'TooLong' = 2]",
@@ -87,6 +93,7 @@
   "paths": {
     "/v1/contacts/metadata": {
       "get": {
+        "deprecated": true,
         "produces": [
           "application/json",
           "text/json"
@@ -95,7 +102,8 @@
           "internal": false,
           "metricIds": [
             "Contacts:GetContactsMetadata"
-          ]
+          ],
+          "obsoleteMessage": "Endpoint is Deprecated"
         },
         "responses": {
           "200": {

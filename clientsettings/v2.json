@@ -1,6 +1,36 @@
 {
   "definitions": {
+    "Roblox.ClientSettings.Api.Models.Response.AndroidBinaryLibraryNames": {
+      "additionalProperties": false,
+      "description": "Contains the names of the libraries in an Android Binary Module.",
+      "properties": {
+        "engine": {
+          "description": "Name of the engine library.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.ClientSettings.Api.Models.Response.AndroidBinaryResponse": {
+      "additionalProperties": false,
+      "description": "Contains information about an Android Binary Module for a given channel.\r\nincluding its module name, the names of its libraries, and whether the channel supports Android binaries.",
+      "properties": {
+        "libraryNames": {
+          "$ref": "#/definitions/Roblox.ClientSettings.Api.Models.Response.AndroidBinaryLibraryNames"
+        },
+        "moduleName": {
+          "description": "The name of the Android Binary Module.",
+          "type": "string"
+        },
+        "supportsAndroidBinaries": {
+          "description": "True if the channel supports android binaries. False otherwise.",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
     "Roblox.ClientSettings.Api.Models.Response.ClientVersionResponse": {
+      "additionalProperties": false,
       "properties": {
         "bootstrapperVersion": {
           "type": "string"
@@ -20,16 +50,86 @@
       },
       "type": "object"
     },
+    "Roblox.ClientSettings.Api.Models.Response.OtaVersionResponse": {
+      "additionalProperties": false,
+      "description": "Response for endpoints returning ota information.",
+      "properties": {
+        "appStorageResetId": {
+          "description": "The application storage reset ID for the LuaApp OTA.",
+          "type": "string"
+        },
+        "assetId": {
+          "description": "The asset ID of the LuaApp OTA.",
+          "type": "string"
+        },
+        "assetVersion": {
+          "description": "The asset version of the LuaApp OTA.",
+          "type": "string"
+        },
+        "assetsManifest": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Inlined assets manifest for the LuaApp OTA.",
+          "type": "object"
+        },
+        "downloadUrl": {
+          "description": "URL to download the ota asset",
+          "type": "string"
+        },
+        "isDevelopmentConfig": {
+          "description": "Indicates whether the LuaApp OTA is a development configuration.",
+          "type": "boolean"
+        },
+        "isForcedUpdate": {
+          "description": "Indicates whether the LuaApp OTA is a forced update.",
+          "type": "boolean"
+        },
+        "isStandalone": {
+          "description": "Refers to whether the plugin is core to Studio functions, and is used to determine when it is loaded.",
+          "type": "boolean"
+        },
+        "localAssetURI": {
+          "description": "The local asset URI for the LuaApp OTA.",
+          "type": "string"
+        },
+        "maxAppVersion": {
+          "description": "The maximum application version compatible with the LuaApp OTA.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Ota library/plugin name",
+          "type": "string"
+        },
+        "tryoutName": {
+          "description": "The name of the tryout for the LuaApp OTA.",
+          "type": "string"
+        },
+        "version": {
+          "description": "Version number of asset",
+          "type": "string"
+        },
+        "versionV2": {
+          "description": "VersionV2 of the OTA asset.",
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
     "Roblox.ClientSettings.Api.Models.Response.UserChannelResponse": {
+      "additionalProperties": false,
       "description": "Response data object for getting a user's channel information.",
       "properties": {
         "channelAssignmentType": {
-          "description": "How the user was bound to the channel. If the user is not assigned to any channel, this is omitted. ['None' = 0, 'PerMille' = 1, 'BoundToPrivateChannel' = 2, 'BoundToPublicChannel' = 3]",
+          "description": "How the user was bound to the channel. If the user is not assigned to any channel, this is omitted. ['None' = 0, 'PerMille' = 1, 'BoundToPrivateChannel' = 2, 'BoundToPublicChannel' = 3, 'OptedInToBetaProgramWithPrivateChannel' = 4, 'OptedInToBetaProgramWithPublicChannel' = 5]",
           "enum": [
             0,
             1,
             2,
-            3
+            3,
+            4,
+            5
           ],
           "format": "int32",
           "type": "integer"
@@ -52,6 +152,48 @@
     "version": "v2"
   },
   "paths": {
+    "/v2/android-binaries/{version}/channels/{channelName}": {
+      "get": {
+        "parameters": [
+          {
+            "description": "The version string of the application. i.e. 2.660.392",
+            "in": "path",
+            "name": "version",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The name of the channel. E.g. ZFlag, ZIntegration",
+            "in": "path",
+            "name": "channelName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "VersionCheckV2:GetAndroidBinaries"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.ClientSettings.Api.Models.Response.AndroidBinaryResponse"
+            }
+          }
+        },
+        "summary": "Retrieve the Android binary information for a given version and channel name.",
+        "tags": [
+          "VersionCheckV2"
+        ]
+      }
+    },
     "/v2/client-version/{binaryType}": {
       "get": {
         "parameters": [
@@ -132,10 +274,126 @@
         ]
       }
     },
+    "/v2/compression-dictionaries": {
+      "get": {
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "ClientApplicationSettingsV2:GetDictionaries"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "summary": "Returns a listing of all known compression dictionaries, including their SHA256 and creation date.\r\nThis will be sorted by creation date, with the most recent dictionaries first.",
+        "tags": [
+          "ClientApplicationSettingsV2"
+        ]
+      }
+    },
+    "/v2/compression-dictionaries/{dictionarySha256}": {
+      "get": {
+        "parameters": [
+          {
+            "description": "The SHA256 of the dictionary we wish to download.",
+            "in": "path",
+            "name": "dictionarySha256",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "ClientApplicationSettingsV2:GetDictionary"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "summary": "Returns the specified compression dictionary as a file download.",
+        "tags": [
+          "ClientApplicationSettingsV2"
+        ]
+      }
+    },
+    "/v2/ota-version/{binaryType}": {
+      "get": {
+        "parameters": [
+          {
+            "description": "Binary type of the application to get info for",
+            "in": "path",
+            "name": "binaryType",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Channel name. If not provided, production is assumed.",
+            "in": "query",
+            "name": "channel",
+            "type": "string"
+          },
+          {
+            "description": "Application version",
+            "in": "query",
+            "name": "version",
+            "type": "string"
+          },
+          {
+            "description": "Tag to filter results by. Only applicable to non-studio application types.",
+            "in": "query",
+            "name": "tag",
+            "type": "string"
+          },
+          {
+            "description": "Name to filter results by. Only applicable to non-studio application types.",
+            "in": "query",
+            "name": "name",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "OtaVersion:GetOtaVersions"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/Roblox.ClientSettings.Api.Models.Response.OtaVersionResponse"
+              },
+              "type": "array"
+            }
+          },
+          "400": {
+            "description": "2: Invalid binaryType.\r\n4: Invalid app version.\r\n6: Missing or invalid channel.\r\n7: Unsupported binaryType."
+          },
+          "401": {
+            "description": "5: Not authorized to perform this action."
+          }
+        },
+        "summary": "Get OTA information for a specific binary type with a given version on some channel.\r\nReturns empty list if no updates are found or channel/application with the given version does not exist in CVS.",
+        "tags": [
+          "OtaVersion"
+        ]
+      }
+    },
     "/v2/user-channel": {
       "get": {
         "parameters": [
           {
+            "description": "",
             "in": "query",
             "name": "binaryType",
             "type": "string"

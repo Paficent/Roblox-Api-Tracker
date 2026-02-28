@@ -1,6 +1,7 @@
 {
   "definitions": {
     "Roblox.Badges.Api.BadgeAwardResponse": {
+      "additionalProperties": false,
       "description": "The result of being awarded a badge.",
       "properties": {
         "awardedDate": {
@@ -17,6 +18,7 @@
       "type": "object"
     },
     "Roblox.Badges.Api.BadgeCreatorResponse": {
+      "additionalProperties": false,
       "description": "Represents information about the badge creator. (Creator of the place that awarded the badge)",
       "properties": {
         "id": {
@@ -36,6 +38,7 @@
       "type": "object"
     },
     "Roblox.Badges.Api.BadgeMetadataResponse": {
+      "additionalProperties": false,
       "description": "Metadata about badges.",
       "properties": {
         "badgeCreationPrice": {
@@ -57,6 +60,7 @@
       "type": "object"
     },
     "Roblox.Badges.Api.BadgeResponse": {
+      "additionalProperties": false,
       "description": "A response containing badge information.",
       "properties": {
         "awardingUniverse": {
@@ -114,6 +118,7 @@
       "type": "object"
     },
     "Roblox.Badges.Api.GetBadgesByUserResponse": {
+      "additionalProperties": false,
       "description": "Response for the GetBadgesByUser endpoint.",
       "properties": {
         "awarder": {
@@ -163,7 +168,20 @@
       },
       "type": "object"
     },
+    "Roblox.Badges.Api.IconUploadResponse": {
+      "additionalProperties": false,
+      "description": "Badge icon upload response.",
+      "properties": {
+        "targetId": {
+          "description": "The asset id of the uploaded icon.",
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
     "Roblox.Badges.Api.UniverseResponse": {
+      "additionalProperties": false,
       "description": "A response containing universe information.",
       "properties": {
         "id": {
@@ -184,6 +202,7 @@
       "type": "object"
     },
     "Roblox.Badges.Api.UpdateBadgeRequest": {
+      "additionalProperties": false,
       "description": "A request model used for updating badge information.",
       "properties": {
         "description": {
@@ -201,44 +220,8 @@
       },
       "type": "object"
     },
-    "Roblox.Paging.ExclusiveStartKeyCursor[System.String]": {
-      "properties": {
-        "count": {
-          "format": "int32",
-          "type": "integer"
-        },
-        "discriminator": {
-          "type": "string"
-        },
-        "key": {
-          "type": "string"
-        },
-        "pageNumber": {
-          "format": "int32",
-          "type": "integer"
-        },
-        "pagingDirection": {
-          "description": " ['Forward' = 1, 'Backward' = 2]",
-          "enum": [
-            1,
-            2
-          ],
-          "format": "int32",
-          "type": "integer"
-        },
-        "sortOrder": {
-          "description": " ['Asc' = 1, 'Desc' = 2]",
-          "enum": [
-            1,
-            2
-          ],
-          "format": "int32",
-          "type": "integer"
-        }
-      },
-      "type": "object"
-    },
     "Roblox.Web.Responses.Badges.BadgeAwardStatisticsResponse": {
+      "additionalProperties": false,
       "properties": {
         "awardedCount": {
           "format": "int64",
@@ -256,6 +239,7 @@
       "type": "object"
     },
     "Roblox.Web.Responses.Badges.BadgeResponseV2": {
+      "additionalProperties": false,
       "properties": {
         "awarder": {
           "$ref": "#/definitions/Roblox.Web.Responses.RelatedEntityTypeResponse[Roblox.Platform.Badges.BadgeAwarderType]"
@@ -302,6 +286,7 @@
       "type": "object"
     },
     "Roblox.Web.Responses.RelatedEntityTypeResponse[Roblox.Platform.Badges.BadgeAwarderType]": {
+      "additionalProperties": false,
       "properties": {
         "id": {
           "format": "int64",
@@ -322,9 +307,11 @@
       "type": "object"
     },
     "Roblox.Web.WebAPI.ApiEmptyResponseModel": {
+      "additionalProperties": false,
       "type": "object"
     },
     "Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.Badges.Api.BadgeAwardResponse]": {
+      "additionalProperties": false,
       "properties": {
         "data": {
           "items": {
@@ -336,6 +323,7 @@
       "type": "object"
     },
     "Roblox.Web.WebAPI.Models.ApiPageResponse[Roblox.Badges.Api.BadgeResponse]": {
+      "additionalProperties": false,
       "properties": {
         "data": {
           "items": {
@@ -353,6 +341,7 @@
       "type": "object"
     },
     "Roblox.Web.WebAPI.Models.ApiPageResponse[Roblox.Badges.Api.GetBadgesByUserResponse]": {
+      "additionalProperties": false,
       "properties": {
         "data": {
           "items": {
@@ -365,69 +354,6 @@
         },
         "previousPageCursor": {
           "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "Roblox.Web.WebApi.FormData.IUploadedFile": {
-      "properties": {
-        "ContentEncoding": {
-          "description": " ['None' = 0, 'GZip' = 1, 'Deflate' = 2, 'Brotli' = 4, 'All' = -1]",
-          "enum": [
-            0,
-            1,
-            2,
-            4,
-            -1
-          ],
-          "format": "int32",
-          "readOnly": true,
-          "type": "integer"
-        },
-        "Name": {
-          "readOnly": true,
-          "type": "string"
-        },
-        "Stream": {
-          "$ref": "#/definitions/System.IO.Stream"
-        }
-      },
-      "type": "file"
-    },
-    "System.IO.Stream": {
-      "properties": {
-        "CanRead": {
-          "readOnly": true,
-          "type": "boolean"
-        },
-        "CanSeek": {
-          "readOnly": true,
-          "type": "boolean"
-        },
-        "CanTimeout": {
-          "readOnly": true,
-          "type": "boolean"
-        },
-        "CanWrite": {
-          "readOnly": true,
-          "type": "boolean"
-        },
-        "Length": {
-          "format": "int64",
-          "readOnly": true,
-          "type": "integer"
-        },
-        "Position": {
-          "format": "int64",
-          "type": "integer"
-        },
-        "ReadTimeout": {
-          "format": "int32",
-          "type": "integer"
-        },
-        "WriteTimeout": {
-          "format": "int32",
-          "type": "integer"
         }
       },
       "type": "object"
@@ -495,7 +421,7 @@
             }
           },
           "404": {
-            "description": "1: Badge is invalid or does not exist."
+            "description": "1: Badge is invalid or does not exist.\r\n3: The game is invalid or does not exist."
           }
         },
         "summary": "Gets badge information by the badge Id.",
@@ -554,10 +480,69 @@
             "description": "0: Token Validation Failed\r\n2: You do not have permission to manage this badge."
           },
           "404": {
-            "description": "1: Badge is invalid or does not exist."
+            "description": "1: Badge is invalid or does not exist.\r\n3: The game is invalid or does not exist."
           }
         },
         "summary": "Updates badge configuration.",
+        "tags": [
+          "Badges"
+        ]
+      }
+    },
+    "/v1/badges/{badgeId}/icon": {
+      "post": {
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "description": "The badge Id.",
+            "format": "int64",
+            "in": "path",
+            "name": "badgeId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "in": "formData",
+            "name": "Files",
+            "type": "file"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Badges:UpdateBadgeIcon"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Badges.Api.IconUploadResponse"
+            }
+          },
+          "400": {
+            "description": "6: Text moderated.\r\n22: Icon file is not present in the request."
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed\r\n2: You do not have permission to manage this badge."
+          },
+          "404": {
+            "description": "1: Badge is invalid or does not exist."
+          },
+          "429": {
+            "description": "13: Too many requests, try again later."
+          }
+        },
+        "summary": "Overwrites a badge icon with a new one.",
         "tags": [
           "Badges"
         ]
@@ -817,59 +802,6 @@
           }
         },
         "summary": "Removes a badge from the authenticated user.",
-        "tags": [
-          "BadgeAwards"
-        ]
-      }
-    },
-    "/v1/user/{userId}/badges/{badgeId}": {
-      "delete": {
-        "parameters": [
-          {
-            "description": "The user Id.",
-            "format": "int64",
-            "in": "path",
-            "name": "userId",
-            "required": true,
-            "type": "integer"
-          },
-          {
-            "description": "The badge Id.",
-            "format": "int64",
-            "in": "path",
-            "name": "badgeId",
-            "required": true,
-            "type": "integer"
-          }
-        ],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
-        "properties": {
-          "internal": false,
-          "metricIds": [
-            "BadgeAwards:DeleteBadgeAward"
-          ]
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/Roblox.Web.WebAPI.ApiEmptyResponseModel"
-            }
-          },
-          "401": {
-            "description": "0: Authorization has been denied for this request."
-          },
-          "403": {
-            "description": "0: Token Validation Failed"
-          },
-          "404": {
-            "description": "1: Badge is invalid or does not exist."
-          }
-        },
-        "summary": "Removes a badge from the user.",
         "tags": [
           "BadgeAwards"
         ]

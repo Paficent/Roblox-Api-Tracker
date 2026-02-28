@@ -1,6 +1,7 @@
 {
   "definitions": {
     "Roblox.Publish.Api.AssetQuota": {
+      "additionalProperties": false,
       "description": "Model for asset quota.",
       "properties": {
         "capacity": {
@@ -25,6 +26,7 @@
       "type": "object"
     },
     "Roblox.Publish.Api.AssetQuotasResponse": {
+      "additionalProperties": false,
       "description": "Response model for asset quotas.",
       "properties": {
         "quotas": {
@@ -38,6 +40,7 @@
       "type": "object"
     },
     "Roblox.Publish.Api.PublishAudioResponse": {
+      "additionalProperties": false,
       "description": "Response model for publish audio.",
       "properties": {
         "Id": {
@@ -53,6 +56,7 @@
       "type": "object"
     },
     "Roblox.Publish.Api.UploadAudioRequest": {
+      "additionalProperties": false,
       "description": "A request model for uploading an audio file.",
       "properties": {
         "assetPrivacy": {
@@ -95,6 +99,7 @@
       "type": "object"
     },
     "Roblox.Publish.Api.UploadResponse": {
+      "additionalProperties": false,
       "description": "A response used when an upload has completed.",
       "properties": {
         "targetId": {
@@ -106,6 +111,7 @@
       "type": "object"
     },
     "Roblox.Publish.Api.VerifyAudioRequest": {
+      "additionalProperties": false,
       "description": "Request model to publish an audio asset.",
       "properties": {
         "duration": {
@@ -139,6 +145,7 @@
       "type": "object"
     },
     "Roblox.Publish.Api.VerifyAudioResponse": {
+      "additionalProperties": false,
       "description": "Response model for verify audio endpoint.",
       "properties": {
         "balance": {
@@ -157,69 +164,6 @@
         "price": {
           "description": "Price in robux to publish the audio file.",
           "format": "int64",
-          "type": "integer"
-        }
-      },
-      "type": "object"
-    },
-    "Roblox.Web.WebApi.FormData.IUploadedFile": {
-      "properties": {
-        "ContentEncoding": {
-          "description": " ['None' = 0, 'GZip' = 1, 'Deflate' = 2, 'Brotli' = 4, 'All' = -1]",
-          "enum": [
-            0,
-            1,
-            2,
-            4,
-            -1
-          ],
-          "format": "int32",
-          "readOnly": true,
-          "type": "integer"
-        },
-        "Name": {
-          "readOnly": true,
-          "type": "string"
-        },
-        "Stream": {
-          "$ref": "#/definitions/System.IO.Stream"
-        }
-      },
-      "type": "file"
-    },
-    "System.IO.Stream": {
-      "properties": {
-        "CanRead": {
-          "readOnly": true,
-          "type": "boolean"
-        },
-        "CanSeek": {
-          "readOnly": true,
-          "type": "boolean"
-        },
-        "CanTimeout": {
-          "readOnly": true,
-          "type": "boolean"
-        },
-        "CanWrite": {
-          "readOnly": true,
-          "type": "boolean"
-        },
-        "Length": {
-          "format": "int64",
-          "readOnly": true,
-          "type": "integer"
-        },
-        "Position": {
-          "format": "int64",
-          "type": "integer"
-        },
-        "ReadTimeout": {
-          "format": "int32",
-          "type": "integer"
-        },
-        "WriteTimeout": {
-          "format": "int32",
           "type": "integer"
         }
       },

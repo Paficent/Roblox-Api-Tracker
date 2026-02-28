@@ -1,6 +1,7 @@
 {
   "definitions": {
     "Roblox.Locale.Api.CountryRegion": {
+      "additionalProperties": false,
       "description": "Model for Country Regions",
       "properties": {
         "code": {
@@ -22,6 +23,7 @@
       "type": "object"
     },
     "Roblox.Locale.Api.CountryRegionListResponse": {
+      "additionalProperties": false,
       "description": "Returns list of supported country/regions",
       "properties": {
         "countryRegionList": {
@@ -35,6 +37,7 @@
       "type": "object"
     },
     "Roblox.Locale.Api.Language": {
+      "additionalProperties": false,
       "description": "Model for Language",
       "properties": {
         "id": {
@@ -61,7 +64,19 @@
       },
       "type": "object"
     },
+    "Roblox.Locale.Api.SetShowRobloxTranslationsRequest": {
+      "additionalProperties": false,
+      "description": "Request entity to set the ShowRobloxTranslations field for an account",
+      "properties": {
+        "showRobloxTranslations": {
+          "description": "Value to set the ShowRobloxTranslations field to",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
     "Roblox.Locale.Api.SetSupportedLocaleForUserRequest": {
+      "additionalProperties": false,
       "description": "Request entity to set Supported Locale for user",
       "properties": {
         "supportedLocaleCode": {
@@ -72,6 +87,7 @@
       "type": "object"
     },
     "Roblox.Locale.Api.SuccessResponse": {
+      "additionalProperties": false,
       "description": "Tells the operation is successful or not",
       "properties": {
         "success": {
@@ -82,6 +98,7 @@
       "type": "object"
     },
     "Roblox.Locale.Api.SupportedLocale": {
+      "additionalProperties": false,
       "description": "Model for Supported locale",
       "properties": {
         "id": {
@@ -99,8 +116,7 @@
           "type": "string"
         },
         "name": {
-          "description": "name of supported locale. Example \"English(US)\"",
-          "readOnly": true,
+          "description": "Name of supported locale.",
           "type": "string"
         },
         "nativeName": {
@@ -112,6 +128,7 @@
       "type": "object"
     },
     "Roblox.Locale.Api.SupportedLocaleLocus": {
+      "additionalProperties": false,
       "description": "Model for Supported locale with user locus information",
       "properties": {
         "isEnabledForFullExperience": {
@@ -133,6 +150,7 @@
       "type": "object"
     },
     "Roblox.Locale.Api.SupportedLocalesResponse": {
+      "additionalProperties": false,
       "description": "Returns list of supported locales",
       "properties": {
         "supportedLocales": {
@@ -146,6 +164,7 @@
       "type": "object"
     },
     "Roblox.Locale.Api.UserLocaleResponse": {
+      "additionalProperties": false,
       "properties": {
         "nativeLanguage": {
           "$ref": "#/definitions/Roblox.Locale.Api.Language"
@@ -157,10 +176,15 @@
       "type": "object"
     },
     "Roblox.Locale.Api.UserLocalizationLocusLocalesResponse": {
+      "additionalProperties": false,
       "description": "Returns available Roblox.Locale.Api.SupportedLocale models.",
       "properties": {
         "generalExperience": {
           "$ref": "#/definitions/Roblox.Locale.Api.SupportedLocale"
+        },
+        "showRobloxTranslations": {
+          "description": "Whether Roblox-suggested translations should be shown to the user.",
+          "type": "boolean"
         },
         "signupAndLogin": {
           "$ref": "#/definitions/Roblox.Locale.Api.SupportedLocale"
@@ -172,6 +196,7 @@
       "type": "object"
     },
     "Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.Locale.Api.SupportedLocaleLocus]": {
+      "additionalProperties": false,
       "properties": {
         "data": {
           "items": {
@@ -262,6 +287,59 @@
           }
         },
         "summary": "Get list of Supported locales with user locus information.",
+        "tags": [
+          "Locale"
+        ]
+      }
+    },
+    "/v1/locales/set-show-roblox-translations": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "description": "Whether to show Roblox-suggested translations",
+            "in": "body",
+            "name": "userRequest",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Locale.Api.SetShowRobloxTranslationsRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Locale:SetShowRobloxTranslations"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Locale.Api.SuccessResponse"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized\r\n0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "Feature is turned off temporary\r\n0: Token Validation Failed"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        },
+        "summary": "Sets whether translations suggested by Roblox will be shown to the user.",
         "tags": [
           "Locale"
         ]

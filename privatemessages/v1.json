@@ -1,6 +1,7 @@
 {
   "definitions": {
     "Roblox.PrivateMessages.Api.Models.AnnouncementsDetailsResponse": {
+      "additionalProperties": false,
       "description": "A message details response.",
       "properties": {
         "body": {
@@ -33,6 +34,7 @@
       "type": "object"
     },
     "Roblox.PrivateMessages.Api.Models.AnnouncementsMetadataResponse": {
+      "additionalProperties": false,
       "description": "A message details response.",
       "properties": {
         "numOfAnnouncements": {
@@ -44,6 +46,7 @@
       "type": "object"
     },
     "Roblox.PrivateMessages.Api.Models.BatchMessagesRequest": {
+      "additionalProperties": false,
       "properties": {
         "messageIds": {
           "items": {
@@ -56,6 +59,7 @@
       "type": "object"
     },
     "Roblox.PrivateMessages.Api.Models.BatchMessagesResponse": {
+      "additionalProperties": false,
       "properties": {
         "failedMessages": {
           "items": {
@@ -67,6 +71,7 @@
       "type": "object"
     },
     "Roblox.PrivateMessages.Api.Models.FailedMessageResponse": {
+      "additionalProperties": false,
       "properties": {
         "errorMessage": {
           "type": "string"
@@ -79,6 +84,7 @@
       "type": "object"
     },
     "Roblox.PrivateMessages.Api.Models.GetAnnouncementsResponse": {
+      "additionalProperties": false,
       "properties": {
         "collection": {
           "items": {
@@ -94,6 +100,7 @@
       "type": "object"
     },
     "Roblox.PrivateMessages.Api.Models.GetMessagesResponse": {
+      "additionalProperties": false,
       "properties": {
         "collection": {
           "items": {
@@ -117,6 +124,7 @@
       "type": "object"
     },
     "Roblox.PrivateMessages.Api.Models.MessageDetailsResponse": {
+      "additionalProperties": false,
       "description": "A message details response.",
       "properties": {
         "body": {
@@ -163,56 +171,8 @@
       },
       "type": "object"
     },
-    "Roblox.PrivateMessages.Api.Models.Messages.Response.CanMessageResponse": {
-      "properties": {
-        "canMessage": {
-          "description": "Boolean describing if the current user can message the specified user.",
-          "type": "boolean"
-        }
-      },
-      "type": "object"
-    },
-    "Roblox.PrivateMessages.Api.Models.SendMessageRequest": {
-      "properties": {
-        "body": {
-          "type": "string"
-        },
-        "includePreviousMessage": {
-          "type": "boolean"
-        },
-        "recipientId": {
-          "format": "int64",
-          "type": "integer"
-        },
-        "replyMessageId": {
-          "format": "int64",
-          "type": "integer"
-        },
-        "subject": {
-          "type": "string"
-        },
-        "userId": {
-          "format": "int64",
-          "type": "integer"
-        }
-      },
-      "type": "object"
-    },
-    "Roblox.PrivateMessages.Api.Models.SendMessageResponse": {
-      "properties": {
-        "message": {
-          "type": "string"
-        },
-        "shortMessage": {
-          "type": "string"
-        },
-        "success": {
-          "type": "boolean"
-        }
-      },
-      "type": "object"
-    },
     "Roblox.PrivateMessages.Api.Models.UnreadMessagesCountResponse": {
+      "additionalProperties": false,
       "properties": {
         "count": {
           "format": "int64",
@@ -222,6 +182,7 @@
       "type": "object"
     },
     "Roblox.PrivateMessages.Api.Models.VerifiedSkinnyUserResponse": {
+      "additionalProperties": false,
       "description": "A response model representing user basic information and the user's verified badge status.",
       "properties": {
         "displayName": {
@@ -303,6 +264,7 @@
             "description": "0: Authorization has been denied for this request."
           }
         },
+        "summary": "",
         "tags": [
           "Announcements"
         ]
@@ -313,6 +275,7 @@
         "parameters": [
           {
             "default": 0,
+            "description": "",
             "format": "int32",
             "in": "query",
             "name": "pageNumber",
@@ -320,6 +283,7 @@
           },
           {
             "default": 20,
+            "description": "",
             "format": "int32",
             "in": "query",
             "name": "pageSize",
@@ -327,6 +291,7 @@
           },
           {
             "default": "Inbox",
+            "description": "",
             "enum": [
               "Inbox",
               "Sent",
@@ -372,6 +337,7 @@
         ],
         "parameters": [
           {
+            "description": "",
             "in": "body",
             "name": "batchMessagesRequest",
             "required": true,
@@ -421,6 +387,7 @@
         ],
         "parameters": [
           {
+            "description": "",
             "in": "body",
             "name": "batchMessagesRequest",
             "required": true,
@@ -470,6 +437,7 @@
         ],
         "parameters": [
           {
+            "description": "",
             "in": "body",
             "name": "batchMessagesRequest",
             "required": true,
@@ -511,52 +479,6 @@
         ]
       }
     },
-    "/v1/messages/send": {
-      "post": {
-        "consumes": [
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "in": "body",
-            "name": "sendMessageRequest",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/Roblox.PrivateMessages.Api.Models.SendMessageRequest"
-            }
-          }
-        ],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
-        "properties": {
-          "internal": false,
-          "metricIds": [
-            "Messages:SendMessage"
-          ]
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/Roblox.PrivateMessages.Api.Models.SendMessageResponse"
-            }
-          },
-          "401": {
-            "description": "0: Authorization has been denied for this request."
-          },
-          "403": {
-            "description": "0: Token Validation Failed"
-          }
-        },
-        "summary": "Sends a message to a specified user.",
-        "tags": [
-          "Messages"
-        ]
-      }
-    },
     "/v1/messages/unarchive": {
       "post": {
         "consumes": [
@@ -565,6 +487,7 @@
         ],
         "parameters": [
           {
+            "description": "",
             "in": "body",
             "name": "batchMessagesRequest",
             "required": true,
@@ -672,48 +595,6 @@
           }
         },
         "summary": "Gets a message's details.",
-        "tags": [
-          "Messages"
-        ]
-      }
-    },
-    "/v1/messages/{userId}/can-message": {
-      "get": {
-        "parameters": [
-          {
-            "description": "",
-            "format": "int64",
-            "in": "path",
-            "name": "userId",
-            "required": true,
-            "type": "integer"
-          }
-        ],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
-        "properties": {
-          "internal": false,
-          "metricIds": [
-            "Messages:CanMessage"
-          ]
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/Roblox.PrivateMessages.Api.Models.Messages.Response.CanMessageResponse"
-            }
-          },
-          "400": {
-            "description": "8: Invalid user ID."
-          },
-          "401": {
-            "description": "0: Authorization has been denied for this request."
-          }
-        },
-        "summary": "Gets whether the sender can send a message to the specified user.",
         "tags": [
           "Messages"
         ]

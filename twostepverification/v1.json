@@ -1,6 +1,7 @@
 {
   "definitions": {
     "Roblox.TwoStepVerification.Api.ClearRecoveryCodesRequest": {
+      "additionalProperties": false,
       "description": "Request information needed to clear existing recovery codes.",
       "properties": {
         "password": {
@@ -11,6 +12,7 @@
       "type": "object"
     },
     "Roblox.TwoStepVerification.Api.DisableSecurityKeyRequest": {
+      "additionalProperties": false,
       "description": "Request information needed to disable two step verification.",
       "properties": {
         "credentialNicknames": {
@@ -24,6 +26,7 @@
       "type": "object"
     },
     "Roblox.TwoStepVerification.Api.DisableTwoStepVerificationRequest": {
+      "additionalProperties": false,
       "description": "Request information needed to disable two step verification.",
       "properties": {
         "password": {
@@ -38,6 +41,7 @@
       "type": "object"
     },
     "Roblox.TwoStepVerification.Api.EnableAuthenticatorResponse": {
+      "additionalProperties": false,
       "description": "Response parameters for initiating enabling authenticator-based two step verification.",
       "properties": {
         "manualEntryKey": {
@@ -56,6 +60,7 @@
       "type": "object"
     },
     "Roblox.TwoStepVerification.Api.EnableSecurityKeyResponse": {
+      "additionalProperties": false,
       "description": "Response parameters for initiating enabling security key-based two step verification.",
       "properties": {
         "creationOptions": {
@@ -70,6 +75,7 @@
       "type": "object"
     },
     "Roblox.TwoStepVerification.Api.EnableTwoStepVerificationRequest": {
+      "additionalProperties": false,
       "description": "Request parameters for enabling two step verification.",
       "properties": {
         "password": {
@@ -83,6 +89,7 @@
       "type": "object"
     },
     "Roblox.TwoStepVerification.Api.EnableVerifyAuthenticatorRequest": {
+      "additionalProperties": false,
       "description": "Request parameters for authenticator enabling-verify.",
       "properties": {
         "code": {
@@ -104,6 +111,7 @@
       "type": "object"
     },
     "Roblox.TwoStepVerification.Api.EnableVerifyAuthenticatorResponse": {
+      "additionalProperties": false,
       "description": "Response parameters for finishing enabling authenticator-based two-step verification.",
       "properties": {
         "recoveryCodes": {
@@ -117,6 +125,7 @@
       "type": "object"
     },
     "Roblox.TwoStepVerification.Api.EnableVerifySecurityKeyRequest": {
+      "additionalProperties": false,
       "description": "Request information needed to complete the registration of a security key.",
       "properties": {
         "attestationResponse": {
@@ -135,6 +144,7 @@
       "type": "object"
     },
     "Roblox.TwoStepVerification.Api.ListSecurityKeyResponse": {
+      "additionalProperties": false,
       "description": "Response parameters for listing all credentials under a user.",
       "properties": {
         "credentials": {
@@ -148,6 +158,7 @@
       "type": "object"
     },
     "Roblox.TwoStepVerification.Api.MetadataResponse": {
+      "additionalProperties": false,
       "description": "Two step verification system metadata.",
       "properties": {
         "authenticatorCodeLength": {
@@ -175,6 +186,14 @@
         },
         "isAuthenticatorWithVerifiedPhoneEnabled": {
           "description": "Whether or not someone can enable authenticator with just a verified phone number.",
+          "type": "boolean"
+        },
+        "isDelayedUiEnabled": {
+          "description": "Whether the delayed UI is enabled.",
+          "type": "boolean"
+        },
+        "isEppUIEnabled": {
+          "description": "Whether the EPP UI is enabled.",
           "type": "boolean"
         },
         "isPasswordRequiredForChangingRecoveryCodes": {
@@ -221,6 +240,10 @@
           "description": "Whether or not security key two step verification is available for the user.",
           "type": "boolean"
         },
+        "isSettingsTabRedesignEnabled": {
+          "description": "Whether the settings tab redesign is enabled.",
+          "type": "boolean"
+        },
         "isSingleMethodEnforcementEnabled": {
           "description": "Whether or not the frontend should enforce single method logic.",
           "type": "boolean"
@@ -237,13 +260,26 @@
           "description": "Whether or not a 2sv method has to be enabled to require password when enabling email two step verification.",
           "type": "boolean"
         },
+        "isUserU13": {
+          "description": "Whether the user is O13.",
+          "type": "boolean"
+        },
         "isUsingTwoStepWebviewComponent": {
           "description": "Whether or not we're using the new 2sv webview component or the manual pop up",
           "type": "boolean"
         },
+        "maskedUserEmail": {
+          "description": "The masked email for the authenticated user. Typically used in Email 2SV challenges after\r\nthe challenge has been verified to match the target user.",
+          "type": "string"
+        },
         "receiveWarningsOnDisableTwoStep": {
           "description": "Whether users should receive additional warnings when disabling 2SV.",
           "type": "boolean"
+        },
+        "twoStepCopyTextEnrollmentStatus": {
+          "description": "The enum representing which experiment group the user is in.",
+          "format": "int32",
+          "type": "integer"
         },
         "twoStepVerificationEnabled": {
           "description": "Whether or not two step verification is globally enabled.",
@@ -253,6 +289,7 @@
       "type": "object"
     },
     "Roblox.TwoStepVerification.Api.Models.Request.SecureAuthenticationIntentModel": {
+      "additionalProperties": false,
       "description": "Model describing secure auth intent.",
       "properties": {
         "clientEpochTimestamp": {
@@ -272,6 +309,7 @@
       "type": "object"
     },
     "Roblox.TwoStepVerification.Api.RecoveryCodesStatusResponse": {
+      "additionalProperties": false,
       "description": "The response for getting the status of recovery codes for a user.",
       "properties": {
         "activeCount": {
@@ -288,6 +326,7 @@
       "type": "object"
     },
     "Roblox.TwoStepVerification.Api.RegenerateRecoveryCodesRequest": {
+      "additionalProperties": false,
       "description": "Request information needed to regenerate recovery codes.",
       "properties": {
         "password": {
@@ -298,6 +337,7 @@
       "type": "object"
     },
     "Roblox.TwoStepVerification.Api.RegenerateRecoveryCodesResponse": {
+      "additionalProperties": false,
       "description": "The response for regenerating recovery codes.",
       "properties": {
         "recoveryCodes": {
@@ -311,6 +351,7 @@
       "type": "object"
     },
     "Roblox.TwoStepVerification.Api.RetractDialogRequest": {
+      "additionalProperties": false,
       "description": "Request parameters for retracting a Cross Device dialog from state ACTIVE to PENDING.",
       "properties": {
         "actionType": {
@@ -337,10 +378,12 @@
       "type": "object"
     },
     "Roblox.TwoStepVerification.Api.RetractDialogResponse": {
+      "additionalProperties": false,
       "description": "Result for a successful attempt to retract a Cross Device state from ACTIVE to PENDING.",
       "type": "object"
     },
     "Roblox.TwoStepVerification.Api.RetryApprovalRequest": {
+      "additionalProperties": false,
       "description": "Request parameters for retrying a Cross Device two step verification approval.",
       "properties": {
         "actionType": {
@@ -367,10 +410,12 @@
       "type": "object"
     },
     "Roblox.TwoStepVerification.Api.RetryApprovalResponse": {
+      "additionalProperties": false,
       "description": "Result for a successful Cross Device approval retry, an empty JSON.",
       "type": "object"
     },
     "Roblox.TwoStepVerification.Api.SecurityKeyCredential": {
+      "additionalProperties": false,
       "description": "Credential information that includes its nickname and any additional metadata.",
       "properties": {
         "nickname": {
@@ -381,6 +426,7 @@
       "type": "object"
     },
     "Roblox.TwoStepVerification.Api.SendCodeRequest": {
+      "additionalProperties": false,
       "description": "Request parameters for sending a two step verification code.",
       "properties": {
         "actionType": {
@@ -407,6 +453,7 @@
       "type": "object"
     },
     "Roblox.TwoStepVerification.Api.UserConfiguration": {
+      "additionalProperties": false,
       "description": "The users two step verification configuration.",
       "properties": {
         "methods": {
@@ -435,6 +482,7 @@
       "type": "object"
     },
     "Roblox.TwoStepVerification.Api.UserConfigurationMethod": {
+      "additionalProperties": false,
       "description": "A user configuration method option.",
       "properties": {
         "enabled": {
@@ -465,6 +513,7 @@
       "type": "object"
     },
     "Roblox.TwoStepVerification.Api.VerifyApprovalRequest": {
+      "additionalProperties": false,
       "description": "Request parameters for verifying a Cross Device two step verification approval. Does not use verification code.",
       "properties": {
         "actionType": {
@@ -491,6 +540,7 @@
       "type": "object"
     },
     "Roblox.TwoStepVerification.Api.VerifyApprovalResponse": {
+      "additionalProperties": false,
       "description": "Result for a successful Cross Device approval verification.",
       "properties": {
         "verificationToken": {
@@ -501,6 +551,7 @@
       "type": "object"
     },
     "Roblox.TwoStepVerification.Api.VerifyCodeRequest": {
+      "additionalProperties": false,
       "description": "Request parameters for verifying a two step verification code.",
       "properties": {
         "actionType": {
@@ -531,6 +582,7 @@
       "type": "object"
     },
     "Roblox.TwoStepVerification.Api.VerifyCodeResponse": {
+      "additionalProperties": false,
       "description": "Result for a successful verification.",
       "properties": {
         "verificationToken": {
@@ -540,7 +592,23 @@
       },
       "type": "object"
     },
+    "Roblox.TwoStepVerification.Api.VerifyStartPasskeyResponse": {
+      "additionalProperties": false,
+      "description": "Result for a successful verification.",
+      "properties": {
+        "authenticationOptions": {
+          "description": "The authentication options for the passkey.",
+          "type": "string"
+        },
+        "sessionId": {
+          "description": "The session of the authentication attempt.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "Roblox.TwoStepVerification.Api.VerifyStartSecurityKeyResponse": {
+      "additionalProperties": false,
       "description": "Result for a successful verification.",
       "properties": {
         "authenticationOptions": {
@@ -555,6 +623,7 @@
       "type": "object"
     },
     "Roblox.Web.WebAPI.ApiEmptyResponseModel": {
+      "additionalProperties": false,
       "type": "object"
     }
   },
@@ -981,6 +1050,183 @@
         ]
       }
     },
+    "/v1/users/{userId}/challenges/passkey/verify-finish": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "description": "The user ID.",
+            "format": "int64",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "The request bodyRoblox.TwoStepVerification.Api.VerifyCodeRequest.",
+            "in": "body",
+            "name": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.TwoStepVerification.Api.VerifyCodeRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Passkey:VerifyFinish"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.TwoStepVerification.Api.VerifyCodeResponse"
+            }
+          },
+          "400": {
+            "description": "1: Invalid challenge ID.\r\n2: The user ID is invalid.\r\n10: The two step verification challenge code is invalid."
+          },
+          "403": {
+            "description": "0: Token Validation Failed"
+          },
+          "503": {
+            "description": "7: Two step verification is currently under maintenance."
+          }
+        },
+        "summary": "Validates the assertion data returned by the passkey.",
+        "tags": [
+          "Passkey"
+        ]
+      }
+    },
+    "/v1/users/{userId}/challenges/passkey/verify-start": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "description": "The user ID.",
+            "format": "int64",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "The request bodyRoblox.TwoStepVerification.Api.SendCodeRequest.",
+            "in": "body",
+            "name": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.TwoStepVerification.Api.SendCodeRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Passkey:VerifyStart"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.TwoStepVerification.Api.VerifyStartPasskeyResponse"
+            }
+          },
+          "400": {
+            "description": "1: Invalid challenge ID.\r\n2: The user ID is invalid."
+          },
+          "403": {
+            "description": "0: Token Validation Failed\r\n8: The user is not allowed to perform the requested action."
+          },
+          "503": {
+            "description": "7: Two step verification is currently under maintenance."
+          }
+        },
+        "summary": "Provides a challenge for the passkey to authenticate.",
+        "tags": [
+          "Passkey"
+        ]
+      }
+    },
+    "/v1/users/{userId}/challenges/password/verify": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "description": "The user ID.",
+            "format": "int64",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "The request body.Roblox.TwoStepVerification.Api.VerifyCodeRequest.",
+            "in": "body",
+            "name": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.TwoStepVerification.Api.VerifyCodeRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Password:VerifyCode"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.TwoStepVerification.Api.VerifyCodeResponse"
+            }
+          },
+          "400": {
+            "description": "1: Invalid challenge ID.\r\n4: The password is invalid."
+          },
+          "403": {
+            "description": "0: Token Validation Failed\r\n2: The user ID is invalid."
+          },
+          "429": {
+            "description": "5: Too many requests."
+          },
+          "503": {
+            "description": "7: Two step verification is currently under maintenance."
+          }
+        },
+        "summary": "Verifies a two step verification challenge with a password (code).",
+        "tags": [
+          "Password"
+        ]
+      }
+    },
     "/v1/users/{userId}/challenges/recovery-codes/verify": {
       "post": {
         "consumes": [
@@ -1396,7 +1642,7 @@
             "description": "0: Authorization has been denied for this request."
           },
           "403": {
-            "description": "0: Token Validation Failed\r\n6: The account pin is locked.\r\n8: The user is not allowed to perform the requested action."
+            "description": "0: Token Validation Failed\r\n8: The user is not allowed to perform the requested action."
           },
           "429": {
             "description": "5: Too many requests."
@@ -1460,7 +1706,7 @@
             "description": "0: Authorization has been denied for this request."
           },
           "403": {
-            "description": "0: Token Validation Failed\r\n6: The account pin is locked.\r\n11: The two step verification configuration is already enabled."
+            "description": "0: Token Validation Failed\r\n11: The two step verification configuration is already enabled."
           },
           "503": {
             "description": "7: Two step verification is currently under maintenance."
@@ -1583,7 +1829,7 @@
             "description": "0: Authorization has been denied for this request."
           },
           "403": {
-            "description": "0: Token Validation Failed\r\n2: The user ID is invalid.\r\n6: The account pin is locked.\r\n8: The user is not allowed to perform the requested action."
+            "description": "0: Token Validation Failed\r\n2: The user ID is invalid.\r\n8: The user is not allowed to perform the requested action."
           },
           "429": {
             "description": "5: Too many requests."
@@ -1647,7 +1893,7 @@
             "description": "0: Authorization has been denied for this request."
           },
           "403": {
-            "description": "0: Token Validation Failed\r\n2: The user ID is invalid.\r\n6: The account pin is locked."
+            "description": "0: Token Validation Failed\r\n2: The user ID is invalid."
           },
           "503": {
             "description": "7: Two step verification is currently under maintenance."
@@ -1708,7 +1954,7 @@
             "description": "0: Authorization has been denied for this request."
           },
           "403": {
-            "description": "0: Token Validation Failed\r\n6: The account pin is locked.\r\n8: The user is not allowed to perform the requested action."
+            "description": "0: Token Validation Failed\r\n8: The user is not allowed to perform the requested action."
           },
           "503": {
             "description": "7: Two step verification is currently under maintenance."
@@ -1939,7 +2185,7 @@
             "description": "0: Authorization has been denied for this request."
           },
           "403": {
-            "description": "0: Token Validation Failed\r\n2: The user ID is invalid.\r\n6: The account pin is locked.\r\n8: The user is not allowed to perform the requested action."
+            "description": "0: Token Validation Failed\r\n2: The user ID is invalid.\r\n8: The user is not allowed to perform the requested action."
           },
           "429": {
             "description": "5: Too many requests."
@@ -2003,7 +2249,7 @@
             "description": "0: Authorization has been denied for this request."
           },
           "403": {
-            "description": "0: Token Validation Failed\r\n2: The user ID is invalid.\r\n6: The account pin is locked."
+            "description": "0: Token Validation Failed\r\n2: The user ID is invalid."
           },
           "503": {
             "description": "7: Two step verification is currently under maintenance.\r\n8: The user is not allowed to perform the requested action."
@@ -2110,7 +2356,7 @@
             "description": "0: Authorization has been denied for this request."
           },
           "403": {
-            "description": "0: Token Validation Failed\r\n6: The account pin is locked."
+            "description": "0: Token Validation Failed"
           },
           "429": {
             "description": "5: Too many requests."
@@ -2175,7 +2421,7 @@
             "description": "0: Authorization has been denied for this request."
           },
           "403": {
-            "description": "0: Token Validation Failed\r\n6: The account pin is locked."
+            "description": "0: Token Validation Failed"
           },
           "429": {
             "description": "5: Too many requests."

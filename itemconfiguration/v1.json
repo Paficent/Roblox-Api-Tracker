@@ -1,6 +1,7 @@
 {
   "definitions": {
     "Roblox.ItemConfiguration.Api.AssetCreationsDetailsRequest": {
+      "additionalProperties": false,
       "properties": {
         "AssetIds": {
           "items": {
@@ -13,6 +14,7 @@
       "type": "object"
     },
     "Roblox.ItemConfiguration.Api.AssetCreationsDetailsResponse": {
+      "additionalProperties": false,
       "properties": {
         "assetId": {
           "description": "The asset Id.",
@@ -48,6 +50,10 @@
         },
         "isArchived": {
           "description": "Is the asset archived.",
+          "type": "boolean"
+        },
+        "isCreatedForBundle": {
+          "description": "If the asset is part of a bundle.",
           "type": "boolean"
         },
         "isDelisted": {
@@ -92,6 +98,7 @@
       "type": "object"
     },
     "Roblox.ItemConfiguration.Api.AssetCreationsResponse": {
+      "additionalProperties": false,
       "description": "Asset Status response model.",
       "properties": {
         "assetId": {
@@ -107,6 +114,7 @@
       "type": "object"
     },
     "Roblox.ItemConfiguration.Api.CreateItemTagRequest": {
+      "additionalProperties": false,
       "description": "Request model to add a tag to an item.",
       "properties": {
         "itemId": {
@@ -121,6 +129,7 @@
       "type": "object"
     },
     "Roblox.ItemConfiguration.Api.ItemTagDetails": {
+      "additionalProperties": false,
       "properties": {
         "id": {
           "description": "Gets or sets the item tag id.",
@@ -133,6 +142,7 @@
       "type": "object"
     },
     "Roblox.ItemConfiguration.Api.ItemTagsMetadataResponse": {
+      "additionalProperties": false,
       "description": "Item-tags related metadata response model.",
       "properties": {
         "enabledAssetTypes": {
@@ -155,6 +165,7 @@
       "type": "object"
     },
     "Roblox.ItemConfiguration.Api.ItemWithTags": {
+      "additionalProperties": false,
       "properties": {
         "id": {
           "description": "Gets or sets the item id.",
@@ -171,6 +182,7 @@
       "type": "object"
     },
     "Roblox.ItemConfiguration.Api.PriceConfigurationModel": {
+      "additionalProperties": false,
       "description": "Defines the configuration options for an items price.",
       "properties": {
         "premiumDiscountPercentage": {
@@ -197,6 +209,7 @@
       "type": "object"
     },
     "Roblox.ItemConfiguration.Api.ReleaseConfigurationResponseModel": {
+      "additionalProperties": false,
       "description": "Defines the configuration options associated with releasing an item.",
       "properties": {
         "saleAvailabilityLocations": {
@@ -217,6 +230,7 @@
       "type": "object"
     },
     "Roblox.ItemConfiguration.Api.TagDetails": {
+      "additionalProperties": false,
       "description": "The tag model for any tag-related gets.",
       "properties": {
         "localizedDisplayName": {
@@ -242,26 +256,12 @@
       },
       "type": "object"
     },
-    "Roblox.Paging.StartIndexCursor": {
-      "properties": {
-        "count": {
-          "format": "int32",
-          "type": "integer"
-        },
-        "discriminator": {
-          "type": "string"
-        },
-        "startIndex": {
-          "format": "int64",
-          "type": "integer"
-        }
-      },
-      "type": "object"
-    },
     "Roblox.Web.WebAPI.ApiEmptyResponseModel": {
+      "additionalProperties": false,
       "type": "object"
     },
     "Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.ItemConfiguration.Api.ItemWithTags]": {
+      "additionalProperties": false,
       "properties": {
         "data": {
           "items": {
@@ -272,18 +272,8 @@
       },
       "type": "object"
     },
-    "Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.ItemConfiguration.Api.TagDetails]": {
-      "properties": {
-        "data": {
-          "items": {
-            "$ref": "#/definitions/Roblox.ItemConfiguration.Api.TagDetails"
-          },
-          "type": "array"
-        }
-      },
-      "type": "object"
-    },
     "Roblox.Web.WebAPI.Models.ApiPageResponse[Roblox.ItemConfiguration.Api.AssetCreationsResponse]": {
+      "additionalProperties": false,
       "properties": {
         "data": {
           "items": {
@@ -487,6 +477,9 @@
           "400": {
             "description": "1: No item tag Ids requested\r\n2: Too many item tag Ids requested\r\n3: Invalid item id\r\n6: Invalid item namespace"
           },
+          "404": {
+            "description": "10: The endpoint was not found"
+          },
           "429": {
             "description": "7: Too many requests"
           }
@@ -538,6 +531,9 @@
           "403": {
             "description": "0: Token Validation Failed\r\n5: The current user is missing permissions for the endpoint"
           },
+          "404": {
+            "description": "10: The endpoint was not found"
+          },
           "429": {
             "description": "7: Too many requests"
           }
@@ -566,6 +562,9 @@
             "schema": {
               "$ref": "#/definitions/Roblox.ItemConfiguration.Api.ItemTagsMetadataResponse"
             }
+          },
+          "404": {
+            "description": "10: The endpoint was not found"
           }
         },
         "summary": "Gets the metadata related to item tags.",
@@ -608,6 +607,9 @@
           "403": {
             "description": "0: Token Validation Failed\r\n5: The current user is missing permissions for the endpoint"
           },
+          "404": {
+            "description": "10: The endpoint was not found"
+          },
           "429": {
             "description": "7: Too many requests"
           }
@@ -615,106 +617,6 @@
         "summary": "Deletes an item tag from an item.",
         "tags": [
           "ItemTags"
-        ]
-      }
-    },
-    "/v1/tags": {
-      "get": {
-        "parameters": [
-          {
-            "collectionFormat": "csv",
-            "description": "",
-            "in": "query",
-            "items": {
-              "type": "string"
-            },
-            "name": "tagIds",
-            "required": true,
-            "type": "array"
-          }
-        ],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
-        "properties": {
-          "internal": false,
-          "metricIds": [
-            "Tags:MultiGetTags"
-          ]
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.ItemConfiguration.Api.TagDetails]"
-            }
-          },
-          "400": {
-            "description": "1: No tag Ids requested\r\n2: Too many tag Ids requested"
-          },
-          "429": {
-            "description": "3: Too many requests"
-          }
-        },
-        "summary": "Gets the information for a list of tag Ids.",
-        "tags": [
-          "Tags"
-        ]
-      }
-    },
-    "/v1/tags/prefix-search": {
-      "get": {
-        "parameters": [
-          {
-            "description": "",
-            "in": "query",
-            "name": "prefix",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Must be 1, 5, 10, or 25.",
-            "format": "int32",
-            "in": "query",
-            "name": "numberOfResults",
-            "required": true,
-            "type": "integer"
-          }
-        ],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
-        "properties": {
-          "internal": false,
-          "metricIds": [
-            "Tags:PrefixTagSearch"
-          ]
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.ItemConfiguration.Api.TagDetails]"
-            }
-          },
-          "400": {
-            "description": "5: The given prefix is invalid\r\n6: The number of results requested is invalid"
-          },
-          "401": {
-            "description": "0: Authorization has been denied for this request."
-          },
-          "403": {
-            "description": "4: This endpoint is not yet enabled for the current user"
-          },
-          "429": {
-            "description": "3: Too many requests"
-          }
-        },
-        "summary": "Searches for up to numberOfResults tags based on the given prefix.",
-        "tags": [
-          "Tags"
         ]
       }
     }

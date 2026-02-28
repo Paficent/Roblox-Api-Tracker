@@ -54,6 +54,7 @@
           },
           {
             "default": false,
+            "description": "",
             "in": "query",
             "name": "shouldModify",
             "type": "boolean"

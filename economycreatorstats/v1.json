@@ -1,6 +1,7 @@
 {
   "definitions": {
     "Roblox.EconomyCreatorStats.Api.Models.StatisticsResponse": {
+      "additionalProperties": false,
       "description": "The response model",
       "properties": {
         "data": {

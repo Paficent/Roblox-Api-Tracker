@@ -1,6 +1,7 @@
 {
   "definitions": {
     "Roblox.Friends.Api.CaptchaStatusResponseModel": {
+      "additionalProperties": false,
       "description": "This is response model to notify when action succeeded, failed, or captcha is required",
       "properties": {
         "isCaptchaRequired": {
@@ -14,6 +15,7 @@
       "type": "object"
     },
     "Roblox.Friends.Api.FollowCountResponse": {
+      "additionalProperties": false,
       "description": "Response model for following or followers Count",
       "properties": {
         "count": {
@@ -25,6 +27,7 @@
       "type": "object"
     },
     "Roblox.Friends.Api.FollowingExistsRequestModel": {
+      "additionalProperties": false,
       "description": "Request model for FollowingExists endpoint",
       "properties": {
         "targetUserIds": {
@@ -39,6 +42,7 @@
       "type": "object"
     },
     "Roblox.Friends.Api.FriendRequest": {
+      "additionalProperties": false,
       "description": "A response model representing a friend request.",
       "properties": {
         "contactName": {
@@ -85,19 +89,24 @@
       "type": "object"
     },
     "Roblox.Friends.Api.FriendRequestResponse": {
+      "additionalProperties": false,
       "description": "A response model representing a friend request.",
       "properties": {
         "created": {
+          "description": "When the user signed up.",
           "format": "date-time",
           "type": "string"
         },
         "description": {
+          "description": "The user description.",
           "type": "string"
         },
         "displayName": {
+          "description": "The user DisplayName.",
           "type": "string"
         },
         "externalAppDisplayName": {
+          "description": "Used when user is logged in from third party app (e.g. QQ)\r\nExternalAppDisplayName is the name used in that app (e.g. QQ nickname)",
           "type": "string"
         },
         "friendRequest": {
@@ -108,10 +117,12 @@
           "type": "boolean"
         },
         "id": {
+          "description": "The user Id.",
           "format": "int64",
           "type": "integer"
         },
         "isBanned": {
+          "description": "Whether or not the user is banned",
           "type": "boolean"
         },
         "mutualFriendsList": {
@@ -122,12 +133,14 @@
           "type": "array"
         },
         "name": {
+          "description": "The user name.",
           "type": "string"
         }
       },
       "type": "object"
     },
     "Roblox.Friends.Api.FriendStatusResponse": {
+      "additionalProperties": false,
       "description": "The friendship status response model.",
       "properties": {
         "id": {
@@ -150,6 +163,7 @@
       "type": "object"
     },
     "Roblox.Friends.Api.FriendsCountResponse": {
+      "additionalProperties": false,
       "description": "Response model for Friends Count",
       "properties": {
         "count": {
@@ -161,6 +175,7 @@
       "type": "object"
     },
     "Roblox.Friends.Api.FriendshipRequestModel": {
+      "additionalProperties": false,
       "properties": {
         "friendshipOriginSourceType": {
           "description": "Which source the friend request originated from ['Unknown' = 0, 'PlayerSearch' = 1, 'QrCode' = 2, 'InGame' = 3, 'UserProfile' = 4, 'QqContactImporter' = 5, 'WeChatContactImporter' = 6, 'ProfileShare' = 7, 'PhoneContactImporter' = 8, 'FriendRecommendations' = 9]",
@@ -187,6 +202,7 @@
       "type": "object"
     },
     "Roblox.Friends.Api.Models.Request.FriendingTokenRequestModel": {
+      "additionalProperties": false,
       "description": "Request model for AcceptFriendRequestWithToken endpoint",
       "properties": {
         "friendingToken": {
@@ -197,6 +213,7 @@
       "type": "object"
     },
     "Roblox.Friends.Api.Models.Response.ClearNewFriendRequestResponse": {
+      "additionalProperties": false,
       "description": "The friendship status response model.",
       "properties": {
         "status": {
@@ -207,6 +224,7 @@
       "type": "object"
     },
     "Roblox.Friends.Api.Models.Response.DeclineAllFriendRequestsResponse": {
+      "additionalProperties": false,
       "description": "response for DeclineAllFriendRequests",
       "properties": {
         "backgrounded": {
@@ -217,6 +235,7 @@
       "type": "object"
     },
     "Roblox.Friends.Api.Models.Response.FollowingExistsResponse": {
+      "additionalProperties": false,
       "description": "Response contained in list for FollowingExists endpoint. Corresponds to a single userId.",
       "properties": {
         "isFollowed": {
@@ -236,6 +255,7 @@
       "type": "object"
     },
     "Roblox.Friends.Api.Models.Response.FollowingExistsResponseModel": {
+      "additionalProperties": false,
       "description": "Response model for FollowingExists endpoint.",
       "properties": {
         "followings": {
@@ -249,6 +269,7 @@
       "type": "object"
     },
     "Roblox.Friends.Api.Models.Response.FriendResponse": {
+      "additionalProperties": false,
       "description": "A response model representing friend information",
       "properties": {
         "hasVerifiedBadge": {
@@ -264,6 +285,7 @@
       "type": "object"
     },
     "Roblox.Friends.Api.Models.Response.FriendsPageMetadataResponse": {
+      "additionalProperties": false,
       "properties": {
         "displayName": {
           "type": "string"
@@ -292,6 +314,7 @@
       "type": "object"
     },
     "Roblox.Friends.Api.Models.Response.NewFriendRequestsCountResponse": {
+      "additionalProperties": false,
       "description": "The friendship status response model.",
       "properties": {
         "count": {
@@ -302,18 +325,40 @@
       },
       "type": "object"
     },
+    "Roblox.Friends.Api.Models.Response.RefreshQrSessionResponse": {
+      "additionalProperties": false,
+      "properties": {
+        "Success": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
     "Roblox.Friends.Api.Models.Response.UserPresenceResponse": {
+      "additionalProperties": false,
       "description": "A response model representing user presence information.",
       "properties": {
         "displayName": {
+          "description": "The user DisplayName.",
           "type": "string"
         },
         "id": {
+          "description": "The user Id.",
           "format": "int64",
           "type": "integer"
         },
-        "name": {
+        "loggingJoinKey": {
+          "description": "Logging join key",
           "type": "string"
+        },
+        "name": {
+          "description": "The user name.",
+          "type": "string"
+        },
+        "sortScore": {
+          "description": "Carousel sort score",
+          "format": "double",
+          "type": "number"
         },
         "userPresence": {
           "$ref": "#/definitions/Roblox.Friends.Api.Models.Response.UserPresenceResponseModel"
@@ -322,7 +367,8 @@
       "type": "object"
     },
     "Roblox.Friends.Api.Models.Response.UserPresenceResponseModel": {
-      "description": "Response model for Roblox.Web.Presence.Interfaces.IUserPresence objects",
+      "additionalProperties": false,
+      "description": "Response model for !:IUserPresence objects",
       "properties": {
         "UserLocationType": {
           "description": "Location Type",
@@ -357,6 +403,7 @@
           "type": "integer"
         },
         "universeId": {
+          "description": "Universe Id",
           "format": "int64",
           "type": "integer"
         }
@@ -364,19 +411,24 @@
       "type": "object"
     },
     "Roblox.Friends.Api.Models.Response.UserResponse": {
+      "additionalProperties": false,
       "description": "A response model representing user information that also contains select presence information",
       "properties": {
         "created": {
+          "description": "When the user signed up.",
           "format": "date-time",
           "type": "string"
         },
         "description": {
+          "description": "The user description.",
           "type": "string"
         },
         "displayName": {
+          "description": "The user DisplayName.",
           "type": "string"
         },
         "externalAppDisplayName": {
+          "description": "Used when user is logged in from third party app (e.g. QQ)\r\nExternalAppDisplayName is the name used in that app (e.g. QQ nickname)",
           "type": "string"
         },
         "friendFrequentRank": {
@@ -394,10 +446,12 @@
           "type": "boolean"
         },
         "id": {
+          "description": "The user Id.",
           "format": "int64",
           "type": "integer"
         },
         "isBanned": {
+          "description": "Whether or not the user is banned",
           "type": "boolean"
         },
         "isDeleted": {
@@ -409,10 +463,11 @@
           "type": "boolean"
         },
         "name": {
+          "description": "The user name.",
           "type": "string"
         },
         "presenceType": {
-          "description": "Where the user is online. ['Offline' = 0, 'Online' = 1, 'InGame' = 2, 'InStudio' = 3, 'Invisible' = 4]",
+          "description": "Where the user is online.",
           "enum": [
             0,
             1,
@@ -427,6 +482,7 @@
       "type": "object"
     },
     "Roblox.Friends.Api.MultigetAreFriendsRequestModel": {
+      "additionalProperties": false,
       "description": "Request model for MultigetAreFriends endpoint",
       "properties": {
         "targetUserIds": {
@@ -441,6 +497,7 @@
       "type": "object"
     },
     "Roblox.Friends.Api.MultigetAreFriendsResponse": {
+      "additionalProperties": false,
       "description": "Response model for MultigetAreFriendsResponse",
       "properties": {
         "friendsId": {
@@ -455,6 +512,7 @@
       "type": "object"
     },
     "Roblox.Friends.Api.PendingFriendRequestCountModel": {
+      "additionalProperties": false,
       "description": "Response model for Pending Friend Request Count",
       "properties": {
         "count": {
@@ -466,6 +524,7 @@
       "type": "object"
     },
     "Roblox.Paging.CursoredPagedResult[Roblox.Friends.Api.Models.Response.FriendResponse]": {
+      "additionalProperties": false,
       "properties": {
         "HasMore": {
           "type": "boolean"
@@ -485,104 +544,8 @@
       },
       "type": "object"
     },
-    "Roblox.Paging.ExclusiveStartKeyCursor[System.String]": {
-      "properties": {
-        "count": {
-          "format": "int32",
-          "type": "integer"
-        },
-        "discriminator": {
-          "type": "string"
-        },
-        "key": {
-          "type": "string"
-        },
-        "pageNumber": {
-          "format": "int32",
-          "type": "integer"
-        },
-        "pagingDirection": {
-          "description": " ['Forward' = 1, 'Backward' = 2]",
-          "enum": [
-            1,
-            2
-          ],
-          "format": "int32",
-          "type": "integer"
-        },
-        "sortOrder": {
-          "description": " ['Asc' = 1, 'Desc' = 2]",
-          "enum": [
-            1,
-            2
-          ],
-          "format": "int32",
-          "type": "integer"
-        }
-      },
-      "type": "object"
-    },
-    "Roblox.Platform.Core.ExclusiveStartPaging.IExclusiveStartKeyInfo[Roblox.Web.Friends.FriendRequestsPlatformExclusiveStartKey]": {
-      "properties": {
-        "Count": {
-          "format": "int32",
-          "readOnly": true,
-          "type": "integer"
-        },
-        "PagingDirection": {
-          "description": " ['Forward' = 1, 'Backward' = 2]",
-          "enum": [
-            1,
-            2
-          ],
-          "format": "int32",
-          "readOnly": true,
-          "type": "integer"
-        },
-        "SortOrder": {
-          "description": " ['Asc' = 1, 'Desc' = 2]",
-          "enum": [
-            1,
-            2
-          ],
-          "format": "int32",
-          "readOnly": true,
-          "type": "integer"
-        }
-      },
-      "type": "object"
-    },
-    "Roblox.Platform.Core.ExclusiveStartPaging.IExclusiveStartKeyInfo[System.Int64]": {
-      "properties": {
-        "Count": {
-          "format": "int32",
-          "readOnly": true,
-          "type": "integer"
-        },
-        "PagingDirection": {
-          "description": " ['Forward' = 1, 'Backward' = 2]",
-          "enum": [
-            1,
-            2
-          ],
-          "format": "int32",
-          "readOnly": true,
-          "type": "integer"
-        },
-        "SortOrder": {
-          "description": " ['Asc' = 1, 'Desc' = 2]",
-          "enum": [
-            1,
-            2
-          ],
-          "format": "int32",
-          "readOnly": true,
-          "type": "integer"
-        }
-      },
-      "type": "object"
-    },
     "Roblox.Web.Captcha.Models.Request.CaptchaTokenRequest": {
+      "additionalProperties": false,
       "properties": {
         "captchaId": {
           "type": "string"
@@ -600,31 +563,11 @@
       "type": "object"
     },
     "Roblox.Web.WebAPI.ApiEmptyResponseModel": {
-      "type": "object"
-    },
-    "Roblox.Web.WebAPI.ExclusiveStartRequest[Roblox.Web.Friends.FriendRequestsPlatformExclusiveStartKey]": {
-      "properties": {
-        "CursorRecipe": {
-          "type": "string"
-        },
-        "ExclusiveStartKeyInfo": {
-          "$ref": "#/definitions/Roblox.Platform.Core.ExclusiveStartPaging.IExclusiveStartKeyInfo[Roblox.Web.Friends.FriendRequestsPlatformExclusiveStartKey]"
-        }
-      },
-      "type": "object"
-    },
-    "Roblox.Web.WebAPI.ExclusiveStartRequest[System.Int64]": {
-      "properties": {
-        "CursorRecipe": {
-          "type": "string"
-        },
-        "ExclusiveStartKeyInfo": {
-          "$ref": "#/definitions/Roblox.Platform.Core.ExclusiveStartPaging.IExclusiveStartKeyInfo[System.Int64]"
-        }
-      },
+      "additionalProperties": false,
       "type": "object"
     },
     "Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.Friends.Api.FriendStatusResponse]": {
+      "additionalProperties": false,
       "properties": {
         "data": {
           "items": {
@@ -636,6 +579,7 @@
       "type": "object"
     },
     "Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.Friends.Api.Models.Response.UserPresenceResponse]": {
+      "additionalProperties": false,
       "properties": {
         "data": {
           "items": {
@@ -647,6 +591,7 @@
       "type": "object"
     },
     "Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.Friends.Api.Models.Response.UserResponse]": {
+      "additionalProperties": false,
       "properties": {
         "data": {
           "items": {
@@ -658,6 +603,7 @@
       "type": "object"
     },
     "Roblox.Web.WebAPI.Models.ApiPageResponse[Roblox.Friends.Api.FriendRequestResponse]": {
+      "additionalProperties": false,
       "properties": {
         "data": {
           "items": {
@@ -675,6 +621,7 @@
       "type": "object"
     },
     "Roblox.Web.WebAPI.Models.ApiPageResponse[Roblox.Friends.Api.Models.Response.UserResponse]": {
+      "additionalProperties": false,
       "properties": {
         "data": {
           "items": {
@@ -687,17 +634,6 @@
         },
         "previousPageCursor": {
           "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "System.ValueTuple[Roblox.Web.WebAPI.ExclusiveStartRequest[System.Int64],Roblox.Paging.ExclusiveStartKeyCursor[System.String]]": {
-      "properties": {
-        "Item1": {
-          "$ref": "#/definitions/Roblox.Web.WebAPI.ExclusiveStartRequest[System.Int64]"
-        },
-        "Item2": {
-          "$ref": "#/definitions/Roblox.Paging.ExclusiveStartKeyCursor[System.String]"
         }
       },
       "type": "object"
@@ -819,19 +755,43 @@
         ]
       }
     },
+    "/v1/my/friends/refresh-qr-session": {
+      "post": {
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Friends:RegisterQRSession"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Friends.Api.Models.Response.RefreshQrSessionResponse"
+            }
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed"
+          }
+        },
+        "tags": [
+          "Friends"
+        ]
+      }
+    },
     "/v1/my/friends/requests": {
       "get": {
         "parameters": [
           {
             "default": 10,
             "description": "The number of results per request.",
-            "enum": [
-              10,
-              18,
-              25,
-              50,
-              100
-            ],
             "format": "int32",
             "in": "query",
             "name": "limit",
@@ -844,15 +804,16 @@
             "type": "string"
           },
           {
-            "default": "Desc",
-            "description": "Sorted by scoring requests based on request time, mutual friends, and request origin",
+            "default": 1,
             "enum": [
-              "Asc",
-              "Desc"
+              0,
+              1,
+              2
             ],
+            "format": "int32",
             "in": "query",
-            "name": "sortOrder",
-            "type": "string"
+            "name": "friendRequestSort",
+            "type": "integer"
           }
         ],
         "produces": [
@@ -886,6 +847,44 @@
           }
         },
         "summary": "Get all users that friend requests with targetUserId using exclusive start paging",
+        "tags": [
+          "Friends"
+        ]
+      }
+    },
+    "/v1/my/friends/{userId}/check-qr-session": {
+      "get": {
+        "parameters": [
+          {
+            "description": "user Id that shows the qr code",
+            "format": "int64",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Friends:CheckQrSession"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          }
+        },
         "tags": [
           "Friends"
         ]
@@ -1838,6 +1837,17 @@
             "in": "query",
             "name": "limit",
             "type": "integer"
+          },
+          {
+            "default": 0,
+            "enum": [
+              0,
+              1
+            ],
+            "format": "int32",
+            "in": "query",
+            "name": "findFriendsType",
+            "type": "integer"
           }
         ],
         "produces": [
@@ -1921,6 +1931,7 @@
             "type": "integer"
           },
           {
+            "description": "The sort order to return the friends.",
             "enum": [
               0,
               1,

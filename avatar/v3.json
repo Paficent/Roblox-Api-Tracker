@@ -1,15 +1,53 @@
 {
   "definitions": {
     "Roblox.Api.Avatar.Models.AssetMetaModelV1": {
+      "additionalProperties": false,
       "description": "Exhaustive model denoting all possible metadata fields of an asset",
       "properties": {
+        "headShape": {
+          "description": "Head Shape selected for the asset id.\r\nApplicable for dynamic head assets.",
+          "enum": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
         "order": {
           "description": "Layered-clothing order",
           "format": "int32",
           "type": "integer"
         },
         "position": {
-          "$ref": "#/definitions/Roblox.Avatarcore.Shared.V3.AssetPosition"
+          "$ref": "#/definitions/Roblox.Api.Avatar.Models.AssetPosition"
         },
         "puffiness": {
           "description": "Layered-clothing puffiness",
@@ -17,10 +55,14 @@
           "type": "number"
         },
         "rotation": {
-          "$ref": "#/definitions/Roblox.Avatarcore.Shared.V3.AssetRotation"
+          "$ref": "#/definitions/Roblox.Api.Avatar.Models.AssetRotation"
         },
         "scale": {
-          "$ref": "#/definitions/Roblox.Avatarcore.Shared.V3.AssetScale"
+          "$ref": "#/definitions/Roblox.Api.Avatar.Models.AssetScale"
+        },
+        "staticFacialAnimation": {
+          "description": "Indicates user choice for facial animation.\r\nstaticFacialAnimation=false, implies the toggle as on and face will animate.\r\nApplicable for dynamic head assets.",
+          "type": "boolean"
         },
         "version": {
           "description": "Client-authoritative meta model format version\r\n- default is always 1",
@@ -31,15 +73,25 @@
       "type": "object"
     },
     "Roblox.Api.Avatar.Models.AssetModelV2": {
+      "additionalProperties": false,
       "description": "A model containing details about an asset\r\n- V2: adds CurrentVersionId, AssetMetaModel",
       "properties": {
         "assetType": {
           "$ref": "#/definitions/Roblox.Api.Avatar.Models.AssetTypeModel"
         },
+        "availabilityStatus": {
+          "description": "Asset availability status.",
+          "type": "string"
+        },
         "currentVersionId": {
           "description": "Id of the current version of asset",
           "format": "int64",
           "type": "integer"
+        },
+        "expirationTime": {
+          "description": "For rental assets only. (Future) ownership expiration time of the asset.",
+          "format": "date-time",
+          "type": "string"
         },
         "id": {
           "description": "The id",
@@ -52,16 +104,87 @@
         "name": {
           "description": "The name",
           "type": "string"
+        },
+        "supportsHeadShapes": {
+          "description": "If the \"Id\" is swappable, applicable for DH assets.",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Api.Avatar.Models.AssetPosition": {
+      "additionalProperties": false,
+      "description": "A model which contains accessory position coordinates.",
+      "properties": {
+        "X": {
+          "description": "X coordinate of the position.",
+          "format": "float",
+          "type": "number"
+        },
+        "Y": {
+          "description": "y coordinate of the position.",
+          "format": "float",
+          "type": "number"
+        },
+        "Z": {
+          "description": "Z coordinate of the position.",
+          "format": "float",
+          "type": "number"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Api.Avatar.Models.AssetRotation": {
+      "additionalProperties": false,
+      "description": "A model which contains accessory rotation coordinates.",
+      "properties": {
+        "X": {
+          "description": "X degrees of the rotation.",
+          "format": "float",
+          "type": "number"
+        },
+        "Y": {
+          "description": "Y degrees of the rotation.",
+          "format": "float",
+          "type": "number"
+        },
+        "Z": {
+          "description": "Z degrees of the rotation.",
+          "format": "float",
+          "type": "number"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Api.Avatar.Models.AssetScale": {
+      "additionalProperties": false,
+      "description": "A model which contains accessory scale.",
+      "properties": {
+        "X": {
+          "description": "X scale multiplier of accessory.",
+          "format": "float",
+          "type": "number"
+        },
+        "Y": {
+          "description": "Y scale multiplier of accessory.",
+          "format": "float",
+          "type": "number"
+        },
+        "Z": {
+          "description": "Z scale multiplier of accessory.",
+          "format": "float",
+          "type": "number"
         }
       },
       "type": "object"
     },
     "Roblox.Api.Avatar.Models.AssetTypeModel": {
+      "additionalProperties": false,
       "description": "A model containing details about an asset type",
       "properties": {
         "id": {
           "description": "The id",
-          "format": "int64",
+          "format": "int32",
           "type": "integer"
         },
         "name": {
@@ -72,6 +195,7 @@
       "type": "object"
     },
     "Roblox.Api.Avatar.Models.AssetWearModel": {
+      "additionalProperties": false,
       "description": "A model which contains\r\n- an asset id\r\n- AssetMetaModel",
       "properties": {
         "id": {
@@ -86,6 +210,7 @@
       "type": "object"
     },
     "Roblox.Api.Avatar.Models.BodyColors3Model": {
+      "additionalProperties": false,
       "description": "A model containing RGB hex colors for each body part.",
       "properties": {
         "headColor3": {
@@ -116,6 +241,7 @@
       "type": "object"
     },
     "Roblox.Api.Avatar.Models.OutfitDetailsModelV2": {
+      "additionalProperties": false,
       "description": "A model containing details about a user outfit",
       "properties": {
         "assets": {
@@ -137,6 +263,10 @@
           "description": "The id",
           "format": "int64",
           "type": "integer"
+        },
+        "inventoryType": {
+          "description": "The inventory type of the outfit.",
+          "type": "string"
         },
         "isEditable": {
           "description": "Whether the outfit can be edited by the user",
@@ -170,6 +300,7 @@
       "type": "object"
     },
     "Roblox.Api.Avatar.Models.OutfitModel": {
+      "additionalProperties": false,
       "description": "A slim model for user outfits.",
       "properties": {
         "id": {
@@ -193,6 +324,7 @@
       "type": "object"
     },
     "Roblox.Api.Avatar.Models.OutfitUpdateModelV3": {
+      "additionalProperties": false,
       "description": "A model containing details needed to update or create an outfit.",
       "properties": {
         "assets": {
@@ -203,19 +335,20 @@
           "type": "array"
         },
         "bodyColor3s": {
-          "$ref": "#/definitions/Roblox.Platform.Avatar.BodyColorsModelV2"
+          "$ref": "#/definitions/Roblox.Api.Avatar.Models.BodyColors3Model"
         },
         "name": {
           "description": "The outfit name.",
           "type": "string"
         },
         "outfitType": {
-          "description": "The type of outfit. ['Invalid' = 0, 'Avatar' = 1, 'DynamicHead' = 2, 'InExperienceBody' = 3]",
+          "description": "The type of outfit.",
           "enum": [
             0,
             1,
             2,
-            3
+            4,
+            5
           ],
           "format": "int32",
           "type": "integer"
@@ -230,81 +363,8 @@
       },
       "type": "object"
     },
-    "Roblox.Avatarcore.Shared.V3.AssetPosition": {
-      "properties": {
-        "X": {
-          "format": "float",
-          "type": "number"
-        },
-        "Y": {
-          "format": "float",
-          "type": "number"
-        },
-        "Z": {
-          "format": "float",
-          "type": "number"
-        }
-      },
-      "type": "object"
-    },
-    "Roblox.Avatarcore.Shared.V3.AssetRotation": {
-      "properties": {
-        "X": {
-          "format": "float",
-          "type": "number"
-        },
-        "Y": {
-          "format": "float",
-          "type": "number"
-        },
-        "Z": {
-          "format": "float",
-          "type": "number"
-        }
-      },
-      "type": "object"
-    },
-    "Roblox.Avatarcore.Shared.V3.AssetScale": {
-      "properties": {
-        "X": {
-          "format": "float",
-          "type": "number"
-        },
-        "Y": {
-          "format": "float",
-          "type": "number"
-        },
-        "Z": {
-          "format": "float",
-          "type": "number"
-        }
-      },
-      "type": "object"
-    },
-    "Roblox.Platform.Avatar.BodyColorsModelV2": {
-      "properties": {
-        "headColor3": {
-          "type": "string"
-        },
-        "leftArmColor3": {
-          "type": "string"
-        },
-        "leftLegColor3": {
-          "type": "string"
-        },
-        "rightArmColor3": {
-          "type": "string"
-        },
-        "rightLegColor3": {
-          "type": "string"
-        },
-        "torsoColor3": {
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
     "Roblox.Web.Responses.Avatar.ScaleModel": {
+      "additionalProperties": false,
       "properties": {
         "bodyType": {
           "format": "double",
@@ -349,7 +409,7 @@
         "description": "Fails if any of the assetIds are not owned by the user, or not wearable types.\r\nThe name property of the request is optional as one will be auto-generated when the request has a null name.",
         "parameters": [
           {
-            "description": "The new outfit",
+            "description": "The new outfit.",
             "in": "body",
             "name": "outfitUpdateModel",
             "required": true,
@@ -411,7 +471,7 @@
             "type": "integer"
           },
           {
-            "description": "The updated outfit",
+            "description": "The updated outfit.",
             "in": "body",
             "name": "outfitUpdateModel",
             "required": true,

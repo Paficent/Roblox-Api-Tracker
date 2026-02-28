@@ -1,6 +1,7 @@
 {
   "definitions": {
     "Roblox.AdConfiguration.Api.CreateSponsoredGameV2Request": {
+      "additionalProperties": false,
       "description": "A request model for creating a sponsored game",
       "properties": {
         "adName": {
@@ -71,6 +72,7 @@
       "type": "object"
     },
     "Roblox.AdConfiguration.Api.CreativeModel": {
+      "additionalProperties": false,
       "description": "A model representing an Ad Creative (for example, an ad thumbnail).",
       "properties": {
         "creativeId": {
@@ -94,6 +96,7 @@
       "type": "object"
     },
     "Roblox.AdConfiguration.Api.GetSponsoredCampaignsResponse": {
+      "additionalProperties": false,
       "description": "A response model for retrieving a page of Roblox.AdConfiguration.Api.SponsoredCampaignModel.",
       "properties": {
         "nextPageCursor": {
@@ -115,6 +118,7 @@
       "type": "object"
     },
     "Roblox.AdConfiguration.Api.GetSponsoredGamesResponse": {
+      "additionalProperties": false,
       "description": "A response model for retrieving a page of Roblox.AdConfiguration.Api.SponsoredGameV2Model.",
       "properties": {
         "nextPageCursor": {
@@ -136,6 +140,7 @@
       "type": "object"
     },
     "Roblox.AdConfiguration.Api.Models.CampaignTargetModel": {
+      "additionalProperties": false,
       "description": "Represents a sponsored ad campaign target",
       "properties": {
         "campaignTargetId": {
@@ -162,6 +167,7 @@
       "type": "object"
     },
     "Roblox.AdConfiguration.Api.Models.CreateSponsoredCampaignRequest": {
+      "additionalProperties": false,
       "description": "A request model for creating a sponsored game",
       "properties": {
         "campaignName": {
@@ -263,6 +269,7 @@
       "type": "object"
     },
     "Roblox.AdConfiguration.Api.Models.GetCampaignTargetsResponse": {
+      "additionalProperties": false,
       "description": "The response model which returns a collection of Roblox.AdConfiguration.Api.Models.CampaignTargetModel",
       "properties": {
         "campaignTargetModels": {
@@ -276,6 +283,7 @@
       "type": "object"
     },
     "Roblox.AdConfiguration.Api.Models.GetEligibleCampaignTargetsRequest": {
+      "additionalProperties": false,
       "description": "A model represents a request to stop a sponsored campaign / ad.",
       "properties": {
         "campaignTargetTypes": {
@@ -302,6 +310,7 @@
       "type": "object"
     },
     "Roblox.AdConfiguration.Api.Models.GetRecentAdsRankedUniversesResponse": {
+      "additionalProperties": false,
       "description": "The response model for getting a list of recent-ads-ranked universes.",
       "properties": {
         "universes": {
@@ -315,6 +324,7 @@
       "type": "object"
     },
     "Roblox.AdConfiguration.Api.Models.StopSponsoredCampaignRequest": {
+      "additionalProperties": false,
       "description": "A model represents a request to stop a sponsored campaign / ad.",
       "properties": {
         "adSetId": {
@@ -326,6 +336,7 @@
       "type": "object"
     },
     "Roblox.AdConfiguration.Api.Models.StopSponsoredGameV2Request": {
+      "additionalProperties": false,
       "description": "A model represents a request to stop a sponsored game ad.",
       "properties": {
         "adSetId": {
@@ -337,6 +348,7 @@
       "type": "object"
     },
     "Roblox.AdConfiguration.Api.Models.UniverseModel": {
+      "additionalProperties": false,
       "description": "Represents a universe in API endpoint results.",
       "properties": {
         "id": {
@@ -352,6 +364,7 @@
       "type": "object"
     },
     "Roblox.AdConfiguration.Api.SponsoredCampaignModel": {
+      "additionalProperties": false,
       "description": "A response model represents an Ad with complete information, including infos from its associated campaign and ad set",
       "properties": {
         "adId": {
@@ -514,6 +527,7 @@
       "type": "object"
     },
     "Roblox.AdConfiguration.Api.SponsoredGameV2Model": {
+      "additionalProperties": false,
       "description": "A response model represents an Ad with complete information, including infos from its associated campaign and ad set",
       "properties": {
         "adId": {
@@ -680,6 +694,7 @@
       "type": "object"
     },
     "Roblox.Web.WebAPI.ApiEmptyResponseModel": {
+      "additionalProperties": false,
       "type": "object"
     }
   },

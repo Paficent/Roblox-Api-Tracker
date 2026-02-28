@@ -1,6 +1,7 @@
 {
   "definitions": {
     "Roblox.Api.Develop.AssetVersion": {
+      "additionalProperties": false,
       "description": "Model of an asset version.",
       "properties": {
         "Id": {
@@ -42,13 +43,14 @@
           "type": "boolean"
         },
         "isPublished": {
-          "description": "Indicates if this version is / was published.\r\nThis property is available on /v1/{assetId}/saved-versions.",
+          "description": "Indicates if this version is / was published.\r\nThis property is available on /v1/{assetId}/saved-versions.\r\nThis should be true for all assets coming from GetAssetPublishedVersionsByAssetId",
           "type": "boolean"
         }
       },
       "type": "object"
     },
     "Roblox.Api.Develop.Models.PlaceConfigurationModelV2": {
+      "additionalProperties": false,
       "description": "A model containing information about a place to be configured",
       "properties": {
         "allowCopying": {
@@ -92,6 +94,7 @@
       "type": "object"
     },
     "Roblox.Api.Develop.Models.PlaceModelV2": {
+      "additionalProperties": false,
       "description": "A model containing information about a place",
       "properties": {
         "allowCopying": {
@@ -118,6 +121,11 @@
             "type": "integer"
           },
           "type": "array"
+        },
+        "created": {
+          "description": "The time place was created.",
+          "format": "date-time",
+          "type": "string"
         },
         "currentSavedVersion": {
           "description": "The current saved version number of the place.",
@@ -168,11 +176,17 @@
           "description": "Returns the id of the place's universe, or null - if the place is not part of a universe.",
           "format": "int64",
           "type": "integer"
+        },
+        "updated": {
+          "description": "The time place was updated.",
+          "format": "date-time",
+          "type": "string"
         }
       },
       "type": "object"
     },
     "Roblox.Api.Develop.Models.UniverseModerationPolicyStatus": {
+      "additionalProperties": false,
       "description": "Represents a universe moderation policy status",
       "properties": {
         "region": {
@@ -192,6 +206,7 @@
       "type": "object"
     },
     "Roblox.Api.Develop.Models.UniverseSettingsRequestV2": {
+      "additionalProperties": false,
       "description": "Model for UniverseSettings patch requests",
       "properties": {
         "allowPrivateServers": {
@@ -201,6 +216,25 @@
         "description": {
           "description": "The description of the universe.",
           "type": "string"
+        },
+        "engineAvatarSettings": {
+          "description": "Optional JSON string used to store avatar settings used by the game engine.\r\nWill not be updated if null or empty. To clear settings, set to empty JSON object \"{}\".\r\nNote: This is an experimental field which may be changed or removed in future.",
+          "type": "string"
+        },
+        "fiatBasePriceId": {
+          "description": "Sets the base price of the experience for Fiat purchases.",
+          "type": "string"
+        },
+        "fiatProductChangeType": {
+          "description": "Determines the change type of the Fiat Product Change request.\r\nCan either Activate, Update Base Price, or Deactivate.",
+          "enum": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "format": "int32",
+          "type": "integer"
         },
         "genre": {
           "description": "Game genre.",
@@ -361,6 +395,7 @@
       "type": "object"
     },
     "Roblox.Api.Develop.Models.UniverseSettingsResponseV2": {
+      "additionalProperties": false,
       "description": "Model for UniverseSettings controller responses",
       "properties": {
         "allowPrivateServers": {
@@ -370,6 +405,30 @@
         "description": {
           "description": "The universe description.",
           "type": "string"
+        },
+        "eligibleForTextChatMigration": {
+          "description": "Whether the game is elegible for text chat service auto migration.",
+          "type": "boolean"
+        },
+        "engineAvatarSettings": {
+          "description": "Optional JSON string used to store avatar settings used by the game engine.\r\nNote: This is an experimental field which may be changed or removed in future.",
+          "type": "string"
+        },
+        "fiatBasePriceId": {
+          "description": "The basePriceId for the Fiat product.",
+          "type": "string"
+        },
+        "fiatModerationStatus": {
+          "description": "The current moderation status of the game if it is for sale in fiat. ['Invalid' = 0, 'NotModerated' = 1, 'Pending' = 2, 'Approved' = 3, 'Rejected' = 4]",
+          "enum": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "format": "int32",
+          "type": "integer"
         },
         "genre": {
           "description": "Game genre. ['All' = 0, 'Tutorial' = 1, 'Scary' = 2, 'TownAndCity' = 3, 'War' = 4, 'Funny' = 5, 'Fantasy' = 6, 'Adventure' = 7, 'SciFi' = 8, 'Pirate' = 9, 'FPS' = 10, 'RPG' = 11, 'Sports' = 12, 'Ninja' = 13, 'WildWest' = 14]",
@@ -404,6 +463,10 @@
         },
         "isForSale": {
           "description": "Whether the game is offered for sale.",
+          "type": "boolean"
+        },
+        "isForSaleInFiat": {
+          "description": "Whether the game is offered for sale in fiat.",
           "type": "boolean"
         },
         "isFriendsOnly": {
@@ -515,37 +578,8 @@
       },
       "type": "object"
     },
-    "Roblox.Platform.Core.ExclusiveStartPaging.IExclusiveStartKeyInfo[System.String]": {
-      "properties": {
-        "Count": {
-          "format": "int32",
-          "readOnly": true,
-          "type": "integer"
-        },
-        "PagingDirection": {
-          "description": " ['Forward' = 1, 'Backward' = 2]",
-          "enum": [
-            1,
-            2
-          ],
-          "format": "int32",
-          "readOnly": true,
-          "type": "integer"
-        },
-        "SortOrder": {
-          "description": " ['Asc' = 1, 'Desc' = 2]",
-          "enum": [
-            1,
-            2
-          ],
-          "format": "int32",
-          "readOnly": true,
-          "type": "integer"
-        }
-      },
-      "type": "object"
-    },
     "Roblox.Platform.UniverseSettings.UniverseAvatarAssetOverrideResponseModel": {
+      "additionalProperties": false,
       "properties": {
         "assetID": {
           "format": "int64",
@@ -562,7 +596,11 @@
       "type": "object"
     },
     "Roblox.UniversePluginPermissionAuthority.Models.UniversePluginPermissions": {
+      "additionalProperties": false,
       "properties": {
+        "IsClientTeleportAllowed": {
+          "type": "boolean"
+        },
         "IsThirdPartyAssetAllowed": {
           "type": "boolean"
         },
@@ -576,6 +614,7 @@
       "type": "object"
     },
     "Roblox.Web.Responses.Avatar.ScaleModel": {
+      "additionalProperties": false,
       "properties": {
         "bodyType": {
           "format": "double",
@@ -605,20 +644,11 @@
       "type": "object"
     },
     "Roblox.Web.WebAPI.ApiEmptyResponseModel": {
-      "type": "object"
-    },
-    "Roblox.Web.WebAPI.ExclusiveStartRequest[System.String]": {
-      "properties": {
-        "CursorRecipe": {
-          "type": "string"
-        },
-        "ExclusiveStartKeyInfo": {
-          "$ref": "#/definitions/Roblox.Platform.Core.ExclusiveStartPaging.IExclusiveStartKeyInfo[System.String]"
-        }
-      },
+      "additionalProperties": false,
       "type": "object"
     },
     "Roblox.Web.WebAPI.Models.ApiPageResponse[Roblox.Api.Develop.AssetVersion]": {
+      "additionalProperties": false,
       "properties": {
         "data": {
           "items": {

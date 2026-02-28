@@ -1,36 +1,7 @@
 {
   "definitions": {
-    "Roblox.Platform.Core.ExclusiveStartPaging.IExclusiveStartKeyInfo[System.Int64]": {
-      "properties": {
-        "Count": {
-          "format": "int32",
-          "readOnly": true,
-          "type": "integer"
-        },
-        "PagingDirection": {
-          "description": " ['Forward' = 1, 'Backward' = 2]",
-          "enum": [
-            1,
-            2
-          ],
-          "format": "int32",
-          "readOnly": true,
-          "type": "integer"
-        },
-        "SortOrder": {
-          "description": " ['Asc' = 1, 'Desc' = 2]",
-          "enum": [
-            1,
-            2
-          ],
-          "format": "int32",
-          "readOnly": true,
-          "type": "integer"
-        }
-      },
-      "type": "object"
-    },
     "Roblox.Trades.Api.CanTradeResponse": {
+      "additionalProperties": false,
       "properties": {
         "canTrade": {
           "description": "Returns true if you can trade with the given user.",
@@ -55,6 +26,7 @@
       "type": "object"
     },
     "Roblox.Trades.Api.NewTradeResponse": {
+      "additionalProperties": false,
       "properties": {
         "id": {
           "description": "The trade id.",
@@ -65,6 +37,7 @@
       "type": "object"
     },
     "Roblox.Trades.Api.TradeCountResponse": {
+      "additionalProperties": false,
       "properties": {
         "count": {
           "format": "int64",
@@ -74,6 +47,7 @@
       "type": "object"
     },
     "Roblox.Trades.Api.TradeDetailResponse": {
+      "additionalProperties": false,
       "properties": {
         "created": {
           "format": "date-time",
@@ -99,20 +73,19 @@
         "status": {
           "description": " ['Unknown' = 1, 'Open' = 2, 'Pending' = 3, 'Completed' = 4, 'Expired' = 5, 'Declined' = 6, 'RejectedDueToError' = 7, 'Countered' = 8, 'Processing' = 9, 'InterventionRequired' = 10, 'TwoStepVerificationRequired' = 11]",
           "enum": [
-            1,
-            2,
-            3,
-            4,
-            5,
-            6,
-            7,
-            8,
-            9,
-            10,
-            11
+            "Unknown",
+            "Open",
+            "Pending",
+            "Completed",
+            "Expired",
+            "Declined",
+            "RejectedDueToError",
+            "Countered",
+            "Processing",
+            "InterventionRequired",
+            "TwoStepVerificationRequired"
           ],
-          "format": "int32",
-          "type": "integer"
+          "type": "string"
         },
         "user": {
           "$ref": "#/definitions/Roblox.Web.Responses.Users.SkinnyUserResponse"
@@ -121,6 +94,7 @@
       "type": "object"
     },
     "Roblox.Trades.Api.TradeMetadata": {
+      "additionalProperties": false,
       "properties": {
         "maxItemsPerSide": {
           "format": "int32",
@@ -142,6 +116,7 @@
       "type": "object"
     },
     "Roblox.Trades.Api.TradeOfferRequest": {
+      "additionalProperties": false,
       "properties": {
         "robux": {
           "format": "int64",
@@ -162,6 +137,7 @@
       "type": "object"
     },
     "Roblox.Trades.Api.TradeOfferResponse": {
+      "additionalProperties": false,
       "properties": {
         "robux": {
           "format": "int64",
@@ -180,6 +156,7 @@
       "type": "object"
     },
     "Roblox.Trades.Api.TradeRequest": {
+      "additionalProperties": false,
       "properties": {
         "offers": {
           "items": {
@@ -191,6 +168,7 @@
       "type": "object"
     },
     "Roblox.Trades.Api.TradeResponse": {
+      "additionalProperties": false,
       "properties": {
         "created": {
           "format": "date-time",
@@ -210,20 +188,19 @@
         "status": {
           "description": " ['Unknown' = 1, 'Open' = 2, 'Pending' = 3, 'Completed' = 4, 'Expired' = 5, 'Declined' = 6, 'RejectedDueToError' = 7, 'Countered' = 8, 'Processing' = 9, 'InterventionRequired' = 10, 'TwoStepVerificationRequired' = 11]",
           "enum": [
-            1,
-            2,
-            3,
-            4,
-            5,
-            6,
-            7,
-            8,
-            9,
-            10,
-            11
+            "Unknown",
+            "Open",
+            "Pending",
+            "Completed",
+            "Expired",
+            "Declined",
+            "RejectedDueToError",
+            "Countered",
+            "Processing",
+            "InterventionRequired",
+            "TwoStepVerificationRequired"
           ],
-          "format": "int32",
-          "type": "integer"
+          "type": "string"
         },
         "user": {
           "$ref": "#/definitions/Roblox.Web.Responses.Users.SkinnyUserResponse"
@@ -232,6 +209,7 @@
       "type": "object"
     },
     "Roblox.Trades.Api.UserAssetResponse": {
+      "additionalProperties": false,
       "description": "A model containing information about a UserAsset.",
       "properties": {
         "assetId": {
@@ -284,6 +262,7 @@
       "type": "object"
     },
     "Roblox.Web.Responses.Users.SkinnyUserResponse": {
+      "additionalProperties": false,
       "properties": {
         "displayName": {
           "type": "string"
@@ -299,20 +278,11 @@
       "type": "object"
     },
     "Roblox.Web.WebAPI.ApiEmptyResponseModel": {
-      "type": "object"
-    },
-    "Roblox.Web.WebAPI.ExclusiveStartRequest[System.Int64]": {
-      "properties": {
-        "CursorRecipe": {
-          "type": "string"
-        },
-        "ExclusiveStartKeyInfo": {
-          "$ref": "#/definitions/Roblox.Platform.Core.ExclusiveStartPaging.IExclusiveStartKeyInfo[System.Int64]"
-        }
-      },
+      "additionalProperties": false,
       "type": "object"
     },
     "Roblox.Web.WebAPI.Models.ApiPageResponse[Roblox.Trades.Api.TradeResponse]": {
+      "additionalProperties": false,
       "properties": {
         "data": {
           "items": {
@@ -489,7 +459,13 @@
             "description": "2: The trade cannot be found or you are not authorized to view it."
           },
           "401": {
-            "description": "0: Authorization has been denied for this request."
+            "description": "0: Authorization has been denied for this request.\r\n4: You are not authorized to modify this trade."
+          },
+          "404": {
+            "description": "2: The trade cannot be found or you are not authorized to view it."
+          },
+          "500": {
+            "description": "0: An unknown error occured."
           }
         },
         "summary": "Gets detailed information about a trade.",

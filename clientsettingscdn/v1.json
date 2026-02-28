@@ -1,6 +1,7 @@
 {
   "definitions": {
     "Roblox.ClientSettings.Api.Models.Response.ClientVersionResponse": {
+      "additionalProperties": false,
       "properties": {
         "bootstrapperVersion": {
           "type": "string"
@@ -21,6 +22,7 @@
       "type": "object"
     },
     "Roblox.ClientSettings.Api.Models.Response.MobileClientVersionResponse": {
+      "additionalProperties": false,
       "properties": {
         "MD5Sum": {
           "type": "string"
@@ -28,8 +30,19 @@
         "activeVersion": {
           "type": "string"
         },
-        "data": {},
+        "data": {
+          "$ref": "#/definitions/Roblox.ClientSettings.Api.Models.Response.MobileClientVersionResponseData"
+        },
         "upgradeSource": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.ClientSettings.Api.Models.Response.MobileClientVersionResponseData": {
+      "additionalProperties": false,
+      "properties": {
+        "UpgradeAction": {
           "type": "string"
         }
       },

@@ -2764,7 +2764,9 @@
               "JoinGroup",
               "LeaveGroup",
               "UpdateGroupIcon",
-              "UpdateGroupCoverPhoto"
+              "UpdateGroupCoverPhoto",
+              "AssignRole",
+              "UnassignRole"
             ],
             "in": "query",
             "name": "actionType",

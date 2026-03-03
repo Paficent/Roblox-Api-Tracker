@@ -23,6 +23,57 @@
       },
       "type": "object"
     },
+    "Roblox.Groups.Api.GroupDetailResponse": {
+      "additionalProperties": false,
+      "description": "A detailed group response model",
+      "properties": {
+        "description": {
+          "description": "The group description",
+          "type": "string"
+        },
+        "hasSocialModules": {
+          "description": "Whether the group has social modules enabled (e.g. Forums)\r\n(determines if \"Followers\" vs \"Members\" should be shown).",
+          "type": "boolean"
+        },
+        "hasVerifiedBadge": {
+          "description": "Whether the group has a verified badge.",
+          "type": "boolean"
+        },
+        "id": {
+          "description": "The group id",
+          "format": "int64",
+          "type": "integer"
+        },
+        "isBuildersClubOnly": {
+          "description": "Whether the group is Builders Club only",
+          "type": "boolean"
+        },
+        "isLocked": {
+          "description": "Whether the group is locked",
+          "type": "boolean"
+        },
+        "memberCount": {
+          "description": "The number of members in the group",
+          "format": "int32",
+          "type": "integer"
+        },
+        "name": {
+          "description": "The group name",
+          "type": "string"
+        },
+        "owner": {
+          "$ref": "#/definitions/Roblox.Groups.Api.Models.Response.UserModel"
+        },
+        "publicEntryAllowed": {
+          "description": "Whether the group is public (no approval required)",
+          "type": "boolean"
+        },
+        "shout": {
+          "$ref": "#/definitions/Roblox.Groups.Api.ShoutResponse"
+        }
+      },
+      "type": "object"
+    },
     "Roblox.Groups.Api.GroupMembershipResponse": {
       "additionalProperties": false,
       "description": "A basic group membership response model",
@@ -31,7 +82,7 @@
           "$ref": "#/definitions/Roblox.Web.Responses.Groups.GroupBasicResponse"
         },
         "isNotificationsEnabled": {
-          "description": "Whether the group notification preferences are enabled for the user",
+          "description": "Whether the group notification preferences are enabled for the user\r\nTODO: Deprecate this field - it only returns if announcement notifications are enabled and that information is already returned in the NotificationPreferences list below",
           "type": "boolean"
         },
         "notificationPreferences": {
@@ -173,6 +224,30 @@
       },
       "type": "object"
     },
+    "Roblox.Groups.Api.Models.Response.GroupRelationshipsV2Response": {
+      "additionalProperties": false,
+      "description": "A group relationships response model for V2 endpoints with cursor-based pagination.",
+      "properties": {
+        "groupId": {
+          "description": "The group id.",
+          "format": "int64",
+          "type": "integer"
+        },
+        "groupResponses": {
+          "$ref": "#/definitions/Roblox.Web.WebAPI.Models.ApiPageResponse[Roblox.Groups.Api.GroupDetailResponse]"
+        },
+        "relationshipType": {
+          "description": "The group relationship type. ['Allies' = 1, 'Enemies' = 2]",
+          "enum": [
+            1,
+            2
+          ],
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
     "Roblox.Groups.Api.Models.Response.UserModel": {
       "additionalProperties": false,
       "description": "A model representing data about an Roblox.Platform.Membership.IUser",
@@ -201,6 +276,29 @@
           "type": "integer"
         },
         "username": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Groups.Api.ShoutResponse": {
+      "additionalProperties": false,
+      "properties": {
+        "body": {
+          "description": "The shout's message",
+          "type": "string"
+        },
+        "created": {
+          "description": "The shout's created time",
+          "format": "date-time",
+          "type": "string"
+        },
+        "poster": {
+          "$ref": "#/definitions/Roblox.Groups.Api.Models.Response.UserModel"
+        },
+        "updated": {
+          "description": "The shout's last updated time",
+          "format": "date-time",
           "type": "string"
         }
       },
@@ -456,6 +554,24 @@
       },
       "type": "object"
     },
+    "Roblox.Web.WebAPI.Models.ApiPageResponse[Roblox.Groups.Api.GroupDetailResponse]": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "items": {
+            "$ref": "#/definitions/Roblox.Groups.Api.GroupDetailResponse"
+          },
+          "type": "array"
+        },
+        "nextPageCursor": {
+          "type": "string"
+        },
+        "previousPageCursor": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "Roblox.Web.WebAPI.Models.ApiPageResponse[Roblox.Groups.Api.GroupWallPostV2Model]": {
       "additionalProperties": false,
       "properties": {
@@ -623,6 +739,166 @@
         "summary": "Gets experiences created by the specified group id.",
         "tags": [
           "GroupsV2"
+        ]
+      }
+    },
+    "/v2/groups/{groupId}/relationships/{groupRelationshipType}": {
+      "get": {
+        "parameters": [
+          {
+            "description": "The group Id.",
+            "format": "int64",
+            "in": "path",
+            "name": "groupId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "The group relationship type, enemies or allies.",
+            "in": "path",
+            "name": "groupRelationshipType",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": 10,
+            "description": "The number of results per request.",
+            "enum": [
+              10,
+              25,
+              50,
+              100
+            ],
+            "format": "int32",
+            "in": "query",
+            "name": "limit",
+            "type": "integer"
+          },
+          {
+            "description": "The paging cursor for the previous or next page.",
+            "in": "query",
+            "name": "cursor",
+            "type": "string"
+          },
+          {
+            "default": "Asc",
+            "description": "The order the results are sorted in.",
+            "enum": [
+              "Asc",
+              "Desc"
+            ],
+            "in": "query",
+            "name": "sortOrder",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "RelationshipsV2:GetRelatedGroups"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Groups.Api.Models.Response.GroupRelationshipsV2Response"
+            }
+          },
+          "400": {
+            "description": "1: Group is invalid or does not exist.\r\n4: Group relationship type or request type is invalid.\r\n8: Invalid or missing pagination parameters"
+          }
+        },
+        "summary": "Gets a group's relationships with cursor-based pagination.",
+        "tags": [
+          "RelationshipsV2"
+        ]
+      }
+    },
+    "/v2/groups/{groupId}/relationships/{groupRelationshipType}/requests": {
+      "get": {
+        "parameters": [
+          {
+            "description": "The group Id.",
+            "format": "int64",
+            "in": "path",
+            "name": "groupId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "The group relationship type of the request, only allies are supported.",
+            "in": "path",
+            "name": "groupRelationshipType",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": 10,
+            "description": "The number of results per request.",
+            "enum": [
+              10,
+              25,
+              50,
+              100
+            ],
+            "format": "int32",
+            "in": "query",
+            "name": "limit",
+            "type": "integer"
+          },
+          {
+            "description": "The paging cursor for the previous or next page.",
+            "in": "query",
+            "name": "cursor",
+            "type": "string"
+          },
+          {
+            "default": "Asc",
+            "description": "The order the results are sorted in.",
+            "enum": [
+              "Asc",
+              "Desc"
+            ],
+            "in": "query",
+            "name": "sortOrder",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "RelationshipsV2:GetGroupRelationshipRequests"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Groups.Api.Models.Response.GroupRelationshipsV2Response"
+            }
+          },
+          "400": {
+            "description": "1: Group is invalid or does not exist.\r\n4: Group relationship type or request type is invalid.\r\n8: Invalid or missing pagination parameters"
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "5: You don't have permission to manage this group's relationships."
+          }
+        },
+        "summary": "Gets a group's relationship requests with cursor-based pagination.",
+        "tags": [
+          "RelationshipsV2"
         ]
       }
     },

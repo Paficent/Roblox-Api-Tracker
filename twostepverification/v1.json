@@ -180,6 +180,10 @@
           "format": "int32",
           "type": "integer"
         },
+        "is2svRecoveryEnabled": {
+          "description": "Whether to expose 2SV recovery through the 2SV challenge modal.",
+          "type": "boolean"
+        },
         "isAndroidSecurityKeyEnabled": {
           "description": "Whether Android security keys is enabled.",
           "type": "boolean"
@@ -190,6 +194,10 @@
         },
         "isDelayedUiEnabled": {
           "description": "Whether the delayed UI is enabled.",
+          "type": "boolean"
+        },
+        "isEppRecoveryCodesEnabled": {
+          "description": "Whether the EPP recovery codes UI is enabled.",
           "type": "boolean"
         },
         "isEppUIEnabled": {

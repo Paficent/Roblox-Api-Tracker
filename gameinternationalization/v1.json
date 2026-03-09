@@ -520,6 +520,16 @@
       },
       "type": "object"
     },
+    "Roblox.GameInternationalization.Api.Models.Response.GetPlayerChoiceUniverseSettingsResponse": {
+      "additionalProperties": false,
+      "properties": {
+        "IsPlayerChoiceEnabled": {
+          "description": "Checks whether player choice warning should be displayed to users.",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
     "Roblox.GameInternationalization.Api.Models.Response.GetUserLocalizationSettingsForUniverseResponse": {
       "additionalProperties": false,
       "properties": {
@@ -4912,6 +4922,54 @@
         "summary": "Get ui configurations for frontend to use.",
         "tags": [
           "UiConfigurations"
+        ]
+      }
+    },
+    "/v1/user-localization-settings/player-choice/{universeId}": {
+      "get": {
+        "parameters": [
+          {
+            "description": "The universe's ID.",
+            "format": "int64",
+            "in": "path",
+            "name": "universeId",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "UserLocalizationSettings:GetUserPlayerChoiceSettingsForUniverse"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.GameInternationalization.Api.Models.Response.GetPlayerChoiceUniverseSettingsResponse"
+            }
+          },
+          "400": {
+            "description": "14: Invalid game id"
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "500": {
+            "description": "0: An unknown error occurred."
+          },
+          "503": {
+            "description": "17: Feature is disabled"
+          }
+        },
+        "summary": "Get user player choice settings for universe.",
+        "tags": [
+          "UserLocalizationSettings"
         ]
       }
     },

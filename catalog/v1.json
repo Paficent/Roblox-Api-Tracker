@@ -660,6 +660,11 @@
           "description": "Gets or sets the property whether a bundle is recolorable or not. Not serialized for asset.",
           "type": "boolean"
         },
+        "itemCreatedUtc": {
+          "description": "The UTC creation date-time of the asset or bundle.",
+          "format": "date-time",
+          "type": "string"
+        },
         "itemRestrictions": {
           "description": "The System.Collections.Generic.IEnumerable`1 if item has Roblox.Catalog.Api.CatalogItemRestriction.",
           "items": {

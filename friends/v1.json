@@ -347,10 +347,6 @@
           "format": "int64",
           "type": "integer"
         },
-        "loggingJoinKey": {
-          "description": "Logging join key",
-          "type": "string"
-        },
         "name": {
           "description": "The user name.",
           "type": "string"
@@ -801,6 +797,12 @@
             "description": "The paging cursor for the previous or next page.",
             "in": "query",
             "name": "cursor",
+            "type": "string"
+          },
+          {
+            "description": "Optional session identifier.",
+            "in": "query",
+            "name": "sessionId",
             "type": "string"
           },
           {

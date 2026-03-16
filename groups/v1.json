@@ -820,6 +820,10 @@
           "format": "int64",
           "type": "integer"
         },
+        "isBase": {
+          "description": "Whether or not the role is the base role for the group",
+          "type": "boolean"
+        },
         "memberCount": {
           "description": "The number of members in the role.",
           "format": "int64",
@@ -849,6 +853,10 @@
           "description": "The role id",
           "format": "int64",
           "type": "integer"
+        },
+        "isBase": {
+          "description": "Whether or not the role is the base role for the group",
+          "type": "boolean"
         },
         "memberCount": {
           "description": "The number of members in the role.",
@@ -1258,6 +1266,22 @@
         },
         "username": {
           "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Groups.Api.OneTimePayoutResponse": {
+      "additionalProperties": false,
+      "description": "Response model for one-time payout requests.",
+      "properties": {
+        "status": {
+          "description": "One-time payout status. ['NotHeld' = 0, 'Held' = 1]",
+          "enum": [
+            0,
+            1
+          ],
+          "format": "int32",
+          "type": "integer"
         }
       },
       "type": "object"
@@ -4325,7 +4349,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/Roblox.Web.WebAPI.ApiEmptyResponseModel"
+              "$ref": "#/definitions/Roblox.Groups.Api.OneTimePayoutResponse"
             }
           },
           "400": {

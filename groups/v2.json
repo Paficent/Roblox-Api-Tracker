@@ -137,6 +137,10 @@
           "format": "int64",
           "type": "integer"
         },
+        "isBase": {
+          "description": "Whether or not the role is the base role for the group",
+          "type": "boolean"
+        },
         "memberCount": {
           "description": "The number of members in the role.",
           "format": "int64",

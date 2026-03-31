@@ -262,7 +262,8 @@
         "summary": "Thumbnails asset animated.",
         "tags": [
           "Assets"
-        ]
+        ],
+        "x-documentation-category": "Stable"
       }
     },
     "/v1/assets": {
@@ -390,7 +391,8 @@
         "summary": "Thumbnails assets.",
         "tags": [
           "Assets"
-        ]
+        ],
+        "x-documentation-category": "Stable"
       }
     },
     "/v1/assets-thumbnail-3d": {
@@ -519,7 +521,8 @@
         "summary": "Thumbnails badge icons.",
         "tags": [
           "Badges"
-        ]
+        ],
+        "x-documentation-category": "Stable"
       }
     },
     "/v1/batch": {
@@ -576,7 +579,8 @@
         "summary": "Returns a list of thumbnails with varying types and sizes",
         "tags": [
           "Batch"
-        ]
+        ],
+        "x-documentation-category": "Stable"
       }
     },
     "/v1/bundles/thumbnails": {
@@ -652,7 +656,8 @@
         "summary": "Get bundle thumbnails for the given CSV of bundle ids",
         "tags": [
           "Bundles"
-        ]
+        ],
+        "x-documentation-category": "Stable"
       }
     },
     "/v1/developer-products/icons": {
@@ -728,7 +733,8 @@
         "summary": "Thumbnails developer product icons.",
         "tags": [
           "DeveloperProducts"
-        ]
+        ],
+        "x-documentation-category": "Stable"
       }
     },
     "/v1/game-passes": {
@@ -803,7 +809,8 @@
         "summary": "Thumbnails game pass icons.",
         "tags": [
           "GamePasses"
-        ]
+        ],
+        "x-documentation-category": "Stable"
       }
     },
     "/v1/games/icons": {
@@ -900,7 +907,8 @@
         "summary": "Fetches game icon URLs for a list of universes' root places. Ids that do not correspond to a valid universe will be filtered out.\r\nThe ordering of the results is not guaranteed to be the same as the inputs. In order to correlated inputs with outputs please\r\nuse the 'targetId' of the objects in the result array.",
         "tags": [
           "Games"
-        ]
+        ],
+        "x-documentation-category": "Stable"
       }
     },
     "/v1/games/multiget/thumbnails": {
@@ -995,7 +1003,8 @@
         "summary": "Fetch game thumbnail URLs for a list of universe IDs.",
         "tags": [
           "Games"
-        ]
+        ],
+        "x-documentation-category": "Stable"
       }
     },
     "/v1/games/{universeId}/thumbnails": {
@@ -1084,7 +1093,8 @@
         "summary": "Fetches game thumbnail URLs for a list of universes' thumbnail ids. Ids that do not correspond to a valid thumbnail will be filtered out.",
         "tags": [
           "Games"
-        ]
+        ],
+        "x-documentation-category": "Stable"
       }
     },
     "/v1/groups/icons": {
@@ -1159,7 +1169,8 @@
         "summary": "Fetches thumbnail URLs for a list of groups. Ids that do not correspond to groups will be filtered out.",
         "tags": [
           "GroupEmblem"
-        ]
+        ],
+        "x-documentation-category": "Stable"
       }
     },
     "/v1/places/gameicons": {
@@ -1256,7 +1267,8 @@
         "summary": "Fetches game icon URLs for a list of places. Ids that do not correspond to a valid place will be filtered out.",
         "tags": [
           "Places"
-        ]
+        ],
+        "x-documentation-category": "Stable"
       }
     },
     "/v1/users/avatar": {
@@ -1345,7 +1357,8 @@
         "summary": "Get Avatar Full body shots for the given CSV of userIds",
         "tags": [
           "Avatar"
-        ]
+        ],
+        "x-documentation-category": "Stable"
       }
     },
     "/v1/users/avatar-3d": {
@@ -1468,7 +1481,8 @@
         "summary": "Get Avatar Busts for the given CSV of userIds",
         "tags": [
           "Avatar"
-        ]
+        ],
+        "x-documentation-category": "Stable"
       }
     },
     "/v1/users/avatar-headshot": {
@@ -1554,7 +1568,8 @@
         "summary": "Get Avatar Headshots for the given CSV of userIds",
         "tags": [
           "Avatar"
-        ]
+        ],
+        "x-documentation-category": "Stable"
       }
     },
     "/v1/users/outfit-3d": {
@@ -1667,7 +1682,8 @@
         "summary": "Get outfits for the given CSV of userOutfitIds",
         "tags": [
           "Outfits"
-        ]
+        ],
+        "x-documentation-category": "Stable"
       }
     }
   },

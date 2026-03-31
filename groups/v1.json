@@ -71,6 +71,24 @@
       },
       "type": "object"
     },
+    "Roblox.Groups.Api.GetGroupFeaturesResponse": {
+      "additionalProperties": false,
+      "description": "Response model for the group features endpoint.",
+      "properties": {
+        "features": {
+          "description": "The freeze status of each feature for the group.",
+          "items": {
+            "$ref": "#/definitions/Roblox.Groups.Api.GroupFeatureResponse"
+          },
+          "type": "array"
+        },
+        "isLocked": {
+          "description": "Whether the group is currently locked.",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
     "Roblox.Groups.Api.GetSocialLinkResponse": {
       "additionalProperties": false,
       "description": "A social link response from a create request",
@@ -363,6 +381,32 @@
         },
         "viewGroupPayouts": {
           "description": "Manage group games permission",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Groups.Api.GroupFeatureResponse": {
+      "additionalProperties": false,
+      "description": "Response model representing the freeze status of a group feature.",
+      "properties": {
+        "expiration": {
+          "description": "The UTC time at which the moderator-force expires, allowing the freeze to be deactivated upon request. Only present when the feature is forced frozen.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "feature": {
+          "description": "The feature type. ['Payouts' = 0, 'ContentUpload' = 1, 'GroupOwnershipTransfer' = 2, 'GameOwnershipTransfer' = 3]",
+          "enum": [
+            "Payouts",
+            "ContentUpload",
+            "GroupOwnershipTransfer",
+            "GameOwnershipTransfer"
+          ],
+          "type": "string"
+        },
+        "isFeatureBlocked": {
+          "description": "Whether the feature is currently frozen.",
           "type": "boolean"
         }
       },
@@ -806,6 +850,30 @@
     "Roblox.Groups.Api.GroupRoleDetailResponse": {
       "additionalProperties": false,
       "properties": {
+        "color": {
+          "description": "The role color. ['Invalid' = 0, 'Blue' = 1, 'Green' = 2, 'Purple' = 3, 'Yellow' = 4, 'Orange' = 5, 'Red' = 6, 'Magenta' = 7, 'Teal' = 8, 'Turquoise' = 9, 'Rust' = 10, 'Pistachio' = 11, 'Midnight' = 12, 'Lavender' = 13, 'Pink' = 14, 'Crimson' = 15, 'Plum' = 16]",
+          "enum": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
         "description": {
           "description": "The role description",
           "type": "string"
@@ -845,6 +913,30 @@
       "additionalProperties": false,
       "description": "A group role response model",
       "properties": {
+        "color": {
+          "description": "The role color. ['Invalid' = 0, 'Blue' = 1, 'Green' = 2, 'Purple' = 3, 'Yellow' = 4, 'Orange' = 5, 'Red' = 6, 'Magenta' = 7, 'Teal' = 8, 'Turquoise' = 9, 'Rust' = 10, 'Pistachio' = 11, 'Midnight' = 12, 'Lavender' = 13, 'Pink' = 14, 'Crimson' = 15, 'Plum' = 16]",
+          "enum": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
         "description": {
           "description": "The role description",
           "type": "string"
@@ -1154,6 +1246,11 @@
     "Roblox.Groups.Api.Models.Request.UpdateRoleSetRequest": {
       "additionalProperties": false,
       "properties": {
+        "color": {
+          "description": "Optional. The color of the roleset (GroupRoleSetColorType value, e.g. 0 = Invalid, 1 = Blue).\r\nWhen omitted, only name and description are updated and the existing color is left unchanged.\r\nWhen set, name, description, and color are updated via UpdateGroupRoleSetProperties.",
+          "format": "int32",
+          "type": "integer"
+        },
         "description": {
           "description": "The description of the roleset.",
           "type": "string"
@@ -3615,6 +3712,49 @@
         "summary": "Gets a groups emote sets.",
         "tags": [
           "Emotes"
+        ]
+      }
+    },
+    "/v1/groups/{groupId}/features": {
+      "get": {
+        "parameters": [
+          {
+            "format": "int64",
+            "in": "path",
+            "name": "groupId",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "GroupFeatures:GetFeatures"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Groups.Api.GetGroupFeaturesResponse"
+            }
+          },
+          "400": {
+            "description": "1: Group is invalid or does not exist."
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "23: Insufficient permissions to complete the request."
+          }
+        },
+        "summary": "Gets the freeze status of all features and the lock status for a group.",
+        "tags": [
+          "GroupFeatures"
         ]
       }
     },

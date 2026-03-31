@@ -951,6 +951,35 @@
         ]
       }
     },
+    "/v1/my/trusted-friends/count": {
+      "get": {
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Friends:GetTrustedFriendsCount"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Friends.Api.FriendsCountResponse"
+            }
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          }
+        },
+        "summary": "Get the number of trusted friends a user has",
+        "tags": [
+          "Friends"
+        ]
+      }
+    },
     "/v1/user/following-exists": {
       "post": {
         "consumes": [
@@ -2083,6 +2112,44 @@
           }
         },
         "summary": "Gets a list of friend statuses of specified users against the specified user.",
+        "tags": [
+          "Friends"
+        ]
+      }
+    },
+    "/v1/users/{userId}/trusted-friends/count": {
+      "get": {
+        "parameters": [
+          {
+            "format": "int64",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Friends:GetTrustedFriendsCount"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Friends.Api.FriendsCountResponse"
+            }
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          }
+        },
+        "summary": "Get the number of trusted friends a user has",
         "tags": [
           "Friends"
         ]

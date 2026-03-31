@@ -1,6 +1,7 @@
 {
   "definitions": {
     "Roblox.Followings.Api.Models.UserFollowingUniverseResponse": {
+      "additionalProperties": false,
       "description": "Model for a user following a universe controller responses",
       "properties": {
         "universeId": {
@@ -17,6 +18,7 @@
       "type": "object"
     },
     "Roblox.Followings.Api.Models.UserFollowingUniverseStatusResponse": {
+      "additionalProperties": false,
       "description": "Model for a user following a universe  state controller responses",
       "properties": {
         "CanFollow": {

@@ -1240,6 +1240,9 @@
     "Roblox.GameLocalization.Client.UserUniverseLocalizationSettingValue": {
       "additionalProperties": false,
       "properties": {
+        "settingTargetCode": {
+          "type": "string"
+        },
         "settingTargetId": {
           "format": "int64",
           "type": "integer"

@@ -1,6 +1,7 @@
 {
   "definitions": {
     "Roblox.Followings.Api.Models.FollowsByTypeResponse": {
+      "additionalProperties": false,
       "description": "Data model containing collection of all followed sources of a specific type.",
       "properties": {
         "followedSources": {

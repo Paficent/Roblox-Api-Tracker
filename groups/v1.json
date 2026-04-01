@@ -1181,6 +1181,17 @@
       },
       "type": "object"
     },
+    "Roblox.Groups.Api.HasGroupFeaturesBlockedResponse": {
+      "additionalProperties": false,
+      "description": "Response model for the features/status endpoint.",
+      "properties": {
+        "hasFeaturesBlocked": {
+          "description": "Whether the group has any active feature freezes.",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
     "Roblox.Groups.Api.JoinGroupRequest": {
       "additionalProperties": false,
       "description": "A request model for joining group.",
@@ -1520,6 +1531,69 @@
           "type": "integer"
         }
       },
+      "type": "object"
+    },
+    "Roblox.Groups.Api.SetFeaturesRequestModel": {
+      "additionalProperties": false,
+      "description": "Request model for setting the desired status of group features.",
+      "properties": {
+        "Features": {
+          "additionalProperties": false,
+          "description": "Dictionary of features and their desired status.",
+          "properties": {
+            "ContentUpload": {
+              "description": "The desired status of a group feature. ['On' = 0, 'Blocked' = 1]",
+              "enum": [
+                "On",
+                "Blocked"
+              ],
+              "type": "string"
+            },
+            "GameOwnershipTransfer": {
+              "description": "The desired status of a group feature. ['On' = 0, 'Blocked' = 1]",
+              "enum": [
+                "On",
+                "Blocked"
+              ],
+              "type": "string"
+            },
+            "GroupOwnershipTransfer": {
+              "description": "The desired status of a group feature. ['On' = 0, 'Blocked' = 1]",
+              "enum": [
+                "On",
+                "Blocked"
+              ],
+              "type": "string"
+            },
+            "Payouts": {
+              "description": "The desired status of a group feature. ['On' = 0, 'Blocked' = 1]",
+              "enum": [
+                "On",
+                "Blocked"
+              ],
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "required": [
+        "Features"
+      ],
+      "type": "object"
+    },
+    "Roblox.Groups.Api.SetFeaturesResponseModel": {
+      "additionalProperties": false,
+      "description": "Response model for setting the desired status of group features.",
+      "properties": {
+        "Updated": {
+          "description": "Whether any features were updated.",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "Updated"
+      ],
       "type": "object"
     },
     "Roblox.Groups.Api.ShoutResponse": {
@@ -3749,10 +3823,106 @@
             "description": "0: Authorization has been denied for this request."
           },
           "403": {
-            "description": "23: Insufficient permissions to complete the request."
+            "description": "23: Insufficient permissions to complete the request.\r\n49: User is invalid or does not exist"
           }
         },
         "summary": "Gets the freeze status of all features and the lock status for a group.",
+        "tags": [
+          "GroupFeatures"
+        ]
+      },
+      "patch": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "format": "int64",
+            "in": "path",
+            "name": "groupId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Groups.Api.SetFeaturesRequestModel"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "GroupFeatures:SetFeatures"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Groups.Api.SetFeaturesResponseModel"
+            }
+          },
+          "400": {
+            "description": "1: Group is invalid or does not exist."
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed\r\n23: Insufficient permissions to complete the request.\r\n49: User is invalid or does not exist"
+          }
+        },
+        "summary": "Sets the desired status of group features.\r\nCurrently only removes active freezes for features set to Roblox.Groups.Api.FeatureStatus.On.",
+        "tags": [
+          "GroupFeatures"
+        ]
+      }
+    },
+    "/v1/groups/{groupId}/features/status": {
+      "get": {
+        "parameters": [
+          {
+            "format": "int64",
+            "in": "path",
+            "name": "groupId",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "GroupFeatures:GetFeaturesStatus"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Groups.Api.HasGroupFeaturesBlockedResponse"
+            }
+          },
+          "400": {
+            "description": "1: Group is invalid or does not exist."
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "23: Insufficient permissions to complete the request.\r\n49: User is invalid or does not exist"
+          }
+        },
+        "summary": "Checks whether a group has ANY feature disabled (includes feature freezes and group lock).\r\nUsed to display a banner on Creator Hub/Studio to inform group members that some features may not be available.",
         "tags": [
           "GroupFeatures"
         ]

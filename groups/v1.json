@@ -485,6 +485,10 @@
         "viewAuditLogs": {
           "description": "View audit logs permission",
           "type": "boolean"
+        },
+        "viewCommunityAnalytics": {
+          "description": "View community analytics permission.",
+          "type": "boolean"
         }
       },
       "type": "object"
@@ -1905,6 +1909,9 @@
               "type": "boolean"
             },
             "ViewAuditLogs": {
+              "type": "boolean"
+            },
+            "ViewCommunityAnalytics": {
               "type": "boolean"
             },
             "ViewForums": {

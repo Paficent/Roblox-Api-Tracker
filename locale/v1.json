@@ -462,6 +462,43 @@
         ]
       }
     },
+    "/v1/locales/supported-locales-for-feature": {
+      "get": {
+        "parameters": [
+          {
+            "in": "query",
+            "name": "featureName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Locale:GetSupportedLocalesForFeature"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Locale.Api.SupportedLocalesResponse"
+            }
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        },
+        "summary": "Get list of Supported locales for a specific feature.",
+        "tags": [
+          "Locale"
+        ]
+      }
+    },
     "/v1/locales/user-locale": {
       "get": {
         "produces": [

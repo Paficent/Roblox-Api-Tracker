@@ -58,6 +58,9 @@
         "description": {
           "type": "string"
         },
+        "discountInformation": {
+          "$ref": "#/definitions/Roblox.Catalog.Api.DiscountInformation"
+        },
         "id": {
           "format": "int64",
           "type": "integer"
@@ -951,6 +954,50 @@
       },
       "type": "object"
     },
+    "Roblox.Catalog.Api.Discount": {
+      "additionalProperties": false,
+      "properties": {
+        "discountCampaign": {
+          "type": "string"
+        },
+        "localizedDiscountAttribution": {
+          "type": "string"
+        },
+        "robuxDiscountAmount": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "robuxDiscountPercentage": {
+          "format": "float",
+          "type": "number"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Catalog.Api.DiscountInformation": {
+      "additionalProperties": false,
+      "properties": {
+        "discounts": {
+          "items": {
+            "$ref": "#/definitions/Roblox.Catalog.Api.Discount"
+          },
+          "type": "array"
+        },
+        "originalPrice": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "totalDiscountAmount": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "totalDiscountPercentage": {
+          "format": "float",
+          "type": "number"
+        }
+      },
+      "type": "object"
+    },
     "Roblox.Catalog.Api.FavoriteBundlesResponse": {
       "additionalProperties": false,
       "description": "A response containing favorited bundles and whether there are more.",
@@ -1207,6 +1254,9 @@
           "description": "The days for the timed option.",
           "format": "int32",
           "type": "integer"
+        },
+        "discountInformation": {
+          "$ref": "#/definitions/Roblox.Catalog.Api.DiscountInformation"
         },
         "price": {
           "description": "The price for the timed option.",

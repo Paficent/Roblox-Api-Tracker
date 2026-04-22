@@ -269,7 +269,7 @@
             }
           },
           "400": {
-            "description": "3: The request did not contain a file to be uploaded.\r\n4: The file in the request is too large.\r\n5: The duration of the audio file is too long.\r\n8: The file type is not supported.\r\n9: The file is corrupted\r\n11: Missing permissions to spend group funds.\r\n14: The user/group does not have suffiecient funds to publish.\r\n14: The user/group does not have suffiecient funds to publish.\r\n15: The audio file has already been reviewed and rejected.\r\n18: Too many requests. Try again later.\r\n20: Error while trying to purchase the product.\r\n22: The file size estimation error was greater than the acceptable margin of error.\r\n23: The duration estimation error was greater than the acceptable margin of error.\r\n24: Asset privacy is invalid.\r\n29: Invalid argument in the request."
+            "description": "3: The request did not contain a file to be uploaded.\r\n4: The file in the request is too large.\r\n5: The duration of the audio file is too long.\r\n7: Failed to parse the file.\r\n8: The file type is not supported.\r\n9: The file is corrupted\r\n11: Missing permissions to spend group funds.\r\n14: The user/group does not have suffiecient funds to publish.\r\n14: The user/group does not have suffiecient funds to publish.\r\n15: The audio file has already been reviewed and rejected.\r\n18: Too many requests. Try again later.\r\n20: Error while trying to purchase the product.\r\n22: The file size estimation error was greater than the acceptable margin of error.\r\n23: The duration estimation error was greater than the acceptable margin of error.\r\n24: Asset privacy is invalid.\r\n29: Invalid argument in the request."
           },
           "401": {
             "description": "0: Authorization has been denied for this request.\r\n1: The request did not include an authorization."
@@ -278,7 +278,7 @@
             "description": "0: Token Validation Failed"
           },
           "500": {
-            "description": "7: Failed to parse the file.\r\n19: Asset creation was unavailable. Please try again."
+            "description": "19: Asset creation was unavailable. Please try again."
           }
         },
         "summary": "Published an audio file and returns the new asset info.",
@@ -322,16 +322,13 @@
             }
           },
           "400": {
-            "description": "3: The request did not contain a file to be uploaded.\r\n4: The file in the request is too large.\r\n5: The duration of the audio file is too long.\r\n8: The file type is not supported.\r\n9: The file is corrupted\r\n18: Too many requests. Try again later."
+            "description": "3: The request did not contain a file to be uploaded.\r\n4: The file in the request is too large.\r\n5: The duration of the audio file is too long.\r\n7: Failed to parse the file.\r\n8: The file type is not supported.\r\n9: The file is corrupted\r\n18: Too many requests. Try again later."
           },
           "401": {
             "description": "0: Authorization has been denied for this request.\r\n1: The request did not include an authorization."
           },
           "403": {
             "description": "0: Token Validation Failed"
-          },
-          "500": {
-            "description": "7: Failed to parse the file."
           }
         },
         "summary": "Verifies an audio file and returns a product that you can purchase to publish the audio file.",

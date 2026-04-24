@@ -443,7 +443,7 @@
             }
           },
           "400": {
-            "description": "3: Body colors must be valid BrickColor IDs\r\n4: Invalid outfit name\r\n5: Asset is not wearable by you and was not added to the outfit\r\n7: Invalid Player Avatar Type. Valid types are R6 and R15\r\n8: Invalid assetIds\r\n9: Meta does not apply to specified asset type\r\n10: Required meta is not provided for the specific asset type"
+            "description": "3: Body colors must be valid BrickColor IDs\r\n4: Invalid outfit name\r\n5: Asset is not wearable by you and was not added to the outfit\r\n7: Invalid Player Avatar Type. Valid types are R6 and R15\r\n8: Invalid assetIds\r\n9: Meta does not apply to specified asset type\r\n10: Required meta is not provided for the specific asset type\r\n12: Outfit type invalid or not permitted\r\n13: Invalid Scale"
           },
           "401": {
             "description": "0: Authorization has been denied for this request."
@@ -512,13 +512,16 @@
             }
           },
           "400": {
-            "description": "1: The specified userOutfit does not exist!\r\n1: Must provide both assetIds and bodyColors in to update outfit contents.\r\n3: Body colors must be valid BrickColor IDs\r\n4: Invalid outfit name\r\n5: Asset is not wearable by you\r\n8: Invalid Player Avatar Type. Valid types are R6 and R15\r\n11: Meta does not apply to specified asset type\r\n12: Meta is required for this specific asset type"
+            "description": "3: Body colors must be valid BrickColor IDs\r\n4: Invalid outfit name\r\n5: Asset is not wearable by you\r\n8: Invalid Player Avatar Type. Valid types are R6 and R15\r\n11: Meta does not apply to specified asset type\r\n12: Meta is required for this specific asset type\r\n13: Invalid Outfit Type\r\n14: Invalid scale"
           },
           "401": {
             "description": "0: Authorization has been denied for this request."
           },
           "403": {
             "description": "0: Token Validation Failed\r\n2: You don't have permission to update this outfit."
+          },
+          "404": {
+            "description": "1: The specified userOutfit does not exist!"
           },
           "500": {
             "description": "6: An error occurred while trying to update the outfit"
@@ -574,10 +577,13 @@
             }
           },
           "400": {
-            "description": "1: The specified userOutfitId is invalid.\r\n2: The outfit for the specified userOutfit is invalid."
+            "description": "2: The outfit for the specified userOutfit is invalid."
           },
           "403": {
             "description": "3: The requester does not have access to the details for the given user outfit."
+          },
+          "404": {
+            "description": "1: The specified userOutfitId is invalid."
           }
         },
         "summary": "Gets details about the contents of an outfit.",

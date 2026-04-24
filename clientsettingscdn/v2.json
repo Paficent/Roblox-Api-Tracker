@@ -29,6 +29,21 @@
       },
       "type": "object"
     },
+    "Roblox.ClientSettings.Api.Models.Response.BetaProgramInfo": {
+      "additionalProperties": false,
+      "description": "Beta program information included in the user channel response.",
+      "properties": {
+        "id": {
+          "description": "The ID of the beta program.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The display name of the beta program.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "Roblox.ClientSettings.Api.Models.Response.ClientVersionResponse": {
       "additionalProperties": false,
       "properties": {
@@ -137,6 +152,9 @@
         "channelName": {
           "description": "Name of the channel.",
           "type": "string"
+        },
+        "program": {
+          "$ref": "#/definitions/Roblox.ClientSettings.Api.Models.Response.BetaProgramInfo"
         },
         "token": {
           "description": "JWT token. If the channel is not private, this is omitted.",

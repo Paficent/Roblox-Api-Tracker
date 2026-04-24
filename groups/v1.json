@@ -1092,6 +1092,10 @@
           "description": "Whether public entry is allowed.",
           "type": "boolean"
         },
+        "isAutoAssignRoleDisabled": {
+          "description": "Whether automatic assignment of the lowest non-guest role is disabled for this group.\r\nFor non-legacy groups (created after the multi-role cutoff), this is always true.\r\nFor legacy groups, reflects the persisted GroupFeatureSettings value.\r\nNull when the value could not be determined.",
+          "type": "boolean"
+        },
         "isBuildersClubRequired": {
           "description": "Whether Builder's Club is required.",
           "type": "boolean"

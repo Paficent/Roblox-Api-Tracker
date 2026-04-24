@@ -76,6 +76,25 @@
       },
       "type": "object"
     },
+    "Roblox.GameInternationalization.Api.EditImageTranslationStatusForGameAndLanguageResponse": {
+      "additionalProperties": false,
+      "properties": {
+        "gameId": {
+          "description": "The game id.",
+          "format": "int64",
+          "type": "integer"
+        },
+        "isImageTranslationEnabled": {
+          "description": "Indicates whether image translation is currently enabled for the game and language.",
+          "type": "boolean"
+        },
+        "languageCode": {
+          "description": "The language code.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "Roblox.GameInternationalization.Api.FailedNameDescription": {
       "additionalProperties": false,
       "properties": {
@@ -446,6 +465,10 @@
       "properties": {
         "isAutomaticTranslationEnabled": {
           "description": "Indicates whether or not automatic translation is currently enabled for the game and language.",
+          "type": "boolean"
+        },
+        "isImageTranslationEnabled": {
+          "description": "Indicates whether image translation is currently enabled for the game and language.",
           "type": "boolean"
         },
         "languageCode": {
@@ -4580,6 +4603,74 @@
           }
         },
         "summary": "Enable or disable automatic translation for a game and language.",
+        "tags": [
+          "SupportedLanguages"
+        ]
+      }
+    },
+    "/v1/supported-languages/games/{gameId}/languages/{languageCode}/image-translation-status": {
+      "patch": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "description": "The id of the game.",
+            "format": "int64",
+            "in": "path",
+            "name": "gameId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "The language to enable or disable for image translation.",
+            "in": "path",
+            "name": "languageCode",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Flag to indicate if image translation should be enabled or disabled.",
+            "in": "body",
+            "name": "enableImageTranslation",
+            "required": true,
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "SupportedLanguages:EditImageTranslationStatusForGameAndLanguage"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.GameInternationalization.Api.EditImageTranslationStatusForGameAndLanguageResponse"
+            }
+          },
+          "400": {
+            "description": "14: Invalid game id\r\n22: Invalid language code\r\n53: Language is not supported for the game.\r\n93: Image translation cannot be enabled for language."
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed\r\n18: You do not have permission to manage this game"
+          },
+          "503": {
+            "description": "17: Feature is disabled"
+          }
+        },
+        "summary": "Enable or disable image translation for a game and language.",
         "tags": [
           "SupportedLanguages"
         ]

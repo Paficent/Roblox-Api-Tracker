@@ -4,6 +4,34 @@
       "additionalProperties": false,
       "description": "The result of various checks for a user's eligibility to activate a given universe from private to public.",
       "properties": {
+        "allowedAudiences": {
+          "description": "Audiences the universe is allowed to be published to.",
+          "items": {
+            "description": " ['Invalid' = 0, 'Editors' = 1, 'PlayTesters' = 2, 'Friends' = 3, 'Public' = 4]",
+            "enum": [
+              0,
+              1,
+              2,
+              3,
+              4
+            ],
+            "format": "int32",
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        "creatorTier": {
+          "description": "The creator tier of the universe owner. ['Invalid' = 0, 'Blocked' = 1, 'Private' = 2, 'Trusted' = 3, 'Everyone' = 4]",
+          "enum": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
         "isEligible": {
           "type": "boolean"
         },
@@ -13,6 +41,10 @@
         },
         "isPublishToExistingUniverse": {
           "description": "Whether the universeId is within the tracked list of distinct allowed published universes.",
+          "type": "boolean"
+        },
+        "isUniverseSelect": {
+          "description": "Whether the universe is in the \"Select\" program.",
           "type": "boolean"
         },
         "isUserEligibleForPublicPublish": {
@@ -360,13 +392,14 @@
         "playableDevices": {
           "description": "List of device types this game can be played on.",
           "items": {
-            "description": " ['Computer' = 1, 'Phone' = 2, 'Tablet' = 3, 'Console' = 4, 'VR' = 5]",
+            "description": " ['Computer' = 1, 'Phone' = 2, 'Tablet' = 3, 'Console' = 4, 'VR' = 5, 'TV' = 6]",
             "enum": [
               1,
               2,
               3,
               4,
-              5
+              5,
+              6
             ],
             "format": "int32",
             "type": "integer"
@@ -522,13 +555,14 @@
         "playableDevices": {
           "description": "List of device types this game can be played on.",
           "items": {
-            "description": " ['Computer' = 1, 'Phone' = 2, 'Tablet' = 3, 'Console' = 4, 'VR' = 5]",
+            "description": " ['Computer' = 1, 'Phone' = 2, 'Tablet' = 3, 'Console' = 4, 'VR' = 5, 'TV' = 6]",
             "enum": [
               1,
               2,
               3,
               4,
-              5
+              5,
+              6
             ],
             "format": "int32",
             "type": "integer"
@@ -1698,7 +1732,7 @@
             }
           },
           "400": {
-            "description": "1: The universe does not exist.\r\n3: Invalid UniverseAvatarType.\r\n4: Invalid UniverseScaleType.\r\n5: Invalid UniverseAnimationType.\r\n6: Invalid UniverseCollisionType.\r\n7: New universe name or description has been rejected.\r\n8: New universe name is too long.\r\n10: Invalid UniverseBodyType.\r\n11: Invalid UniverseJointPositioningType.\r\n12: The universe has no root place.\r\n15: Price is required when isForSale is true.\r\n16: This game cannot be offered for sale because it is not public.\r\n17: This game cannot be offered for sale because it has private servers enabled.\r\n18: The game price is outside of the allowed range.\r\n19: Invalid genre.\r\n20: The request body is missing.\r\n21: Invalid device type.\r\n22: Invalid asset type.\r\n23: Invalid value, the min must be less than or equal to the max\r\n24: Invalid scale value"
+            "description": "1: The universe does not exist.\r\n3: Invalid UniverseAvatarType.\r\n4: Invalid UniverseScaleType.\r\n5: Invalid UniverseAnimationType.\r\n6: Invalid UniverseCollisionType.\r\n7: New universe name or description has been rejected.\r\n8: New universe name is too long.\r\n10: Invalid UniverseBodyType.\r\n11: Invalid UniverseJointPositioningType.\r\n12: The universe has no root place.\r\n15: Price is required when isForSale is true.\r\n16: This game cannot be offered for sale because it is not public.\r\n17: This game cannot be offered for sale because it has private servers enabled.\r\n18: The game price is outside of the allowed range.\r\n19: Invalid genre.\r\n20: The request body is missing.\r\n21: Invalid device type.\r\n22: Invalid asset type.\r\n23: Invalid value, the min must be less than or equal to the max\r\n24: Invalid scale value\r\n41: You cannot change the private server price again so soon after the previous change. Please try again later."
           },
           "401": {
             "description": "0: Authorization has been denied for this request."

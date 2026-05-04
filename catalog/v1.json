@@ -645,6 +645,9 @@
           "description": "The item description.",
           "type": "string"
         },
+        "discountInformation": {
+          "$ref": "#/definitions/Roblox.Catalog.Api.DiscountInformation"
+        },
         "favoriteCount": {
           "description": "The number of times the item has been favorited.",
           "format": "int64",

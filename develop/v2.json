@@ -213,6 +213,22 @@
           "description": "If the universe allows the use of private servers.",
           "type": "boolean"
         },
+        "audiences": {
+          "description": "Audiences allowed to view this universe, written directly to the new UniversePublicitySettings\r\nentity in universe-settings-service. When provided, persists exactly the supplied audience set\r\nand skips the IsFriendsOnly-derived USS dual-write that runs under non-Off treatments.",
+          "items": {
+            "description": " ['Invalid' = 0, 'Editors' = 1, 'PlayTesters' = 2, 'Friends' = 3, 'Public' = 4]",
+            "enum": [
+              0,
+              1,
+              2,
+              3,
+              4
+            ],
+            "format": "int32",
+            "type": "integer"
+          },
+          "type": "array"
+        },
         "description": {
           "description": "The description of the universe.",
           "type": "string"
@@ -314,13 +330,14 @@
         "playableDevices": {
           "description": "List of device types this game can be played on.",
           "items": {
-            "description": " ['Computer' = 1, 'Phone' = 2, 'Tablet' = 3, 'Console' = 4, 'VR' = 5]",
+            "description": " ['Computer' = 1, 'Phone' = 2, 'Tablet' = 3, 'Console' = 4, 'VR' = 5, 'TV' = 6]",
             "enum": [
               1,
               2,
               3,
               4,
-              5
+              5,
+              6
             ],
             "format": "int32",
             "type": "integer"
@@ -401,6 +418,22 @@
         "allowPrivateServers": {
           "description": "If the universe allows the use of private servers.",
           "type": "boolean"
+        },
+        "audiences": {
+          "description": "Audiences allowed to view this universe, sourced from the new UniversePublicitySettings entity\r\nin universe-settings-service. Populated from USS only when UniversePublicitySettingsTreatment\r\nis ReverseShadow or Authority (USS is the source of truth in those modes); an empty list is\r\nreturned for Off and Shadow so clients always see a stable shape, never null.",
+          "items": {
+            "description": " ['Invalid' = 0, 'Editors' = 1, 'PlayTesters' = 2, 'Friends' = 3, 'Public' = 4]",
+            "enum": [
+              0,
+              1,
+              2,
+              3,
+              4
+            ],
+            "format": "int32",
+            "type": "integer"
+          },
+          "type": "array"
         },
         "description": {
           "description": "The universe description.",
@@ -498,13 +531,14 @@
         "playableDevices": {
           "description": "List of device types this game can be played on.",
           "items": {
-            "description": " ['Computer' = 1, 'Phone' = 2, 'Tablet' = 3, 'Console' = 4, 'VR' = 5]",
+            "description": " ['Computer' = 1, 'Phone' = 2, 'Tablet' = 3, 'Console' = 4, 'VR' = 5, 'TV' = 6]",
             "enum": [
               1,
               2,
               3,
               4,
-              5
+              5,
+              6
             ],
             "format": "int32",
             "type": "integer"
@@ -943,7 +977,7 @@
             }
           },
           "400": {
-            "description": "1: The universe does not exist.\r\n3: Invalid UniverseAvatarType.\r\n4: Invalid UniverseScaleType.\r\n5: Invalid UniverseAnimationType.\r\n6: Invalid UniverseCollisionType.\r\n7: New universe name or description has been rejected.\r\n8: New universe name is too long.\r\n10: Invalid UniverseBodyType.\r\n11: Invalid UniverseJointPositioningType.\r\n12: The universe has no root place.\r\n15: Price is required when isForSale is true.\r\n16: This game cannot be offered for sale because it is not public.\r\n17: This game cannot be offered for sale because it has private servers enabled.\r\n18: The game price is outside of the allowed range.\r\n19: Invalid genre.\r\n20: The request body is missing.\r\n21: Invalid device type.\r\n22: Invalid asset type.\r\n23: Invalid value, the min must be less than or equal to the max\r\n24: Invalid scale value\r\n28: OptIn/Out Regions Not Supported."
+            "description": "1: The universe does not exist.\r\n3: Invalid UniverseAvatarType.\r\n4: Invalid UniverseScaleType.\r\n5: Invalid UniverseAnimationType.\r\n6: Invalid UniverseCollisionType.\r\n7: New universe name or description has been rejected.\r\n8: New universe name is too long.\r\n10: Invalid UniverseBodyType.\r\n11: Invalid UniverseJointPositioningType.\r\n12: The universe has no root place.\r\n15: Price is required when isForSale is true.\r\n16: This game cannot be offered for sale because it is not public.\r\n17: This game cannot be offered for sale because it has private servers enabled.\r\n18: The game price is outside of the allowed range.\r\n19: Invalid genre.\r\n20: The request body is missing.\r\n21: Invalid device type.\r\n22: Invalid asset type.\r\n23: Invalid value, the min must be less than or equal to the max\r\n24: Invalid scale value\r\n28: OptIn/Out Regions Not Supported.\r\n41: You cannot change the private server price again so soon after the previous change. Please try again later."
           },
           "401": {
             "description": "0: Authorization has been denied for this request."

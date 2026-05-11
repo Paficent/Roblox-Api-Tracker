@@ -247,11 +247,12 @@
         "itemStatus": {
           "description": "The System.Collections.Generic.IEnumerable`1 if item has Roblox.Catalog.Api.CatalogItemStatus.",
           "items": {
-            "description": "Catalog item status enum. ['New' = 1, 'Sale' = 2, 'SaleTimer' = 7]",
+            "description": "Catalog item status enum. ['New' = 1, 'Sale' = 2, 'SaleTimer' = 7, 'IsFAE' = 8]",
             "enum": [
               1,
               2,
-              7
+              7,
+              8
             ],
             "format": "int32",
             "type": "integer"
@@ -542,11 +543,12 @@
         "itemStatus": {
           "description": "The System.Collections.Generic.IEnumerable`1 if item has Roblox.Catalog.Api.CatalogItemStatus.",
           "items": {
-            "description": "Catalog item status enum. ['New' = 1, 'Sale' = 2, 'SaleTimer' = 7]",
+            "description": "Catalog item status enum. ['New' = 1, 'Sale' = 2, 'SaleTimer' = 7, 'IsFAE' = 8]",
             "enum": [
               1,
               2,
-              7
+              7,
+              8
             ],
             "format": "int32",
             "type": "integer"

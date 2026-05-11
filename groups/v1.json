@@ -4056,7 +4056,7 @@
             }
           },
           "400": {
-            "description": "1: The group is invalid or does not exist."
+            "description": "1: The group is invalid or does not exist.\r\n36: The pagination cursor is invalid."
           },
           "401": {
             "description": "0: Authorization has been denied for this request."
@@ -5543,7 +5543,7 @@
             }
           },
           "400": {
-            "description": "1: The group is invalid or does not exist."
+            "description": "1: The group is invalid or does not exist.\r\n36: The pagination cursor is invalid."
           },
           "403": {
             "description": "2: The roleset is invalid or does not exist.\r\n35: You do not have permission to view this group's member list."
@@ -6189,7 +6189,7 @@
             }
           },
           "400": {
-            "description": "1: The group is invalid or does not exist."
+            "description": "1: The group is invalid or does not exist.\r\n36: The pagination cursor is invalid."
           },
           "403": {
             "description": "35: You do not have permission to view this group's member list."

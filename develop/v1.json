@@ -477,6 +477,22 @@
           "description": "If the universe allows the use of private servers.",
           "type": "boolean"
         },
+        "audiences": {
+          "description": "Audiences allowed to view this universe, sourced from the new UniversePublicitySettings entity\r\nin universe-settings-service. Populated from USS only when UniversePublicitySettingsTreatment\r\nis ReverseShadow or Authority (USS is the source of truth in those modes); an empty list is\r\nreturned for Off and Shadow so clients always see a stable shape, never null.",
+          "items": {
+            "description": " ['Invalid' = 0, 'Editors' = 1, 'PlayTesters' = 2, 'Friends' = 3, 'Public' = 4]",
+            "enum": [
+              0,
+              1,
+              2,
+              3,
+              4
+            ],
+            "format": "int32",
+            "type": "integer"
+          },
+          "type": "array"
+        },
         "fiatBasePriceId": {
           "description": "The basePriceId for the Fiat product.",
           "type": "string"

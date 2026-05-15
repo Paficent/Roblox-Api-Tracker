@@ -153,6 +153,10 @@
           "description": "Name of the channel.",
           "type": "string"
         },
+        "isFlagOnly": {
+          "description": "Whether the channel is flag-only. A flag-only channel uses production binaries.\r\nIf the channel is not flag-only, this is omitted.",
+          "type": "boolean"
+        },
         "program": {
           "$ref": "#/definitions/Roblox.ClientSettings.Api.Models.Response.BetaProgramInfo"
         },

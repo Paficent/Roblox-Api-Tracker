@@ -108,6 +108,22 @@
       },
       "type": "object"
     },
+    "Roblox.Inventory.Api.V2.CollectibleItemOwnerResponse": {
+      "additionalProperties": false,
+      "properties": {
+        "collectibleItemInstanceId": {
+          "type": "string"
+        },
+        "owner": {
+          "$ref": "#/definitions/Roblox.Web.Responses.RelatedEntityTypeResponse[Roblox.Agents.AgentType]"
+        },
+        "serialNumber": {
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
     "Roblox.Inventory.Api.V2.UserAssetItemModelV2": {
       "additionalProperties": false,
       "description": "The user asset item model for V2 controllers.",
@@ -281,6 +297,24 @@
       },
       "type": "object"
     },
+    "Roblox.Web.WebAPI.Models.ApiPageResponse[Roblox.Inventory.Api.V2.CollectibleItemOwnerResponse]": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "items": {
+            "$ref": "#/definitions/Roblox.Inventory.Api.V2.CollectibleItemOwnerResponse"
+          },
+          "type": "array"
+        },
+        "nextPageCursor": {
+          "type": "string"
+        },
+        "previousPageCursor": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "Roblox.Web.WebAPI.Models.ApiPageResponse[Roblox.Inventory.Api.V2.UserAssetItemModelV2]": {
       "additionalProperties": false,
       "properties": {
@@ -376,6 +410,77 @@
         "summary": "Gets a list of owners of an asset.",
         "tags": [
           "AssetsV2"
+        ]
+      }
+    },
+    "/v2/collectible-items/{collectibleItemId}/owners": {
+      "get": {
+        "parameters": [
+          {
+            "description": "The collectible item ID.",
+            "in": "path",
+            "name": "collectibleItemId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": 10,
+            "description": "The number of results per request.",
+            "format": "int32",
+            "in": "query",
+            "name": "limit",
+            "type": "integer"
+          },
+          {
+            "default": "",
+            "description": "The paging cursor for the previous or next page.",
+            "in": "query",
+            "name": "cursor",
+            "type": "string"
+          },
+          {
+            "default": 1,
+            "description": "The order the results are sorted in.",
+            "enum": [
+              1,
+              2
+            ],
+            "format": "int32",
+            "in": "query",
+            "name": "sortOrder",
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "InventoryV2:GetCollectibleItemOwners"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.Models.ApiPageResponse[Roblox.Inventory.Api.V2.CollectibleItemOwnerResponse]"
+            }
+          },
+          "400": {
+            "description": "1: The collectible item id is invalid."
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "2: You do not have permission to view the owners of this item."
+          }
+        },
+        "summary": "Gets a list of owners of a collectible item.",
+        "tags": [
+          "InventoryV2"
         ]
       }
     },

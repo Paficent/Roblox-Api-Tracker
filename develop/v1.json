@@ -253,6 +253,22 @@
       "additionalProperties": false,
       "description": "Represents a universe in API endpoint results.",
       "properties": {
+        "audiences": {
+          "description": "The audiences this universe is visible to (e.g. Editors, PlayTesters, Friends, Public).\r\nAlways non-null; may be empty when audience visibility has not been configured.",
+          "items": {
+            "description": " ['Invalid' = 0, 'Editors' = 1, 'PlayTesters' = 2, 'Friends' = 3, 'Public' = 4]",
+            "enum": [
+              0,
+              1,
+              2,
+              3,
+              4
+            ],
+            "format": "int32",
+            "type": "integer"
+          },
+          "type": "array"
+        },
         "created": {
           "description": "The created System.DateTime",
           "format": "date-time",
@@ -478,7 +494,7 @@
           "type": "boolean"
         },
         "audiences": {
-          "description": "Audiences allowed to view this universe, sourced from the new UniversePublicitySettings entity\r\nin universe-settings-service. Populated from USS only when UniversePublicitySettingsTreatment\r\nis ReverseShadow or Authority (USS is the source of truth in those modes); an empty list is\r\nreturned for Off and Shadow so clients always see a stable shape, never null.",
+          "description": "The audiences this universe is visible to (e.g. Editors, PlayTesters, Friends, Public).\r\nAlways non-null; may be empty when audience visibility has not been configured.",
           "items": {
             "description": " ['Invalid' = 0, 'Editors' = 1, 'PlayTesters' = 2, 'Friends' = 3, 'Public' = 4]",
             "enum": [

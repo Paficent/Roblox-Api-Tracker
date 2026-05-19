@@ -1,19 +1,5 @@
 {
   "definitions": {
-    "Roblox.Contacts.Api.Models.Response.ContactsMetadataResponseModel": {
-      "additionalProperties": false,
-      "properties": {
-        "multiGetContactsCacheTTLinMS": {
-          "format": "int32",
-          "type": "integer"
-        },
-        "multiGetContactsMaxSize": {
-          "format": "int32",
-          "type": "integer"
-        }
-      },
-      "type": "object"
-    },
     "Roblox.Contacts.Api.Request.GetUserTagsRequestModel": {
       "additionalProperties": false,
       "properties": {
@@ -91,37 +77,6 @@
     "version": "v1"
   },
   "paths": {
-    "/v1/contacts/metadata": {
-      "get": {
-        "deprecated": true,
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
-        "properties": {
-          "internal": false,
-          "metricIds": [
-            "Contacts:GetContactsMetadata"
-          ],
-          "obsoleteMessage": "Endpoint is Deprecated"
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/Roblox.Contacts.Api.Models.Response.ContactsMetadataResponseModel"
-            }
-          },
-          "401": {
-            "description": "0: Authorization has been denied for this request."
-          }
-        },
-        "summary": "Gets contextual information for contacts and usertags",
-        "tags": [
-          "Contacts"
-        ]
-      }
-    },
     "/v1/user/get-tags": {
       "post": {
         "consumes": [

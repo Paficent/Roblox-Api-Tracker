@@ -1451,6 +1451,13 @@
             "$ref": "#/definitions/Roblox.Groups.Api.PayoutRecipientRequest"
           },
           "type": "array"
+        },
+        "WatermarkContributions": {
+          "description": "Optional watermark contributions for DevEx attribution tracking.",
+          "items": {
+            "$ref": "#/definitions/Roblox.Groups.Api.WatermarkContributionRequest"
+          },
+          "type": "array"
         }
       },
       "type": "object"
@@ -1974,6 +1981,24 @@
         },
         "user": {
           "$ref": "#/definitions/Roblox.Groups.Api.Models.Response.UserModel"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Groups.Api.WatermarkContributionRequest": {
+      "additionalProperties": false,
+      "properties": {
+        "amount": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "balanceKey": {
+          "description": " ['Standard' = 1, 'O18Boosted' = 2]",
+          "enum": [
+            "Standard",
+            "O18Boosted"
+          ],
+          "type": "string"
         }
       },
       "type": "object"

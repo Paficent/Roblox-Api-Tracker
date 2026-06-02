@@ -162,10 +162,11 @@
           "type": "string"
         },
         "type": {
-          "description": " ['User' = 1, 'Group' = 2]",
+          "description": " ['User' = 1, 'Group' = 2, 'Experience' = 3]",
           "enum": [
             1,
-            2
+            2,
+            3
           ],
           "format": "int32",
           "type": "integer"
@@ -549,7 +550,9 @@
               87,
               88,
               89,
-              90
+              90,
+              91,
+              92
             ],
             "format": "int32",
             "in": "query",

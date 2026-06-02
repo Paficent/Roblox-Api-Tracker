@@ -1054,6 +1054,7 @@
       "additionalProperties": false,
       "properties": {
         "items": {
+          "description": "The items to retrieve details for. Each endpoint has an item count limit per request.",
           "items": {
             "$ref": "#/definitions/Roblox.Catalog.Api.MultigetItemDetailsRequestItem"
           },
@@ -1732,6 +1733,7 @@
           "application/json",
           "text/json"
         ],
+        "description": "There is an item count limit per request. Exceeding this returns 400 Bad Request.",
         "parameters": [
           {
             "description": "Roblox.Catalog.Api.MultigetItemDetailsRequestModel.",
@@ -1770,7 +1772,7 @@
             "description": "8: The flood limit has been exceeded."
           }
         },
-        "summary": "Returns list of item details.",
+        "summary": "Returns details for one or more catalog items.",
         "tags": [
           "Catalog"
         ]

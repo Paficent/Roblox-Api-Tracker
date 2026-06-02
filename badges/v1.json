@@ -618,6 +618,9 @@
               "$ref": "#/definitions/Roblox.Web.WebAPI.Models.ApiPageResponse[Roblox.Badges.Api.BadgeResponse]"
             }
           },
+          "400": {
+            "description": "26: The pagination cursor is invalid or incompatible with the current request."
+          },
           "404": {
             "description": "3: The game is invalid or does not exist."
           }

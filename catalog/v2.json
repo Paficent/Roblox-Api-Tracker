@@ -915,7 +915,6 @@
           {
             "in": "query",
             "name": "Taxonomy",
-            "required": true,
             "type": "string"
           },
           {
@@ -926,7 +925,6 @@
               "type": "integer"
             },
             "name": "AssetTypeIds",
-            "required": true,
             "type": "array"
           },
           {
@@ -937,7 +935,6 @@
               "type": "integer"
             },
             "name": "BundleTypeIds",
-            "required": true,
             "type": "array"
           },
           {
@@ -954,7 +951,6 @@
             "format": "int32",
             "in": "query",
             "name": "CategoryFilter",
-            "required": true,
             "type": "integer"
           },
           {
@@ -969,7 +965,6 @@
             "format": "int32",
             "in": "query",
             "name": "SortAggregation",
-            "required": true,
             "type": "integer"
           },
           {
@@ -984,7 +979,6 @@
             "format": "int32",
             "in": "query",
             "name": "SortType",
-            "required": true,
             "type": "integer"
           },
           {
@@ -996,52 +990,44 @@
             "format": "int32",
             "in": "query",
             "name": "CreatorType",
-            "required": true,
             "type": "integer"
           },
           {
             "format": "int64",
             "in": "query",
             "name": "CreatorTargetId",
-            "required": true,
             "type": "integer"
           },
           {
             "in": "query",
             "name": "CreatorName",
-            "required": true,
             "type": "string"
           },
           {
             "format": "int32",
             "in": "query",
             "name": "MaxPrice",
-            "required": true,
             "type": "integer"
           },
           {
             "format": "int32",
             "in": "query",
             "name": "MinPrice",
-            "required": true,
             "type": "integer"
           },
           {
             "in": "query",
             "name": "Keyword",
-            "required": true,
             "type": "string"
           },
           {
             "in": "query",
             "name": "IncludeNotForSale",
-            "required": true,
             "type": "boolean"
           },
           {
             "in": "query",
             "name": "TriggeredByTopicDiscovery",
-            "required": true,
             "type": "boolean"
           },
           {
@@ -1055,14 +1041,12 @@
             "format": "int32",
             "in": "query",
             "name": "SalesTypeFilter",
-            "required": true,
             "type": "integer"
           },
           {
             "description": "The input topics format is split by \",\". E.g \"topics=cat,hat,red\".",
             "in": "query",
             "name": "Topics",
-            "required": true,
             "type": "string"
           },
           {

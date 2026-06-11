@@ -194,7 +194,6 @@
         ],
         "parameters": [
           {
-            "description": "",
             "in": "body",
             "name": "request",
             "required": true,
@@ -252,20 +251,17 @@
       "get": {
         "parameters": [
           {
-            "description": "",
             "in": "query",
             "name": "assetType",
             "required": true,
             "type": "string"
           },
           {
-            "description": "",
             "in": "query",
             "name": "isArchived",
             "type": "boolean"
           },
           {
-            "description": "",
             "format": "int64",
             "in": "query",
             "name": "groupId",

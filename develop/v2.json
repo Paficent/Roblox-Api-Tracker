@@ -439,10 +439,6 @@
           "description": "The universe description.",
           "type": "string"
         },
-        "eligibleForTextChatMigration": {
-          "description": "Whether the game is elegible for text chat service auto migration.",
-          "type": "boolean"
-        },
         "engineAvatarSettings": {
           "description": "Optional JSON string used to store avatar settings used by the game engine.\r\nNote: This is an experimental field which may be changed or removed in future.",
           "type": "string"

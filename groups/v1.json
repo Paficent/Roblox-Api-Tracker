@@ -36,6 +36,21 @@
       },
       "type": "object"
     },
+    "Roblox.Groups.Api.CommunityFeatureFreezeStatus": {
+      "additionalProperties": false,
+      "description": "Response model representing the freeze status of a community feature.",
+      "properties": {
+        "feature": {
+          "description": "The community feature.",
+          "type": "string"
+        },
+        "isDisabled": {
+          "description": "Whether the feature is currently disabled.",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
     "Roblox.Groups.Api.CreateBlockedKeywordsRequest": {
       "additionalProperties": false,
       "properties": {
@@ -67,6 +82,20 @@
         },
         "challengeId": {
           "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Groups.Api.GetCommunityFeatureFreezesResponse": {
+      "additionalProperties": false,
+      "description": "Response model for the community feature freezes endpoint.",
+      "properties": {
+        "features": {
+          "description": "The freeze status of each community feature.",
+          "items": {
+            "$ref": "#/definitions/Roblox.Groups.Api.CommunityFeatureFreezeStatus"
+          },
+          "type": "array"
         }
       },
       "type": "object"
@@ -396,12 +425,14 @@
           "type": "string"
         },
         "feature": {
-          "description": "The feature type. ['Payouts' = 0, 'ContentUpload' = 1, 'GroupOwnershipTransfer' = 2, 'GameOwnershipTransfer' = 3]",
+          "description": "The feature type. ['Payouts' = 0, 'ContentUpload' = 1, 'GroupOwnershipTransfer' = 2, 'GameOwnershipTransfer' = 3, 'ForumRead' = 4, 'ForumWrite' = 5]",
           "enum": [
             "Payouts",
             "ContentUpload",
             "GroupOwnershipTransfer",
-            "GameOwnershipTransfer"
+            "GameOwnershipTransfer",
+            "ForumRead",
+            "ForumWrite"
           ],
           "type": "string"
         },
@@ -562,6 +593,10 @@
         },
         "isNotificationsEnabled": {
           "description": "Whether the group's notification preferences set to enabled for the user",
+          "type": "boolean"
+        },
+        "isOwner": {
+          "description": "Whether the authenticated user is the owner of the group",
           "type": "boolean"
         },
         "isPendingJoin": {
@@ -1557,6 +1592,22 @@
           "description": "Dictionary of features and their desired status.",
           "properties": {
             "ContentUpload": {
+              "description": "The desired status of a group feature. ['On' = 0, 'Blocked' = 1]",
+              "enum": [
+                "On",
+                "Blocked"
+              ],
+              "type": "string"
+            },
+            "ForumRead": {
+              "description": "The desired status of a group feature. ['On' = 0, 'Blocked' = 1]",
+              "enum": [
+                "On",
+                "Blocked"
+              ],
+              "type": "string"
+            },
+            "ForumWrite": {
               "description": "The desired status of a group feature. ['On' = 0, 'Blocked' = 1]",
               "enum": [
                 "On",
@@ -2997,7 +3048,9 @@
               "UpdateGroupIcon",
               "UpdateGroupCoverPhoto",
               "AssignRole",
-              "UnassignRole"
+              "UnassignRole",
+              "PublishAnnouncement",
+              "DeleteAnnouncement"
             ],
             "in": "query",
             "name": "actionType",
@@ -3683,6 +3736,46 @@
         "summary": "Claims ownership of the group as the authenticated user",
         "tags": [
           "Membership"
+        ]
+      }
+    },
+    "/v1/groups/{groupId}/community-feature-freezes": {
+      "get": {
+        "parameters": [
+          {
+            "format": "int64",
+            "in": "path",
+            "name": "groupId",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "GroupFeatures:GetCommunityFeatureFreezes"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Groups.Api.GetCommunityFeatureFreezesResponse"
+            }
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "49: User is invalid or does not exist"
+          }
+        },
+        "summary": "Gets the freeze status of the community features for a group.",
+        "tags": [
+          "GroupFeatures"
         ]
       }
     },

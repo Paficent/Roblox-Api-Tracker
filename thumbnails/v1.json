@@ -122,6 +122,9 @@
           "format": "int64",
           "type": "integer"
         },
+        "thumbnailSource": {
+          "type": "string"
+        },
         "version": {
           "type": "string"
         }
@@ -149,6 +152,9 @@
         "targetId": {
           "format": "int64",
           "type": "integer"
+        },
+        "thumbnailSource": {
+          "type": "string"
         },
         "version": {
           "type": "string"

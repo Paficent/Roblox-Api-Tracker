@@ -3765,12 +3765,6 @@
             "schema": {
               "$ref": "#/definitions/Roblox.Groups.Api.GetCommunityFeatureFreezesResponse"
             }
-          },
-          "401": {
-            "description": "0: Authorization has been denied for this request."
-          },
-          "403": {
-            "description": "49: User is invalid or does not exist"
           }
         },
         "summary": "Gets the freeze status of the community features for a group.",

@@ -344,6 +344,10 @@
       "additionalProperties": false,
       "description": "Model for UniverseSettings patch requests",
       "properties": {
+        "demoModeEnabled": {
+          "description": "Whether demo mode is enabled for this paid access game.",
+          "type": "boolean"
+        },
         "fiatBasePriceId": {
           "description": "Sets the base price of the experience for Fiat purchases.",
           "type": "string"
@@ -508,6 +512,15 @@
             "type": "integer"
           },
           "type": "array"
+        },
+        "demoModeEnabled": {
+          "description": "Whether demo mode is enabled.",
+          "type": "boolean"
+        },
+        "demoModeLastChangedTime": {
+          "description": "When demo mode was last toggled. For client-side throttle UX.",
+          "format": "date-time",
+          "type": "string"
         },
         "fiatBasePriceId": {
           "description": "The basePriceId for the Fiat product.",

@@ -229,6 +229,10 @@
           },
           "type": "array"
         },
+        "demoModeEnabled": {
+          "description": "Whether demo mode is enabled for this paid access game.",
+          "type": "boolean"
+        },
         "description": {
           "description": "The description of the universe.",
           "type": "string"
@@ -434,6 +438,15 @@
             "type": "integer"
           },
           "type": "array"
+        },
+        "demoModeEnabled": {
+          "description": "Whether demo mode is enabled.",
+          "type": "boolean"
+        },
+        "demoModeLastChangedTime": {
+          "description": "When demo mode was last toggled. For client-side throttle UX.",
+          "format": "date-time",
+          "type": "string"
         },
         "description": {
           "description": "The universe description.",

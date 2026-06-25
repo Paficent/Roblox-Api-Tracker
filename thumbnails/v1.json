@@ -1,27 +1,5 @@
 {
   "definitions": {
-    "Roblox.Thumbnails.Api.Models.UniverseThumbnailsResponse": {
-      "additionalProperties": false,
-      "description": "A response model for thumbnails which belong to a specific universe ID",
-      "properties": {
-        "error": {
-          "$ref": "#/definitions/Roblox.Web.WebAPI.Models.ApiErrorModel"
-        },
-        "thumbnails": {
-          "description": "An array of ThumbnailResponse objects",
-          "items": {
-            "$ref": "#/definitions/Roblox.Web.Responses.Thumbnails.ThumbnailResponse"
-          },
-          "type": "array"
-        },
-        "universeId": {
-          "description": "Integer universe ID",
-          "format": "int64",
-          "type": "integer"
-        }
-      },
-      "type": "object"
-    },
     "Roblox.Thumbnails.Apis.Models.ThumbnailBatchRequest": {
       "additionalProperties": false,
       "properties": {
@@ -40,6 +18,10 @@
         "headShape": {
           "description": "Head shape for dynamic head thumbnails (only relevant for Asset thumbnail types with dynamic head)",
           "type": "string"
+        },
+        "includeBackground": {
+          "description": "Whether to include a background in avatar thumbnails (defaults to false)",
+          "type": "boolean"
         },
         "isCircular": {
           "description": "Is the thumbnail circular shape",
@@ -89,134 +71,6 @@
         }
       },
       "type": "object"
-    },
-    "Roblox.Web.Responses.Thumbnails.ThumbnailBatchResponse": {
-      "additionalProperties": false,
-      "properties": {
-        "errorCode": {
-          "format": "int32",
-          "type": "integer"
-        },
-        "errorMessage": {
-          "type": "string"
-        },
-        "imageUrl": {
-          "type": "string"
-        },
-        "requestId": {
-          "type": "string"
-        },
-        "state": {
-          "description": " ['Error' = 0, 'Completed' = 1, 'InReview' = 2, 'Pending' = 3, 'Blocked' = 4, 'TemporarilyUnavailable' = 5]",
-          "enum": [
-            "Error",
-            "Completed",
-            "InReview",
-            "Pending",
-            "Blocked",
-            "TemporarilyUnavailable"
-          ],
-          "type": "string"
-        },
-        "targetId": {
-          "format": "int64",
-          "type": "integer"
-        },
-        "thumbnailSource": {
-          "type": "string"
-        },
-        "version": {
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "Roblox.Web.Responses.Thumbnails.ThumbnailResponse": {
-      "additionalProperties": false,
-      "properties": {
-        "imageUrl": {
-          "type": "string"
-        },
-        "state": {
-          "description": " ['Error' = 0, 'Completed' = 1, 'InReview' = 2, 'Pending' = 3, 'Blocked' = 4, 'TemporarilyUnavailable' = 5]",
-          "enum": [
-            "Error",
-            "Completed",
-            "InReview",
-            "Pending",
-            "Blocked",
-            "TemporarilyUnavailable"
-          ],
-          "type": "string"
-        },
-        "targetId": {
-          "format": "int64",
-          "type": "integer"
-        },
-        "thumbnailSource": {
-          "type": "string"
-        },
-        "version": {
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.Thumbnails.Api.Models.UniverseThumbnailsResponse]": {
-      "additionalProperties": false,
-      "properties": {
-        "data": {
-          "items": {
-            "$ref": "#/definitions/Roblox.Thumbnails.Api.Models.UniverseThumbnailsResponse"
-          },
-          "type": "array"
-        }
-      },
-      "type": "object"
-    },
-    "Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.Web.Responses.Thumbnails.ThumbnailBatchResponse]": {
-      "additionalProperties": false,
-      "properties": {
-        "data": {
-          "items": {
-            "$ref": "#/definitions/Roblox.Web.Responses.Thumbnails.ThumbnailBatchResponse"
-          },
-          "type": "array"
-        }
-      },
-      "type": "object"
-    },
-    "Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.Web.Responses.Thumbnails.ThumbnailResponse]": {
-      "additionalProperties": false,
-      "properties": {
-        "data": {
-          "items": {
-            "$ref": "#/definitions/Roblox.Web.Responses.Thumbnails.ThumbnailResponse"
-          },
-          "type": "array"
-        }
-      },
-      "type": "object"
-    },
-    "Roblox.Web.WebAPI.Models.ApiErrorModel": {
-      "additionalProperties": false,
-      "properties": {
-        "code": {
-          "format": "int32",
-          "type": "integer"
-        },
-        "field": {
-          "type": "string"
-        },
-        "fieldData": {},
-        "message": {
-          "type": "string"
-        },
-        "userFacingMessage": {
-          "type": "string"
-        }
-      },
-      "type": "object"
     }
   },
   "host": "thumbnails.roblox.com",
@@ -244,10 +98,6 @@
             "type": "integer"
           }
         ],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
         "properties": {
           "internal": false,
           "metricIds": [
@@ -256,10 +106,7 @@
         },
         "responses": {
           "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/Roblox.Web.Responses.Thumbnails.ThumbnailResponse"
-            }
+            "description": "OK"
           },
           "400": {
             "description": "4: The requested Ids are invalid, of an invalid type or missing."
@@ -370,10 +217,6 @@
             "type": "boolean"
           }
         ],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
         "properties": {
           "internal": false,
           "metricIds": [
@@ -382,10 +225,7 @@
         },
         "responses": {
           "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.Web.Responses.Thumbnails.ThumbnailResponse]"
-            }
+            "description": "OK"
           },
           "400": {
             "description": "1: There are too many requested Ids.\r\n2: The requested image format is invalid. Please see documentation for valid thumbnail format parameter name and values.\r\n3: The requested size is invalid. Please see documentation for valid thumbnail size parameter name and format.\r\n4: The requested Ids are invalid, of an invalid type or missing.\r\n8: The requested return policy is invalid (must be PlaceHolder, AutoGenerated or ForceAutoGenerated).\r\n10: Circular thumbnail requests are not allowed"
@@ -427,10 +267,6 @@
             "type": "integer"
           }
         ],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
         "properties": {
           "internal": false,
           "metricIds": [
@@ -439,10 +275,7 @@
         },
         "responses": {
           "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/Roblox.Web.Responses.Thumbnails.ThumbnailResponse"
-            }
+            "description": "OK"
           },
           "400": {
             "description": "4: The requested Ids are invalid, of an invalid type or missing."
@@ -503,10 +336,6 @@
             "type": "boolean"
           }
         ],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
         "properties": {
           "internal": false,
           "metricIds": [
@@ -515,10 +344,7 @@
         },
         "responses": {
           "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.Web.Responses.Thumbnails.ThumbnailResponse]"
-            }
+            "description": "OK"
           },
           "400": {
             "description": "1: There are too many requested Ids.\r\n2: The requested image format is invalid. Please see documentation for valid thumbnail format parameter name and values.\r\n3: The requested size is invalid. Please see documentation for valid thumbnail size parameter name and format.\r\n4: The requested Ids are invalid, of an invalid type or missing.\r\n10: Circular thumbnail requests are not allowed"
@@ -558,10 +384,6 @@
             }
           }
         ],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
         "properties": {
           "internal": false,
           "metricIds": [
@@ -570,10 +392,7 @@
         },
         "responses": {
           "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.Web.Responses.Thumbnails.ThumbnailBatchResponse]"
-            }
+            "description": "OK"
           },
           "400": {
             "description": "1: There are too many requested Ids.\r\n2: The requested image format is invalid. Please see documentation for valid thumbnail format parameter name and values.\r\n3: The requested size is invalid. Please see documentation for valid thumbnail size parameter name and format.\r\n4: The requested Ids are invalid, of an invalid type or missing.\r\n7: The specified type is not supported by the batch endpoint"
@@ -638,10 +457,6 @@
             "type": "boolean"
           }
         ],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
         "properties": {
           "internal": false,
           "metricIds": [
@@ -650,10 +465,7 @@
         },
         "responses": {
           "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.Web.Responses.Thumbnails.ThumbnailResponse]"
-            }
+            "description": "OK"
           },
           "400": {
             "description": "1: There are too many requested Ids.\r\n2: The requested image format is invalid. Please see documentation for valid thumbnail format parameter name and values.\r\n3: The requested size is invalid. Please see documentation for valid thumbnail size parameter name and format.\r\n4: The requested Ids are invalid, of an invalid type or missing.\r\n10: Circular thumbnail requests are not allowed"
@@ -715,10 +527,6 @@
             "type": "boolean"
           }
         ],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
         "properties": {
           "internal": false,
           "metricIds": [
@@ -727,10 +535,7 @@
         },
         "responses": {
           "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.Web.Responses.Thumbnails.ThumbnailResponse]"
-            }
+            "description": "OK"
           },
           "400": {
             "description": "1: There are too many requested Ids.\r\n2: The requested image format is invalid. Please see documentation for valid thumbnail format parameter name and values.\r\n3: The requested size is invalid. Please see documentation for valid thumbnail size parameter name and format.\r\n4: The requested Ids are invalid, of an invalid type or missing.\r\n10: Circular thumbnail requests are not allowed"
@@ -791,10 +596,6 @@
             "type": "boolean"
           }
         ],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
         "properties": {
           "internal": false,
           "metricIds": [
@@ -803,10 +604,7 @@
         },
         "responses": {
           "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.Web.Responses.Thumbnails.ThumbnailResponse]"
-            }
+            "description": "OK"
           },
           "400": {
             "description": "1: There are too many requested Ids.\r\n2: The requested image format is invalid. Please see documentation for valid thumbnail format parameter name and values.\r\n3: The requested size is invalid. Please see documentation for valid thumbnail size parameter name and format.\r\n4: The requested Ids are invalid, of an invalid type or missing.\r\n10: Circular thumbnail requests are not allowed"
@@ -886,10 +684,6 @@
             "type": "boolean"
           }
         ],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
         "properties": {
           "internal": false,
           "metricIds": [
@@ -898,10 +692,7 @@
         },
         "responses": {
           "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.Web.Responses.Thumbnails.ThumbnailResponse]"
-            }
+            "description": "OK"
           },
           "400": {
             "description": "1: There are too many requested Ids.\r\n2: The requested image format is invalid. Please see documentation for valid thumbnail format parameter name and values.\r\n3: The requested size is invalid. Please see documentation for valid thumbnail size parameter name and format.\r\n4: The requested Ids are invalid, of an invalid type or missing.\r\n8: The requested return policy is invalid (must be PlaceHolder, AutoGenerated or ForceAutoGenerated).\r\n10: Circular thumbnail requests are not allowed"
@@ -985,10 +776,6 @@
             "type": "boolean"
           }
         ],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
         "properties": {
           "internal": false,
           "metricIds": [
@@ -997,10 +784,7 @@
         },
         "responses": {
           "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.Thumbnails.Api.Models.UniverseThumbnailsResponse]"
-            }
+            "description": "OK"
           },
           "400": {
             "description": "0: Unknown error\r\n1: There are too many requested Ids.\r\n4: The requested Ids are invalid, of an invalid type or missing.\r\n5: The requested universe does not exist.\r\n10: Circular thumbnail requests are not allowed"
@@ -1072,10 +856,6 @@
             "type": "boolean"
           }
         ],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
         "properties": {
           "internal": false,
           "metricIds": [
@@ -1084,10 +864,7 @@
         },
         "responses": {
           "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.Web.Responses.Thumbnails.ThumbnailResponse]"
-            }
+            "description": "OK"
           },
           "400": {
             "description": "1: There are too many requested Ids.\r\n2: The requested image format is invalid. Please see documentation for valid thumbnail format parameter name and values.\r\n3: The requested size is invalid. Please see documentation for valid thumbnail size parameter name and format.\r\n4: The requested Ids are invalid, of an invalid type or missing.\r\n10: Circular thumbnail requests are not allowed"
@@ -1151,10 +928,6 @@
             "type": "boolean"
           }
         ],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
         "properties": {
           "internal": false,
           "metricIds": [
@@ -1163,10 +936,7 @@
         },
         "responses": {
           "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.Web.Responses.Thumbnails.ThumbnailResponse]"
-            }
+            "description": "OK"
           },
           "400": {
             "description": "1: There are too many requested Ids.\r\n2: The requested image format is invalid. Please see documentation for valid thumbnail format parameter name and values.\r\n3: The requested size is invalid. Please see documentation for valid thumbnail size parameter name and format.\r\n4: The requested Ids are invalid, of an invalid type or missing.\r\n10: Circular thumbnail requests are not allowed"
@@ -1246,10 +1016,6 @@
             "type": "boolean"
           }
         ],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
         "properties": {
           "internal": false,
           "metricIds": [
@@ -1258,10 +1024,7 @@
         },
         "responses": {
           "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.Web.Responses.Thumbnails.ThumbnailResponse]"
-            }
+            "description": "OK"
           },
           "400": {
             "description": "1: There are too many requested Ids.\r\n2: The requested image format is invalid. Please see documentation for valid thumbnail format parameter name and values.\r\n3: The requested size is invalid. Please see documentation for valid thumbnail size parameter name and format.\r\n4: The requested Ids are invalid, of an invalid type or missing.\r\n8: The requested return policy is invalid (must be PlaceHolder, AutoGenerated or ForceAutoGenerated).\r\n10: Circular thumbnail requests are not allowed"
@@ -1291,6 +1054,13 @@
             "name": "userIds",
             "required": true,
             "type": "array"
+          },
+          {
+            "default": false,
+            "description": "Whether to include a background in the thumbnail (defaults to false)",
+            "in": "query",
+            "name": "includeBackground",
+            "type": "boolean"
           },
           {
             "default": "30x30",
@@ -1339,10 +1109,6 @@
             "type": "boolean"
           }
         ],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
         "properties": {
           "internal": false,
           "metricIds": [
@@ -1351,10 +1117,7 @@
         },
         "responses": {
           "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.Web.Responses.Thumbnails.ThumbnailResponse]"
-            }
+            "description": "OK"
           },
           "400": {
             "description": "1: There are too many requested Ids.\r\n2: The requested image format is invalid. Please see documentation for valid thumbnail format parameter name and values.\r\n3: The requested size is invalid. Please see documentation for valid thumbnail size parameter name and format.\r\n4: The requested Ids are invalid, of an invalid type or missing.\r\n10: Circular thumbnail requests are not allowed"
@@ -1379,10 +1142,6 @@
             "type": "integer"
           }
         ],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
         "properties": {
           "internal": false,
           "metricIds": [
@@ -1391,10 +1150,7 @@
         },
         "responses": {
           "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/Roblox.Web.Responses.Thumbnails.ThumbnailResponse"
-            }
+            "description": "OK"
           },
           "400": {
             "description": "4: The requested Ids are invalid, of an invalid type or missing."
@@ -1421,6 +1177,13 @@
             "name": "userIds",
             "required": true,
             "type": "array"
+          },
+          {
+            "default": false,
+            "description": "Whether to include a background in the thumbnail (defaults to false)",
+            "in": "query",
+            "name": "includeBackground",
+            "type": "boolean"
           },
           {
             "default": "48x48",
@@ -1463,10 +1226,6 @@
             "type": "boolean"
           }
         ],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
         "properties": {
           "internal": false,
           "metricIds": [
@@ -1475,10 +1234,7 @@
         },
         "responses": {
           "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.Web.Responses.Thumbnails.ThumbnailResponse]"
-            }
+            "description": "OK"
           },
           "400": {
             "description": "1: There are too many requested Ids.\r\n2: The requested image format is invalid. Please see documentation for valid thumbnail format parameter name and values.\r\n3: The requested size is invalid. Please see documentation for valid thumbnail size parameter name and format.\r\n4: The requested Ids are invalid, of an invalid type or missing.\r\n10: Circular thumbnail requests are not allowed"
@@ -1505,6 +1261,13 @@
             "name": "userIds",
             "required": true,
             "type": "array"
+          },
+          {
+            "default": false,
+            "description": "Whether to include a background in the thumbnail (defaults to false)",
+            "in": "query",
+            "name": "includeBackground",
+            "type": "boolean"
           },
           {
             "default": "48x48",
@@ -1550,10 +1313,6 @@
             "type": "boolean"
           }
         ],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
         "properties": {
           "internal": false,
           "metricIds": [
@@ -1562,10 +1321,7 @@
         },
         "responses": {
           "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.Web.Responses.Thumbnails.ThumbnailResponse]"
-            }
+            "description": "OK"
           },
           "400": {
             "description": "1: There are too many requested Ids.\r\n2: The requested image format is invalid. Please see documentation for valid thumbnail format parameter name and values.\r\n3: The requested size is invalid. Please see documentation for valid thumbnail size parameter name and format.\r\n4: The requested Ids are invalid, of an invalid type or missing.\r\n10: Circular thumbnail requests are not allowed"
@@ -1590,10 +1346,6 @@
             "type": "integer"
           }
         ],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
         "properties": {
           "internal": false,
           "metricIds": [
@@ -1602,10 +1354,7 @@
         },
         "responses": {
           "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/Roblox.Web.Responses.Thumbnails.ThumbnailResponse"
-            }
+            "description": "OK"
           }
         },
         "summary": "Get 3d object for an outfit",
@@ -1629,6 +1378,13 @@
             "name": "userOutfitIds",
             "required": true,
             "type": "array"
+          },
+          {
+            "default": false,
+            "description": "Whether to include a background in the thumbnail (defaults to false)",
+            "in": "query",
+            "name": "includeBackground",
+            "type": "boolean"
           },
           {
             "default": "150x150",
@@ -1664,10 +1420,6 @@
             "type": "boolean"
           }
         ],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
         "properties": {
           "internal": false,
           "metricIds": [
@@ -1676,10 +1428,7 @@
         },
         "responses": {
           "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.Web.Responses.Thumbnails.ThumbnailResponse]"
-            }
+            "description": "OK"
           },
           "400": {
             "description": "1: There are too many requested Ids.\r\n2: The requested image format is invalid. Please see documentation for valid thumbnail format parameter name and values.\r\n3: The requested size is invalid. Please see documentation for valid thumbnail size parameter name and format.\r\n4: The requested Ids are invalid, of an invalid type or missing.\r\n10: Circular thumbnail requests are not allowed"

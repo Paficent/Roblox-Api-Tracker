@@ -63,29 +63,6 @@
       },
       "type": "object"
     },
-    "Roblox.Groups.Api.CreateWallPostRequest": {
-      "additionalProperties": false,
-      "description": "A request model for creating a group wall post",
-      "properties": {
-        "body": {
-          "description": "The wall post body",
-          "type": "string"
-        },
-        "captchaId": {
-          "type": "string"
-        },
-        "captchaProvider": {
-          "type": "string"
-        },
-        "captchaToken": {
-          "type": "string"
-        },
-        "challengeId": {
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
     "Roblox.Groups.Api.GetCommunityFeatureFreezesResponse": {
       "additionalProperties": false,
       "description": "Response model for the community feature freezes endpoint.",
@@ -631,11 +608,11 @@
           "type": "boolean"
         },
         "changeRank": {
-          "description": "View wall permission",
+          "description": "Update a member's role",
           "type": "boolean"
         },
         "inviteMembers": {
-          "description": "Post to wall permission",
+          "description": "Invite members to the group",
           "type": "boolean"
         },
         "removeMembers": {
@@ -825,24 +802,12 @@
       "additionalProperties": false,
       "description": "A model representing group posts permissions",
       "properties": {
-        "deleteFromWall": {
-          "description": "Delete from wall permission",
-          "type": "boolean"
-        },
         "postToStatus": {
           "description": "Post to status permission",
           "type": "boolean"
         },
-        "postToWall": {
-          "description": "Post to wall permission",
-          "type": "boolean"
-        },
         "viewStatus": {
           "description": "View status permission",
-          "type": "boolean"
-        },
-        "viewWall": {
-          "description": "View wall permission",
           "type": "boolean"
         }
       },
@@ -1194,27 +1159,13 @@
           "format": "int32",
           "type": "integer"
         },
-        "groupPostMaxLength": {
-          "description": "The maximum length of a group wall post",
-          "format": "int32",
-          "type": "integer"
-        },
         "groupStatusMaxLength": {
           "description": "The maximum length of a group status",
           "format": "int32",
           "type": "integer"
         },
-        "groupWallNotificationsSubscribeIntervalInMilliseconds": {
-          "description": "Time in milliseconds between calls to subscribe to group wall notifications.",
-          "format": "int32",
-          "type": "integer"
-        },
         "isGroupDetailsPolicyEnabled": {
           "description": "If set to true, group details will respect GUAC policies for group details\r\n            \r\nIf set to false, group details will not respect GUAC policies",
-          "type": "boolean"
-        },
-        "isGroupWallNotificationsEnabled": {
-          "description": "If set to true, group details will subscribe and respond to wall notifications.",
           "type": "boolean"
         },
         "showPreviousGroupNames": {
@@ -1354,35 +1305,6 @@
         },
         "name": {
           "description": "The group name before the change",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "Roblox.Groups.Api.Models.Response.GroupWallPostModel": {
-      "additionalProperties": false,
-      "description": "A response model for group wall post information",
-      "properties": {
-        "body": {
-          "description": "The group wall post body.",
-          "type": "string"
-        },
-        "created": {
-          "description": "When the group wall post was posted.",
-          "format": "date-time",
-          "type": "string"
-        },
-        "id": {
-          "description": "The group wall post Id.",
-          "format": "int64",
-          "type": "integer"
-        },
-        "poster": {
-          "$ref": "#/definitions/Roblox.Groups.Api.Models.Response.UserModel"
-        },
-        "updated": {
-          "description": "When the group wall post was last updated.",
-          "format": "date-time",
           "type": "string"
         }
       },
@@ -1916,9 +1838,6 @@
             "CreatePosts": {
               "type": "boolean"
             },
-            "DeleteFromWall": {
-              "type": "boolean"
-            },
             "InviteMembers": {
               "type": "boolean"
             },
@@ -1947,9 +1866,6 @@
               "type": "boolean"
             },
             "PostToStatus": {
-              "type": "boolean"
-            },
-            "PostToWall": {
               "type": "boolean"
             },
             "RemoveComments": {
@@ -1983,9 +1899,6 @@
               "type": "boolean"
             },
             "ViewStatus": {
-              "type": "boolean"
-            },
-            "ViewWall": {
               "type": "boolean"
             }
           },
@@ -2358,24 +2271,6 @@
         "data": {
           "items": {
             "$ref": "#/definitions/Roblox.Groups.Api.Models.Response.GroupNameHistoryResponseItem"
-          },
-          "type": "array"
-        },
-        "nextPageCursor": {
-          "type": "string"
-        },
-        "previousPageCursor": {
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "Roblox.Web.WebAPI.Models.ApiPageResponse[Roblox.Groups.Api.Models.Response.GroupWallPostModel]": {
-      "additionalProperties": false,
-      "properties": {
-        "data": {
-          "items": {
-            "$ref": "#/definitions/Roblox.Groups.Api.Models.Response.GroupWallPostModel"
           },
           "type": "array"
         },
@@ -6573,285 +6468,6 @@
         ]
       }
     },
-    "/v1/groups/{groupId}/wall/posts": {
-      "get": {
-        "parameters": [
-          {
-            "description": "The group id.",
-            "format": "int64",
-            "in": "path",
-            "name": "groupId",
-            "required": true,
-            "type": "integer"
-          },
-          {
-            "default": 10,
-            "description": "The number of results per request.",
-            "enum": [
-              10,
-              25,
-              50,
-              100
-            ],
-            "format": "int32",
-            "in": "query",
-            "name": "limit",
-            "type": "integer"
-          },
-          {
-            "description": "The paging cursor for the previous or next page.",
-            "in": "query",
-            "name": "cursor",
-            "type": "string"
-          },
-          {
-            "default": "Asc",
-            "description": "Sorted by group wall post Id",
-            "enum": [
-              "Asc",
-              "Desc"
-            ],
-            "in": "query",
-            "name": "sortOrder",
-            "type": "string"
-          }
-        ],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
-        "properties": {
-          "internal": false,
-          "metricIds": [
-            "Wall:GetGroupWallPosts"
-          ]
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/Roblox.Web.WebAPI.Models.ApiPageResponse[Roblox.Groups.Api.Models.Response.GroupWallPostModel]"
-            }
-          },
-          "400": {
-            "description": "1: The group is invalid or does not exist."
-          },
-          "403": {
-            "description": "2: You do not have permission to access this group wall."
-          }
-        },
-        "summary": "Gets a list of group wall posts.",
-        "tags": [
-          "Wall"
-        ]
-      },
-      "post": {
-        "consumes": [
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "description": "The group id.",
-            "format": "int64",
-            "in": "path",
-            "name": "groupId",
-            "required": true,
-            "type": "integer"
-          },
-          {
-            "description": "The Roblox.Groups.Api.CreateWallPostRequest.",
-            "in": "body",
-            "name": "request",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/Roblox.Groups.Api.CreateWallPostRequest"
-            }
-          }
-        ],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
-        "properties": {
-          "internal": false,
-          "metricIds": [
-            "Wall:CreateGroupWallPosts"
-          ]
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/Roblox.Groups.Api.Models.Response.GroupWallPostModel"
-            }
-          },
-          "400": {
-            "description": "1: The group is invalid or does not exist.\r\n5: Your post was empty, white space, or more than 500 characters.\r\n9: The provided content was moderated."
-          },
-          "401": {
-            "description": "0: Authorization has been denied for this request."
-          },
-          "403": {
-            "description": "0: Token Validation Failed\r\n2: You do not have permission to access this group wall."
-          },
-          "405": {
-            "description": "1: The group is invalid or does not exist."
-          },
-          "429": {
-            "description": "4: You are posting too fast, please try again in a few minutes."
-          }
-        },
-        "summary": "Creates a post on a group wall",
-        "tags": [
-          "Wall"
-        ]
-      }
-    },
-    "/v1/groups/{groupId}/wall/posts/{postId}": {
-      "delete": {
-        "parameters": [
-          {
-            "description": "The group id.",
-            "format": "int64",
-            "in": "path",
-            "name": "groupId",
-            "required": true,
-            "type": "integer"
-          },
-          {
-            "description": "The group wall post id.",
-            "format": "int64",
-            "in": "path",
-            "name": "postId",
-            "required": true,
-            "type": "integer"
-          }
-        ],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
-        "properties": {
-          "internal": false,
-          "metricIds": [
-            "Wall:DeleteWallPost"
-          ]
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/Roblox.Web.WebAPI.ApiEmptyResponseModel"
-            }
-          },
-          "400": {
-            "description": "1: The group is invalid or does not exist.\r\n3: The group wall post id is invalid or does not exist."
-          },
-          "401": {
-            "description": "0: Authorization has been denied for this request."
-          },
-          "403": {
-            "description": "0: Token Validation Failed\r\n2: You do not have permission to access this group wall."
-          }
-        },
-        "summary": "Deletes a group wall post.",
-        "tags": [
-          "Wall"
-        ]
-      }
-    },
-    "/v1/groups/{groupId}/wall/subscribe": {
-      "post": {
-        "parameters": [
-          {
-            "description": "The group id.",
-            "format": "int64",
-            "in": "path",
-            "name": "groupId",
-            "required": true,
-            "type": "integer"
-          }
-        ],
-        "properties": {
-          "internal": false,
-          "metricIds": [
-            "Wall:Subscribe"
-          ]
-        },
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "400": {
-            "description": "1: The group is invalid or does not exist."
-          },
-          "401": {
-            "description": "0: Authorization has been denied for this request."
-          },
-          "403": {
-            "description": "0: Token Validation Failed\r\n2: You do not have permission to access this group wall."
-          }
-        },
-        "summary": "Subscribes the authenticated user to notifications of group wall events.",
-        "tags": [
-          "Wall"
-        ]
-      }
-    },
-    "/v1/groups/{groupId}/wall/users/{userId}/posts": {
-      "delete": {
-        "parameters": [
-          {
-            "description": "The group id.",
-            "format": "int64",
-            "in": "path",
-            "name": "groupId",
-            "required": true,
-            "type": "integer"
-          },
-          {
-            "description": "The user id.",
-            "format": "int64",
-            "in": "path",
-            "name": "userId",
-            "required": true,
-            "type": "integer"
-          }
-        ],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
-        "properties": {
-          "internal": false,
-          "metricIds": [
-            "Wall:DeleteAllPostsByUser"
-          ]
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/Roblox.Web.WebAPI.ApiEmptyResponseModel"
-            }
-          },
-          "400": {
-            "description": "1: The group is invalid or does not exist.\r\n6: The user specified is invalid or does not exist."
-          },
-          "401": {
-            "description": "0: Authorization has been denied for this request."
-          },
-          "403": {
-            "description": "0: Token Validation Failed\r\n2: You do not have permission to access this group wall."
-          }
-        },
-        "summary": "Deletes all group wall posts made by a specific user.",
-        "tags": [
-          "Wall"
-        ]
-      }
-    },
     "/v1/roles": {
       "get": {
         "parameters": [
@@ -7109,7 +6725,8 @@
           {
             "enum": [
               0,
-              1
+              1,
+              2
             ],
             "format": "int32",
             "in": "query",

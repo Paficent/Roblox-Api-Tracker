@@ -1,28 +1,5 @@
 {
   "definitions": {
-    "Roblox.Groups.Api.CreateWallPostRequest": {
-      "additionalProperties": false,
-      "description": "A request model for creating a group wall post",
-      "properties": {
-        "body": {
-          "description": "The wall post body",
-          "type": "string"
-        },
-        "captchaId": {
-          "type": "string"
-        },
-        "captchaProvider": {
-          "type": "string"
-        },
-        "captchaToken": {
-          "type": "string"
-        },
-        "challengeId": {
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
     "Roblox.Groups.Api.GroupDetailResponse": {
       "additionalProperties": false,
       "description": "A detailed group response model",
@@ -120,93 +97,6 @@
           ],
           "format": "int32",
           "type": "integer"
-        }
-      },
-      "type": "object"
-    },
-    "Roblox.Groups.Api.GroupRoleResponse": {
-      "additionalProperties": false,
-      "description": "A group role response model",
-      "properties": {
-        "color": {
-          "description": "The role color. ['Invalid' = 0, 'Blue' = 1, 'Green' = 2, 'Purple' = 3, 'Yellow' = 4, 'Orange' = 5, 'Red' = 6, 'Magenta' = 7, 'Teal' = 8, 'Turquoise' = 9, 'Rust' = 10, 'Pistachio' = 11, 'Midnight' = 12, 'Lavender' = 13, 'Pink' = 14, 'Crimson' = 15, 'Plum' = 16]",
-          "enum": [
-            0,
-            1,
-            2,
-            3,
-            4,
-            5,
-            6,
-            7,
-            8,
-            9,
-            10,
-            11,
-            12,
-            13,
-            14,
-            15,
-            16
-          ],
-          "format": "int32",
-          "type": "integer"
-        },
-        "description": {
-          "description": "The role description",
-          "type": "string"
-        },
-        "id": {
-          "description": "The role id",
-          "format": "int64",
-          "type": "integer"
-        },
-        "isBase": {
-          "description": "Whether or not the role is the base role for the group",
-          "type": "boolean"
-        },
-        "memberCount": {
-          "description": "The number of members in the role.",
-          "format": "int64",
-          "type": "integer"
-        },
-        "name": {
-          "description": "The role name",
-          "type": "string"
-        },
-        "rank": {
-          "description": "The role rank",
-          "format": "int32",
-          "type": "integer"
-        }
-      },
-      "type": "object"
-    },
-    "Roblox.Groups.Api.GroupWallPostV2Model": {
-      "additionalProperties": false,
-      "description": "A response model for group wall post information",
-      "properties": {
-        "body": {
-          "description": "The group wall post body.",
-          "type": "string"
-        },
-        "created": {
-          "description": "When the group wall post was posted.",
-          "format": "date-time",
-          "type": "string"
-        },
-        "id": {
-          "description": "The group wall post Id.",
-          "format": "int64",
-          "type": "integer"
-        },
-        "poster": {
-          "$ref": "#/definitions/Roblox.Groups.Api.UserGroupRoleResponse"
-        },
-        "updated": {
-          "description": "When the group wall post was last updated.",
-          "format": "date-time",
-          "type": "string"
         }
       },
       "type": "object"
@@ -328,19 +218,6 @@
           "description": "The shout's last updated time",
           "format": "date-time",
           "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "Roblox.Groups.Api.UserGroupRoleResponse": {
-      "additionalProperties": false,
-      "description": "A user group role response model",
-      "properties": {
-        "role": {
-          "$ref": "#/definitions/Roblox.Groups.Api.GroupRoleResponse"
-        },
-        "user": {
-          "$ref": "#/definitions/Roblox.Groups.Api.Models.Response.UserModel"
         }
       },
       "type": "object"
@@ -591,24 +468,6 @@
         "data": {
           "items": {
             "$ref": "#/definitions/Roblox.Groups.Api.GroupDetailResponse"
-          },
-          "type": "array"
-        },
-        "nextPageCursor": {
-          "type": "string"
-        },
-        "previousPageCursor": {
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "Roblox.Web.WebAPI.Models.ApiPageResponse[Roblox.Groups.Api.GroupWallPostV2Model]": {
-      "additionalProperties": false,
-      "properties": {
-        "data": {
-          "items": {
-            "$ref": "#/definitions/Roblox.Groups.Api.GroupWallPostV2Model"
           },
           "type": "array"
         },
@@ -933,138 +792,6 @@
         ]
       }
     },
-    "/v2/groups/{groupId}/wall/posts": {
-      "get": {
-        "parameters": [
-          {
-            "description": "The group id.",
-            "format": "int64",
-            "in": "path",
-            "name": "groupId",
-            "required": true,
-            "type": "integer"
-          },
-          {
-            "default": 10,
-            "description": "The number of results per request.",
-            "enum": [
-              10,
-              25,
-              50,
-              100
-            ],
-            "format": "int32",
-            "in": "query",
-            "name": "limit",
-            "type": "integer"
-          },
-          {
-            "description": "The paging cursor for the previous or next page.",
-            "in": "query",
-            "name": "cursor",
-            "type": "string"
-          },
-          {
-            "default": "Asc",
-            "description": "Sorted by group wall post Id",
-            "enum": [
-              "Asc",
-              "Desc"
-            ],
-            "in": "query",
-            "name": "sortOrder",
-            "type": "string"
-          }
-        ],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
-        "properties": {
-          "internal": false,
-          "metricIds": [
-            "WallV2:GetGroupWallPosts"
-          ]
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/Roblox.Web.WebAPI.Models.ApiPageResponse[Roblox.Groups.Api.GroupWallPostV2Model]"
-            }
-          },
-          "400": {
-            "description": "1: The group is invalid or does not exist."
-          },
-          "403": {
-            "description": "2: You do not have permission to access this group wall."
-          }
-        },
-        "summary": "Gets a list of group wall posts.",
-        "tags": [
-          "WallV2"
-        ]
-      },
-      "post": {
-        "consumes": [
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "description": "The group id.",
-            "format": "int64",
-            "in": "path",
-            "name": "groupId",
-            "required": true,
-            "type": "integer"
-          },
-          {
-            "description": "The Roblox.Groups.Api.CreateWallPostRequest.",
-            "in": "body",
-            "name": "request",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/Roblox.Groups.Api.CreateWallPostRequest"
-            }
-          }
-        ],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
-        "properties": {
-          "internal": false,
-          "metricIds": [
-            "WallV2:CreateGroupWallPosts"
-          ]
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/Roblox.Groups.Api.GroupWallPostV2Model"
-            }
-          },
-          "400": {
-            "description": "1: The group is invalid or does not exist.\r\n5: Your post was empty, white space, or more than 500 characters.\r\n9: The provided content was moderated."
-          },
-          "401": {
-            "description": "0: Authorization has been denied for this request."
-          },
-          "403": {
-            "description": "0: Token Validation Failed\r\n2: You do not have permission to access this group wall."
-          },
-          "429": {
-            "description": "4: You are posting too fast, please try again in a few minutes."
-          }
-        },
-        "summary": "Creates a post on a group wall",
-        "tags": [
-          "WallV2"
-        ]
-      }
-    },
     "/v2/users/{userId}/groups/roles": {
       "get": {
         "parameters": [
@@ -1091,7 +818,8 @@
           {
             "enum": [
               0,
-              1
+              1,
+              2
             ],
             "format": "int32",
             "in": "query",

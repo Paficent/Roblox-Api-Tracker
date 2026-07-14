@@ -276,6 +276,23 @@
       },
       "type": "object"
     },
+    "Roblox.Friends.Api.Models.Response.TrustedFriendRequestResponse": {
+      "additionalProperties": false,
+      "description": "A response model representing a friend request.",
+      "properties": {
+        "senderId": {
+          "description": "The sender user Id.",
+          "format": "int64",
+          "type": "integer"
+        },
+        "sentAt": {
+          "description": "When the TF request was sent.",
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "Roblox.Friends.Api.Models.Response.UserPresenceResponse": {
       "additionalProperties": false,
       "description": "A response model representing user presence information.",
@@ -546,6 +563,24 @@
         "data": {
           "items": {
             "$ref": "#/definitions/Roblox.Friends.Api.FriendRequestResponse"
+          },
+          "type": "array"
+        },
+        "nextPageCursor": {
+          "type": "string"
+        },
+        "previousPageCursor": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Web.WebAPI.Models.ApiPageResponse[Roblox.Friends.Api.Models.Response.TrustedFriendRequestResponse]": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "items": {
+            "$ref": "#/definitions/Roblox.Friends.Api.Models.Response.TrustedFriendRequestResponse"
           },
           "type": "array"
         },
@@ -844,6 +879,72 @@
         ]
       }
     },
+    "/v1/my/trusted-friends/requests": {
+      "get": {
+        "parameters": [
+          {
+            "default": 10,
+            "description": "The number of results per request.",
+            "format": "int32",
+            "in": "query",
+            "name": "limit",
+            "type": "integer"
+          },
+          {
+            "description": "The paging cursor for the previous or next page.",
+            "in": "query",
+            "name": "cursor",
+            "type": "string"
+          },
+          {
+            "default": 1,
+            "description": "Specifies how to sort the returned trusted friend requests.",
+            "enum": [
+              0,
+              1
+            ],
+            "format": "int32",
+            "in": "query",
+            "name": "sortOrder",
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Friends:GetTrustedFriendRequests"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.Models.ApiPageResponse[Roblox.Friends.Api.Models.Response.TrustedFriendRequestResponse]"
+            }
+          },
+          "400": {
+            "description": "1: The target user is invalid or does not exist.\r\n6: Invalid parameters."
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "2: The user is banned from performing operation.\r\n3: The user is blocked from performing this action."
+          },
+          "429": {
+            "description": "9: The flood limit has been exceeded."
+          }
+        },
+        "summary": "Get all incoming trusted friend requests using exclusive start paging.",
+        "tags": [
+          "Friends"
+        ]
+      }
+    },
     "/v1/user/following-exists": {
       "post": {
         "consumes": [
@@ -921,6 +1022,35 @@
           }
         },
         "summary": "Return the number of pending friend requests.",
+        "tags": [
+          "Friends"
+        ]
+      }
+    },
+    "/v1/user/trusted-friend-requests/count": {
+      "get": {
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Friends:GetPendingTrustedFriendRequestCount"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Friends.Api.PendingFriendRequestCountModel"
+            }
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          }
+        },
+        "summary": "Return the number of pending trusted friend requests.",
         "tags": [
           "Friends"
         ]

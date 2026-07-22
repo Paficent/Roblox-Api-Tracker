@@ -306,6 +306,9 @@
       "additionalProperties": false,
       "description": "A detailed group response model",
       "properties": {
+        "communityTier": {
+          "$ref": "#/definitions/Roblox.Groups.Client.CommunityTierInfoResponse"
+        },
         "description": {
           "description": "The group description",
           "type": "string"
@@ -424,6 +427,10 @@
       "additionalProperties": false,
       "description": "A model representing group posts permissions",
       "properties": {
+        "createBugReports": {
+          "description": "Create bug reports (support ticket) permission. Only emitted when the permission is exposed\r\n(Roblox.Groups.Api.Properties.IGroupsApiSettings.ExposeCreateBugReportsPermission).",
+          "type": "boolean"
+        },
         "createComments": {
           "description": "Create comments permission",
           "type": "boolean"
@@ -1087,6 +1094,9 @@
         "areGroupGamesVisible": {
           "description": "Whether games are publicly visible.",
           "type": "boolean"
+        },
+        "communityTier": {
+          "$ref": "#/definitions/Roblox.Groups.Client.CommunityTierInfoResponse"
         },
         "isApprovalRequired": {
           "description": "Whether public entry is allowed.",
@@ -1829,6 +1839,9 @@
             "ChangeRank": {
               "type": "boolean"
             },
+            "CreateBugReports": {
+              "type": "boolean"
+            },
             "CreateComments": {
               "type": "boolean"
             },
@@ -1988,6 +2001,32 @@
           "type": "string"
         },
         "updatedAt": {
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Groups.Client.CommunityTierInfoResponse": {
+      "additionalProperties": false,
+      "properties": {
+        "currentTier": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "groupId": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "lastEvaluatedTime": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "previousTier": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "tierUpdatedTime": {
           "format": "date-time",
           "type": "string"
         }

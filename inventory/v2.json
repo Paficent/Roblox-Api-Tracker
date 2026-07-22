@@ -95,7 +95,7 @@
           "type": "integer"
         },
         "owner": {
-          "$ref": "#/definitions/Roblox.Web.Responses.RelatedEntityTypeResponse[Roblox.Agents.AgentType]"
+          "$ref": "#/definitions/Roblox.Web.Responses.RelatedEntityTypeResponse[Roblox.Users.Client.AssociatedEntityType]"
         },
         "serialNumber": {
           "format": "int64",
@@ -115,7 +115,7 @@
           "type": "string"
         },
         "owner": {
-          "$ref": "#/definitions/Roblox.Web.Responses.RelatedEntityTypeResponse[Roblox.Agents.AgentType]"
+          "$ref": "#/definitions/Roblox.Web.Responses.RelatedEntityTypeResponse[Roblox.Users.Client.AssociatedEntityType]"
         },
         "serialNumber": {
           "format": "int64",
@@ -239,7 +239,7 @@
       },
       "type": "object"
     },
-    "Roblox.Web.Responses.RelatedEntityTypeResponse[Roblox.Agents.AgentType]": {
+    "Roblox.Web.Responses.RelatedEntityTypeResponse[Roblox.Users.Client.AssociatedEntityType]": {
       "additionalProperties": false,
       "properties": {
         "id": {

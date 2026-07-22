@@ -52,14 +52,6 @@
           "description": "Is the asset archived.",
           "type": "boolean"
         },
-        "isCreatedForBundle": {
-          "description": "If the asset is part of a bundle.",
-          "type": "boolean"
-        },
-        "isDelisted": {
-          "description": "If the asset is delisted.",
-          "type": "boolean"
-        },
         "name": {
           "description": "The asset name.",
           "type": "string"

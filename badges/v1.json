@@ -46,6 +46,11 @@
           "format": "int64",
           "type": "integer"
         },
+        "defaultBadgeIconImageId": {
+          "description": "The asset ID of the curated default badge icon used when a badge is created without an\r\nuploaded icon file, or `0` when the default badge icon feature is disabled.",
+          "format": "int64",
+          "type": "integer"
+        },
         "maxBadgeDescriptionLength": {
           "description": "The max length for a badge description.",
           "format": "int32",
@@ -667,7 +672,7 @@
             "type": "integer"
           },
           {
-            "description": "The badge icon.",
+            "description": "The badge icon. Optional: when omitted and a curated default badge icon is configured on\r\nthe service, the badge is created with that default icon. When provided, exactly one file\r\nmust be supplied.",
             "in": "formData",
             "name": "files",
             "type": "file"

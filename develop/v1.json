@@ -513,14 +513,14 @@
           },
           "type": "array"
         },
+        "demoModeChangeableAfter": {
+          "description": "The earliest time at which demo mode can be toggled again (ISO 8601).\r\nNull when no cooldown is active (i.e. demo mode can be changed immediately).",
+          "format": "date-time",
+          "type": "string"
+        },
         "demoModeEnabled": {
           "description": "Whether demo mode is enabled.",
           "type": "boolean"
-        },
-        "demoModeLastChangedTime": {
-          "description": "When demo mode was last toggled. For client-side throttle UX.",
-          "format": "date-time",
-          "type": "string"
         },
         "fiatBasePriceId": {
           "description": "The basePriceId for the Fiat product.",

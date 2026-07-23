@@ -33,6 +33,7 @@
           "type": "integer"
         },
         "isEligible": {
+          "description": "The overall result of activation eligibility. This requires the user publish gate\r\nand either a maturity rating or an intact Build seal.",
           "type": "boolean"
         },
         "isPublicPublish": {
@@ -55,10 +56,214 @@
           "description": "Whether the place has an active content maturity rating or not.",
           "type": "boolean"
         },
+        "provisionalRating": {
+          "$ref": "#/definitions/Roblox.Api.Develop.Models.BuildGeneratedRatingPreviewResponse"
+        },
+        "provisionalRatingAllowed": {
+          "description": "Whether the universe has a provisional rating via a Build seal in Content Catalog.\r\nWhen true, the universe is eligible for activation even without a full maturity questionnaire.",
+          "type": "boolean"
+        },
         "remainingPublicPublishCount": {
           "description": "How many public publishes are remaining for the given user / group.",
           "format": "int32",
           "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Api.Develop.Models.BuildGeneratedRatingPreviewResponse": {
+      "additionalProperties": false,
+      "description": "The complete build-generated rating preview returned by Experience Guidelines.",
+      "properties": {
+        "ageRecommendationDetails": {
+          "$ref": "#/definitions/Roblox.Api.Develop.Models.BuildGeneratedRatingPreviewResponse.AgeRecommendationDetailsModel"
+        },
+        "restrictedCountries": {
+          "description": "Country-specific restrictions produced by the preview.",
+          "items": {
+            "$ref": "#/definitions/Roblox.Api.Develop.Models.BuildGeneratedRatingPreviewResponse.RestrictedCountryModel"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Api.Develop.Models.BuildGeneratedRatingPreviewResponse.AgeRangeModel": {
+      "additionalProperties": false,
+      "description": "Age range for a descriptor usage.",
+      "properties": {
+        "maxAgeInclusive": {
+          "description": "Inclusive maximum age.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "minAgeInclusive": {
+          "description": "Inclusive minimum age.",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Api.Develop.Models.BuildGeneratedRatingPreviewResponse.AgeRecommendationDetailsModel": {
+      "additionalProperties": false,
+      "description": "Age recommendation details.",
+      "properties": {
+        "ageRecommendationSummary": {
+          "$ref": "#/definitions/Roblox.Api.Develop.Models.BuildGeneratedRatingPreviewResponse.AgeRecommendationSummaryModel"
+        },
+        "experienceDescriptorUsages": {
+          "description": "Descriptor usages that contributed to the recommendation.",
+          "items": {
+            "$ref": "#/definitions/Roblox.Api.Develop.Models.BuildGeneratedRatingPreviewResponse.ExperienceDescriptorUsageModel"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Api.Develop.Models.BuildGeneratedRatingPreviewResponse.AgeRecommendationModel": {
+      "additionalProperties": false,
+      "description": "Age recommendation.",
+      "properties": {
+        "contentMaturity": {
+          "description": "Explicit content maturity value.",
+          "type": "string"
+        },
+        "displayName": {
+          "description": "Localized display name.",
+          "type": "string"
+        },
+        "displayNameWithHeaderShort": {
+          "description": "Localized short display name including the maturity header.",
+          "type": "string"
+        },
+        "igrsRating": {
+          "description": "IGRS rating enum name, when present.",
+          "type": "string"
+        },
+        "igrsRatingDisplayMessage": {
+          "description": "Localized IGRS rating display message, when present.",
+          "type": "string"
+        },
+        "minimumAge": {
+          "description": "Minimum recommended age.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "minimumAgeDisplay": {
+          "description": "Localized minimum-age display value.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Api.Develop.Models.BuildGeneratedRatingPreviewResponse.AgeRecommendationSummaryModel": {
+      "additionalProperties": false,
+      "description": "Age recommendation summary.",
+      "properties": {
+        "ageRecommendation": {
+          "$ref": "#/definitions/Roblox.Api.Develop.Models.BuildGeneratedRatingPreviewResponse.AgeRecommendationModel"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Api.Develop.Models.BuildGeneratedRatingPreviewResponse.ExperienceDescriptorDimensionUsageModel": {
+      "additionalProperties": false,
+      "description": "Descriptor dimension usage.",
+      "properties": {
+        "dimensionName": {
+          "description": "Dimension name.",
+          "type": "string"
+        },
+        "dimensionValue": {
+          "description": "Dimension value.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Api.Develop.Models.BuildGeneratedRatingPreviewResponse.ExperienceDescriptorModel": {
+      "additionalProperties": false,
+      "description": "Experience descriptor definition.",
+      "properties": {
+        "complianceApiSupported": {
+          "description": "Whether the descriptor is supported by the Compliance API.",
+          "type": "boolean"
+        },
+        "displayName": {
+          "description": "Localized descriptor display name.",
+          "type": "string"
+        },
+        "iconUrl": {
+          "description": "Descriptor icon URL.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Descriptor name.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Api.Develop.Models.BuildGeneratedRatingPreviewResponse.ExperienceDescriptorUsageModel": {
+      "additionalProperties": false,
+      "description": "A descriptor usage that contributed to a recommendation.",
+      "properties": {
+        "ageRange": {
+          "$ref": "#/definitions/Roblox.Api.Develop.Models.BuildGeneratedRatingPreviewResponse.AgeRangeModel"
+        },
+        "ageRangeDisplayName": {
+          "description": "Localized age-range display name.",
+          "type": "string"
+        },
+        "contains": {
+          "description": "Whether the experience contains this descriptor.",
+          "type": "boolean"
+        },
+        "descriptorDisplayName": {
+          "description": "Localized descriptor display name.",
+          "type": "string"
+        },
+        "experienceDescriptor": {
+          "$ref": "#/definitions/Roblox.Api.Develop.Models.BuildGeneratedRatingPreviewResponse.ExperienceDescriptorModel"
+        },
+        "experienceDescriptorDimensionUsages": {
+          "description": "Dimensions associated with this usage.",
+          "items": {
+            "$ref": "#/definitions/Roblox.Api.Develop.Models.BuildGeneratedRatingPreviewResponse.ExperienceDescriptorDimensionUsageModel"
+          },
+          "type": "array"
+        },
+        "followsComplianceApi": {
+          "description": "Whether this usage follows the Compliance API, when specified.",
+          "type": "boolean"
+        },
+        "name": {
+          "description": "Descriptor usage name.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Api.Develop.Models.BuildGeneratedRatingPreviewResponse.RestrictedCountryModel": {
+      "additionalProperties": false,
+      "description": "Country-specific restrictions.",
+      "properties": {
+        "countryCode": {
+          "description": "ISO country code.",
+          "type": "string"
+        },
+        "countryDisplayName": {
+          "description": "Localized country display name.",
+          "type": "string"
+        },
+        "experienceDescriptorUsages": {
+          "description": "Descriptor usages responsible for the restriction.",
+          "items": {
+            "$ref": "#/definitions/Roblox.Api.Develop.Models.BuildGeneratedRatingPreviewResponse.ExperienceDescriptorUsageModel"
+          },
+          "type": "array"
         }
       },
       "type": "object"
@@ -138,6 +343,36 @@
           "description": "Returns the id of the place's universe, or null - if the place is not part of a universe.",
           "format": "int64",
           "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Api.Develop.Models.PlaytestersRequest": {
+      "additionalProperties": false,
+      "description": "Request model for adding or removing playtesters.",
+      "properties": {
+        "playtesters": {
+          "description": "The user ids to add or remove as playtesters for this universe.",
+          "items": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Api.Develop.Models.PlaytestersResponse": {
+      "additionalProperties": false,
+      "description": "Response model for playtester list endpoints.",
+      "properties": {
+        "playtesters": {
+          "description": "The user ids that are playtesters for this universe.",
+          "items": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "type": "array"
         }
       },
       "type": "object"
@@ -1790,6 +2025,163 @@
           }
         },
         "summary": "Update universe settings for an owned universe.",
+        "tags": [
+          "UniverseSettings"
+        ]
+      }
+    },
+    "/v1/universes/{universeId}/configuration/playtesters": {
+      "delete": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "description": "The universe Id.",
+            "format": "int64",
+            "in": "path",
+            "name": "universeId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "The playtesters to remove.",
+            "in": "body",
+            "name": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Api.Develop.Models.PlaytestersRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "UniverseSettings:RemovePlaytesters"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Api.Develop.Models.PlaytestersResponse"
+            }
+          },
+          "400": {
+            "description": "1: The universe does not exist.\r\n48: The playtesters list is missing or empty.\r\n49: Too many playtesters were specified in a single request."
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed\r\n2: You are not authorized to configure this universe."
+          }
+        },
+        "summary": "Remove playtesters from an owned universe.",
+        "tags": [
+          "UniverseSettings"
+        ]
+      },
+      "get": {
+        "parameters": [
+          {
+            "description": "The universe Id.",
+            "format": "int64",
+            "in": "path",
+            "name": "universeId",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "UniverseSettings:GetPlaytesters"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Api.Develop.Models.PlaytestersResponse"
+            }
+          },
+          "400": {
+            "description": "1: The universe does not exist."
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "2: You are not authorized to configure this universe."
+          }
+        },
+        "summary": "Get the list of playtesters for an owned universe.",
+        "tags": [
+          "UniverseSettings"
+        ]
+      },
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "description": "The universe Id.",
+            "format": "int64",
+            "in": "path",
+            "name": "universeId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "The playtesters to add.",
+            "in": "body",
+            "name": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Api.Develop.Models.PlaytestersRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "UniverseSettings:AddPlaytesters"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Api.Develop.Models.PlaytestersResponse"
+            }
+          },
+          "400": {
+            "description": "1: The universe does not exist.\r\n48: The playtesters list is missing or empty.\r\n49: Too many playtesters were specified in a single request."
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed\r\n2: You are not authorized to configure this universe."
+          }
+        },
+        "summary": "Add playtesters to an owned universe. Existing ids are ignored (additive union).",
         "tags": [
           "UniverseSettings"
         ]

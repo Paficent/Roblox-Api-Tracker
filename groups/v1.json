@@ -1015,6 +1015,10 @@
         },
         "previousPageCursor": {
           "type": "string"
+        },
+        "totalResults": {
+          "format": "int64",
+          "type": "integer"
         }
       },
       "type": "object"
@@ -2984,7 +2988,9 @@
               "AssignRole",
               "UnassignRole",
               "PublishAnnouncement",
-              "DeleteAnnouncement"
+              "DeleteAnnouncement",
+              "UpdateRoleSetPermissions",
+              "UpdateGroupSecuritySettings"
             ],
             "in": "query",
             "name": "actionType",

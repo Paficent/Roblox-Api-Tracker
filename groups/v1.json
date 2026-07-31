@@ -2113,6 +2113,21 @@
       },
       "type": "object"
     },
+    "Roblox.Groups.Client.TierEvaluationResultResponse": {
+      "additionalProperties": false,
+      "properties": {
+        "passedSignals": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "tierInfo": {
+          "$ref": "#/definitions/Roblox.Groups.Client.CommunityTierInfoResponse"
+        }
+      },
+      "type": "object"
+    },
     "Roblox.Web.Responses.Groups.GroupBasicResponse": {
       "additionalProperties": false,
       "properties": {
@@ -3710,6 +3725,48 @@
         "summary": "Gets the freeze status of the community features for a group.",
         "tags": [
           "GroupFeatures"
+        ]
+      }
+    },
+    "/v1/groups/{groupId}/community-tier/evaluate": {
+      "post": {
+        "parameters": [
+          {
+            "format": "int64",
+            "in": "path",
+            "name": "groupId",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "CommunityTier:EvaluateCommunityTier"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Groups.Client.TierEvaluationResultResponse"
+            }
+          },
+          "400": {
+            "description": "1: Group is invalid or does not exist."
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed\r\n22: The feature is disabled.\r\n23: Insufficient permissions to complete the request.\r\n49: User is invalid or does not exist"
+          }
+        },
+        "tags": [
+          "CommunityTier"
         ]
       }
     },

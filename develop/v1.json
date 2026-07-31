@@ -2172,7 +2172,7 @@
             }
           },
           "400": {
-            "description": "1: The universe does not exist.\r\n48: The playtesters list is missing or empty.\r\n49: Too many playtesters were specified in a single request."
+            "description": "1: The universe does not exist.\r\n48: The playtesters list is missing or empty.\r\n49: Too many playtesters were specified in a single request.\r\n51: One or more playtesters cannot be added due to safety restrictions."
           },
           "401": {
             "description": "0: Authorization has been denied for this request."

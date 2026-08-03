@@ -2030,6 +2030,12 @@
           "format": "int32",
           "type": "integer"
         },
+        "requirements": {
+          "items": {
+            "$ref": "#/definitions/Roblox.Groups.Client.TierRequirement"
+          },
+          "type": "array"
+        },
         "tierUpdatedTime": {
           "format": "date-time",
           "type": "string"
@@ -2122,8 +2128,35 @@
           },
           "type": "array"
         },
+        "requirements": {
+          "items": {
+            "$ref": "#/definitions/Roblox.Groups.Client.TierRequirement"
+          },
+          "type": "array"
+        },
         "tierInfo": {
           "$ref": "#/definitions/Roblox.Groups.Client.CommunityTierInfoResponse"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Groups.Client.TierRequirement": {
+      "additionalProperties": false,
+      "properties": {
+        "key": {
+          "description": " ['OwnerModerationStatusOk' = 1, 'OwnerAgeEstimationVerified' = 2, 'OwnerIdVerified' = 3, 'OwnerTwoStepVerified' = 4, 'CommunityMeetsPlayerRequirement' = 5]",
+          "enum": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "format": "int32",
+          "type": "integer"
+        },
+        "satisfied": {
+          "type": "boolean"
         }
       },
       "type": "object"

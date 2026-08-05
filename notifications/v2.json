@@ -259,6 +259,10 @@
           "description": "Name of the requesting device",
           "type": "string"
         },
+        "isProvisional": {
+          "description": "True when the client granted iOS provisional authorization (silent, quiet-only)\r\nrather than full authorization. Absent/null is treated as not provisional.",
+          "type": "boolean"
+        },
         "notificationToken": {
           "description": "Token for notification",
           "type": "string"

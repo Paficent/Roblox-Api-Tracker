@@ -5747,6 +5747,9 @@
           },
           "403": {
             "description": "0: Token Validation Failed\r\n9: You do not have permissions to perform this action."
+          },
+          "409": {
+            "description": "28: Migration in progress. Please try again in a moment."
           }
         },
         "summary": "Creates new group roleset.",
@@ -5800,6 +5803,9 @@
           },
           "403": {
             "description": "0: Token Validation Failed\r\n9: You do not have permissions to perform this action.\r\n16: There are users in this role."
+          },
+          "409": {
+            "description": "28: Migration in progress. Please try again in a moment."
           }
         },
         "summary": "Deletes existing group roleset.",
@@ -5864,6 +5870,9 @@
           },
           "403": {
             "description": "0: Token Validation Failed\r\n9: You do not have permissions to perform this action."
+          },
+          "409": {
+            "description": "28: Migration in progress. Please try again in a moment."
           }
         },
         "summary": "Updates existing group roleset.",

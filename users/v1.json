@@ -174,6 +174,7 @@
             "format": "int64",
             "type": "integer"
           },
+          "maxItems": 200,
           "type": "array"
         }
       },
@@ -1018,6 +1019,12 @@
         "summary": "Gets detailed user information by id.",
         "tags": [
           "Users"
+        ],
+        "x-roblox-recommended-alternatives": [
+          {
+            "httpMethod": "GET",
+            "url": "https://apis.roblox.com/cloud/v2/users/{user_id}"
+          }
         ]
       }
     },

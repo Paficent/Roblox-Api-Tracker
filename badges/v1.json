@@ -372,6 +372,7 @@
   "paths": {
     "/v1/badges/metadata": {
       "get": {
+        "description": "Returns creation price and field length limits. Callers use this before creating or editing badges.",
         "produces": [
           "application/json",
           "text/json"
@@ -393,11 +394,13 @@
         "summary": "Gets metadata about the badges system.",
         "tags": [
           "Badges"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/badges/{badgeId}": {
       "get": {
+        "description": "Returns display fields, award statistics, and owning universe for a single badge.",
         "parameters": [
           {
             "description": "The badge Id.",
@@ -432,13 +435,15 @@
         "summary": "Gets badge information by the badge Id.",
         "tags": [
           "Badges"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       },
       "patch": {
         "consumes": [
           "application/json",
           "text/json"
         ],
+        "description": "Managers may change enabled state, name, and description when authorized for the badge.",
         "parameters": [
           {
             "description": "The badge Id.",
@@ -491,7 +496,8 @@
         "summary": "Updates badge configuration.",
         "tags": [
           "Badges"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/badges/{badgeId}/icon": {
@@ -499,6 +505,7 @@
         "consumes": [
           "multipart/form-data"
         ],
+        "description": "Accepts a moderated image upload and updates the badge's icon asset.",
         "parameters": [
           {
             "description": "The badge Id.",
@@ -550,11 +557,21 @@
         "summary": "Overwrites a badge icon with a new one.",
         "tags": [
           "Badges"
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "SupportedByAnotherEndpoint",
+        "x-roblox-recommended-alternatives": [
+          {
+            "description": "A languageCode is required.",
+            "httpMethod": "POST",
+            "url": "https://apis.roblox.com/legacy-game-internationalization/v1/badges/{badgeId}/icons/language-codes/{languageCode}"
+          }
         ]
       }
     },
     "/v1/universes/{universeId}/badges": {
       "get": {
+        "description": "Lists badges created under the universe's root place, with paging and optional sort.",
         "parameters": [
           {
             "description": "The universe Id.",
@@ -633,12 +650,14 @@
         "summary": "Gets badges by their awarding game.",
         "tags": [
           "Badges"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       },
       "post": {
         "consumes": [
           "multipart/form-data"
         ],
+        "description": "Charges the selected payment source and creates the badge under the universe's root place.",
         "parameters": [
           {
             "description": "The ID of the universe to create the badge for.",
@@ -661,7 +680,7 @@
             "type": "string"
           },
           {
-            "description": "Whether or not to pay for the badge with user funds, or group funds. ['User' = 1, 'Group' = 2]",
+            "description": "Whether or not to pay for the badge with user funds, or group funds.",
             "enum": [
               1,
               2
@@ -727,11 +746,13 @@
         "summary": "Creates a new badge.",
         "tags": [
           "Badges"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/universes/{universeId}/free-badges-quota": {
       "get": {
+        "description": "Reflects daily free-creation allowance for the universe when the feature is enabled.",
         "parameters": [
           {
             "description": "The universe Id.",
@@ -767,11 +788,13 @@
         "summary": "Gets the number of free badges left for the current UTC day by their awarding game.",
         "tags": [
           "Badges"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/user/badges/{badgeId}": {
       "delete": {
+        "description": "Revokes the caller's own awarded badge instance when the badge exists on their account.",
         "parameters": [
           {
             "description": "The badge Id.",
@@ -812,11 +835,13 @@
         "summary": "Removes a badge from the authenticated user.",
         "tags": [
           "BadgeAwards"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/users/{userId}/badges": {
       "get": {
+        "description": "Respects inventory privacy settings when evaluating which awarded badges are visible.",
         "parameters": [
           {
             "description": "The user Id.",
@@ -882,11 +907,21 @@
         "summary": "Gets a list of badges a user has been awarded.",
         "tags": [
           "Badges"
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "SupportedByAnotherEndpoint",
+        "x-roblox-recommended-alternatives": [
+          {
+            "description": "Filter with badges=true and follow nextPageToken. Results expose badgeDetails.badgeId and addTime, but omit full badge metadata and statistics.",
+            "httpMethod": "GET",
+            "url": "https://apis.roblox.com/cloud/v2/users/{userId}/inventory-items"
+          }
         ]
       }
     },
     "/v1/users/{userId}/badges/awarded-dates": {
       "get": {
+        "description": "Batch form of awarded-date lookup with a maximum number of badge ids per request.",
         "parameters": [
           {
             "description": "The user Id.",
@@ -936,11 +971,21 @@
         "summary": "Gets timestamps for when badges were awarded to a user.",
         "tags": [
           "BadgeAwards"
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "SupportedByAnotherEndpoint",
+        "x-roblox-recommended-alternatives": [
+          {
+            "description": "Use filter=badgeIds with comma-separated badge IDs and read badgeDetails.badgeId and addTime. Only awarded matches return, so join results by badge ID.",
+            "httpMethod": "GET",
+            "url": "https://apis.roblox.com/cloud/v2/users/{userId}/inventory-items"
+          }
         ]
       }
     },
     "/v1/users/{userId}/badges/{badgeId}/awarded-date": {
       "get": {
+        "description": "Returns 204 when the user has not been awarded the badge or the badge is filtered from view.",
         "parameters": [
           {
             "description": "User id.",
@@ -976,6 +1021,15 @@
         "summary": "Gets timestamp for when a single badge was awarded to a user.",
         "tags": [
           "BadgeAwards"
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "SupportedByAnotherEndpoint",
+        "x-roblox-recommended-alternatives": [
+          {
+            "description": "Use filter=badgeIds with the badge ID and read addTime. An unawarded or hidden badge returns an empty list instead of 204.",
+            "httpMethod": "GET",
+            "url": "https://apis.roblox.com/cloud/v2/users/{userId}/inventory-items"
+          }
         ]
       }
     }

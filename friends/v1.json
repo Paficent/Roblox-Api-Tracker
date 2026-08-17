@@ -127,6 +127,10 @@
           "description": "Whether or not the user is banned",
           "type": "boolean"
         },
+        "isUnseen": {
+          "description": "The user's verified badge status.",
+          "type": "boolean"
+        },
         "mutualFriendsList": {
           "description": "mutualFriendsList",
           "items": {
@@ -746,6 +750,13 @@
             "in": "query",
             "name": "friendRequestSort",
             "type": "integer"
+          },
+          {
+            "default": false,
+            "description": "Whether to uprank unseen friend requests and return isUnseen per friend request.",
+            "in": "query",
+            "name": "uprankUnseen",
+            "type": "boolean"
           }
         ],
         "produces": [

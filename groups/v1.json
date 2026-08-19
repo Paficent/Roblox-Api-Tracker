@@ -2014,6 +2014,9 @@
     "Roblox.Groups.Client.CommunityTierInfoResponse": {
       "additionalProperties": false,
       "properties": {
+        "capabilities": {
+          "$ref": "#/definitions/Roblox.Groups.Client.TierCapabilities"
+        },
         "currentTier": {
           "format": "int32",
           "type": "integer"
@@ -2115,6 +2118,15 @@
         "groupId": {
           "format": "int64",
           "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Groups.Client.TierCapabilities": {
+      "additionalProperties": false,
+      "properties": {
+        "isEligibleForUnrestrictedMessages": {
+          "type": "boolean"
         }
       },
       "type": "object"
@@ -3038,7 +3050,9 @@
               "PublishAnnouncement",
               "DeleteAnnouncement",
               "UpdateRoleSetPermissions",
-              "UpdateGroupSecuritySettings"
+              "UpdateGroupSecuritySettings",
+              "GrantEnterpriseTier",
+              "RevokeEnterpriseTier"
             ],
             "in": "query",
             "name": "actionType",

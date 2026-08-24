@@ -188,7 +188,8 @@
         "summary": "Get the supported languages for a game.",
         "tags": [
           "SupportedLanguagesV2"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     }
   },

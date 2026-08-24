@@ -192,7 +192,7 @@
           "type": "string"
         },
         "state": {
-          "description": "Enum for image status. ['Approved' = 0, 'PendingReview' = 1, 'UnAvailable' = 2, 'Rejected' = 3, 'Error' = 4]",
+          "description": "Enum for image status.",
           "enum": [
             "Approved",
             "PendingReview",
@@ -219,7 +219,7 @@
           "type": "string"
         },
         "state": {
-          "description": "Enum for image status. ['Approved' = 0, 'PendingReview' = 1, 'UnAvailable' = 2, 'Rejected' = 3, 'Error' = 4]",
+          "description": "Enum for image status.",
           "enum": [
             "Approved",
             "PendingReview",
@@ -245,7 +245,7 @@
           "type": "string"
         },
         "state": {
-          "description": "Enum for image status. ['Approved' = 0, 'PendingReview' = 1, 'UnAvailable' = 2, 'Rejected' = 3, 'Error' = 4]",
+          "description": "Enum for image status.",
           "enum": [
             "Approved",
             "PendingReview",
@@ -272,7 +272,7 @@
           "type": "string"
         },
         "state": {
-          "description": "Enum for image status. ['Approved' = 0, 'PendingReview' = 1, 'UnAvailable' = 2, 'Rejected' = 3, 'Error' = 4]",
+          "description": "Enum for image status.",
           "enum": [
             "Approved",
             "PendingReview",
@@ -324,7 +324,7 @@
           "type": "integer"
         },
         "contentType": {
-          "description": "The enum representing the type of request while requesting name/description history ['UniverseDisplayNames' = 0, 'UniverseDisplayDescriptions' = 1, 'BadgeDisplayName' = 2, 'BadgeDisplayDescription' = 3, 'DeveloperProductDisplayName' = 4, 'DeveloperProductDisplayDescription' = 5, 'GamePassDisplayName' = 6, 'GamePassDisplayDescription' = 7]",
+          "description": "The enum representing the type of request while requesting name/description history",
           "enum": [
             "UniverseDisplayNames",
             "UniverseDisplayDescriptions",
@@ -393,7 +393,7 @@
           "type": "string"
         },
         "languageOrLocaleType": {
-          "description": "An indicator that says whether the passed in language/locale code represents a language or locale. ['Language' = 0, 'Locale' = 1]",
+          "description": "An indicator that says whether the passed in language/locale code represents a language or locale.",
           "enum": [
             "Language",
             "Locale"
@@ -447,7 +447,7 @@
           "type": "string"
         },
         "languageCodeType": {
-          "description": "An enum to distinguish between locale codes and language codes. ['Language' = 0, 'Locale' = 1]",
+          "description": "An enum to distinguish between locale codes and language codes.",
           "enum": [
             "Language",
             "Locale"
@@ -476,7 +476,7 @@
           "type": "string"
         },
         "languageCodeType": {
-          "description": "The language code type. ['Language' = 0, 'Locale' = 1]",
+          "description": "The language code type.",
           "enum": [
             "Language",
             "Locale"
@@ -512,7 +512,7 @@
           "type": "string"
         },
         "state": {
-          "description": "Enum for image status. ['Approved' = 0, 'PendingReview' = 1, 'UnAvailable' = 2, 'Rejected' = 3, 'Error' = 4]",
+          "description": "Enum for image status.",
           "enum": [
             "Approved",
             "PendingReview",
@@ -632,7 +632,7 @@
           "type": "string"
         },
         "languageCodeType": {
-          "description": "The language code type. ['Language' = 0, 'Locale' = 1]",
+          "description": "The language code type.",
           "enum": [
             "Language",
             "Locale"
@@ -670,7 +670,7 @@
           "type": "integer"
         },
         "reportType": {
-          "description": "The report type ['GameTranslationStatus' = 0, 'GameTranslationStatusForTranslator' = 1, 'GameTranslationStatusForTranslatorGroup' = 2, 'Test' = 3]",
+          "description": "The report type",
           "enum": [
             "GameTranslationStatus",
             "GameTranslationStatusForTranslator",
@@ -814,7 +814,7 @@
           "type": "integer"
         },
         "translationStatus": {
-          "description": "The enum representing a translation status. ['Approved' = 0]",
+          "description": "The enum representing a translation status.",
           "enum": [
             "Approved"
           ],
@@ -836,7 +836,7 @@
       "description": "A response model that contains category info for getting a translation count.",
       "properties": {
         "category": {
-          "description": "The category of the translation counts. ['InGameContent' = 0]",
+          "description": "The category of the translation counts.",
           "enum": [
             "InGameContent"
           ],
@@ -874,7 +874,7 @@
           "type": "integer"
         },
         "status": {
-          "description": "The status of the response for the requested game. ['LanguageOrLocaleSupportedForGame' = 0, 'LanguageOrLocaleNotSupportedForGame' = 1, 'LanguageOrLocaleIsSource' = 2, 'InsufficientPermission' = 3, 'GameDoesNotExist' = 4, 'GameDoesNotHaveTable' = 5, 'UnknownError' = 6]",
+          "description": "The status of the response for the requested game.",
           "enum": [
             "LanguageOrLocaleSupportedForGame",
             "LanguageOrLocaleNotSupportedForGame",
@@ -903,7 +903,7 @@
           "type": "string"
         },
         "languageCodeType": {
-          "description": "An enum to distinguish between locale codes and language codes. ['Language' = 0, 'Locale' = 1]",
+          "description": "An enum to distinguish between locale codes and language codes.",
           "enum": [
             "Language",
             "Locale"
@@ -914,7 +914,7 @@
           "type": "string"
         },
         "status": {
-          "description": "The status of the response for the requested game. ['Success' = 1, 'LanguageOrLocaleNotSupportedForGame' = 2]",
+          "description": "The status of the response for the requested game.",
           "enum": [
             "Success",
             "LanguageOrLocaleNotSupportedForGame"
@@ -1552,7 +1552,9 @@
         },
         "tags": [
           "Autolocalization"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "AlreadyDeprecated"
       },
       "post": {
         "deprecated": true,
@@ -1592,7 +1594,9 @@
         },
         "tags": [
           "Autolocalization"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "AlreadyDeprecated"
       }
     },
     "/v1/autolocalization/games/{gameId}/settings": {
@@ -1655,7 +1659,9 @@
         "summary": "Sets a game's auto-localization related settings",
         "tags": [
           "Autolocalization"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "AlreadyDeprecated"
       }
     },
     "/v1/autolocalization/metadata": {
@@ -1686,7 +1692,9 @@
         "summary": "Metadata for AutoLocalization Configuration",
         "tags": [
           "Autolocalization"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "AlreadyDeprecated"
       }
     },
     "/v1/automatic-translation/games/{gameId}/feature-status": {
@@ -1731,7 +1739,8 @@
         "summary": "Checks if automatic translation can be enabled for a game.\r\nThe user must still have proper permissions for the game to get this info.",
         "tags": [
           "AutomaticTranslation"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/automatic-translation/games/{gameId}/quota": {
@@ -1779,7 +1788,8 @@
         "summary": "Returns the automatic translation quota info for a game.\r\nThe user must still have proper permissions for the game to get this info.",
         "tags": [
           "AutomaticTranslation"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/automatic-translation/languages/{languageCode}/target-languages": {
@@ -1837,7 +1847,8 @@
         "summary": "Checks if the requested target languages are allowed for automatic translation based on the source language.\r\nIf there are no requested target languages, then all allowed target languages for the source language will be returned.",
         "tags": [
           "AutomaticTranslation"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/badges/{badgeId}/description/language-codes/{languageCode}": {
@@ -1908,7 +1919,8 @@
         "summary": "Update localized description of a badge",
         "tags": [
           "Badge"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/badges/{badgeId}/icons": {
@@ -1972,7 +1984,8 @@
         "summary": "Get all icons for a badge",
         "tags": [
           "Badge"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/badges/{badgeId}/icons/language-codes/{languageCode}": {
@@ -2030,7 +2043,8 @@
         "summary": "Delete a localized icon from a badge",
         "tags": [
           "Badge"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       },
       "post": {
         "consumes": [
@@ -2097,7 +2111,8 @@
         "summary": "Update a badge's icon",
         "tags": [
           "Badge"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/badges/{badgeId}/name-description": {
@@ -2140,7 +2155,8 @@
         },
         "tags": [
           "Badge"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/badges/{badgeId}/name-description/language-codes/{languageCode}": {
@@ -2198,7 +2214,8 @@
         "summary": "Delete localized name and description of a badge",
         "tags": [
           "Badge"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       },
       "patch": {
         "consumes": [
@@ -2267,7 +2284,8 @@
         "summary": "Update localized name and description of a badge",
         "tags": [
           "Badge"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/badges/{badgeId}/name/language-codes/{languageCode}": {
@@ -2338,7 +2356,8 @@
         "summary": "Update localized name of a badge",
         "tags": [
           "Badge"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/developer-products/{developerProductId}/description/language-codes/{languageCode}": {
@@ -2409,7 +2428,8 @@
         "summary": "Update localized description of a developer product",
         "tags": [
           "DeveloperProduct"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/developer-products/{developerProductId}/icons": {
@@ -2473,7 +2493,8 @@
         "summary": "Get all icons for a developer product",
         "tags": [
           "DeveloperProduct"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/developer-products/{developerProductId}/icons/language-codes/{languageCode}": {
@@ -2531,7 +2552,8 @@
         "summary": "Delete a localized icon from a developer product",
         "tags": [
           "DeveloperProduct"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       },
       "post": {
         "consumes": [
@@ -2598,7 +2620,8 @@
         "summary": "Update a developer product's icon",
         "tags": [
           "DeveloperProduct"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/developer-products/{developerProductId}/name-description": {
@@ -2643,7 +2666,8 @@
         "summary": "Get all names and descriptions of a developer product",
         "tags": [
           "DeveloperProduct"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/developer-products/{developerProductId}/name-description/language-codes/{languageCode}": {
@@ -2701,7 +2725,8 @@
         "summary": "Delete localized name and description of a developer product",
         "tags": [
           "DeveloperProduct"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       },
       "patch": {
         "consumes": [
@@ -2770,7 +2795,8 @@
         "summary": "Update localized name and description of a developer product",
         "tags": [
           "DeveloperProduct"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/developer-products/{developerProductId}/name/language-codes/{languageCode}": {
@@ -2841,7 +2867,8 @@
         "summary": "Update localized name of a developer product",
         "tags": [
           "DeveloperProduct"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/game-icon/games/{gameId}": {
@@ -2905,7 +2932,8 @@
         "summary": "Get all icons for a game",
         "tags": [
           "GameIcon"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/game-icon/games/{gameId}/language-codes/{languageCode}": {
@@ -2963,7 +2991,8 @@
         "summary": "Delete a localized icon from a game",
         "tags": [
           "GameIcon"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       },
       "post": {
         "consumes": [
@@ -3030,7 +3059,8 @@
         "summary": "Update a game's icon",
         "tags": [
           "GameIcon"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/game-localization-status/translation-counts-for-language-or-locale": {
@@ -3094,7 +3124,8 @@
         "summary": "Gets the language translation counts for the specified table.\r\nThe languages to retrieve must be provided.",
         "tags": [
           "GameLocalizationStatus"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/game-localization-status/{gameId}/translation-counts": {
@@ -3139,7 +3170,8 @@
         "summary": "Gets the language translation counts for all languages of a game",
         "tags": [
           "GameLocalizationStatus"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/game-passes/{gamePassId}/description/language-codes/{languageCode}": {
@@ -3207,7 +3239,8 @@
         "summary": "Update localized description of a game pass",
         "tags": [
           "GamePass"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/game-passes/{gamePassId}/icons": {
@@ -3271,7 +3304,8 @@
         "summary": "Get all icons for a game pass",
         "tags": [
           "GamePass"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/game-passes/{gamePassId}/icons/language-codes/{languageCode}": {
@@ -3329,7 +3363,8 @@
         "summary": "Delete a localized icon from a game pass",
         "tags": [
           "GamePass"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       },
       "post": {
         "consumes": [
@@ -3396,7 +3431,8 @@
         "summary": "Update a game pass's icon",
         "tags": [
           "GamePass"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/game-passes/{gamePassId}/name-description": {
@@ -3441,7 +3477,8 @@
         "summary": "Get all names and descriptions of a game pass",
         "tags": [
           "GamePass"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/game-passes/{gamePassId}/name-description/language-codes/{languageCode}": {
@@ -3496,7 +3533,8 @@
         "summary": "Delete localized name and description of a game pass",
         "tags": [
           "GamePass"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       },
       "patch": {
         "consumes": [
@@ -3562,7 +3600,8 @@
         "summary": "Update localized name and description of a game pass",
         "tags": [
           "GamePass"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/game-passes/{gamePassId}/name/language-codes/{languageCode}": {
@@ -3630,7 +3669,8 @@
         "summary": "Update localized name of a game pass",
         "tags": [
           "GamePass"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/game-thumbnails/games/{gameId}/images": {
@@ -3691,7 +3731,8 @@
         "summary": "Get the localized image ids in all languages for a game.",
         "tags": [
           "GameThumbnails"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/game-thumbnails/games/{gameId}/language-codes/{languageCode}/alt-text": {
@@ -3765,7 +3806,8 @@
         "summary": "Updates the game thumbnail alt text.",
         "tags": [
           "GameThumbnails"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/game-thumbnails/games/{gameId}/language-codes/{languageCode}/image": {
@@ -3834,7 +3876,8 @@
         "summary": "Uploads the game thumbnail.",
         "tags": [
           "GameThumbnails"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/game-thumbnails/games/{gameId}/language-codes/{languageCode}/images/order": {
@@ -3902,7 +3945,8 @@
         "summary": "Orders the specified image Ids for the game thumbnails.",
         "tags": [
           "GameThumbnails"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/game-thumbnails/games/{gameId}/language-codes/{languageCode}/images/{imageId}": {
@@ -3965,7 +4009,8 @@
         "summary": "Deletes the game thumbnail.",
         "tags": [
           "GameThumbnails"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/localizationtable/gametables/{gameId}": {
@@ -4017,7 +4062,9 @@
         },
         "tags": [
           "LocalizationTable"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "AlreadyDeprecated"
       }
     },
     "/v1/name-description/games/translation-history": {
@@ -4073,7 +4120,8 @@
         "summary": "Gets the history for name or description in a provided language.",
         "tags": [
           "NameDescription"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/name-description/games/{gameId}": {
@@ -4115,7 +4163,8 @@
         "summary": "Gets a game's name and description in all supported languages",
         "tags": [
           "NameDescription"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       },
       "patch": {
         "consumes": [
@@ -4174,7 +4223,8 @@
         "summary": "Updates a game's name and/or description in multiple languages.",
         "tags": [
           "NameDescription"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/name-description/metadata": {
@@ -4203,7 +4253,8 @@
         "summary": "Rollout settings for name/description migration to new page",
         "tags": [
           "NameDescription"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/source-language/games/{gameId}": {
@@ -4245,7 +4296,8 @@
         "summary": "Gets the source language of a game",
         "tags": [
           "SourceLanguage"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       },
       "patch": {
         "parameters": [
@@ -4301,7 +4353,8 @@
         "summary": "Sets the source language of a game",
         "tags": [
           "SourceLanguage"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/source-language/games/{gameId}/language-with-locales": {
@@ -4343,7 +4396,8 @@
         "summary": "Gets the source language of a game",
         "tags": [
           "SourceLanguage"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/supported-languages/games/{gameId}": {
@@ -4385,7 +4439,8 @@
         "summary": "Get the supported languages for a game.",
         "tags": [
           "SupportedLanguages"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       },
       "patch": {
         "consumes": [
@@ -4447,7 +4502,8 @@
         "summary": "Add or remove supported languages for a game.",
         "tags": [
           "SupportedLanguages"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/supported-languages/games/{gameId}/automatic-translation-status": {
@@ -4495,7 +4551,8 @@
         "summary": "Get the automatic translation status of supported languages for a game.",
         "tags": [
           "SupportedLanguages"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/supported-languages/games/{gameId}/in-experience-language-selection": {
@@ -4537,7 +4594,8 @@
         "summary": "Get the user's in-experience language selector languages for a game.",
         "tags": [
           "SupportedLanguages"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/supported-languages/games/{gameId}/languages/{languageCode}/automatic-translation-status": {
@@ -4605,7 +4663,8 @@
         "summary": "Enable or disable automatic translation for a game and language.",
         "tags": [
           "SupportedLanguages"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/supported-languages/games/{gameId}/languages/{languageCode}/image-translation-status": {
@@ -4741,7 +4800,8 @@
         "summary": "Update the switch which controls if the UniverseDisplayInformation should be automatically translated.",
         "tags": [
           "SupportedLanguages"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/supported-languages/games/{gameId}/universe-display-info-automatic-translation-settings": {
@@ -4789,7 +4849,8 @@
         "summary": "Get UniverseDisplayInfo automatic translation settings.",
         "tags": [
           "SupportedLanguages"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/supported-languages/metadata": {
@@ -4818,7 +4879,8 @@
         "summary": "Rollout settings for supported languages of a game",
         "tags": [
           "SupportedLanguages"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/translation-analytics/games/{gameId}/download-translation-analytics-report": {
@@ -4900,7 +4962,8 @@
         "summary": "Download translation analytics report after the report is ready",
         "tags": [
           "TranslationAnalytics"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/translation-analytics/games/{gameId}/request-translation-analytics-report": {
@@ -4958,7 +5021,8 @@
         "summary": "Request translation analytics report to be generated",
         "tags": [
           "TranslationAnalytics"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/translation-analytics/metadata": {
@@ -4987,7 +5051,8 @@
         "summary": "Get metadata related to UI and rollout settings",
         "tags": [
           "TranslationAnalytics"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/ui-configurations": {
@@ -5016,7 +5081,8 @@
         "summary": "Get ui configurations for frontend to use.",
         "tags": [
           "UiConfigurations"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/user-localization-settings/player-choice/{universeId}": {
@@ -5109,7 +5175,8 @@
         "summary": "Get user localization settings for universe.",
         "tags": [
           "UserLocalizationSettings"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       },
       "post": {
         "consumes": [
@@ -5168,7 +5235,8 @@
         "summary": "Set user localization settings for universe.",
         "tags": [
           "UserLocalizationSettings"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     }
   },

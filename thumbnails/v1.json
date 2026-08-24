@@ -23,6 +23,10 @@
           "description": "Whether to include a background in avatar thumbnails (defaults to false)",
           "type": "boolean"
         },
+        "includeProfileFrame": {
+          "description": "Whether to composite the user's equipped profile frame into the thumbnail (defaults to false).\r\nWhen true the returned image has the frame baked in server-side.",
+          "type": "boolean"
+        },
         "isCircular": {
           "description": "Is the thumbnail circular shape",
           "type": "boolean"
@@ -1267,6 +1271,13 @@
             "description": "Whether to include a background in the thumbnail (defaults to false)",
             "in": "query",
             "name": "includeBackground",
+            "type": "boolean"
+          },
+          {
+            "default": false,
+            "description": "Whether to composite the user's equipped profile frame into the thumbnail (defaults to false)",
+            "in": "query",
+            "name": "includeProfileFrame",
             "type": "boolean"
           },
           {

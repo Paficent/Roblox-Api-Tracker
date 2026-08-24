@@ -8,8 +8,14 @@
           "description": "Whether the user can trade or not.",
           "type": "boolean"
         },
+        "currencyTransferEligibility": {
+          "$ref": "#/definitions/Roblox.Trades.Api.Models.V2.CurrencyTransferEligibilityResponse"
+        },
+        "freeTradesAllowance": {
+          "$ref": "#/definitions/Roblox.Trades.Api.Models.V2.FreeTradesAllowanceResponse"
+        },
         "tradeEligibility": {
-          "description": "The trade eligibility status of the user. ['Unknown' = 0, 'Eligible' = 1, 'IneligibleTradeSystemDisabled' = 2, 'IneligibleCannotTradeWithRoblox' = 3, 'IneligibleUserNotFound' = 4, 'IneligibleMissingPremiumMembership' = 5, 'IneligibleLegalOrRegulatoryRestrictions' = 6]",
+          "description": "The trade eligibility status of the user. ['Unknown' = 0, 'Eligible' = 1, 'IneligibleTradeSystemDisabled' = 2, 'IneligibleCannotTradeWithRoblox' = 3, 'IneligibleUserNotFound' = 4, 'IneligibleMissingPremiumMembership' = 5, 'IneligibleLegalOrRegulatoryRestrictions' = 6, 'IneligibleFreeTradesLimitReached' = 7]",
           "enum": [
             "Unknown",
             "Eligible",
@@ -17,7 +23,8 @@
             "IneligibleCannotTradeWithRoblox",
             "IneligibleUserNotFound",
             "IneligibleMissingPremiumMembership",
-            "IneligibleLegalOrRegulatoryRestrictions"
+            "IneligibleLegalOrRegulatoryRestrictions",
+            "IneligibleFreeTradesLimitReached"
           ],
           "type": "string"
         },
@@ -36,6 +43,9 @@
         "canTrade": {
           "description": "Whether the user can trade with the target user or not.",
           "type": "boolean"
+        },
+        "currencyTransferEligibility": {
+          "$ref": "#/definitions/Roblox.Trades.Api.Models.V2.CurrencyTransferEligibilityResponse"
         },
         "mutualTradeEligibility": {
           "description": "The mutual trade eligibility status between the two users. ['Unknown' = 0, 'Eligible' = 1, 'CallingUserIneligible' = 2, 'TargetUserIneligible' = 3, 'CannotTradeWithSelf' = 4, 'CallingUserPrivacySettingsRestricted' = 5]",
@@ -58,6 +68,43 @@
           "description": "The ID of the user.",
           "format": "int64",
           "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Trades.Api.Models.V2.CurrencyTransferEligibilityResponse": {
+      "additionalProperties": false,
+      "properties": {
+        "canRequest": {
+          "type": "boolean"
+        },
+        "canSend": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Trades.Api.Models.V2.FreeTradesAllowanceResponse": {
+      "additionalProperties": false,
+      "properties": {
+        "limit": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "remaining": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "window": {
+          "description": " ['Day' = 1, 'Week' = 2, 'Month' = 3, 'Year' = 4, 'Lifetime' = 5]",
+          "enum": [
+            "day",
+            "week",
+            "month",
+            "year",
+            "lifetime"
+          ],
+          "type": "string"
         }
       },
       "type": "object"

@@ -9,6 +9,9 @@
         "clientVersionUpload": {
           "type": "string"
         },
+        "forceInstall": {
+          "type": "boolean"
+        },
         "nextClientVersion": {
           "type": "string"
         },

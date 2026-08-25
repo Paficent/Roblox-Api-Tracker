@@ -2919,9 +2919,6 @@
           "400": {
             "description": "14: Invalid game id\r\n52: Image dimensions are invalid"
           },
-          "401": {
-            "description": "0: Authorization has been denied for this request."
-          },
           "500": {
             "description": "0: An unknown error occurred."
           },

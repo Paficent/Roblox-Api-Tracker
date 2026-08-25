@@ -8,6 +8,9 @@
           "description": "Captcha is set to true if captcha is required from user to perform action",
           "type": "boolean"
         },
+        "notificationMuted": {
+          "type": "boolean"
+        },
         "success": {
           "type": "boolean"
         }

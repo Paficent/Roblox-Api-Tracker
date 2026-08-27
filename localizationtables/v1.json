@@ -9,6 +9,48 @@
       },
       "type": "object"
     },
+    "Roblox.LocalizationTables.Api.AssetEntry": {
+      "additionalProperties": false,
+      "description": "A source asset (image) entry in a localization table, along with its per-locale asset\r\ntranslations. Unlike Roblox.LocalizationTables.Api.Entry, an asset entry is identified by its source asset\r\nid and has no key/context/source; each translation's Roblox.LocalizationTables.Api.Translation.TranslationText\r\nholds the translated asset id.",
+      "properties": {
+        "assetClass": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "assetProp": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "assetType": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "createdTime": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "creator": {
+          "$ref": "#/definitions/Roblox.LocalizationTables.Api.Translator"
+        },
+        "gameLocations": {
+          "items": {
+            "$ref": "#/definitions/Roblox.InGameContentTables.Client.GameLocation"
+          },
+          "type": "array"
+        },
+        "sourceAssetId": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "translations": {
+          "items": {
+            "$ref": "#/definitions/Roblox.LocalizationTables.Api.Translation"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
     "Roblox.LocalizationTables.Api.AutoLocalizationMetadataResponse": {
       "additionalProperties": false,
       "properties": {
@@ -123,7 +165,7 @@
           "$ref": "#/definitions/Roblox.LocalizationTables.Api.EntryIdentifier"
         },
         "sortOrder": {
-          "description": "In which order the data is sorted. ['Asc' = 1, 'Desc' = 2]",
+          "description": "In which order the data is sorted.",
           "enum": [
             "Asc",
             "Desc"
@@ -279,7 +321,7 @@
         "reasons": {
           "description": "A set of translation feedback reasons for the given entry identifier.",
           "items": {
-            "description": "Enum for translation feedback reason. ['None' = 0, 'Untranslated' = 1, 'Inaccurate' = 2, 'SpellingOrGrammar' = 3, 'Inappropriate' = 4]",
+            "description": "Enum for translation feedback reason.",
             "enum": [
               "None",
               "Untranslated",
@@ -383,6 +425,9 @@
           "format": "uuid",
           "type": "string"
         },
+        "isAutoLocalizationForImageEnabled": {
+          "type": "boolean"
+        },
         "isAutolocalizationEnabled": {
           "type": "boolean"
         },
@@ -390,6 +435,9 @@
           "type": "boolean"
         },
         "isAutomaticEntriesSettingEnabled": {
+          "type": "boolean"
+        },
+        "shouldUseImageLocalizationTable": {
           "type": "boolean"
         },
         "shouldUseLocalizationTable": {
@@ -409,6 +457,24 @@
         },
         "tableOperationLimits": {
           "$ref": "#/definitions/Roblox.LocalizationTables.Api.TableOperationLimits"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.LocalizationTables.Api.GetTableAssetEntriesPagedResponse": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "items": {
+            "$ref": "#/definitions/Roblox.LocalizationTables.Api.AssetEntry"
+          },
+          "type": "array"
+        },
+        "nextPageCursor": {
+          "type": "string"
+        },
+        "previousPageCursor": {
+          "type": "string"
         }
       },
       "type": "object"
@@ -546,7 +612,7 @@
           "type": "integer"
         },
         "ownerType": {
-          "description": "Enum for valid OwnerTypes. ['User' = 0, 'Group' = 1]",
+          "description": "Enum for valid OwnerTypes.",
           "enum": [
             "User",
             "Group"
@@ -596,21 +662,6 @@
           "description": "The place version number of an ingest content request.",
           "format": "int32",
           "type": "integer"
-        }
-      },
-      "type": "object"
-    },
-    "Roblox.LocalizationTables.Api.Language": {
-      "additionalProperties": false,
-      "properties": {
-        "languageCode": {
-          "type": "string"
-        },
-        "name": {
-          "type": "string"
-        },
-        "nativeName": {
-          "type": "string"
         }
       },
       "type": "object"
@@ -729,6 +780,9 @@
     "Roblox.LocalizationTables.Api.SetAutolocalizationSettingsForGameRequest": {
       "additionalProperties": false,
       "properties": {
+        "isAutoLocalizationForImageEnabled": {
+          "type": "boolean"
+        },
         "isAutolocalizationEnabled": {
           "type": "boolean"
         },
@@ -736,6 +790,9 @@
           "type": "boolean"
         },
         "isAutomaticEntriesSettingEnabled": {
+          "type": "boolean"
+        },
+        "shouldUseImageLocalizationTable": {
           "type": "boolean"
         },
         "shouldUseLocalizationTable": {
@@ -889,18 +946,6 @@
     "Roblox.Web.WebAPI.ApiEmptyResponseModel": {
       "additionalProperties": false,
       "type": "object"
-    },
-    "Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.LocalizationTables.Api.Language]": {
-      "additionalProperties": false,
-      "properties": {
-        "data": {
-          "items": {
-            "$ref": "#/definitions/Roblox.LocalizationTables.Api.Language"
-          },
-          "type": "array"
-        }
-      },
-      "type": "object"
     }
   },
   "host": "localizationtables.roblox.com",
@@ -954,7 +999,8 @@
         "summary": "Generates localization asset of a game.",
         "tags": [
           "AutoLocalizationTable"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/auto-localization-table/games/{gameId}/auto-scrape-cleanup-request": {
@@ -1014,7 +1060,8 @@
         "summary": "Enqueues an event to flush the auto scraped entries which doesn't have translations.",
         "tags": [
           "AutoLocalizationTable"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/auto-localization-table/games/{gameId}/ingestion": {
@@ -1075,7 +1122,9 @@
         "summary": "Ingests entries for auto localization. Needs to be an authorized user.",
         "tags": [
           "AutoLocalizationTable"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "AgainstPolicy"
       }
     },
     "/v1/autolocalization/games/{gameId}/autolocalizationtable": {
@@ -1127,7 +1176,8 @@
         },
         "tags": [
           "Autolocalization"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       },
       "post": {
         "parameters": [
@@ -1165,7 +1215,8 @@
         },
         "tags": [
           "Autolocalization"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/autolocalization/games/{gameId}/settings": {
@@ -1226,7 +1277,8 @@
         "summary": "Sets a game's auto-localization related settings",
         "tags": [
           "Autolocalization"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/autolocalization/metadata": {
@@ -1255,35 +1307,8 @@
         "summary": "Metadata for AutoLocalization Configuration",
         "tags": [
           "Autolocalization"
-        ]
-      }
-    },
-    "/v1/localization-table/available-languages": {
-      "get": {
-        "deprecated": true,
-        "produces": [
-          "application/json",
-          "text/json"
         ],
-        "properties": {
-          "internal": false,
-          "metricIds": [
-            "LocalizationTable:GetSupportedLocalizationTableLanguages"
-          ],
-          "obsoleteMessage": "Use https://gameinternationalization.roblox.com/v1/supported-languages/games/{gameId} instead"
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/Roblox.Web.WebAPI.Models.ApiArrayResponse[Roblox.LocalizationTables.Api.Language]"
-            }
-          }
-        },
-        "summary": "Gets the supported language codes that can be used by localization tables.",
-        "tags": [
-          "LocalizationTable"
-        ]
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/localization-table/limits": {
@@ -1312,7 +1337,8 @@
         "summary": "Get limits for translation table entries operations",
         "tags": [
           "LocalizationTable"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/localization-table/metadata": {
@@ -1338,7 +1364,8 @@
         "summary": "Get metadata for localization UI",
         "tags": [
           "LocalizationTable"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/localization-table/tables": {
@@ -1385,7 +1412,8 @@
         "summary": "Creates a Localization Table with the given data.\r\nNote that this endpoint simply creates a table and does not associate it with any universe, so if intending to use this to create tables usable in experience more setup will be needed to grant those experiences access.",
         "tags": [
           "LocalizationTable"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/localization-table/tables/{assetId}": {
@@ -1430,7 +1458,8 @@
         "summary": "Get table information by the assetId of the table.",
         "tags": [
           "LocalizationTable"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/localization-table/tables/{tableId}": {
@@ -1475,7 +1504,8 @@
         "summary": "Get table information by the id of the table.",
         "tags": [
           "LocalizationTable"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       },
       "patch": {
         "consumes": [
@@ -1541,7 +1571,67 @@
         "summary": "Updates the tables contents based on what is provided.",
         "tags": [
           "LocalizationTable"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
+      }
+    },
+    "/v1/localization-table/tables/{tableId}/asset-entries": {
+      "get": {
+        "parameters": [
+          {
+            "description": "The table id.",
+            "format": "uuid",
+            "in": "path",
+            "name": "tableId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The source asset id to start after. If null, starts from the first page. A null cursor in the response means there are no more entries.",
+            "in": "query",
+            "name": "cursor",
+            "type": "string"
+          },
+          {
+            "description": "The universe id that owns the table.",
+            "format": "int64",
+            "in": "query",
+            "name": "gameId",
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "LocalizationTable:GetTableAssetEntriesPaged"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.LocalizationTables.Api.GetTableAssetEntriesPagedResponse"
+            }
+          },
+          "400": {
+            "description": "3: Invalid table id.\r\n14: Invalid game id\r\n25: Invalid cursor"
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "2: You do not have permission to get this table."
+          }
+        },
+        "summary": "Gets a page of asset (image) entries for the specified table, along with the table's\r\nper-locale asset translations.",
+        "tags": [
+          "LocalizationTable"
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/localization-table/tables/{tableId}/entries": {
@@ -1611,7 +1701,8 @@
         "summary": "Gets a batch of entries for a table.",
         "tags": [
           "LocalizationTable"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/localization-table/tables/{tableId}/entries/translation-feedback": {
@@ -1682,7 +1773,8 @@
         "summary": "Gets the translation feedback for each entry passed in.",
         "tags": [
           "LocalizationTable"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/localization-table/tables/{tableId}/entries/translation-history": {
@@ -1753,7 +1845,8 @@
         "summary": "Gets the translation history for each entry passed in.",
         "tags": [
           "LocalizationTable"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/localization-table/tables/{tableId}/entry-count": {
@@ -1816,7 +1909,8 @@
         "summary": "Gets the number of entries in the specified table",
         "tags": [
           "LocalizationTable"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     }
   },

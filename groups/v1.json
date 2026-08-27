@@ -903,6 +903,10 @@
           "description": "Whether or not the role is the base role for the group",
           "type": "boolean"
         },
+        "isPrivate": {
+          "description": "Whether the role is private (only visible to members with permission).\r\nOmitted from the response when false.",
+          "type": "boolean"
+        },
         "memberCount": {
           "description": "The number of members in the role.",
           "format": "int64",
@@ -959,6 +963,10 @@
         },
         "isBase": {
           "description": "Whether or not the role is the base role for the group",
+          "type": "boolean"
+        },
+        "isPrivate": {
+          "description": "Whether the role is private (only visible to members with permission).\r\nOmitted from the response when false.",
           "type": "boolean"
         },
         "memberCount": {
@@ -1246,6 +1254,10 @@
           "description": "The description of the roleset.",
           "type": "string"
         },
+        "isPrivate": {
+          "description": "Optional. When true the role is only visible to members with permission to see private roles.\r\nDefaults to false (public). Only accessible to group owners.",
+          "type": "boolean"
+        },
         "name": {
           "description": "The name of the roleset.",
           "type": "string"
@@ -1273,6 +1285,10 @@
         "description": {
           "description": "The description of the roleset.",
           "type": "string"
+        },
+        "isPrivate": {
+          "description": "Optional. When set, updates the visibility of the roleset.\r\nOnly accessible to group owners.\r\nThe base (guest) role cannot be made private.",
+          "type": "boolean"
         },
         "name": {
           "description": "The name of the roleset.",
@@ -3020,6 +3036,7 @@
               "PublishPlace",
               "UpdateRolesetRank",
               "UpdateRolesetData",
+              "UpdateRoleSetPosition",
               "BanMember",
               "UnbanMember",
               "CreateForumCategory",
@@ -5406,6 +5423,12 @@
             "name": "groupId",
             "required": true,
             "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "includePrivate",
+            "required": true,
+            "type": "boolean"
           }
         ],
         "produces": [
@@ -6640,6 +6663,12 @@
             "name": "ids",
             "required": true,
             "type": "array"
+          },
+          {
+            "in": "query",
+            "name": "includePrivate",
+            "required": true,
+            "type": "boolean"
           }
         ],
         "produces": [

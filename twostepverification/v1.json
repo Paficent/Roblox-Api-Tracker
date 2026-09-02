@@ -13,10 +13,17 @@
     },
     "Roblox.TwoStepVerification.Api.DisableSecurityKeyRequest": {
       "additionalProperties": false,
-      "description": "Request information needed to disable two step verification.",
+      "description": "Request information needed to disable a list of security keys.",
       "properties": {
+        "credentialIDs": {
+          "description": "An array of IDs of credentials to be deleted.\r\nPreferred over nicknames.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
         "credentialNicknames": {
-          "description": "A array of nicknames of credentials to be deleted.",
+          "description": "An array of nicknames of credentials to be deleted.",
           "items": {
             "type": "string"
           },
@@ -358,6 +365,21 @@
       },
       "type": "object"
     },
+    "Roblox.TwoStepVerification.Api.RenameSecurityKeyRequest": {
+      "additionalProperties": false,
+      "description": "Request information needed to rename two step verification.",
+      "properties": {
+        "credentialID": {
+          "description": "A credential ID to be renamed.",
+          "type": "string"
+        },
+        "newNickname": {
+          "description": "The new nickname for the credential.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "Roblox.TwoStepVerification.Api.RetractDialogRequest": {
       "additionalProperties": false,
       "description": "Request parameters for retracting a Cross Device dialog from state ACTIVE to PENDING.",
@@ -426,6 +448,10 @@
       "additionalProperties": false,
       "description": "Credential information that includes its nickname and any additional metadata.",
       "properties": {
+        "credentialID": {
+          "description": "Foreign key reference for this credential in the security-key-credentials database",
+          "type": "string"
+        },
         "nickname": {
           "description": "Nickname the user has chosen for this credential.",
           "type": "string"
@@ -2139,6 +2165,67 @@
           }
         },
         "summary": "List a user's registered security keys.",
+        "tags": [
+          "SecurityKey"
+        ]
+      }
+    },
+    "/v1/users/{userId}/configuration/security-key/rename": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "description": "The user ID.",
+            "format": "int64",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "The request bodyRoblox.TwoStepVerification.Api.RenameSecurityKeyRequest.",
+            "in": "body",
+            "name": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.TwoStepVerification.Api.RenameSecurityKeyRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "SecurityKey:RenameSecurityKey"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.ApiEmptyResponseModel"
+            }
+          },
+          "400": {
+            "description": "2: The user ID is invalid.\r\n17: Invalid security key nickname.\r\n21: Invalid security key id."
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed"
+          },
+          "503": {
+            "description": "7: Two step verification is currently under maintenance."
+          }
+        },
+        "summary": "Rename a user's security key.",
         "tags": [
           "SecurityKey"
         ]

@@ -44,7 +44,7 @@
     },
     "Roblox.Catalog.Api.BundleDetailsModel": {
       "additionalProperties": false,
-      "description": "The hydration model representing a bundle on marketplace. Returned in all bundles controller endpoints.\r\nBound in the game-engine MarketplaceService.GetProductInfo method.\r\nhttps://create.roblox.com/docs/reference/engine/classes/MarketplaceService#GetProductInfo.",
+      "description": "The hydration model representing a bundle on marketplace. Returned in all bundles controller endpoints.\nBound in the game-engine MarketplaceService.GetProductInfo method.\nhttps://create.roblox.com/docs/reference/engine/classes/MarketplaceService#GetProductInfo.",
       "properties": {
         "bundleType": {
           "type": "string"
@@ -215,7 +215,7 @@
     },
     "Roblox.Catalog.Api.CatalogSearchDetailedResponseItem": {
       "additionalProperties": false,
-      "description": "Game-engine version of fully hydrated asset or bundle in catalog marketplace.\r\nDocumented here: https://create.roblox.com/docs/reference/engine/classes/AvatarEditorService#SearchCatalog.",
+      "description": "Game-engine version of fully hydrated asset or bundle in catalog marketplace.\nDocumented here: https://create.roblox.com/docs/reference/engine/classes/AvatarEditorService#SearchCatalog.",
       "properties": {
         "assetType": {
           "description": "The Roblox.Platform.Assets.AssetType serialized if item is an asset.",
@@ -305,7 +305,9 @@
             90,
             91,
             92,
-            93
+            93,
+            94,
+            95
           ],
           "format": "int32",
           "type": "integer"
@@ -329,7 +331,7 @@
           "type": "array"
         },
         "collectibleItemId": {
-          "description": "The item's collectible item id.\r\nIt is an UUID if a item is collectible type. Otherwise, it is null.",
+          "description": "The item's collectible item id.\nIt is an UUID if a item is collectible type. Otherwise, it is null.",
           "type": "string"
         },
         "creatorHasVerifiedBadge": {
@@ -594,7 +596,9 @@
             90,
             91,
             92,
-            93
+            93,
+            94,
+            95
           ],
           "format": "int32",
           "type": "integer"
@@ -618,7 +622,7 @@
           "type": "array"
         },
         "collectibleItemId": {
-          "description": "The item's collectible item id.\r\nIt is an UUID if a item is collectible type. Otherwise, it is null.",
+          "description": "The item's collectible item id.\nIt is an UUID if a item is collectible type. Otherwise, it is null.",
           "type": "string"
         },
         "creatorHasVerifiedBadge": {
@@ -1337,6 +1341,12 @@
         "error": {
           "$ref": "#/definitions/Roblox.MarketplaceTopicDiscovery.TopicDiscoveryService.V1Beta1.Error"
         },
+        "queries": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
         "topics": {
           "items": {
             "$ref": "#/definitions/Roblox.Catalog.Api.TopicModel"
@@ -1723,7 +1733,7 @@
             "description": "1: Invalid bundle\r\n2: Error retrieving bundles\r\n3: Error getting bundle recommendations\r\n4: NumItems exceed maximum"
           }
         },
-        "summary": "Gets recommendations for a given bundle, bundleId of 0 returns randomized bundles\r\n- Accepts both public and authenticated users.",
+        "summary": "Gets recommendations for a given bundle, bundleId of 0 returns randomized bundles\n- Accepts both public and authenticated users.",
         "tags": [
           "Bundle"
         ]
@@ -2439,7 +2449,7 @@
             "description": "0: Token Validation Failed"
           }
         },
-        "summary": "Get topic given TopicRequestModel.",
+        "summary": "Gets topics for a populated request, or trending queries when the request has no topic inputs.\nTopics and queries are mutually exclusive in the response.",
         "tags": [
           "TopicDiscovery"
         ]
@@ -2521,6 +2531,7 @@
             "type": "integer"
           },
           {
+            "description": " ['BodyParts' = 1, 'AvatarAnimations' = 2, 'Shoes' = 3, 'DynamicHead' = 4]",
             "enum": [
               1,
               2,
@@ -2548,6 +2559,7 @@
           },
           {
             "default": 2,
+            "description": " ['Asc' = 1, 'Desc' = 2]",
             "enum": [
               1,
               2

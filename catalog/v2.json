@@ -121,7 +121,9 @@
             90,
             91,
             92,
-            93
+            93,
+            94,
+            95
           ],
           "format": "int32",
           "type": "integer"
@@ -145,7 +147,7 @@
           "type": "array"
         },
         "collectibleItemId": {
-          "description": "The item's collectible item id.\r\nIt is an UUID if a item is collectible type. Otherwise, it is null.",
+          "description": "The item's collectible item id.\nIt is an UUID if a item is collectible type. Otherwise, it is null.",
           "type": "string"
         },
         "creatorHasVerifiedBadge": {
@@ -517,6 +519,7 @@
             "type": "array"
           },
           {
+            "description": "The category filter types, representing generic collections of catalog items requested by client. ['None' = 0, 'Featured' = 1, 'Collectibles' = 2, 'CommunityCreations' = 3, 'Landing' = 4, 'Premium' = 5, 'Recommended' = 6, 'HighDefinition' = 7]",
             "enum": [
               0,
               1,
@@ -533,6 +536,7 @@
             "type": "integer"
           },
           {
+            "description": " ['Past12Hours' = 0, 'PastDay' = 1, 'Past3Days' = 2, 'PastWeek' = 3, 'PastMonth' = 4, 'AllTime' = 5]",
             "enum": [
               0,
               1,
@@ -547,6 +551,7 @@
             "type": "integer"
           },
           {
+            "description": "Price values to be consolidated after roll out to api site. ['Relevance' = 0, 'Favorited' = 1, 'Sales' = 2, 'Created' = 3, 'Updated' = 3, 'PriceAsc' = 4, 'PriceDesc' = 5]",
             "enum": [
               0,
               1,
@@ -561,6 +566,7 @@
             "type": "integer"
           },
           {
+            "description": " ['All' = 0, 'User' = 1, 'Group' = 2]",
             "enum": [
               0,
               1,
@@ -610,6 +616,7 @@
             "type": "boolean"
           },
           {
+            "description": "The Sales Type filter options for search. ['Unknown' = 0, 'All' = 1, 'Collectibles' = 2, 'Premium' = 3, 'TimedOptions' = 4]",
             "enum": [
               0,
               1,

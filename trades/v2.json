@@ -15,7 +15,7 @@
           "$ref": "#/definitions/Roblox.Trades.Api.Models.V2.FreeTradesAllowanceResponse"
         },
         "tradeEligibility": {
-          "description": "The trade eligibility status of the user. ['Unknown' = 0, 'Eligible' = 1, 'IneligibleTradeSystemDisabled' = 2, 'IneligibleCannotTradeWithRoblox' = 3, 'IneligibleUserNotFound' = 4, 'IneligibleMissingPremiumMembership' = 5, 'IneligibleLegalOrRegulatoryRestrictions' = 6, 'IneligibleFreeTradesLimitReached' = 7]",
+          "description": "The trade eligibility status of the user. ['Unknown' = 0, 'Eligible' = 1, 'IneligibleTradeSystemDisabled' = 2, 'IneligibleCannotTradeWithRoblox' = 3, 'IneligibleUserNotFound' = 4, 'IneligibleMissingPremiumMembership' = 5, 'IneligibleLegalOrRegulatoryRestrictions' = 6, 'IneligibleFreeTradesLimitReached' = 7, 'IneligibleAgeCheckRequired' = 8]",
           "enum": [
             "Unknown",
             "Eligible",
@@ -24,7 +24,8 @@
             "IneligibleUserNotFound",
             "IneligibleMissingPremiumMembership",
             "IneligibleLegalOrRegulatoryRestrictions",
-            "IneligibleFreeTradesLimitReached"
+            "IneligibleFreeTradesLimitReached",
+            "IneligibleAgeCheckRequired"
           ],
           "type": "string"
         },

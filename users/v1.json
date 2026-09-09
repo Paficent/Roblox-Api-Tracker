@@ -2,7 +2,7 @@
   "definitions": {
     "Roblox.Users.Api.AuthenticatedGetUserResponse": {
       "additionalProperties": false,
-      "description": "A response model representing absolute minimal authenticating user information.\r\nNo new attributes should be added to this response since it is in the critical path of app launch and we want to minimize dependencies.",
+      "description": "A response model representing absolute minimal authenticating user information.\nNo new attributes should be added to this response since it is in the critical path of app launch and we want to minimize dependencies.",
       "properties": {
         "displayName": {
           "description": "The user DisplayName.",
@@ -228,7 +228,7 @@
     },
     "Roblox.Users.Api.MultiGetUserResponse": {
       "additionalProperties": false,
-      "description": "\u003cp\u003eA response model specific to multi-get user.\u003c/p\u003e\r\n\u003cp\u003e\r\n            Note: Currently the MultiGet responses don't have all the data that the single gets have, to reduce payload size!\r\n            We might want to revisit this decision in the future.\r\n            \u003c/p\u003e",
+      "description": "\u003cp\u003eA response model specific to multi-get user.\u003c/p\u003e\n\u003cp\u003e\n            Note: Currently the MultiGet responses don't have all the data that the single gets have, to reduce payload size!\n            We might want to revisit this decision in the future.\n            \u003c/p\u003e",
       "properties": {
         "displayName": {
           "description": "The user DisplayName.",
@@ -717,7 +717,7 @@
           "application/json",
           "text/json"
         ],
-        "description": "This endpoint will also check previous usernames.\r\nDoes not require X-CSRF-Token protection because this is essentially a get request but as a POST to avoid URI limits.",
+        "description": "This endpoint will also check previous usernames.\nDoes not require X-CSRF-Token protection because this is essentially a get request but as a POST to avoid URI limits.",
         "parameters": [
           {
             "description": "The Roblox.Users.Api.MultiGetByUsernameRequest.",

@@ -555,7 +555,8 @@
               92,
               93,
               94,
-              95
+              95,
+              96
             ],
             "format": "int32",
             "in": "query",
@@ -789,7 +790,7 @@
             "description": "1: The specified user does not exist!\r\n5: The specified game pass does not exist! Are you using the new game pass ID?\r\n6: The specified item type does not exist.\r\n7: The specified Asset does not exist!\r\n10: The specified asset is not a badge!\r\n12: The specified bundle does not exist!"
           }
         },
-        "summary": "Gets owned items of the specified item type. Game Servers can make requests for any user, but can only make requests for game passes that belong to the place sending the request.\r\nPlace creators can make requests as if they were the Game Server.",
+        "summary": "Gets owned items of the specified item type. Game Servers can make requests for any user, but can only make requests for game passes that belong to the place sending the request.\nPlace creators can make requests as if they were the Game Server.",
         "tags": [
           "Inventory"
         ]

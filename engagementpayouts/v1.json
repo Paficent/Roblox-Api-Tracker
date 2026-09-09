@@ -92,7 +92,9 @@
         "summary": "Gets the engagement payout history for a specific universe and a given date range, specified by start and end dates.",
         "tags": [
           "The"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "AlreadyDeprecated"
       }
     }
   },

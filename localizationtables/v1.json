@@ -545,6 +545,14 @@
         },
         "locale": {
           "type": "string"
+        },
+        "sourceType": {
+          "enum": [
+            "Invalid",
+            "Text",
+            "AssetImage"
+          ],
+          "type": "string"
         }
       },
       "type": "object"

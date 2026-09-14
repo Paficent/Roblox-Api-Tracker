@@ -358,6 +358,10 @@
           "format": "int64",
           "type": "integer"
         },
+        "promotionalText": {
+          "description": "Promotional text for the universe. Empty stores an empty value.",
+          "type": "string"
+        },
         "studioAccessToApisAllowed": {
           "description": "Whether Studio can access data stores of this universe.",
           "type": "boolean"
@@ -563,6 +567,10 @@
           "description": "The price to purchase a private server in robux.",
           "format": "int64",
           "type": "integer"
+        },
+        "promotionalText": {
+          "description": "Promotional Text for the universe.",
+          "type": "string"
         },
         "studioAccessToApisAllowed": {
           "description": "Whether Studio can access data stores of this universe.",
@@ -789,7 +797,9 @@
         "summary": "Retrieves asset information for the specified asset ID. The authenticated user must be able to manage the asset\r\nor granted by package permission.",
         "tags": [
           "AssetsV2"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "AlreadyDeprecated"
       }
     },
     "/v2/places/{placeId}": {
@@ -834,7 +844,8 @@
         "summary": "Gets the place configuration for the place with the id placeId",
         "tags": [
           "PlacesV2"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       },
       "patch": {
         "consumes": [
@@ -890,7 +901,8 @@
         "summary": "Updates the place configuration for the place with the id placeId",
         "tags": [
           "PlacesV2"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v2/teamtest/{placeId}": {
@@ -940,7 +952,8 @@
         "summary": "Close a game instance that is being used for team testing",
         "tags": [
           "TeamTestV2"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v2/universes/{universeId}/configuration": {
@@ -986,7 +999,7 @@
             }
           },
           "400": {
-            "description": "1: The universe does not exist.\r\n3: Invalid UniverseAvatarType.\r\n4: Invalid UniverseScaleType.\r\n5: Invalid UniverseAnimationType.\r\n6: Invalid UniverseCollisionType.\r\n7: New universe name or description has been rejected.\r\n8: New universe name is too long.\r\n10: Invalid UniverseBodyType.\r\n11: Invalid UniverseJointPositioningType.\r\n12: The universe has no root place.\r\n15: Price is required when isForSale is true.\r\n16: This game cannot be offered for sale because it is not public.\r\n17: This game cannot be offered for sale because it has private servers enabled.\r\n18: The game price is outside of the allowed range.\r\n19: Invalid genre.\r\n20: The request body is missing.\r\n21: Invalid device type.\r\n22: Invalid asset type.\r\n23: Invalid value, the min must be less than or equal to the max\r\n24: Invalid scale value\r\n28: OptIn/Out Regions Not Supported.\r\n41: You cannot change the private server price again so soon after the previous change. Please try again later.\r\n44: The provided audience configuration is invalid. Ensure the audience list contains only supported audience values."
+            "description": "1: The universe does not exist.\r\n3: Invalid UniverseAvatarType.\r\n4: Invalid UniverseScaleType.\r\n5: Invalid UniverseAnimationType.\r\n6: Invalid UniverseCollisionType.\r\n7: New universe name or description has been rejected.\r\n8: New universe name is too long.\r\n10: Invalid UniverseBodyType.\r\n11: Invalid UniverseJointPositioningType.\r\n12: The universe has no root place.\r\n15: Price is required when isForSale is true.\r\n16: This game cannot be offered for sale because it is not public.\r\n17: This game cannot be offered for sale because it has private servers enabled.\r\n18: The game price is outside of the allowed range.\r\n19: Invalid genre.\r\n20: The request body is missing.\r\n21: Invalid device type.\r\n22: Invalid asset type.\r\n23: Invalid value, the min must be less than or equal to the max\r\n24: Invalid scale value\r\n28: OptIn/Out Regions Not Supported.\r\n41: You cannot change the private server price again so soon after the previous change. Please try again later.\r\n44: The provided audience configuration is invalid. Ensure the audience list contains only supported audience values.\r\n52: Promotional text has been rejected."
           },
           "401": {
             "description": "0: Authorization has been denied for this request."
@@ -999,12 +1012,16 @@
           },
           "500": {
             "description": "43: Failed to update the audience configuration. The change was not applied. Please try again."
+          },
+          "503": {
+            "description": "53: Promotional text safety validation is temporarily unavailable."
           }
         },
         "summary": "Update universe settings for an owned universe.\r\nV2 Contains data for avatar scale and asset override.",
         "tags": [
           "UniverseSettings"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     }
   },

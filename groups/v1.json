@@ -221,7 +221,7 @@
           "$ref": "#/definitions/Roblox.Groups.Api.GroupNameChangeConfigurationResponse"
         },
         "isDefaultEmblemPolicyEnabled": {
-          "description": "If set to true, default group emblem policies handled by GUAC will be enabled\r\n            \r\nIf set to false, default group emblem policies will not be enabled",
+          "description": "If set to true, default group emblem policies handled by GUAC will be enabled\n            \nIf set to false, default group emblem policies will not be enabled",
           "type": "boolean"
         },
         "isPremiumPayoutsEnabled": {
@@ -314,7 +314,7 @@
           "type": "string"
         },
         "hasSocialModules": {
-          "description": "Whether the group has social modules enabled (e.g. Forums)\r\n(determines if \"Followers\" vs \"Members\" should be shown).",
+          "description": "Whether the group has social modules enabled (e.g. Forums)\n(determines if \"Followers\" vs \"Members\" should be shown).",
           "type": "boolean"
         },
         "hasVerifiedBadge": {
@@ -428,7 +428,7 @@
       "description": "A model representing group posts permissions",
       "properties": {
         "createBugReports": {
-          "description": "Create bug reports (support ticket) permission. Only emitted when the permission is exposed\r\n(Roblox.Groups.Api.Properties.IGroupsApiSettings.ExposeCreateBugReportsPermission).",
+          "description": "Create bug reports (support ticket) permission. Only emitted when the permission is exposed\n(Roblox.Groups.Api.Properties.IGroupsApiSettings.ExposeCreateBugReportsPermission).",
           "type": "boolean"
         },
         "createComments": {
@@ -904,7 +904,7 @@
           "type": "boolean"
         },
         "isPrivate": {
-          "description": "Whether the role is private (only visible to members with permission).\r\nOmitted from the response when false.",
+          "description": "Whether the role is private (only visible to members with permission).\nOmitted from the response when false.",
           "type": "boolean"
         },
         "memberCount": {
@@ -966,7 +966,7 @@
           "type": "boolean"
         },
         "isPrivate": {
-          "description": "Whether the role is private (only visible to members with permission).\r\nOmitted from the response when false.",
+          "description": "Whether the role is private (only visible to members with permission).\nOmitted from the response when false.",
           "type": "boolean"
         },
         "memberCount": {
@@ -1067,7 +1067,7 @@
           "type": "string"
         },
         "publicEntryAllowed": {
-          "description": "When true anyone can join the group. When false manual approval\r\nis required to join the group",
+          "description": "When true anyone can join the group. When false manual approval\nis required to join the group",
           "type": "boolean"
         },
         "updated": {
@@ -1115,7 +1115,7 @@
           "type": "boolean"
         },
         "isAutoAssignRoleDisabled": {
-          "description": "Whether automatic assignment of the lowest non-guest role is disabled for this group.\r\nFor non-legacy groups (created after the multi-role cutoff), this is always true.\r\nFor legacy groups, reflects the persisted GroupFeatureSettings value.\r\nNull when the value could not be determined.",
+          "description": "Whether automatic assignment of the lowest non-guest role is disabled for this group.\nFor non-legacy groups (created after the multi-role cutoff), this is always true.\nFor legacy groups, reflects the persisted GroupFeatureSettings value.\nNull when the value could not be determined.",
           "type": "boolean"
         },
         "isBuildersClubRequired": {
@@ -1131,7 +1131,7 @@
           "type": "boolean"
         },
         "slowmode": {
-          "description": "The slowmode level for the group (0-4).\r\n0 = No slowmode, 1-4 = Slowmode levels with increasing restrictions.",
+          "description": "The slowmode level for the group (0-4).\n0 = No slowmode, 1-4 = Slowmode levels with increasing restrictions.",
           "enum": [
             0,
             1,
@@ -1164,7 +1164,7 @@
           "type": "boolean"
         },
         "areProfileGroupsHidden": {
-          "description": "If set to true, groups showcase will not show on users profiles.\r\n            \r\nIf set to false, group showcase will display on users profiles.",
+          "description": "If set to true, groups showcase will not show on users profiles.\n            \nIf set to false, group showcase will display on users profiles.",
           "type": "boolean"
         },
         "canEnableGroupNotifications": {
@@ -1187,7 +1187,7 @@
           "type": "integer"
         },
         "isGroupDetailsPolicyEnabled": {
-          "description": "If set to true, group details will respect GUAC policies for group details\r\n            \r\nIf set to false, group details will not respect GUAC policies",
+          "description": "If set to true, group details will respect GUAC policies for group details\n            \nIf set to false, group details will not respect GUAC policies",
           "type": "boolean"
         },
         "showPreviousGroupNames": {
@@ -1255,7 +1255,7 @@
           "type": "string"
         },
         "isPrivate": {
-          "description": "Optional. When true the role is only visible to members with permission to see private roles.\r\nDefaults to false (public). Only accessible to group owners.",
+          "description": "Optional. When true the role is only visible to members with permission to see private roles.\nDefaults to false (public). Only accessible to group owners.",
           "type": "boolean"
         },
         "name": {
@@ -1278,7 +1278,7 @@
       "additionalProperties": false,
       "properties": {
         "color": {
-          "description": "Optional. The color of the roleset (GroupRoleSetColorType value, e.g. 0 = Invalid, 1 = Blue).\r\nWhen omitted, only name and description are updated and the existing color is left unchanged.\r\nWhen set, name, description, and color are updated via UpdateGroupRoleSetProperties.",
+          "description": "Optional. The color of the roleset (GroupRoleSetColorType value, e.g. 0 = Invalid, 1 = Blue).\nWhen omitted, only name and description are updated and the existing color is left unchanged.\nWhen set, name, description, and color are updated via UpdateGroupRoleSetProperties.",
           "format": "int32",
           "type": "integer"
         },
@@ -1287,7 +1287,7 @@
           "type": "string"
         },
         "isPrivate": {
-          "description": "Optional. When set, updates the visibility of the roleset.\r\nOnly accessible to group owners.\r\nThe base (guest) role cannot be made private.",
+          "description": "Optional. When set, updates the visibility of the roleset.\nOnly accessible to group owners.\nThe base (guest) role cannot be made private.",
           "type": "boolean"
         },
         "name": {
@@ -1809,7 +1809,7 @@
           "type": "boolean"
         },
         "slowmode": {
-          "description": "The slowmode level for the group (0-4).\r\n0 = No slowmode, 1-4 = Slowmode levels with increasing restrictions.\r\nNull = No change to current slowmode setting.",
+          "description": "The slowmode level for the group (0-4).\n0 = No slowmode, 1-4 = Slowmode levels with increasing restrictions.\nNull = No change to current slowmode setting.",
           "enum": [
             0,
             1,
@@ -2060,6 +2060,10 @@
           "type": "string"
         }
       },
+      "required": [
+        "currentTier",
+        "groupId"
+      ],
       "type": "object"
     },
     "Roblox.Groups.Client.CreateBlockedKeywordsResponse": {
@@ -2145,6 +2149,9 @@
           "type": "boolean"
         }
       },
+      "required": [
+        "isEligibleForUnrestrictedMessages"
+      ],
       "type": "object"
     },
     "Roblox.Groups.Client.TierEvaluationResultResponse": {
@@ -2166,6 +2173,10 @@
           "$ref": "#/definitions/Roblox.Groups.Client.CommunityTierInfoResponse"
         }
       },
+      "required": [
+        "passedSignals",
+        "tierInfo"
+      ],
       "type": "object"
     },
     "Roblox.Groups.Client.TierRequirement": {
@@ -2187,6 +2198,10 @@
           "type": "boolean"
         }
       },
+      "required": [
+        "key",
+        "satisfied"
+      ],
       "type": "object"
     },
     "Roblox.Web.Responses.Groups.GroupBasicResponse": {
@@ -2595,7 +2610,7 @@
         "consumes": [
           "multipart/form-data"
         ],
-        "description": "This endpoint will charge Robux for the group purchase.\r\nAccepts \"icon\" and \"coverPhoto\" in Files object. Defaults to first file if \"icon\" is not present.\r\nHttp status code 413 is thrown when the group icon file size is too large.",
+        "description": "This endpoint will charge Robux for the group purchase.\nAccepts \"icon\" and \"coverPhoto\" in Files object. Defaults to first file if \"icon\" is not present.\nHttp status code 413 is thrown when the group icon file size is too large.",
         "parameters": [
           {
             "description": "The name of the group.",
@@ -2748,7 +2763,7 @@
             }
           }
         },
-        "summary": "Gets Groups contextual information:\r\nMax number of groups a user can be part of.\r\nCurrent number of groups a user is a member of.\r\nWhether to show/hide certain features based on device type.",
+        "summary": "Gets Groups contextual information:\nMax number of groups a user can be part of.\nCurrent number of groups a user is a member of.\nWhether to show/hide certain features based on device type.",
         "tags": [
           "Groups"
         ]
@@ -2910,7 +2925,7 @@
     },
     "/v1/groups/search/metadata": {
       "get": {
-        "description": "Although there is no reason for this to require an authenticated user right now, in the future,\r\nwe will use coco to return different suggested groups based upon that user's request context",
+        "description": "Although there is no reason for this to require an authenticated user right now, in the future,\nwe will use coco to return different suggested groups based upon that user's request context",
         "produces": [
           "application/json",
           "text/json"
@@ -4063,7 +4078,7 @@
             "description": "0: Token Validation Failed\r\n23: Insufficient permissions to complete the request.\r\n49: User is invalid or does not exist"
           }
         },
-        "summary": "Sets the desired status of group features.\r\nCurrently only removes active freezes for features set to Roblox.Groups.Api.FeatureStatus.On.",
+        "summary": "Sets the desired status of group features.\nCurrently only removes active freezes for features set to Roblox.Groups.Api.FeatureStatus.On.",
         "tags": [
           "GroupFeatures"
         ]
@@ -4106,7 +4121,7 @@
             "description": "23: Insufficient permissions to complete the request.\r\n49: User is invalid or does not exist"
           }
         },
-        "summary": "Checks whether a group has ANY feature disabled (includes feature freezes and group lock).\r\nUsed to display a banner on Creator Hub/Studio to inform group members that some features may not be available.",
+        "summary": "Checks whether a group has ANY feature disabled (includes feature freezes and group lock).\nUsed to display a banner on Creator Hub/Studio to inform group members that some features may not be available.",
         "tags": [
           "GroupFeatures"
         ]
@@ -4871,7 +4886,7 @@
           "application/json",
           "text/json"
         ],
-        "description": "This endpoint will remove any recipients not sent in the request.\r\nIf a recipient in the request is not a valid member in the group they will not be added to the recurring payouts.",
+        "description": "This endpoint will remove any recipients not sent in the request.\nIf a recipient in the request is not a valid member in the group they will not be added to the recurring payouts.",
         "parameters": [
           {
             "description": "The group Id.",
@@ -5900,7 +5915,7 @@
             }
           },
           "400": {
-            "description": "5: Role name already exists.\r\n6: Rank value is out of bounds.\r\n7: The role name is too long.\r\n8: The role description is too long.\r\n10: This group does not exist.\r\n14: Role name can not be empty.\r\n15: This role does not exist.\r\n19: Cannot update Guest role.\r\n20: Cannot update Owner role rank."
+            "description": "5: Role name already exists.\r\n6: Rank value is out of bounds.\r\n7: The role name is too long.\r\n8: The role description is too long.\r\n10: This group does not exist.\r\n14: Role name can not be empty.\r\n15: This role does not exist.\r\n19: Cannot update Guest role.\r\n20: Cannot update Owner role rank.\r\n30: Invalid role color."
           },
           "401": {
             "description": "0: Authorization has been denied for this request."

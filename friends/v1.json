@@ -781,7 +781,7 @@
             }
           },
           "400": {
-            "description": "1: The target user is invalid or does not exist.\r\n6: Invalid parameters."
+            "description": "1: The target user is invalid or does not exist.\r\n6: Invalid parameters.\r\n34: Invalid pagination cursor."
           },
           "401": {
             "description": "0: Authorization has been denied for this request."

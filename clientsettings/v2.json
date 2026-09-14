@@ -406,6 +406,9 @@
           },
           "401": {
             "description": "5: Not authorized to perform this action."
+          },
+          "501": {
+            "description": "9: The requested tag is not implemented."
           }
         },
         "summary": "Get OTA information for a specific binary type with a given version on some channel.\r\nReturns empty list if no updates are found or channel/application with the given version does not exist in CVS.",

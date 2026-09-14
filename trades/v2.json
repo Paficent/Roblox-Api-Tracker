@@ -49,14 +49,15 @@
           "$ref": "#/definitions/Roblox.Trades.Api.Models.V2.CurrencyTransferEligibilityResponse"
         },
         "mutualTradeEligibility": {
-          "description": "The mutual trade eligibility status between the two users. ['Unknown' = 0, 'Eligible' = 1, 'CallingUserIneligible' = 2, 'TargetUserIneligible' = 3, 'CannotTradeWithSelf' = 4, 'CallingUserPrivacySettingsRestricted' = 5]",
+          "description": "The mutual trade eligibility status between the two users. ['Unknown' = 0, 'Eligible' = 1, 'CallingUserIneligible' = 2, 'TargetUserIneligible' = 3, 'CannotTradeWithSelf' = 4, 'CallingUserPrivacySettingsRestricted' = 5, 'CallingUserAgeCheckRequired' = 6]",
           "enum": [
             "Unknown",
             "Eligible",
             "CallingUserIneligible",
             "TargetUserIneligible",
             "CannotTradeWithSelf",
-            "CallingUserPrivacySettingsRestricted"
+            "CallingUserPrivacySettingsRestricted",
+            "CallingUserAgeCheckRequired"
           ],
           "type": "string"
         },

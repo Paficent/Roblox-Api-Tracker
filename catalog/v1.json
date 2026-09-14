@@ -726,6 +726,9 @@
           "format": "int32",
           "type": "integer"
         },
+        "license": {
+          "$ref": "#/definitions/Roblox.Catalog.Api.CollectibleLicense"
+        },
         "lowestPrice": {
           "description": "The item's lowest price, only if the item is resellable and there are resellers.",
           "format": "int64",
@@ -962,6 +965,26 @@
         },
         "unitsAvailable": {
           "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Catalog.Api.CollectibleLicense": {
+      "additionalProperties": false,
+      "description": "A model representing the license attached to a collectible, linked via the collectibleItemId.",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "licenseType": {
+          "description": "The type of license attached to a collectible. ['Invalid' = 0, 'ThirdParty' = 1, 'FirstParty' = 2]",
+          "enum": [
+            0,
+            1,
+            2
+          ],
+          "format": "int32",
           "type": "integer"
         }
       },
@@ -1505,7 +1528,10 @@
         "summary": "Lists a mapping for assets to category IDs to convert from inventory ID to catalog ID. Creates a mapping to link 'Get More' button in inventory page to the relevant catalog page.",
         "tags": [
           "Category"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-description": "A/B tested so doesn't make sense to automate",
+        "x-documentation-category-hidden-reason": "Other"
       }
     },
     "/v1/asset-to-subcategory": {
@@ -1535,7 +1561,10 @@
         "summary": "Lists a mapping for assets to subcategory IDs to convert from inventory ID to catalog ID. Creates a mapping to link 'Get More' button in inventory page to the relevant catalog page.",
         "tags": [
           "Category"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-description": "A/B tested so doesn't make sense to automate",
+        "x-documentation-category-hidden-reason": "Other"
       }
     },
     "/v1/assets/{assetId}/bundles": {
@@ -1605,7 +1634,8 @@
         "summary": "Lists the bundles a particular asset belongs to. Use the Id of the last bundle in the response to get the next page.",
         "tags": [
           "Bundle"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/bundles/details": {
@@ -1650,7 +1680,8 @@
         "summary": "Returns details about the given bundleIds.",
         "tags": [
           "Bundle"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/bundles/{bundleId}/details": {
@@ -1689,7 +1720,8 @@
         "summary": "Returns details about the given bundleId.",
         "tags": [
           "Bundle"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/bundles/{bundleId}/recommendations": {
@@ -1736,7 +1768,9 @@
         "summary": "Gets recommendations for a given bundle, bundleId of 0 returns randomized bundles\n- Accepts both public and authenticated users.",
         "tags": [
           "Bundle"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "AgainstPolicy"
       }
     },
     "/v1/catalog/items/details": {
@@ -1787,7 +1821,8 @@
         "summary": "Returns details for one or more catalog items.",
         "tags": [
           "Catalog"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/categories": {
@@ -1816,7 +1851,10 @@
         "summary": "Lists Category Names and their Ids.",
         "tags": [
           "Category"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-description": "A/B tested so doesn't make sense to automate",
+        "x-documentation-category-hidden-reason": "Other"
       }
     },
     "/v1/favorites/assets/{assetId}/count": {
@@ -1856,7 +1894,8 @@
         "summary": "Gets the favorite count for the given asset Id.",
         "tags": [
           "Favorites"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/favorites/bundles/{bundleId}/count": {
@@ -1896,7 +1935,8 @@
         "summary": "Gets the favorite count for the given bundle Id.",
         "tags": [
           "Favorites"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/favorites/users/{userId}/assets/{assetId}/favorite": {
@@ -1955,7 +1995,9 @@
         "summary": "Delete a favorite for an asset by the authenticated user.",
         "tags": [
           "Favorites"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "AgainstPolicy"
       },
       "get": {
         "parameters": [
@@ -2001,7 +2043,9 @@
         "summary": "Gets the favorite model for the asset and user.",
         "tags": [
           "Favorites"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "AgainstPolicy"
       },
       "post": {
         "parameters": [
@@ -2056,7 +2100,9 @@
         "summary": "Create a favorite for an asset by the authenticated user.",
         "tags": [
           "Favorites"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "AgainstPolicy"
       }
     },
     "/v1/favorites/users/{userId}/bundles/{bundleId}/favorite": {
@@ -2115,7 +2161,9 @@
         "summary": "Delete favorite for the bundle by the authenticated user.",
         "tags": [
           "Favorites"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "AgainstPolicy"
       },
       "get": {
         "parameters": [
@@ -2161,7 +2209,9 @@
         "summary": "Gets the favorite model for the bundle and user.",
         "tags": [
           "Favorites"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "AgainstPolicy"
       },
       "post": {
         "parameters": [
@@ -2218,7 +2268,9 @@
         "summary": "Create a favorite for the bundle by the authenticated user.",
         "tags": [
           "Favorites"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "AgainstPolicy"
       }
     },
     "/v1/favorites/users/{userId}/favorites/{assetTypeId}/assets": {
@@ -2301,7 +2353,8 @@
         "summary": "Lists the marketplace assets favorited by a given user with the given assetTypeId.",
         "tags": [
           "Favorites"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/favorites/users/{userId}/favorites/{subtypeId}/bundles": {
@@ -2378,7 +2431,9 @@
         "summary": "Lists the bundles favorited by a given user with the given bundle subtypeId.Switched to EAAS style pagination cursors since July 2024.",
         "tags": [
           "Favorites"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "AgainstPolicy"
       }
     },
     "/v1/subcategories": {
@@ -2408,7 +2463,10 @@
         "summary": "Lists Subcategory Names and their Ids.",
         "tags": [
           "Category"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-description": "A/B tested so doesn't make sense to automate",
+        "x-documentation-category-hidden-reason": "Other"
       }
     },
     "/v1/topic/get-topics": {
@@ -2452,7 +2510,10 @@
         "summary": "Gets topics for a populated request, or trending queries when the request has no topic inputs.\nTopics and queries are mutually exclusive in the response.",
         "tags": [
           "TopicDiscovery"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-description": "A/B tested so doesn't make sense to automate",
+        "x-documentation-category-hidden-reason": "Other"
       }
     },
     "/v1/users/{userId}/bundles": {
@@ -2517,7 +2578,9 @@
         "summary": "Lists the bundles owned by a given user.",
         "tags": [
           "Bundle"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "AgainstPolicy"
       }
     },
     "/v1/users/{userId}/bundles/{bundleType}": {
@@ -2590,7 +2653,8 @@
         },
         "tags": [
           "Bundle"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     }
   },

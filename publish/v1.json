@@ -231,6 +231,14 @@
         "summary": "List asset quotas of the given resource type and asset type.",
         "tags": [
           "AssetQuotas"
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "SupportedByAnotherEndpoint",
+        "x-roblox-recommended-alternatives": [
+          {
+            "httpMethod": "GET",
+            "url": "https://apis.roblox.com/cloud/v2/users/{user_id}/asset-quotas"
+          }
         ]
       }
     },
@@ -284,7 +292,9 @@
         "summary": "Published an audio file and returns the new asset info.",
         "tags": [
           "Audio"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "AlreadyDeprecated"
       }
     },
     "/v1/audio/verify": {
@@ -334,6 +344,15 @@
         "summary": "Verifies an audio file and returns a product that you can purchase to publish the audio file.",
         "tags": [
           "Audio"
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "AlreadyDeprecated",
+        "x-roblox-recommended-alternatives": [
+          {
+            "description": "Validation occurs during asset creation; no separate verification call is needed.",
+            "httpMethod": "POST",
+            "url": "https://apis.roblox.com/assets/v1/assets"
+          }
         ]
       }
     },
@@ -393,6 +412,13 @@
         "summary": "Overwrites a badge icon with a new one.",
         "tags": [
           "Badges"
+        ],
+        "x-documentation-category": "Experimental",
+        "x-roblox-recommended-alternatives": [
+          {
+            "httpMethod": "POST",
+            "url": "https://apis.roblox.com/legacy-publish/v1/badges/{badgeId}/icon"
+          }
         ]
       }
     },
@@ -452,6 +478,20 @@
         "summary": "Uploads a game thumbnail.",
         "tags": [
           "GameThumbnails"
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "SupportedByAnotherEndpoint",
+        "x-roblox-recommended-alternatives": [
+          {
+            "description": "First step: create or upload the image asset.",
+            "httpMethod": "POST",
+            "url": "https://apis.roblox.com/assets/v1/assets"
+          },
+          {
+            "description": "Second step: set the created asset as the experience icon.",
+            "httpMethod": "PATCH",
+            "url": "https://apis.roblox.com/assets/v1/assets/{assetId}?updateMask=icon"
+          }
         ]
       }
     },
@@ -511,6 +551,20 @@
         "summary": "Overwrites a plugin icon with a new one.",
         "tags": [
           "Plugin"
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "SupportedByAnotherEndpoint",
+        "x-roblox-recommended-alternatives": [
+          {
+            "description": "First step: create or upload the icon asset.",
+            "httpMethod": "POST",
+            "url": "https://apis.roblox.com/assets/v1/assets"
+          },
+          {
+            "description": "Second step: set the created asset as the plugin icon.",
+            "httpMethod": "PATCH",
+            "url": "https://apis.roblox.com/assets/v1/assets/{assetId}?updateMask=icon"
+          }
         ]
       }
     }

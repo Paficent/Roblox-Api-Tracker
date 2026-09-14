@@ -251,6 +251,9 @@
           "format": "int32",
           "type": "integer"
         },
+        "license": {
+          "$ref": "#/definitions/Roblox.Catalog.Api.CollectibleLicense"
+        },
         "lowestPrice": {
           "description": "The item's lowest price, only if the item is resellable and there are resellers.",
           "format": "int64",
@@ -357,6 +360,26 @@
         },
         "previousPageCursor": {
           "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Catalog.Api.CollectibleLicense": {
+      "additionalProperties": false,
+      "description": "A model representing the license attached to a collectible, linked via the collectibleItemId.",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "licenseType": {
+          "description": "The type of license attached to a collectible. ['Invalid' = 0, 'ThirdParty' = 1, 'FirstParty' = 2]",
+          "enum": [
+            0,
+            1,
+            2
+          ],
+          "format": "int32",
+          "type": "integer"
         }
       },
       "type": "object"
@@ -700,7 +723,8 @@
         "summary": "Search for catalog items.",
         "tags": [
           "SearchV2"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     }
   },

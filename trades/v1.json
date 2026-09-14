@@ -8,7 +8,7 @@
           "type": "boolean"
         },
         "status": {
-          "description": "If you can't trade with a user, status explains why you can't trade with them. ['Unknown' = 0, 'CanTrade' = 1, 'CannotTradeWithSelf' = 2, 'SenderCannotTrade' = 3, 'ReceiverCannotTrade' = 4, 'SenderPrivacyTooStrict' = 5, 'UsersCannotTrade' = 6, 'TradeAccepterNeedsFriction' = 7]",
+          "description": "If you can't trade with a user, status explains why you can't trade with them. ['Unknown' = 0, 'CanTrade' = 1, 'CannotTradeWithSelf' = 2, 'SenderCannotTrade' = 3, 'ReceiverCannotTrade' = 4, 'SenderPrivacyTooStrict' = 5, 'UsersCannotTrade' = 6, 'TradeAccepterNeedsFriction' = 7, 'SenderAgeCheckRequired' = 8]",
           "enum": [
             0,
             1,
@@ -17,7 +17,8 @@
             4,
             5,
             6,
-            7
+            7,
+            8
           ],
           "format": "int32",
           "type": "integer"
@@ -332,7 +333,7 @@
             "description": "0: Token Validation Failed"
           }
         },
-        "summary": "Deprecated. TradeSession are automatically set to expire while the inbound/outbound trades are fetched.\r\nExpires Outdated Inbound Trades for User",
+        "summary": "Deprecated. TradeSession are automatically set to expire while the inbound/outbound trades are fetched.\nExpires Outdated Inbound Trades for User",
         "tags": [
           "Trades"
         ]
@@ -759,7 +760,7 @@
             "description": "0: Authorization has been denied for this request."
           }
         },
-        "summary": "Gets the total number of pending trades for the authenticated user.\r\nInbound is the only accepted tradeStatusType.",
+        "summary": "Gets the total number of pending trades for the authenticated user.\nInbound is the only accepted tradeStatusType.",
         "tags": [
           "Trades"
         ]

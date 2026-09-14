@@ -12,7 +12,7 @@
           "type": "string"
         },
         "hasSocialModules": {
-          "description": "Whether the group has social modules enabled (e.g. Forums)\r\n(determines if \"Followers\" vs \"Members\" should be shown).",
+          "description": "Whether the group has social modules enabled (e.g. Forums)\n(determines if \"Followers\" vs \"Members\" should be shown).",
           "type": "boolean"
         },
         "hasVerifiedBadge": {
@@ -62,7 +62,7 @@
           "$ref": "#/definitions/Roblox.Web.Responses.Groups.GroupBasicResponse"
         },
         "isNotificationsEnabled": {
-          "description": "Whether the group notification preferences are enabled for the user\r\nTODO: Deprecate this field - it only returns if announcement notifications are enabled and that information is already returned in the NotificationPreferences list below",
+          "description": "Whether the group notification preferences are enabled for the user\nTODO: Deprecate this field - it only returns if announcement notifications are enabled and that information is already returned in the NotificationPreferences list below",
           "type": "boolean"
         },
         "notificationPreferences": {
@@ -258,6 +258,10 @@
           "type": "string"
         }
       },
+      "required": [
+        "currentTier",
+        "groupId"
+      ],
       "type": "object"
     },
     "Roblox.Groups.Client.TierCapabilities": {
@@ -267,6 +271,9 @@
           "type": "boolean"
         }
       },
+      "required": [
+        "isEligibleForUnrestrictedMessages"
+      ],
       "type": "object"
     },
     "Roblox.Groups.Client.TierRequirement": {
@@ -288,6 +295,10 @@
           "type": "boolean"
         }
       },
+      "required": [
+        "key",
+        "satisfied"
+      ],
       "type": "object"
     },
     "Roblox.Web.Responses.Groups.GroupBasicResponse": {
@@ -476,10 +487,11 @@
           "type": "string"
         },
         "type": {
-          "description": " ['User' = 0, 'Group' = 1]",
+          "description": " ['User' = 0, 'Group' = 1, 'Experience' = 2]",
           "enum": [
             0,
-            1
+            1,
+            2
           ],
           "format": "int32",
           "type": "integer"

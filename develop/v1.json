@@ -863,6 +863,10 @@
           "format": "int64",
           "type": "integer"
         },
+        "promotionalText": {
+          "description": "Promotional Text for the universe.",
+          "type": "string"
+        },
         "universeAnimationType": {
           "description": "Whether custom animations are allowed in the universe. ['Standard' = 1, 'PlayerChoice' = 2]",
           "enum": [
@@ -1245,6 +1249,14 @@
         "summary": "Gets the voting information of the given assets",
         "tags": [
           "Assets"
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "SupportedByAnotherEndpoint",
+        "x-roblox-recommended-alternatives": [
+          {
+            "httpMethod": "GET",
+            "url": "https://apis.roblox.com/assets/v1/assets/{assetId}"
+          }
         ]
       }
     },
@@ -1272,7 +1284,8 @@
         "summary": "Gets a page of templates that can be used to start off making games.",
         "tags": [
           "GameTemplates"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/groups/{groupId}/universes": {
@@ -1349,7 +1362,8 @@
         "summary": "Gets a list of universes for the given group.",
         "tags": [
           "Groups"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/places/{placeId}": {
@@ -1408,7 +1422,8 @@
         "summary": "Updates the place configuration for the place with the id placeId",
         "tags": [
           "Places"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       },
       "post": {
         "consumes": [
@@ -1465,7 +1480,8 @@
         "summary": "Updates the place configuration for the place with the id placeId",
         "tags": [
           "Places"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/places/{placeId}/teamcreate/active_session/members": {
@@ -1536,7 +1552,8 @@
         "summary": "List of users in the active Team Create session",
         "tags": [
           "TeamCreate"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/plugins": {
@@ -1579,7 +1596,8 @@
         "summary": "Gets plugin details by ids.",
         "tags": [
           "Plugins"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/plugins/{pluginId}": {
@@ -1640,7 +1658,8 @@
         "summary": "Updates a plugin.",
         "tags": [
           "Plugins"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/universes/multiget": {
@@ -1684,7 +1703,8 @@
         "summary": "Gets a list of universes.",
         "tags": [
           "Universes"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/universes/multiget/permissions": {
@@ -1731,7 +1751,8 @@
         "summary": "Returns an array of granted and declined permissions related to the universes with the ids in ids for the authenticated user.",
         "tags": [
           "Universes"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/universes/multiget/teamcreate": {
@@ -1777,7 +1798,8 @@
         "summary": "Gets TeamCreate settings for multiple universes specified by Ids",
         "tags": [
           "TeamCreate"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/universes/user-public-publish-eligibility": {
@@ -1803,7 +1825,8 @@
         "summary": "Returns the result of various checks for a user's eligibility to publish a public universe",
         "tags": [
           "Universes"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/universes/{universeId}": {
@@ -1842,7 +1865,8 @@
         "summary": "Gets a Roblox.Api.Develop.Models.UniverseModel.",
         "tags": [
           "Universes"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/universes/{universeId}/activate": {
@@ -1887,7 +1911,8 @@
         "summary": "Activates a universes.",
         "tags": [
           "Universes"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/universes/{universeId}/activation-eligibility": {
@@ -1923,7 +1948,8 @@
         "summary": "Returns the result of various checks for a user's eligibility to activate a given universe from private to public universeId for authenticated user",
         "tags": [
           "Universes"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/universes/{universeId}/configuration": {
@@ -1968,7 +1994,8 @@
         "summary": "Get settings for an owned universe.",
         "tags": [
           "UniverseSettings"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       },
       "patch": {
         "consumes": [
@@ -2027,7 +2054,8 @@
         "summary": "Update universe settings for an owned universe.",
         "tags": [
           "UniverseSettings"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/universes/{universeId}/configuration/playtesters": {
@@ -2229,7 +2257,8 @@
         "summary": "Get settings for an owned universe's VIP servers.",
         "tags": [
           "UniverseSettings"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/universes/{universeId}/deactivate": {
@@ -2274,7 +2303,8 @@
         "summary": "Deactivates a universe.",
         "tags": [
           "Universes"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/universes/{universeId}/permissions": {
@@ -2316,7 +2346,8 @@
         "summary": "Returns list of granted and declined permissions related to the universe with the id universeId for authenticated user",
         "tags": [
           "Universes"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/universes/{universeId}/places": {
@@ -2390,7 +2421,8 @@
         "summary": "Gets a list of places for a universe.",
         "tags": [
           "Universes"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/universes/{universeId}/teamcreate": {
@@ -2435,7 +2467,8 @@
         "summary": "Gets TeamCreate settings for an Roblox.Platform.Universes.IUniverse.",
         "tags": [
           "TeamCreate"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       },
       "patch": {
         "consumes": [
@@ -2492,7 +2525,8 @@
         "summary": "Edit team create settings for a universe.",
         "tags": [
           "TeamCreate"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/universes/{universeId}/teamcreate/memberships": {
@@ -2550,7 +2584,8 @@
         "summary": "Removes a user from a TeamCreate permissions list.",
         "tags": [
           "TeamCreate"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/user/groups/canmanage": {
@@ -2579,7 +2614,8 @@
         "summary": "Gets a list of Groups that a user can manage.",
         "tags": [
           "User"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/user/groups/canmanagegamesoritems": {
@@ -2608,7 +2644,8 @@
         "summary": "Gets a list of groups a user can manage games or items for.",
         "tags": [
           "User"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/user/universes": {
@@ -2680,7 +2717,8 @@
         "summary": "Gets a list of universes for the authenticated user.",
         "tags": [
           "User"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     }
   },

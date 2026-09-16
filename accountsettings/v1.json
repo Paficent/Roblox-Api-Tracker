@@ -332,7 +332,9 @@
         "summary": "Get a user's current account country setting.",
         "tags": [
           "Accounts"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "AgainstPolicy"
       },
       "post": {
         "consumes": [
@@ -386,7 +388,9 @@
         "summary": "Updates the user's account country.",
         "tags": [
           "Accounts"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "AgainstPolicy"
       }
     },
     "/v1/account/settings/metadata": {
@@ -415,7 +419,9 @@
         "summary": "Returns metadata used by the account settings page",
         "tags": [
           "Accounts"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "AgainstPolicy"
       }
     },
     "/v1/email": {
@@ -444,7 +450,9 @@
         "summary": "Gets the authenticated user's email address and verified status",
         "tags": [
           "Email"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "AgainstPolicy"
       },
       "patch": {
         "consumes": [
@@ -501,7 +509,9 @@
         "summary": "Updates the authenticated user's email address",
         "tags": [
           "Email"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "AgainstPolicy"
       },
       "post": {
         "consumes": [
@@ -558,7 +568,9 @@
         "summary": "Updates the authenticated user's email address",
         "tags": [
           "Email"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "AgainstPolicy"
       }
     },
     "/v1/email/verify": {
@@ -616,7 +628,9 @@
         "summary": "Send verify email to the authenticated user's email address",
         "tags": [
           "Email"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "AgainstPolicy"
       }
     },
     "/v1/emails": {
@@ -645,7 +659,9 @@
         "summary": "Gets the authenticated user's verified email and pending (unverified) email if one exists",
         "tags": [
           "Email"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "AgainstPolicy"
       }
     },
     "/v1/themes/types": {
@@ -671,7 +687,9 @@
         "summary": "returns all the enabled theme types.",
         "tags": [
           "ThemeConfiguration"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "AgainstPolicy"
       }
     },
     "/v1/themes/{consumerType}/{consumerId}": {
@@ -723,7 +741,9 @@
         "summary": "returns the theme type for a specific consumer.",
         "tags": [
           "ThemeConfiguration"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "AgainstPolicy"
       },
       "patch": {
         "consumes": [
@@ -791,7 +811,9 @@
         "summary": "Modify the theme type for consumer.",
         "tags": [
           "ThemeConfiguration"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "AgainstPolicy"
       }
     },
     "/v1/trade-privacy": {
@@ -820,7 +842,9 @@
         "summary": "Get a user's trade privacy setting",
         "tags": [
           "TradeSettings"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "AgainstPolicy"
       },
       "post": {
         "consumes": [
@@ -868,7 +892,9 @@
         "summary": "Updates a user's trade privacy setting",
         "tags": [
           "TradeSettings"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "AgainstPolicy"
       }
     },
     "/v1/trade-value": {
@@ -897,7 +923,9 @@
         "summary": "Get a user's trade quality filter setting",
         "tags": [
           "TradeSettings"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "AgainstPolicy"
       },
       "post": {
         "consumes": [
@@ -945,7 +973,9 @@
         "summary": "Updates a user's trade quality filter setting",
         "tags": [
           "TradeSettings"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "AgainstPolicy"
       }
     }
   },

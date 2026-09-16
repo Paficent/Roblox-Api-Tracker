@@ -657,7 +657,9 @@
         },
         "tags": [
           "Friends"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "AlreadyDeprecated"
       }
     },
     "/v1/my/friends/count": {
@@ -686,7 +688,8 @@
         "summary": "Get the number of friends a user has",
         "tags": [
           "Friends"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/my/friends/refresh-qr-session": {
@@ -717,7 +720,9 @@
         },
         "tags": [
           "Friends"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "AgainstPolicy"
       }
     },
     "/v1/my/friends/requests": {
@@ -796,7 +801,8 @@
         "summary": "Get all users that friend requests with targetUserId using exclusive start paging",
         "tags": [
           "Friends"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/my/friends/{userId}/check-qr-session": {
@@ -834,7 +840,9 @@
         },
         "tags": [
           "Friends"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "AgainstPolicy"
       }
     },
     "/v1/my/new-friend-requests/count": {
@@ -862,7 +870,8 @@
         },
         "tags": [
           "Friends"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/my/trusted-friends/count": {
@@ -1010,7 +1019,10 @@
         "summary": "Returns whether or not the current user is following each userId in a list of userIds",
         "tags": [
           "Followings"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "RedesignNeededBeforeAutomation",
+        "x-documentation-category-target-date": "2026-06-01T00:00:00.000Z"
       }
     },
     "/v1/user/friend-requests/count": {
@@ -1039,7 +1051,8 @@
         "summary": "Return the number of pending friend requests.",
         "tags": [
           "Friends"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/user/trusted-friend-requests/count": {
@@ -1123,7 +1136,10 @@
         "summary": "Check if the requesting user is friends with the specified users.",
         "tags": [
           "Friends"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "RedesignNeededBeforeAutomation",
+        "x-documentation-category-target-date": "2026-06-01T00:00:00.000Z"
       }
     },
     "/v1/users/{targetUserId}/follow": {
@@ -1183,7 +1199,9 @@
         "summary": "Creates the following between a user and user with targetUserId",
         "tags": [
           "Followings"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "AgainstPolicy"
       }
     },
     "/v1/users/{targetUserId}/followers": {
@@ -1260,7 +1278,10 @@
         "summary": "Get all users that follow user with targetUserId in page response format",
         "tags": [
           "Followings"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "RedesignNeededBeforeAutomation",
+        "x-documentation-category-target-date": "2026-06-01T00:00:00.000Z"
       }
     },
     "/v1/users/{targetUserId}/followers/count": {
@@ -1299,7 +1320,10 @@
         "summary": "Get the number of following a user has",
         "tags": [
           "Followings"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "RedesignNeededBeforeAutomation",
+        "x-documentation-category-target-date": "2026-06-01T00:00:00.000Z"
       }
     },
     "/v1/users/{targetUserId}/followings": {
@@ -1376,7 +1400,10 @@
         "summary": "Get all users that user with targetUserId is following in page response format",
         "tags": [
           "Followings"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "RedesignNeededBeforeAutomation",
+        "x-documentation-category-target-date": "2026-06-01T00:00:00.000Z"
       }
     },
     "/v1/users/{targetUserId}/followings/count": {
@@ -1415,7 +1442,10 @@
         "summary": "Get the number of following a user has",
         "tags": [
           "Followings"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "RedesignNeededBeforeAutomation",
+        "x-documentation-category-target-date": "2026-06-01T00:00:00.000Z"
       }
     },
     "/v1/users/{targetUserId}/unfollow": {
@@ -1463,7 +1493,9 @@
         "summary": "Deletes the following between a user and user with targetUserId",
         "tags": [
           "Followings"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "AgainstPolicy"
       }
     },
     "/v1/users/{userId}/friends": {
@@ -1514,7 +1546,10 @@
         "summary": "Get list of all friends for the specified user.",
         "tags": [
           "Friends"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "RedesignNeededBeforeAutomation",
+        "x-documentation-category-target-date": "2026-06-01T00:00:00.000Z"
       }
     },
     "/v1/users/{userId}/friends/count": {
@@ -1552,7 +1587,10 @@
         "summary": "Get the number of friends a user has",
         "tags": [
           "Friends"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "RedesignNeededBeforeAutomation",
+        "x-documentation-category-target-date": "2026-06-01T00:00:00.000Z"
       }
     },
     "/v1/users/{userId}/friends/find": {
@@ -1629,7 +1667,10 @@
         "summary": "Get a paginated list of all friends for the specified user.",
         "tags": [
           "Friends"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "RedesignNeededBeforeAutomation",
+        "x-documentation-category-target-date": "2026-06-01T00:00:00.000Z"
       }
     },
     "/v1/users/{userId}/friends/inactive": {
@@ -1671,7 +1712,9 @@
         "summary": "Get list of inactive friends for the specified user.",
         "tags": [
           "Friends"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "AlreadyDeprecated"
       }
     },
     "/v1/users/{userId}/friends/online": {
@@ -1725,7 +1768,9 @@
         "summary": "Get list of all online friends for the specified user.",
         "tags": [
           "Friends"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "RequiresHumanPresence"
       }
     },
     "/v1/users/{userId}/friends/search": {
@@ -1787,7 +1832,10 @@
         "summary": "Search for friends by name using a text query.",
         "tags": [
           "Friends"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "RedesignNeededBeforeAutomation",
+        "x-documentation-category-target-date": "2026-06-01T00:00:00.000Z"
       }
     },
     "/v1/users/{userId}/friends/statuses": {
@@ -1838,7 +1886,8 @@
         "summary": "Gets a list of friend statuses of specified users against the specified user.",
         "tags": [
           "Friends"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/users/{userId}/trusted-friends/count": {

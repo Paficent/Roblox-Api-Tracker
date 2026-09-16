@@ -375,7 +375,10 @@
         "summary": "Gets the asset status and other configuration details for the given assetIds list.",
         "tags": [
           "Item"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "RedesignNeededBeforeAutomation",
+        "x-documentation-category-target-date": "2026-06-01T00:00:00.000Z"
       }
     },
     "/v1/creations/get-assets": {
@@ -455,7 +458,10 @@
         "summary": "Gets the user created asset information filtered by the given asset type.",
         "tags": [
           "Item"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "RedesignNeededBeforeAutomation",
+        "x-documentation-category-target-date": "2026-06-01T00:00:00.000Z"
       }
     },
     "/v1/preferences/publishing": {

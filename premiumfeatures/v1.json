@@ -51,7 +51,10 @@
         "summary": "Premium upsell precheck",
         "tags": [
           "PremiumFeaturesUsers"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-description": "Endpoint planned for deprecation on 4/30 (Roblox Plus launch)",
+        "x-documentation-category-hidden-reason": "Other"
       }
     },
     "/v1/users/{userId}/validate-membership": {
@@ -83,7 +86,10 @@
         "summary": "Get if a user has a Premium membership",
         "tags": [
           "PremiumFeaturesUsers"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-description": "Endpoint planned for deprecation on 4/30 (Roblox Plus launch)",
+        "x-documentation-category-hidden-reason": "Other"
       }
     }
   },

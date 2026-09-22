@@ -13,7 +13,7 @@
     },
     "Roblox.ClientSettings.Api.Models.Response.AndroidBinaryResponse": {
       "additionalProperties": false,
-      "description": "Contains information about an Android Binary Module for a given channel.\r\nincluding its module name, the names of its libraries, and whether the channel supports Android binaries.",
+      "description": "Contains information about an Android Binary Module for a given channel.\nincluding its module name, the names of its libraries, and whether the channel supports Android binaries.",
       "properties": {
         "libraryNames": {
           "$ref": "#/definitions/Roblox.ClientSettings.Api.Models.Response.AndroidBinaryLibraryNames"
@@ -27,6 +27,9 @@
           "type": "boolean"
         }
       },
+      "required": [
+        "libraryNames"
+      ],
       "type": "object"
     },
     "Roblox.ClientSettings.Api.Models.Response.BetaProgramInfo": {
@@ -42,6 +45,10 @@
           "type": "string"
         }
       },
+      "required": [
+        "id",
+        "name"
+      ],
       "type": "object"
     },
     "Roblox.ClientSettings.Api.Models.Response.ClientVersionResponse": {
@@ -133,6 +140,11 @@
           "type": "integer"
         }
       },
+      "required": [
+        "downloadUrl",
+        "name",
+        "version"
+      ],
       "type": "object"
     },
     "Roblox.ClientSettings.Api.Models.Response.UserChannelResponse": {
@@ -157,7 +169,7 @@
           "type": "string"
         },
         "isFlagOnly": {
-          "description": "Whether the channel is flag-only. A flag-only channel uses production binaries.\r\nIf the channel is not flag-only, this is omitted.",
+          "description": "Whether the channel is flag-only. A flag-only channel uses production binaries.\nIf the channel is not flag-only, this is omitted.",
           "type": "boolean"
         },
         "program": {
@@ -312,7 +324,7 @@
             "description": "OK"
           }
         },
-        "summary": "Returns a listing of all known compression dictionaries, including their SHA256 and creation date.\r\nThis will be sorted by creation date, with the most recent dictionaries first.",
+        "summary": "Returns a listing of all known compression dictionaries, including their SHA256 and creation date.\nThis will be sorted by creation date, with the most recent dictionaries first.",
         "tags": [
           "ClientApplicationSettingsV2"
         ]
@@ -411,7 +423,7 @@
             "description": "9: The requested tag is not implemented."
           }
         },
-        "summary": "Get OTA information for a specific binary type with a given version on some channel.\r\nReturns empty list if no updates are found or channel/application with the given version does not exist in CVS.",
+        "summary": "Get OTA information for a specific binary type with a given version on some channel.\nReturns empty list if no updates are found or channel/application with the given version does not exist in CVS.",
         "tags": [
           "OtaVersion"
         ]

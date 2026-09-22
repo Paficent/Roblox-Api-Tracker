@@ -670,7 +670,9 @@
             "enum": [
               "Png",
               "Jpeg",
-              "Webp"
+              "Webp",
+              "Ico",
+              "Icns"
             ],
             "in": "query",
             "name": "format",
@@ -1002,7 +1004,9 @@
             "enum": [
               "Png",
               "Jpeg",
-              "Webp"
+              "Webp",
+              "Ico",
+              "Icns"
             ],
             "in": "query",
             "name": "format",

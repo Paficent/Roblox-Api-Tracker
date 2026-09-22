@@ -98,6 +98,7 @@
           "type": "integer"
         },
         "window": {
+          "default": "month",
           "description": " ['Day' = 1, 'Week' = 2, 'Month' = 3, 'Year' = 4, 'Lifetime' = 5]",
           "enum": [
             "day",

@@ -307,7 +307,8 @@
             92,
             93,
             94,
-            95
+            95,
+            96
           ],
           "format": "int32",
           "type": "integer"
@@ -598,7 +599,8 @@
             92,
             93,
             94,
-            95
+            95,
+            96
           ],
           "format": "int32",
           "type": "integer"
@@ -975,6 +977,12 @@
       "description": "A model representing the license attached to a collectible, linked via the collectibleItemId.",
       "properties": {
         "id": {
+          "type": "string"
+        },
+        "licenseDisplayName": {
+          "type": "string"
+        },
+        "licenseHolder": {
           "type": "string"
         },
         "licenseType": {

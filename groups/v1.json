@@ -1110,6 +1110,10 @@
         "communityTier": {
           "$ref": "#/definitions/Roblox.Groups.Client.CommunityTierInfoResponse"
         },
+        "hasLegacyAutoAssignRole": {
+          "description": "Whether this group still auto-assigns its lowest non-guest role to new members.",
+          "type": "boolean"
+        },
         "isApprovalRequired": {
           "description": "Whether public entry is allowed.",
           "type": "boolean"

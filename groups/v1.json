@@ -2497,7 +2497,10 @@
         "summary": "Deletes the featured event for a group",
         "tags": [
           "FeaturedContent"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "RedesignNeededBeforeAutomation",
+        "x-documentation-category-target-date": "2026-06-01T00:00:00.000Z"
       },
       "get": {
         "parameters": [
@@ -2531,7 +2534,10 @@
         "summary": "Gets the featured event for a group",
         "tags": [
           "FeaturedContent"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "RedesignNeededBeforeAutomation",
+        "x-documentation-category-target-date": "2026-06-01T00:00:00.000Z"
       },
       "post": {
         "parameters": [
@@ -2576,7 +2582,10 @@
         "summary": "Sets the featured event for a group",
         "tags": [
           "FeaturedContent"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "RedesignNeededBeforeAutomation",
+        "x-documentation-category-target-date": "2026-06-01T00:00:00.000Z"
       }
     },
     "/v1/groups/configuration/metadata": {
@@ -2602,7 +2611,10 @@
         "summary": "Gets Group configuration contextual information",
         "tags": [
           "Groups"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "RedesignNeededBeforeAutomation",
+        "x-documentation-category-target-date": "2026-06-01T00:00:00.000Z"
       }
     },
     "/v1/groups/create": {
@@ -2684,7 +2696,10 @@
         "summary": "Creates a new group.",
         "tags": [
           "Groups"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "RedesignNeededBeforeAutomation",
+        "x-documentation-category-target-date": "2026-06-01T00:00:00.000Z"
       }
     },
     "/v1/groups/icon": {
@@ -2740,7 +2755,10 @@
         "summary": "Updates the group icon.",
         "tags": [
           "Groups"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "RedesignNeededBeforeAutomation",
+        "x-documentation-category-target-date": "2026-06-01T00:00:00.000Z"
       }
     },
     "/v1/groups/metadata": {
@@ -2766,7 +2784,10 @@
         "summary": "Gets Groups contextual information:\nMax number of groups a user can be part of.\nCurrent number of groups a user is a member of.\nWhether to show/hide certain features based on device type.",
         "tags": [
           "Groups"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "RedesignNeededBeforeAutomation",
+        "x-documentation-category-target-date": "2026-06-01T00:00:00.000Z"
       }
     },
     "/v1/groups/policies": {
@@ -2816,7 +2837,9 @@
         "summary": "Gets group policy info used for compliance.",
         "tags": [
           "Groups"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "SupportedByAnotherEndpoint"
       }
     },
     "/v1/groups/search": {
@@ -2881,7 +2904,10 @@
         "summary": "Search for groups by keyword.",
         "tags": [
           "GroupSearch"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-description": "automating search endpoint could lead to scraping",
+        "x-documentation-category-hidden-reason": "Other"
       }
     },
     "/v1/groups/search/lookup": {
@@ -2920,7 +2946,10 @@
         "summary": "Looks up groups by a name. Prioritizes an exact match as the first result.",
         "tags": [
           "GroupSearch"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "RedesignNeededBeforeAutomation",
+        "x-documentation-category-target-date": "2026-06-01T00:00:00.000Z"
       }
     },
     "/v1/groups/search/metadata": {
@@ -2950,7 +2979,10 @@
         "summary": "Get suggested groups and other miscellaneous information needed for the group/join page like flags",
         "tags": [
           "GroupSearch"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "RedesignNeededBeforeAutomation",
+        "x-documentation-category-target-date": "2026-06-01T00:00:00.000Z"
       }
     },
     "/v1/groups/{groupId}": {
@@ -2989,7 +3021,9 @@
         "summary": "Gets group information",
         "tags": [
           "Groups"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "SupportedByAnotherEndpoint"
       }
     },
     "/v1/groups/{groupId}/audit-log": {
@@ -3084,7 +3118,8 @@
               "UpdateRoleSetPermissions",
               "UpdateGroupSecuritySettings",
               "GrantEnterpriseTier",
-              "RevokeEnterpriseTier"
+              "RevokeEnterpriseTier",
+              "DeactivateGroup"
             ],
             "in": "query",
             "name": "actionType",
@@ -3159,7 +3194,9 @@
         "summary": "Gets the Group's audit log",
         "tags": [
           "Groups"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "SupportedByAnotherEndpoint"
       }
     },
     "/v1/groups/{groupId}/bans": {
@@ -3238,7 +3275,10 @@
         "summary": "Gets the bans for the group",
         "tags": [
           "Membership"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "RedesignNeededBeforeAutomation",
+        "x-documentation-category-target-date": "2026-06-01T00:00:00.000Z"
       }
     },
     "/v1/groups/{groupId}/bans/{userId}": {
@@ -3297,7 +3337,10 @@
         "summary": "Unbans a user from a group",
         "tags": [
           "Membership"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "RedesignNeededBeforeAutomation",
+        "x-documentation-category-target-date": "2026-06-01T00:00:00.000Z"
       },
       "get": {
         "parameters": [
@@ -3351,7 +3394,10 @@
         "summary": "Fetch the group ban of a user from a group",
         "tags": [
           "Membership"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "RedesignNeededBeforeAutomation",
+        "x-documentation-category-target-date": "2026-06-01T00:00:00.000Z"
       },
       "post": {
         "parameters": [
@@ -3408,7 +3454,10 @@
         "summary": "Bans a user from a group",
         "tags": [
           "Membership"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "RedesignNeededBeforeAutomation",
+        "x-documentation-category-target-date": "2026-06-01T00:00:00.000Z"
       }
     },
     "/v1/groups/{groupId}/blocked-keywords": {
@@ -3486,7 +3535,10 @@
         "summary": "Retrieves a paginated list of blocked keywords for a specific Group.",
         "tags": [
           "BlockedKeywords"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "RedesignNeededBeforeAutomation",
+        "x-documentation-category-target-date": "2026-06-01T00:00:00.000Z"
       },
       "post": {
         "consumes": [
@@ -3546,7 +3598,10 @@
         "summary": "Adds new blocked keyword(s) to the specified Group.",
         "tags": [
           "BlockedKeywords"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "RedesignNeededBeforeAutomation",
+        "x-documentation-category-target-date": "2026-06-01T00:00:00.000Z"
       }
     },
     "/v1/groups/{groupId}/blocked-keywords/{keywordId}": {
@@ -3595,7 +3650,10 @@
         "summary": "Deletes a specific blocked keyword from the specified Group.",
         "tags": [
           "BlockedKeywords"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "RedesignNeededBeforeAutomation",
+        "x-documentation-category-target-date": "2026-06-01T00:00:00.000Z"
       },
       "patch": {
         "consumes": [
@@ -3664,7 +3722,10 @@
         "summary": "Updates an existing blocked keyword for the specified Group.",
         "tags": [
           "BlockedKeywords"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "RedesignNeededBeforeAutomation",
+        "x-documentation-category-target-date": "2026-06-01T00:00:00.000Z"
       }
     },
     "/v1/groups/{groupId}/change-owner": {
@@ -3722,7 +3783,10 @@
         "summary": "Changes the group owner to another user.",
         "tags": [
           "Membership"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "RedesignNeededBeforeAutomation",
+        "x-documentation-category-target-date": "2026-06-01T00:00:00.000Z"
       }
     },
     "/v1/groups/{groupId}/claim-ownership": {
@@ -3770,7 +3834,10 @@
         "summary": "Claims ownership of the group as the authenticated user",
         "tags": [
           "Membership"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "RedesignNeededBeforeAutomation",
+        "x-documentation-category-target-date": "2026-06-01T00:00:00.000Z"
       }
     },
     "/v1/groups/{groupId}/community-feature-freezes": {
@@ -3804,7 +3871,8 @@
         "summary": "Gets the freeze status of the community features for a group.",
         "tags": [
           "GroupFeatures"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/groups/{groupId}/community-tier/evaluate": {
@@ -3846,7 +3914,8 @@
         },
         "tags": [
           "CommunityTier"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/groups/{groupId}/configuration": {
@@ -3891,7 +3960,10 @@
         "summary": "Gets group configuration information",
         "tags": [
           "Groups"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "RedesignNeededBeforeAutomation",
+        "x-documentation-category-target-date": "2026-06-01T00:00:00.000Z"
       }
     },
     "/v1/groups/{groupId}/description": {
@@ -3949,7 +4021,9 @@
         "summary": "Updates the groups description",
         "tags": [
           "Groups"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "SupportedByAnotherEndpoint"
       }
     },
     "/v1/groups/{groupId}/emotes": {
@@ -3985,7 +4059,10 @@
         "summary": "Gets a groups emote sets.",
         "tags": [
           "Emotes"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "RedesignNeededBeforeAutomation",
+        "x-documentation-category-target-date": "2026-06-01T00:00:00.000Z"
       }
     },
     "/v1/groups/{groupId}/features": {
@@ -4028,7 +4105,8 @@
         "summary": "Gets the freeze status of all features and the lock status for a group.",
         "tags": [
           "GroupFeatures"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       },
       "patch": {
         "consumes": [
@@ -4081,7 +4159,8 @@
         "summary": "Sets the desired status of group features.\nCurrently only removes active freezes for features set to Roblox.Groups.Api.FeatureStatus.On.",
         "tags": [
           "GroupFeatures"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/groups/{groupId}/features/status": {
@@ -4124,7 +4203,10 @@
         "summary": "Checks whether a group has ANY feature disabled (includes feature freezes and group lock).\nUsed to display a banner on Creator Hub/Studio to inform group members that some features may not be available.",
         "tags": [
           "GroupFeatures"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-description": "Creator Hub/Studio banner helper",
+        "x-documentation-category-hidden-reason": "Other"
       }
     },
     "/v1/groups/{groupId}/join-requests": {
@@ -4182,7 +4264,9 @@
         "summary": "Batch declines group join requests",
         "tags": [
           "Membership"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "SupportedByAnotherEndpoint"
       },
       "get": {
         "parameters": [
@@ -4256,7 +4340,9 @@
         "summary": "Gets a page of Group Join Requests for a group.",
         "tags": [
           "Membership"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "SupportedByAnotherEndpoint"
       },
       "post": {
         "consumes": [
@@ -4318,7 +4404,9 @@
         "summary": "Batch accepts group join requests",
         "tags": [
           "Membership"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "SupportedByAnotherEndpoint"
       }
     },
     "/v1/groups/{groupId}/join-requests/users/{userId}": {
@@ -4371,7 +4459,9 @@
         "summary": "Declines/cancels a group join request.",
         "tags": [
           "Membership"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "SupportedByAnotherEndpoint"
       },
       "get": {
         "parameters": [
@@ -4422,7 +4512,9 @@
         "summary": "Gets a group join request by userId.",
         "tags": [
           "Membership"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "SupportedByAnotherEndpoint"
       },
       "post": {
         "parameters": [
@@ -4476,7 +4568,9 @@
         "summary": "Accepts a group join request.",
         "tags": [
           "Membership"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "SupportedByAnotherEndpoint"
       }
     },
     "/v1/groups/{groupId}/membership": {
@@ -4521,7 +4615,9 @@
         "summary": "Gets group membership information in the context of the authenticated user",
         "tags": [
           "Membership"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "SupportedByAnotherEndpoint"
       }
     },
     "/v1/groups/{groupId}/name": {
@@ -4589,7 +4685,10 @@
         "summary": "Updates the group's name.",
         "tags": [
           "Groups"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "RedesignNeededBeforeAutomation",
+        "x-documentation-category-target-date": "2026-06-01T00:00:00.000Z"
       }
     },
     "/v1/groups/{groupId}/name-history": {
@@ -4662,7 +4761,10 @@
         "summary": "Gets the Group's name change history.",
         "tags": [
           "Groups"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "RedesignNeededBeforeAutomation",
+        "x-documentation-category-target-date": "2026-06-01T00:00:00.000Z"
       }
     },
     "/v1/groups/{groupId}/notification-preference": {
@@ -4728,7 +4830,9 @@
         "summary": "Updates the group's settings",
         "tags": [
           "Groups"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "SupportedByAnotherEndpoint"
       }
     },
     "/v1/groups/{groupId}/payout-restriction": {
@@ -4773,7 +4877,10 @@
         "summary": "Gets a value indicating whether the group can use payout feature",
         "tags": [
           "Revenue"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "RedesignNeededBeforeAutomation",
+        "x-documentation-category-target-date": "2026-06-01T00:00:00.000Z"
       }
     },
     "/v1/groups/{groupId}/payouts": {
@@ -4818,7 +4925,10 @@
         "summary": "Gets a list of the group payout percentages",
         "tags": [
           "Revenue"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "RedesignNeededBeforeAutomation",
+        "x-documentation-category-target-date": "2026-06-01T00:00:00.000Z"
       },
       "post": {
         "consumes": [
@@ -4877,7 +4987,10 @@
         "summary": "Pays out a user in Robux.",
         "tags": [
           "Revenue"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "RedesignNeededBeforeAutomation",
+        "x-documentation-category-target-date": "2026-06-01T00:00:00.000Z"
       }
     },
     "/v1/groups/{groupId}/payouts/recurring": {
@@ -4939,7 +5052,10 @@
         "summary": "Updates recurring payouts.",
         "tags": [
           "Revenue"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "RedesignNeededBeforeAutomation",
+        "x-documentation-category-target-date": "2026-06-01T00:00:00.000Z"
       }
     },
     "/v1/groups/{groupId}/relationships/{groupRelationshipType}": {
@@ -5001,7 +5117,10 @@
         "summary": "Gets a group's relationships",
         "tags": [
           "Relationships"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "RedesignNeededBeforeAutomation",
+        "x-documentation-category-target-date": "2026-06-01T00:00:00.000Z"
       }
     },
     "/v1/groups/{groupId}/relationships/{groupRelationshipType}/requests": {
@@ -5063,7 +5182,10 @@
         "summary": "Batch declines group affiliate requests",
         "tags": [
           "Relationships"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "RedesignNeededBeforeAutomation",
+        "x-documentation-category-target-date": "2026-06-01T00:00:00.000Z"
       },
       "get": {
         "parameters": [
@@ -5129,7 +5251,10 @@
         "summary": "Gets a group's relationship requests",
         "tags": [
           "Relationships"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "RedesignNeededBeforeAutomation",
+        "x-documentation-category-target-date": "2026-06-01T00:00:00.000Z"
       },
       "post": {
         "consumes": [
@@ -5189,7 +5314,10 @@
         "summary": "Batch accepts group affiliate requests",
         "tags": [
           "Relationships"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "RedesignNeededBeforeAutomation",
+        "x-documentation-category-target-date": "2026-06-01T00:00:00.000Z"
       }
     },
     "/v1/groups/{groupId}/relationships/{groupRelationshipType}/requests/{relatedGroupId}": {
@@ -5249,7 +5377,10 @@
         "summary": "Declines a group relationship request.",
         "tags": [
           "Relationships"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "RedesignNeededBeforeAutomation",
+        "x-documentation-category-target-date": "2026-06-01T00:00:00.000Z"
       },
       "post": {
         "parameters": [
@@ -5307,7 +5438,10 @@
         "summary": "Accepts a group relationship request.",
         "tags": [
           "Relationships"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "RedesignNeededBeforeAutomation",
+        "x-documentation-category-target-date": "2026-06-01T00:00:00.000Z"
       }
     },
     "/v1/groups/{groupId}/relationships/{groupRelationshipType}/{relatedGroupId}": {
@@ -5367,7 +5501,10 @@
         "summary": "Deletes a group relationship.",
         "tags": [
           "Relationships"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "RedesignNeededBeforeAutomation",
+        "x-documentation-category-target-date": "2026-06-01T00:00:00.000Z"
       },
       "post": {
         "parameters": [
@@ -5425,7 +5562,10 @@
         "summary": "Create a group relationship.",
         "tags": [
           "Relationships"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "RedesignNeededBeforeAutomation",
+        "x-documentation-category-target-date": "2026-06-01T00:00:00.000Z"
       }
     },
     "/v1/groups/{groupId}/roles": {
@@ -5470,7 +5610,9 @@
         "summary": "Gets a list of the rolesets in a group.",
         "tags": [
           "Membership"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "SupportedByAnotherEndpoint"
       }
     },
     "/v1/groups/{groupId}/roles/guest/permissions": {
@@ -5509,7 +5651,9 @@
         "summary": "Gets the permissions for a group's guest roleset. These can be viewed by all (members and guests) users.",
         "tags": [
           "Permissions"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "SupportedByAnotherEndpoint"
       }
     },
     "/v1/groups/{groupId}/roles/permissions": {
@@ -5548,7 +5692,9 @@
         "summary": "Gets all permissions for each role",
         "tags": [
           "Permissions"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "SupportedByAnotherEndpoint"
       }
     },
     "/v1/groups/{groupId}/roles/{roleSetId}/permissions": {
@@ -5601,7 +5747,9 @@
         "summary": "Gets the permissions for a group's roleset. The authorized user must either be the group owner or the roleset being requested, except for guest roles, which can be viewed by all (members and guests).",
         "tags": [
           "Permissions"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "SupportedByAnotherEndpoint"
       },
       "patch": {
         "consumes": [
@@ -5665,7 +5813,9 @@
         "summary": "Updates the permissions for a group's roleset. The authorized user must be the group owner.",
         "tags": [
           "Permissions"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "SupportedByAnotherEndpoint"
       }
     },
     "/v1/groups/{groupId}/roles/{roleSetId}/users": {
@@ -5746,7 +5896,9 @@
         "summary": "Gets a list of users in a group for a specific roleset.",
         "tags": [
           "Membership"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "SupportedByAnotherEndpoint"
       }
     },
     "/v1/groups/{groupId}/rolesets/create": {
@@ -5807,7 +5959,10 @@
         "summary": "Creates new group roleset.",
         "tags": [
           "RoleSets"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "RedesignNeededBeforeAutomation",
+        "x-documentation-category-target-date": "2026-06-01T00:00:00.000Z"
       }
     },
     "/v1/groups/{groupId}/rolesets/{rolesetId}": {
@@ -5863,7 +6018,10 @@
         "summary": "Deletes existing group roleset.",
         "tags": [
           "RoleSets"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "RedesignNeededBeforeAutomation",
+        "x-documentation-category-target-date": "2026-06-01T00:00:00.000Z"
       },
       "patch": {
         "consumes": [
@@ -5930,7 +6088,10 @@
         "summary": "Updates existing group roleset.",
         "tags": [
           "RoleSets"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "RedesignNeededBeforeAutomation",
+        "x-documentation-category-target-date": "2026-06-01T00:00:00.000Z"
       }
     },
     "/v1/groups/{groupId}/settings": {
@@ -5975,7 +6136,9 @@
         "summary": "Gets the Group's settings",
         "tags": [
           "Groups"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "SupportedByAnotherEndpoint"
       },
       "patch": {
         "consumes": [
@@ -6034,7 +6197,9 @@
         "summary": "Updates the group's settings",
         "tags": [
           "Groups"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "SupportedByAnotherEndpoint"
       }
     },
     "/v1/groups/{groupId}/social-links": {
@@ -6082,7 +6247,9 @@
         "summary": "Get social link data associated with a group",
         "tags": [
           "SocialLinks"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "SupportedByAnotherEndpoint"
       },
       "post": {
         "consumes": [
@@ -6144,7 +6311,10 @@
         "summary": "Posts a social links",
         "tags": [
           "SocialLinks"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "RedesignNeededBeforeAutomation",
+        "x-documentation-category-target-date": "2026-06-01T00:00:00.000Z"
       }
     },
     "/v1/groups/{groupId}/social-links/{socialLinkId}": {
@@ -6200,7 +6370,10 @@
         "summary": "Deletes a social link",
         "tags": [
           "SocialLinks"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "RedesignNeededBeforeAutomation",
+        "x-documentation-category-target-date": "2026-06-01T00:00:00.000Z"
       },
       "patch": {
         "consumes": [
@@ -6270,7 +6443,10 @@
         "summary": "Updates a social link",
         "tags": [
           "SocialLinks"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "RedesignNeededBeforeAutomation",
+        "x-documentation-category-target-date": "2026-06-01T00:00:00.000Z"
       }
     },
     "/v1/groups/{groupId}/status": {
@@ -6328,7 +6504,10 @@
         "summary": "Sets group status",
         "tags": [
           "Groups"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-description": "Already onboarded onto Open Cloud",
+        "x-documentation-category-hidden-reason": "Other"
       }
     },
     "/v1/groups/{groupId}/users": {
@@ -6401,7 +6580,9 @@
         "summary": "Gets a list of users in a group.",
         "tags": [
           "Membership"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "SupportedByAnotherEndpoint"
       },
       "post": {
         "consumes": [
@@ -6485,7 +6666,10 @@
         "summary": "Joins a group",
         "tags": [
           "Membership"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "RedesignNeededBeforeAutomation",
+        "x-documentation-category-target-date": "2026-06-01T00:00:00.000Z"
       }
     },
     "/v1/groups/{groupId}/users/{userId}": {
@@ -6541,7 +6725,10 @@
         "summary": "Removes a user from a group",
         "tags": [
           "Membership"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "RedesignNeededBeforeAutomation",
+        "x-documentation-category-target-date": "2026-06-01T00:00:00.000Z"
       },
       "patch": {
         "consumes": [
@@ -6608,7 +6795,9 @@
         "summary": "Updates a users role in a group.",
         "tags": [
           "Membership"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "SupportedByAnotherEndpoint"
       }
     },
     "/v1/groups/{groupId}/users/{userId}/permissions": {
@@ -6661,7 +6850,9 @@
         "summary": "Gets the permissions a user has in a group. Only available to group owner and RCC",
         "tags": [
           "Permissions"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "SupportedByAnotherEndpoint"
       }
     },
     "/v1/roles": {
@@ -6710,7 +6901,10 @@
         "summary": "Gets the Roles by their ids.",
         "tags": [
           "Roles"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "RedesignNeededBeforeAutomation",
+        "x-documentation-category-target-date": "2026-06-01T00:00:00.000Z"
       }
     },
     "/v1/user/groups/pending": {
@@ -6739,7 +6933,9 @@
         "summary": "Gets groups that the authenticated user has requested to join",
         "tags": [
           "Membership"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "SupportedByAnotherEndpoint"
       }
     },
     "/v1/user/groups/primary": {
@@ -6771,7 +6967,10 @@
         "summary": "Removes the authenticated user's primary group",
         "tags": [
           "PrimaryGroup"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "RedesignNeededBeforeAutomation",
+        "x-documentation-category-target-date": "2026-06-01T00:00:00.000Z"
       },
       "post": {
         "consumes": [
@@ -6819,7 +7018,10 @@
         "summary": "Sets the authenticated user's primary group",
         "tags": [
           "PrimaryGroup"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "RedesignNeededBeforeAutomation",
+        "x-documentation-category-target-date": "2026-06-01T00:00:00.000Z"
       }
     },
     "/v1/users/{userId}/friends/groups/roles": {
@@ -6861,7 +7063,10 @@
         "summary": "Gets a list of all groups the specified users' friends are in.",
         "tags": [
           "Membership"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "RedesignNeededBeforeAutomation",
+        "x-documentation-category-target-date": "2026-06-01T00:00:00.000Z"
       }
     },
     "/v1/users/{userId}/groups/primary/role": {
@@ -6900,7 +7105,10 @@
         "summary": "Gets a user's primary group.",
         "tags": [
           "PrimaryGroup"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "RedesignNeededBeforeAutomation",
+        "x-documentation-category-target-date": "2026-06-01T00:00:00.000Z"
       }
     },
     "/v1/users/{userId}/groups/roles": {
@@ -6960,7 +7168,10 @@
         "summary": "Gets a list of all group roles for groups the specified user is in.",
         "tags": [
           "Membership"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "RedesignNeededBeforeAutomation",
+        "x-documentation-category-target-date": "2026-06-01T00:00:00.000Z"
       }
     }
   },

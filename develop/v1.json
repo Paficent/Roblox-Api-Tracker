@@ -347,6 +347,36 @@
       },
       "type": "object"
     },
+    "Roblox.Api.Develop.Models.PlaytesterEligibility": {
+      "additionalProperties": false,
+      "description": "Whether one candidate user can currently be added as a private playtester.",
+      "properties": {
+        "isEligible": {
+          "description": "Whether the candidate is eligible.",
+          "type": "boolean"
+        },
+        "userId": {
+          "description": "The candidate user id.",
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Roblox.Api.Develop.Models.PlaytesterEligibilityResponse": {
+      "additionalProperties": false,
+      "description": "Per-user add eligibility for private playtester candidates.",
+      "properties": {
+        "playtesters": {
+          "description": "The per-user eligibility results.",
+          "items": {
+            "$ref": "#/definitions/Roblox.Api.Develop.Models.PlaytesterEligibility"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
     "Roblox.Api.Develop.Models.PlaytestersRequest": {
       "additionalProperties": false,
       "description": "Request model for adding or removing playtesters.",
@@ -2210,6 +2240,64 @@
           }
         },
         "summary": "Add playtesters to an owned universe. Existing ids are ignored (additive union).",
+        "tags": [
+          "UniverseSettings"
+        ]
+      }
+    },
+    "/v1/universes/{universeId}/configuration/playtesters/eligibility": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "description": "The universe Id.",
+            "format": "int64",
+            "in": "path",
+            "name": "universeId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "The candidate playtesters to evaluate.",
+            "in": "body",
+            "name": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Api.Develop.Models.PlaytestersRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "UniverseSettings:CheckPlaytesterEligibility"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Api.Develop.Models.PlaytesterEligibilityResponse"
+            }
+          },
+          "400": {
+            "description": "1: The universe does not exist.\r\n48: The playtesters list is missing or empty.\r\n49: Too many playtesters were specified in a single request."
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed\r\n2: You are not authorized to configure this universe."
+          }
+        },
+        "summary": "Check whether each candidate user can currently be added as a private playtester.",
         "tags": [
           "UniverseSettings"
         ]

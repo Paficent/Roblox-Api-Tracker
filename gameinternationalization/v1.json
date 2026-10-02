@@ -122,6 +122,9 @@
         "isAutolocalizationEnabled": {
           "type": "boolean"
         },
+        "shouldUseImageLocalizationTable": {
+          "type": "boolean"
+        },
         "shouldUseLocalizationTable": {
           "type": "boolean"
         }
@@ -4729,7 +4732,8 @@
         "summary": "Enable or disable image translation for a game and language.",
         "tags": [
           "SupportedLanguages"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/supported-languages/games/{gameId}/languages/{languageCode}/universe-display-info-automatic-translation-settings": {

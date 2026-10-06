@@ -18,7 +18,7 @@
           "type": "integer"
         },
         "followerType": {
-          "description": "Type of the follower entity. ['Invalid' = 0, 'User' = 1]",
+          "description": "Type of the follower entity.",
           "enum": [
             0,
             1
@@ -27,7 +27,7 @@
           "type": "integer"
         },
         "sourceType": {
-          "description": "Type of the source entity. ['Invalid' = 0, 'Universe' = 1]",
+          "description": "Type of the source entity.",
           "enum": [
             0,
             1
@@ -69,7 +69,7 @@
         },
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "Data model containing map of (universe ID =\u003e follow date).",
             "schema": {
               "$ref": "#/definitions/Roblox.Followings.Api.Models.FollowsByTypeResponse"
             }
@@ -84,7 +84,9 @@
         "summary": "Gets all universes followed by a user.",
         "tags": [
           "UsersV2"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "SupportedByAnotherEndpoint"
       }
     }
   },

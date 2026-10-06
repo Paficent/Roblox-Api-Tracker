@@ -886,7 +886,7 @@
             "description": "0: Authorization has been denied for this request."
           },
           "403": {
-            "description": "Roblox.AccountSettings.Api.ResponseEnums.TradeSettingsErrors.AccountLocked\r\n            OR\r\n            Roblox.AccountSettings.Api.ResponseEnums.TradeSettingsErrors.UserCannotTrade\r\n0: Token Validation Failed"
+            "description": "Roblox.AccountSettings.Api.ResponseEnums.TradeSettingsErrors.AccountLocked\n            OR\n            Roblox.AccountSettings.Api.ResponseEnums.TradeSettingsErrors.UserCannotTrade\r\n0: Token Validation Failed"
           }
         },
         "summary": "Updates a user's trade privacy setting",
@@ -967,7 +967,7 @@
             "description": "0: Authorization has been denied for this request."
           },
           "403": {
-            "description": "Roblox.AccountSettings.Api.ResponseEnums.TradeSettingsErrors.AccountLocked\r\n            OR\r\n            Roblox.AccountSettings.Api.ResponseEnums.TradeSettingsErrors.UserCannotTrade\r\n0: Token Validation Failed"
+            "description": "Roblox.AccountSettings.Api.ResponseEnums.TradeSettingsErrors.AccountLocked\n            OR\n            Roblox.AccountSettings.Api.ResponseEnums.TradeSettingsErrors.UserCannotTrade\r\n0: Token Validation Failed"
           }
         },
         "summary": "Updates a user's trade quality filter setting",

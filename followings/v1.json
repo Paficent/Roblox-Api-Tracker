@@ -83,7 +83,7 @@
         },
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "A list of user to game followings.",
             "schema": {
               "items": {
                 "$ref": "#/definitions/Roblox.Followings.Api.Models.UserFollowingUniverseResponse"
@@ -101,7 +101,9 @@
         "summary": "Gets all the followings between a user with userId and universes",
         "tags": [
           "Users"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "SupportedByAnotherEndpoint"
       }
     },
     "/v1/users/{userId}/universes/{universeId}": {
@@ -136,7 +138,7 @@
         },
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "The deleted following.",
             "schema": {
               "$ref": "#/definitions/Roblox.Followings.Api.Models.UserFollowingUniverseResponse"
             }
@@ -145,13 +147,15 @@
             "description": "0: Authorization has been denied for this request."
           },
           "403": {
-            "description": "User is not authorized for this action.\r\n0: Token Validation Failed"
+            "description": "User is not authorized for this action."
           }
         },
         "summary": "Deletes the following between a user with userId and universe with universeId",
         "tags": [
           "Users"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "SupportedByAnotherEndpoint"
       },
       "post": {
         "parameters": [
@@ -184,7 +188,7 @@
         },
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "The created following.",
             "schema": {
               "$ref": "#/definitions/Roblox.Followings.Api.Models.UserFollowingUniverseResponse"
             }
@@ -196,13 +200,15 @@
             "description": "0: Authorization has been denied for this request."
           },
           "403": {
-            "description": "User is not authorized for this action.\r\n0: Token Validation Failed"
+            "description": "User is not authorized for this action."
           }
         },
         "summary": "Creates the following between a user with userId and universe with universeId",
         "tags": [
           "Users"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "SupportedByAnotherEndpoint"
       }
     },
     "/v1/users/{userId}/universes/{universeId}/status": {
@@ -237,7 +243,7 @@
         },
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "The status of the following relationship.",
             "schema": {
               "$ref": "#/definitions/Roblox.Followings.Api.Models.UserFollowingUniverseStatusResponse"
             }
@@ -252,7 +258,9 @@
         "summary": "Gets the status of a following relationship between a user and a universe.",
         "tags": [
           "Users"
-        ]
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "SupportedByAnotherEndpoint"
       }
     }
   },

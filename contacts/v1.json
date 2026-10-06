@@ -127,7 +127,8 @@
         "summary": "Gets the tags for multiple users",
         "tags": [
           "UserTag"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/user/tag": {
@@ -180,7 +181,8 @@
         "summary": "Sets the tag for a user",
         "tags": [
           "UserTag"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     },
     "/v1/user/tag/validate": {
@@ -223,7 +225,8 @@
         "summary": "Validates the tag for a user",
         "tags": [
           "UserTag"
-        ]
+        ],
+        "x-documentation-category": "Experimental"
       }
     }
   },

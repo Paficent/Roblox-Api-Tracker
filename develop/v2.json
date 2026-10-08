@@ -39,11 +39,11 @@
           "type": "string"
         },
         "isEqualToCurrentPublishedVersion": {
-          "description": "Indicates if this version is same to current published version.\r\nThis property is available on /v1/{assetId}/published-versions and /v1/{assetId}/version/{versionNumber}.",
+          "description": "Indicates if this version is same to current published version.\nThis property is available on /v1/{assetId}/published-versions and /v1/{assetId}/version/{versionNumber}.",
           "type": "boolean"
         },
         "isPublished": {
-          "description": "Indicates if this version is / was published.\r\nThis property is available on /v1/{assetId}/saved-versions.\r\nThis should be true for all assets coming from GetAssetPublishedVersionsByAssetId",
+          "description": "Indicates if this version is / was published.\nThis property is available on /v1/{assetId}/saved-versions.\nThis should be true for all assets coming from GetAssetPublishedVersionsByAssetId",
           "type": "boolean"
         }
       },
@@ -87,7 +87,7 @@
           "type": "string"
         },
         "socialSlotType": {
-          "description": "The social slot type for the place. Determines how users are placed into servers.\r\n Examples: \r\n     Automatic,\r\n     Empty,\r\n     Custom",
+          "description": "The social slot type for the place. Determines how users are placed into servers.\n Examples: \n     Automatic,\n     Empty,\n     Custom",
           "type": "string"
         }
       },
@@ -102,9 +102,9 @@
           "type": "boolean"
         },
         "allowedGearTypes": {
-          "description": "Types of Roblox gear that are allowed to exist in the place.\r\nValid values are from amp::AssetCategory",
+          "description": "Types of Roblox gear that are allowed to exist in the place.\nValid values are from amp::AssetCategory",
           "items": {
-            "description": "The types of Gear that can be worn inside a place.\r\nValid values are derived from amp::AssetCategory ['Invalid' = 0, 'Melee' = 8, 'Ranged' = 9, 'Explosive' = 10, 'PowerUps' = 11, 'Navigation' = 12, 'Musical' = 13, 'Social' = 14, 'Building' = 21, 'PersonalTransport' = 22]",
+            "description": "The types of Gear that can be worn inside a place.\nValid values are derived from amp::AssetCategory ['Invalid' = 0, 'Melee' = 8, 'Ranged' = 9, 'Explosive' = 10, 'PowerUps' = 11, 'Navigation' = 12, 'Musical' = 13, 'Social' = 14, 'Building' = 21, 'PersonalTransport' = 22]",
             "enum": [
               0,
               8,
@@ -169,7 +169,7 @@
           "type": "string"
         },
         "socialSlotType": {
-          "description": "The social slot type for the place. Determines how users are placed into servers.\r\n Examples: \r\n     Automatic,\r\n     Empty,\r\n     Custom",
+          "description": "The social slot type for the place. Determines how users are placed into servers.\n Examples: \n     Automatic,\n     Empty,\n     Custom",
           "type": "string"
         },
         "universeId": {
@@ -214,7 +214,7 @@
           "type": "boolean"
         },
         "audiences": {
-          "description": "The audiences this universe should be visible to (e.g. Editors, PlayTesters, Friends, Public).\r\nWhen provided, replaces the universe's existing audience set with the supplied values.",
+          "description": "The audiences this universe should be visible to (e.g. Editors, PlayTesters, Friends, Public).\nWhen provided, replaces the universe's existing audience set with the supplied values.",
           "items": {
             "description": " ['Invalid' = 0, 'Editors' = 1, 'PlayTesters' = 2, 'Friends' = 3, 'Public' = 4]",
             "enum": [
@@ -238,7 +238,7 @@
           "type": "string"
         },
         "engineAvatarSettings": {
-          "description": "Optional JSON string used to store avatar settings used by the game engine.\r\nWill not be updated if null or empty. To clear settings, set to empty JSON object \"{}\".\r\nNote: This is an experimental field which may be changed or removed in future.",
+          "description": "Optional JSON string used to store avatar settings used by the game engine.\nWill not be updated if null or empty. To clear settings, set to empty JSON object \"{}\".\nNote: This is an experimental field which may be changed or removed in future.",
           "type": "string"
         },
         "fiatBasePriceId": {
@@ -246,7 +246,7 @@
           "type": "string"
         },
         "fiatProductChangeType": {
-          "description": "Determines the change type of the Fiat Product Change request.\r\nCan either Activate, Update Base Price, or Deactivate.",
+          "description": "Determines the change type of the Fiat Product Change request.\nCan either Activate, Update Base Price, or Deactivate.",
           "enum": [
             0,
             1,
@@ -428,7 +428,7 @@
           "type": "boolean"
         },
         "audiences": {
-          "description": "The audiences this universe is visible to (e.g. Editors, PlayTesters, Friends, Public).\r\nAlways non-null; may be empty when audience visibility has not been configured.",
+          "description": "The audiences this universe is visible to (e.g. Editors, PlayTesters, Friends, Public).\nAlways non-null; may be empty when audience visibility has not been configured.",
           "items": {
             "description": " ['Invalid' = 0, 'Editors' = 1, 'PlayTesters' = 2, 'Friends' = 3, 'Public' = 4]",
             "enum": [
@@ -444,7 +444,7 @@
           "type": "array"
         },
         "demoModeChangeableAfter": {
-          "description": "The earliest time at which demo mode can be toggled again (ISO 8601).\r\nNull when no cooldown is active (i.e. demo mode can be changed immediately).",
+          "description": "The earliest time at which demo mode can be toggled again (ISO 8601).\nNull when no cooldown is active (i.e. demo mode can be changed immediately).",
           "format": "date-time",
           "type": "string"
         },
@@ -457,7 +457,7 @@
           "type": "string"
         },
         "engineAvatarSettings": {
-          "description": "Optional JSON string used to store avatar settings used by the game engine.\r\nNote: This is an experimental field which may be changed or removed in future.",
+          "description": "Optional JSON string used to store avatar settings used by the game engine.\nNote: This is an experimental field which may be changed or removed in future.",
           "type": "string"
         },
         "fiatBasePriceId": {
@@ -794,7 +794,7 @@
             }
           }
         },
-        "summary": "Retrieves asset information for the specified asset ID. The authenticated user must be able to manage the asset\r\nor granted by package permission.",
+        "summary": "Retrieves asset information for the specified asset ID. The authenticated user must be able to manage the asset\nor granted by package permission.",
         "tags": [
           "AssetsV2"
         ],
@@ -999,25 +999,25 @@
             }
           },
           "400": {
-            "description": "1: The universe does not exist.\r\n3: Invalid UniverseAvatarType.\r\n4: Invalid UniverseScaleType.\r\n5: Invalid UniverseAnimationType.\r\n6: Invalid UniverseCollisionType.\r\n7: New universe name or description has been rejected.\r\n8: New universe name is too long.\r\n10: Invalid UniverseBodyType.\r\n11: Invalid UniverseJointPositioningType.\r\n12: The universe has no root place.\r\n15: Price is required when isForSale is true.\r\n16: This game cannot be offered for sale because it is not public.\r\n17: This game cannot be offered for sale because it has private servers enabled.\r\n18: The game price is outside of the allowed range.\r\n19: Invalid genre.\r\n20: The request body is missing.\r\n21: Invalid device type.\r\n22: Invalid asset type.\r\n23: Invalid value, the min must be less than or equal to the max\r\n24: Invalid scale value\r\n28: OptIn/Out Regions Not Supported.\r\n41: You cannot change the private server price again so soon after the previous change. Please try again later.\r\n44: The provided audience configuration is invalid. Ensure the audience list contains only supported audience values.\r\n52: Promotional text has been rejected."
+            "description": "1: The universe does not exist.\r\n3: Invalid UniverseAvatarType.\r\n4: Invalid UniverseScaleType.\r\n5: Invalid UniverseAnimationType.\r\n6: Invalid UniverseCollisionType.\r\n7: New universe name or description has been rejected.\r\n8: New universe name is too long.\r\n10: Invalid UniverseBodyType.\r\n11: Invalid UniverseJointPositioningType.\r\n12: The universe has no root place.\r\n15: Price is required when isForSale is true.\r\n16: This game cannot be offered for sale because it is not public.\r\n17: This game cannot be offered for sale because it has private servers enabled.\r\n18: The game price is outside of the allowed range.\r\n19: Invalid genre.\r\n20: The request body is missing.\r\n21: Invalid device type.\r\n22: Invalid asset type.\r\n23: Invalid value, the min must be less than or equal to the max\r\n24: Invalid scale value\r\n26: Invalid private server price\r\n28: OptIn/Out Regions Not Supported.\r\n41: You cannot change the private server price again so soon after the previous change. Please try again later.\r\n44: The provided audience configuration is invalid. Ensure the audience list contains only supported audience values.\r\n52: Promotional text has been rejected."
           },
           "401": {
             "description": "0: Authorization has been denied for this request."
           },
           "403": {
-            "description": "0: Token Validation Failed\r\n2: You are not authorized to configure this universe.\r\n14: You are not authorized to sell games.\r\n29: Luobu app terms of service user agreement is missing.\r\n30: Unknown error while updating Opt in out region.\r\n45: The creator of this experience is not eligible to set this audience."
+            "description": "0: Token Validation Failed\r\n2: You are not authorized to configure this universe.\r\n14: You are not authorized to sell games.\r\n25: Not authorized to update private server settings\r\n29: Luobu app terms of service user agreement is missing.\r\n30: Unknown error while updating Opt in out region.\r\n45: The creator of this experience is not eligible to set this audience."
           },
           "409": {
             "description": "9: Failed to shutdown all intances of game after changing AvatarType. The change has been reverted."
           },
           "500": {
-            "description": "43: Failed to update the audience configuration. The change was not applied. Please try again."
+            "description": "27: Unknown error while updating private server settings\r\n43: Failed to update the audience configuration. The change was not applied. Please try again."
           },
           "503": {
             "description": "53: Promotional text safety validation is temporarily unavailable."
           }
         },
-        "summary": "Update universe settings for an owned universe.\r\nV2 Contains data for avatar scale and asset override.",
+        "summary": "Update universe settings for an owned universe.\nV2 Contains data for avatar scale and asset override.",
         "tags": [
           "UniverseSettings"
         ],

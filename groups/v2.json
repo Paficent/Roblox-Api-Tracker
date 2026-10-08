@@ -28,6 +28,10 @@
           "description": "Whether the group is Builders Club only",
           "type": "boolean"
         },
+        "isDeactivated": {
+          "description": "Whether the group is deactivated",
+          "type": "boolean"
+        },
         "isLocked": {
           "description": "Whether the group is locked",
           "type": "boolean"

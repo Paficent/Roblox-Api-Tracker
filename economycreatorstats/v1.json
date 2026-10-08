@@ -50,6 +50,7 @@
             "type": "integer"
           },
           {
+            "description": "The type of a statistics dataset. ['PremiumUpsells' = 0, 'PremiumVisits' = 1]",
             "enum": [
               "PremiumUpsells",
               "PremiumVisits"

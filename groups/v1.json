@@ -330,6 +330,10 @@
           "description": "Whether the group is Builders Club only",
           "type": "boolean"
         },
+        "isDeactivated": {
+          "description": "Whether the group is deactivated",
+          "type": "boolean"
+        },
         "isLocked": {
           "description": "Whether the group is locked",
           "type": "boolean"
@@ -3964,6 +3968,60 @@
         "summary": "Gets group configuration information",
         "tags": [
           "Groups"
+        ],
+        "x-documentation-category": "Hidden",
+        "x-documentation-category-hidden-reason": "RedesignNeededBeforeAutomation",
+        "x-documentation-category-target-date": "2026-06-01T00:00:00.000Z"
+      }
+    },
+    "/v1/groups/{groupId}/deactivate": {
+      "post": {
+        "parameters": [
+          {
+            "description": "The group Id.",
+            "format": "int64",
+            "in": "path",
+            "name": "groupId",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Membership:DeactivateGroup"
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Web.WebAPI.ApiEmptyResponseModel"
+            }
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed\r\n19: You have insufficient permissions for this request."
+          },
+          "404": {
+            "description": "1: The group is invalid or does not exist."
+          },
+          "409": {
+            "description": "18: The operation is temporarily unavailable. Please try again later."
+          },
+          "500": {
+            "description": "0: Something went wrong."
+          }
+        },
+        "summary": "Deactivates the group as its owner.",
+        "tags": [
+          "Membership"
         ],
         "x-documentation-category": "Hidden",
         "x-documentation-category-hidden-reason": "RedesignNeededBeforeAutomation",

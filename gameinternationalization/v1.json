@@ -119,6 +119,9 @@
           "format": "uuid",
           "type": "string"
         },
+        "isAutoLocalizationForImageEnabled": {
+          "type": "boolean"
+        },
         "isAutolocalizationEnabled": {
           "type": "boolean"
         },
@@ -140,7 +143,7 @@
           "type": "string"
         },
         "targetLanguages": {
-          "description": "The target languages with the automatic translation allowed status.\r\nThe status basically says if automatic translation can be enabled for the source and target.",
+          "description": "The target languages with the automatic translation allowed status.\nThe status basically says if automatic translation can be enabled for the source and target.",
           "items": {
             "$ref": "#/definitions/Roblox.GameInternationalization.Api.AutomaticTranslationStatusTargetLanguage"
           },
@@ -320,7 +323,7 @@
     },
     "Roblox.GameInternationalization.Api.GetNameDescriptionHistoryV2Request": {
       "additionalProperties": false,
-      "description": "A model containing request for getting the translation history of\r\na content source type's name or description.",
+      "description": "A model containing request for getting the translation history of\na content source type's name or description.",
       "properties": {
         "contentId": {
           "format": "int64",
@@ -846,7 +849,7 @@
           "type": "string"
         },
         "totalTranslatableItemCount": {
-          "description": "The total number of translatable items.\r\nThe translation count percentage can be calculated by doing translationCounts / totalTranslatableItemCount.",
+          "description": "The total number of translatable items.\nThe translation count percentage can be calculated by doing translationCounts / totalTranslatableItemCount.",
           "format": "int32",
           "type": "integer"
         },
@@ -1739,7 +1742,7 @@
             "description": "17: Feature is disabled"
           }
         },
-        "summary": "Checks if automatic translation can be enabled for a game.\r\nThe user must still have proper permissions for the game to get this info.",
+        "summary": "Checks if automatic translation can be enabled for a game.\nThe user must still have proper permissions for the game to get this info.",
         "tags": [
           "AutomaticTranslation"
         ],
@@ -1788,7 +1791,7 @@
             "description": "17: Feature is disabled"
           }
         },
-        "summary": "Returns the automatic translation quota info for a game.\r\nThe user must still have proper permissions for the game to get this info.",
+        "summary": "Returns the automatic translation quota info for a game.\nThe user must still have proper permissions for the game to get this info.",
         "tags": [
           "AutomaticTranslation"
         ],
@@ -1847,7 +1850,7 @@
             "description": "17: Feature is disabled"
           }
         },
-        "summary": "Checks if the requested target languages are allowed for automatic translation based on the source language.\r\nIf there are no requested target languages, then all allowed target languages for the source language will be returned.",
+        "summary": "Checks if the requested target languages are allowed for automatic translation based on the source language.\nIf there are no requested target languages, then all allowed target languages for the source language will be returned.",
         "tags": [
           "AutomaticTranslation"
         ],
@@ -3121,7 +3124,7 @@
             "description": "0: Authorization has been denied for this request."
           }
         },
-        "summary": "Gets the language translation counts for the specified table.\r\nThe languages to retrieve must be provided.",
+        "summary": "Gets the language translation counts for the specified table.\nThe languages to retrieve must be provided.",
         "tags": [
           "GameLocalizationStatus"
         ],

@@ -33,7 +33,7 @@
           "type": "integer"
         },
         "isEligible": {
-          "description": "The overall result of activation eligibility. This requires the user publish gate\r\nand either a maturity rating or an intact Build seal.",
+          "description": "The overall result of activation eligibility. This requires the user publish gate\nand either a maturity rating or an intact Build seal.",
           "type": "boolean"
         },
         "isPublicPublish": {
@@ -60,7 +60,7 @@
           "$ref": "#/definitions/Roblox.Api.Develop.Models.BuildGeneratedRatingPreviewResponse"
         },
         "provisionalRatingAllowed": {
-          "description": "Whether the universe has a provisional rating via a Build seal in Content Catalog.\r\nWhen true, the universe is eligible for activation even without a full maturity questionnaire.",
+          "description": "Whether the universe has a provisional rating via a Build seal in Content Catalog.\nWhen true, the universe is eligible for activation even without a full maturity questionnaire.",
           "type": "boolean"
         },
         "remainingPublicPublishCount": {
@@ -499,7 +499,7 @@
       "description": "A model containing information about a universe permissions",
       "properties": {
         "canCloudEdit": {
-          "description": "Determines whether or not consumer can cloud the target universe\r\nThis is only nullable/optional in the context of https://develop.roblox.com/docs#!/Universes/get_v1_universes_universeId_context_permissions endpoint which is consumed only internally. It should be computed and set for all other usages.",
+          "description": "Determines whether or not consumer can cloud the target universe\nThis is only nullable/optional in the context of https://develop.roblox.com/docs#!/Universes/get_v1_universes_universeId_context_permissions endpoint which is consumed only internally. It should be computed and set for all other usages.",
           "type": "boolean"
         },
         "canManage": {
@@ -519,7 +519,7 @@
       "description": "Represents a universe in API endpoint results.",
       "properties": {
         "audiences": {
-          "description": "The audiences this universe is visible to (e.g. Editors, PlayTesters, Friends, Public).\r\nAlways non-null; may be empty when audience visibility has not been configured.",
+          "description": "The audiences this universe is visible to (e.g. Editors, PlayTesters, Friends, Public).\nAlways non-null; may be empty when audience visibility has not been configured.",
           "items": {
             "description": " ['Invalid' = 0, 'Editors' = 1, 'PlayTesters' = 2, 'Friends' = 3, 'Public' = 4]",
             "enum": [
@@ -595,7 +595,7 @@
       "description": "A model containing information about a universe permissions",
       "properties": {
         "canCloudEdit": {
-          "description": "Determines whether or not consumer can cloud the target universe\r\nThis is only nullable/optional in the context of https://develop.roblox.com/docs#!/Universes/get_v1_universes_universeId_context_permissions endpoint which is consumed only internally. It should be computed and set for all other usages.",
+          "description": "Determines whether or not consumer can cloud the target universe\nThis is only nullable/optional in the context of https://develop.roblox.com/docs#!/Universes/get_v1_universes_universeId_context_permissions endpoint which is consumed only internally. It should be computed and set for all other usages.",
           "type": "boolean"
         },
         "canManage": {
@@ -618,7 +618,7 @@
           "type": "string"
         },
         "fiatProductChangeType": {
-          "description": "Determines the change type of the Fiat Product Change request.\r\nCan either Activate the product, Update the price, or Deactivate the product.",
+          "description": "Determines the change type of the Fiat Product Change request.\nCan either Activate the product, Update the price, or Deactivate the product.",
           "enum": [
             0,
             1,
@@ -763,7 +763,7 @@
           "type": "boolean"
         },
         "audiences": {
-          "description": "The audiences this universe is visible to (e.g. Editors, PlayTesters, Friends, Public).\r\nAlways non-null; may be empty when audience visibility has not been configured.",
+          "description": "The audiences this universe is visible to (e.g. Editors, PlayTesters, Friends, Public).\nAlways non-null; may be empty when audience visibility has not been configured.",
           "items": {
             "description": " ['Invalid' = 0, 'Editors' = 1, 'PlayTesters' = 2, 'Friends' = 3, 'Public' = 4]",
             "enum": [
@@ -779,7 +779,7 @@
           "type": "array"
         },
         "demoModeChangeableAfter": {
-          "description": "The earliest time at which demo mode can be toggled again (ISO 8601).\r\nNull when no cooldown is active (i.e. demo mode can be changed immediately).",
+          "description": "The earliest time at which demo mode can be toggled again (ISO 8601).\nNull when no cooldown is active (i.e. demo mode can be changed immediately).",
           "format": "date-time",
           "type": "string"
         },
@@ -1292,7 +1292,7 @@
     },
     "/v1/gametemplates": {
       "get": {
-        "description": "Templates subject to change without notice.\r\nSort order of templates specified by Roblox.",
+        "description": "Templates subject to change without notice.\nSort order of templates specified by Roblox.",
         "produces": [
           "application/json",
           "text/json"
